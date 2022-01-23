@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IceChain - Ice</title>
+    <link rel="icon" href="./src/ice.png" type="image/icon type">
+    <link rel="stylesheet" href="./style.css">
+</head>
+    <body>
+        <canvas id="webgl"></canvas>
+        
+        <div class="container">
+            <div class="header-container">
+                    <ul class="list">
+                        <li class="logo"><span id="ice">ice</span><span id="chain">chain</span></li>
+                        <li id="logo"><a href="#home"><img src="./src/ice.png" alt="logo" width="64" height="64" /></a></li>
+                            <div class="linkContainer">
+                        <li><a href="#home" id="homeLink" class="li active">Home</a></li>
+                        <li><a href="#about" id="aboutLink" class="li">Ecosystem</a></li>
+                        <li><a href="#services" id="servicesLink" class="li">Token Details</a></li>
+                        <li><a href="#projects" id="projectLink" class="li">Roadmap</a></li>
+                        <li><a href="#contact" id="contactLink" class="li">Team</a></li>
+                            </div>
+                    </ul>
+            </div>  
+        <section class="home" id="home">
+            <div id="videoContainer">
+                <video id="video" src="./src/ice.mp4" controls></video>
+            </div>
+            <div class="homeLayer">
+            </div>
+            <div class="landingText">
+                <h1 id="dataText"><span id="data">Your Data</span></h1>
+                
+                <h1 id="yoursText">Is Yours</h1>
+                <button id="videoButton"><p id="videoText">Explainer Video</p></button>
+                <button id="otherButton"><p id="otherText">Private Sale</p></button>
+            </div>  
+        </section>
+        <section class="about" id="about">
+            <div id="leftEco" class="ecoHolders">
+                <div class="ecoContainers" id="ecoContainers1">
+                        <div id="ecoContainer1" class="ecoContainer left">
+                            <h2 class="aboutText">Ice Browser</h2>
+                        </div>
+                        <div id="ecoContainer2" class="ecoContainer left">
+                            <h2 class="aboutText">Decentralized NFT <br> Marketplace</h2>
+                        </div>
+                        <div id="ecoContainer3" class="ecoContainer left">
+                            <h2 class="aboutText">Physical & Digital <br> Browser</h2>
+                        </div>
+                        <div id="ecoContainer4" class="ecoContainer left">
+                            <h2 class="aboutText">Connecting</h2>
+                        </div>
+                </div>
+            </div>
+            <div id="rightEco" class="ecoHolders">
+                <div class="ecoContainers" id="ecoContainers2">
+                    <div id="ecoContainer5" class="ecoContainer right">
+                        <h2 class="aboutText">Staking</h2>
+                    </div>
+                    <div id="ecoContainer6" class="ecoContainer right">
+                        <h2 class="aboutText">Build And Launch <br> DAPPS</h2>
+                    </div>
+                    <div id="ecoContainer7" class="ecoContainer right">
+                        <h2 class="aboutText">Decentralized <br> Messenger</h2>
+                    </div>
+                    <div id="ecoContainer8" class="ecoContainer right">
+                        <h2 class="aboutText">Decentralized <br>  Social Media</h2>
+                    </div>
+                </div>
+            </div>    
+
+            
+        </section>
+
+        <section class="services" id="services">
+            <h1>Services</h1>
+        </section>
+        <section class="projects" id="projects">
+            <h1>Projects</h1>
+        </section>
+        <section class="contact" id="contact">
+            <h1>Contact</h1>
+        </section>
+        </div>
+        
+    </div>
+        <script src="https://use.fontawesome.com/10f3265afd.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+        <script src="./gsap-public/minified/gsap.min.js"></script>
+        <script type="module" src="./script.js"></script>
+    </body>
+</html>

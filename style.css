@@ -1,0 +1,627 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&family=Economica:wght@700&family=Inconsolata:wght@500&family=Lato:wght@300&family=Montagu+Slab:wght@600&family=Roboto:wght@300;400&family=Teko:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&family=Economica:wght@700&family=Inconsolata:wght@500&family=Lato:wght@300&family=Montagu+Slab:wght@600&family=Roboto:wght@300;400&family=Teko:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&family=Economica:wght@700&family=Inconsolata:wght@500&family=Lato:wght@300&family=Montagu+Slab:wght@600&family=Oxygen:wght@700&family=Roboto:wght@300;400&family=Teko:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&family=Economica:wght@700&family=Inconsolata:wght@500&family=Lato:wght@300&family=Montagu+Slab:wght@600&family=Oxygen:wght@700&family=Roboto:wght@300;400&family=Teko:wght@300&display=swap');
+
+:root{
+    scrollbar-color: rgb(49, 197, 255) rgb(46, 46, 46) !important;
+    scrollbar-width: 10px !important;
+    --dark-blue-color: rgb(0, 10, 49, 0.8);
+    --light-blue-color: rgb(49, 197, 255);
+  }
+
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+
+.list {
+    position: relative;
+    color: white;
+    list-style-type: none;
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    left: 0;
+    align-items: center;
+}
+.logo {
+    left: 22.5%;
+    font-size: 2em;
+    color: white;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Economica', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montagu Slab', serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Teko', sans-serif;
+
+}
+
+#logo {
+    left: 12.5%;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+#ice {
+    color: var(--light-blue-color);
+}
+
+#chain {
+    color: rgb(27, 109, 141);
+}
+.linkContainer {
+    position: relative;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    left: 38%;
+}
+li {
+    position: relative;
+    margin-right: 0.75em;
+    user-select: none;
+}
+
+
+a:nth-child(-n+2) {
+    
+    font-family: 'Alegreya Sans SC', sans-serif;
+
+    font-family: 'Economica', sans-serif;
+
+    font-family: 'Inconsolata', monospace;
+
+    font-family: 'Lato', sans-serif;
+
+    font-family: 'Montagu Slab', serif;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-family: 'Teko', sans-serif;
+    
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-size: 1.45em;
+    padding: 10px 15px;
+    transition: all 100ms ease-in;
+    font-weight: 600;
+    
+}
+
+/*
+a:nth-child(-n+2):before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    transition: 0.5s;
+    transition-delay: all 1s;
+}
+a:nth-child(-n+1):hover:before {
+    width: 102%;
+    height: 102%;
+}
+a:nth-child(-n+2):after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid whitesmoke;
+    border-right: 2px solid whitesmoke;
+    transition: 0.5s;
+}
+a:nth-child(-n+2):hover:after {
+    width: 102%;
+    height: 102%;
+}
+*/
+.active {
+    color: var(--light-blue-color) !important;
+    
+}
+
+.active:after {
+    content: '';
+    position: absolute;
+    border-bottom: 2px solid var(--light-blue-color);
+    box-shadow: 0 2px 25px 2.5px var(--light-blue-color);
+    top: 160%;
+    left: 0;
+    width: 100%;
+    opacity: 1;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+a:hover {
+    color: rgb(49, 197, 255);
+    text-shadow: 0px 0px 15px var(--light-blue-color);
+}
+
+a:after {
+    content: '';
+    position: absolute;
+    box-shadow: 0 2px 15px 1px var(--light-blue-color);
+    top: 160%;
+    left: 0;
+    width: 100%;
+    transition: 0.5s;
+    opacity: 0;
+}
+a:hover:after {
+    content: '';
+    position: absolute;
+    box-shadow: 0 2px 15px 1px var(--light-blue-color);
+    top: 160%;
+    left: 0;
+    width: 100%;
+    opacity: 1;
+}
+
+/*
+.active:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid turquoise !important;
+    border-left: 2px solid turquoise !important;
+    transition: 0.5s;
+    transition-delay: all 1s;
+}
+.active:hover:before {
+    width: 102%;
+    height: 102%;
+}
+.active:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid turquoise !important;
+    border-right: 2px solid turquoise !important;
+    transition: 0.5s;
+}
+.active:hover:after {
+    width: 102%;
+    height: 102%;
+}
+
+*/
+.header-container {
+    position: fixed;
+    width: 100%;
+    background-color: rgb(0, 10, 49, 1);
+    z-index: 5;
+    align-items: center;
+    
+}
+section {
+    color:white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    scroll-snap-align: start;
+    background-color: transparent;
+}
+
+.container {
+    height: 100vh;
+    
+}
+
+        /*       HOME SECTION        */
+.home {
+ background-color: transparent;
+ perspective: 1000;
+}
+
+#videoContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000a31;
+    z-index: 5;
+    box-shadow: 0 0 100px 10px rgb(31, 127, 165);
+    clip-path: circle(0%);
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+
+#video {
+    width: auto;
+    height: auto;
+    cursor: default;
+}
+
+.landingText {
+    width: fit-content;
+    height: auto;
+    z-index: 3;
+    position: relative;
+    display: flex;
+    right: 17.5%;
+    top: -10%;
+    align-self: center;
+}
+
+
+.homeLayer {
+    width: 100%;
+    height: 40%;
+    z-index: 3;
+    display: flex;
+    align-self: center;
+    position: absolute;
+    top: 31.5%;
+    left: 0;
+    background-color: rgb(1, 1, 73);
+    opacity: 0.275;
+    backdrop-filter: blur( 2.5px );
+    box-shadow: 0 8px 12px 0 rgba( 31, 38, 135, 0.37 ),
+                0 -8px 12px 0 rgba( 31, 38, 135, 0.37 );
+
+}
+
+#videoButton {
+    position: absolute;
+    padding: 2.5px 85px 0 0;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+    left: 0;
+    top: 92.5%;
+    background-color: transparent;
+    color: white;
+    /*box-shadow: 0 0 0 100px var(--light-blue-color) inset,
+                0 0 0 0 var(--light-blue-color);
+                */
+    transition: 0.1s;
+    border: 2px solid white;
+    border-radius: 7.5px;
+    
+}
+
+#otherButton {
+    position: absolute;
+    padding:  6.975px 85px 0 0;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+    top: 92.5%;
+    left: 50%;
+    background-color: transparent;
+    color: white;
+    box-shadow: 0 0 0 100px var(--light-blue-color) inset,
+                0 0 0 0 var(--light-blue-color);
+                
+    transition: 0.1s;
+    border: 2px solid white;
+    border-radius: 7.5px;
+    
+    
+}
+
+#otherButton:hover {
+    box-shadow: 0 0 100px 7.5px var(--light-blue-color) inset,
+                0 0 100px 7.5px var(--light-blue-color);
+}
+
+#videoButton:hover {
+    box-shadow: 0 0 100px 7.5px var(--light-blue-color) inset,
+                0 0 100px 7.5px var(--light-blue-color);
+}
+
+#videoText {
+    display: flex;
+    position: relative;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    left: 40%;
+
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Economica', sans-serif;
+    font-family: 'Inconsolata', monospace;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montagu Slab', serif;
+    font-family: 'Oxygen', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Teko', sans-serif;
+
+    text-transform: uppercase;
+    font-size: 1.75em;
+    line-height: 0.56em;
+    
+}
+
+#otherText {
+    display: flex;
+    position: relative;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    left: 45%;
+
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Economica', sans-serif;
+    font-family: 'Inconsolata', monospace;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montagu Slab', serif;
+    font-family: 'Oxygen', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Teko', sans-serif;
+
+    text-transform: uppercase;
+    font-size: 1.75em;
+    line-height: 0.4em;
+    
+}
+
+#dataText {
+    display: flex;
+    position: relative;
+    font-size: 10em;
+    font-family: 'Alegreya Sans SC', sans-serif;
+
+    font-family: 'Economica', sans-serif;
+
+    font-family: 'Inconsolata', monospace;
+
+    font-family: 'Lato', sans-serif;
+
+    font-family: 'Montagu Slab', serif;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-family: 'Teko', sans-serif;
+    left: 0%;
+    /*
+    -webkit-text-stroke: 3px black;
+    -webkit-text-fill-color: white;
+    */
+    user-select: none;
+    text-shadow: 0 0 50px rgb(31, 127, 165);
+}
+
+#yoursText {
+    display: flex;
+    position: absolute;
+    font-size: 11em;
+    font-family: 'Alegreya Sans SC', sans-serif;
+
+    font-family: 'Economica', sans-serif;
+
+    font-family: 'Inconsolata', monospace;
+
+    font-family: 'Lato', sans-serif;
+
+    font-family: 'Montagu Slab', serif;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-family: 'Teko', sans-serif;
+    width: fit-content;
+    height: fit-content;
+    top: 22.5%;
+    left: -2.4%;
+    white-space: nowrap;
+    user-select: none;
+    text-shadow: 0 0 50px rgb(31, 127, 165);
+
+      /*
+    -webkit-text-stroke: 3px black;
+    -webkit-text-fill-color: white;
+    */
+ 
+}
+
+
+
+h1 {
+    color: white;  
+}
+
+h2 {
+    font-size: 1.5em;
+    color: white; 
+}
+/*
+::-webkit-scrollbar {
+    scrollbar-color: turquoise;
+}
+::-webkit-scrollbar-track {
+    background: yellow;
+    border-radius: 50px;
+}
+::-webkit-scrollbar-thumb {
+    background: yellow;
+    border-radius: 50px;
+}
+*/
+
+
+/* ThreeJs */
+
+
+#webgl {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+
+            /* SECTIONS */
+
+
+
+
+/* ECOSYSTEM */
+#leftEco {
+    position: absolute;
+    display: flex;
+    width: 15%;
+    height: 100%;
+    margin-top: 5%;
+    left: -50%;
+    background-color: rgb(1, 1, 73, 0);
+    backdrop-filter: blur( 2.5px );
+   
+    
+}
+
+#rightEco {
+    position: absolute;
+    display: flex;
+    width: 15%;
+    margin-top: 5%;
+    height: 100%;
+    right: -50%;
+    background-color: rgb(1, 1, 73, 0);
+    backdrop-filter: blur( 2.5px );
+    
+}
+
+.ecoContainers {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    align-self: center;
+}
+.ecoContainer {
+    position: relative;
+    width: 100%;
+    height: 30%;
+    background-color: rgb(0, 10, 49);
+    cursor: pointer;
+    transition: all 0.1s;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    border-radius: 20px;
+}
+
+
+.aboutText {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Economica', sans-serif;
+    font-family: 'Inconsolata', monospace;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montagu Slab', serif;
+    font-family: 'Oxygen', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Teko', sans-serif;
+    display: flex;
+    user-select: none;
+    font-size: 1.75em;
+    transition: all 0.4s;
+}
+
+
+
+.left:hover {
+    box-shadow: 0.2em 0 5px 5px var(--light-blue-color);
+}
+
+.right:hover {
+    box-shadow: -0.2em 0 5px 5px var(--light-blue-color);
+}
+
+
+/* LEFT */
+
+#ecoContainer1 {
+    position: relative;
+    width: auto;
+    height: 25%;
+    padding: 10px;
+    display: flex;
+    margin: 4.25em 0px;  
+}
+#ecoContainer2 {
+    
+    width: auto;
+    height: 25%;
+    padding: 10px;
+    display: flex;
+    margin: 4.25em 0px;
+}
+#ecoContainer3 {
+   
+    width: auto;
+    height: 25%;
+    padding: 10px;
+    display: flex;
+    margin: 4.25em 0px;
+}
+#ecoContainer4 {
+   
+    width: auto;
+    height: 25%;
+    padding: 1.75em;
+    display: flex;
+    margin: 4.25em 0px;
+}
+
+/* RIGHT */
+
+#ecoContainer5 {
+    width: auto;
+    height: 25%;
+    padding: 10px;
+    display: flex;
+    margin: 4.25em 0px;
+}
+#ecoContainer6 {
+    padding: 10px;
+    width: auto;
+    height: 25%;
+    display: flex;
+    margin: 4.25em 0px;
+}
+#ecoContainer7 {
+    padding: 10px;
+    width: auto;
+    height: 25%;
+    display: flex;
+    margin: 4.25em 0px;
+}
+#ecoContainer8 {
+    padding: 10px;
+    width: auto;
+    height: 25%;
+    display: flex;
+    margin: 4.25em 0px;
+}
+
+
