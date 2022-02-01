@@ -78,7 +78,6 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
   var mouse = new THREE.Vector2();
   var scene_anim = gsap.timeline();
   var subLine1, subLine2, subLine3, subLine4, subLine5, subLine6, subLine7, subLine8;
-  var subline_anim1, subline_anim2, subline_anim3, subline_anim4, subline_anim5, subline_anim6, subline_anim7, subline_anim8;
   var circle1, circle2, circle3, circle4, circle5, circle6, circle7, circle8;
   var leftCube1, leftCube2, leftCube3, leftCube4, leftCube5;
   var rightCube1, rightCube2, rightCube3, rightCube4, rightCube5;
@@ -94,12 +93,12 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
   
   gsap.registerPlugin(ScrollTrigger);
   init();
-  animate();
+  
   
 
   function init() {
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1000 );
+    camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 150 );
     camera.position.z = 4;
     cameraCenter.x = camera.position.x;
     cameraCenter.y = camera.position.y;
@@ -110,6 +109,7 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
     // Then pass it to the renderer constructor
       renderer = new THREE.WebGLRenderer({
       antialias: true,
+      preserveDrawingBuffer: true,
       powerPreference: "high-performance",
       canvas: canvReference
       
@@ -118,7 +118,7 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
   //controls.rotateSpeed = 5.0;
   //controls.panSpeed = 1.0;
   renderer.setSize( window.innerWidth, window.innerHeight );
-  renderer.setPixelRatio(2);
+  renderer.setPixelRatio( 2 );
   renderer.setClearColor(0x00061f, 1);
   
   //document.body.appendChild( renderer.domElement );
@@ -128,7 +128,7 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
   const particlesGeometry = new THREE.BufferGeometry();
   const particlesGeometryLower = new THREE.BufferGeometry();
   const particlesGeometryLowerLower = new THREE.BufferGeometry();
-  const particlesCnt = 350;
+  const particlesCnt = 150;
 
   const posArray = new Float32Array(particlesCnt * 3);
   const posArrayLower = new Float32Array(particlesCnt * 3);
@@ -168,73 +168,75 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
 
     // LEFT CIRCLE
   //  CIRCLE OUTER
-  const circleGeometry1 = new THREE.TorusGeometry(10, 0.1, 16, 32);
-  const circleMaterial1 = new THREE.MeshBasicMaterial( { color : 0x0000ff  } );
-  circle1 = new THREE.Mesh(circleGeometry1, circleMaterial1);
+
+  const circleMaterial = new THREE.MeshBasicMaterial( { color : 0x0000ff  } );
+  const circleGeometry1 = new THREE.TorusGeometry(10, 0.1, 2, 24);
+
+  circle1 = new THREE.Mesh(circleGeometry1, circleMaterial);
   scene.add(circle1);
   circle1.position.set(-2.5, -8, 0);
   circle1.scale.set(0.1, 0.1, 0.1);
   circle1.material.transparent = true;
 
    // CIRCLE OUTER 3rd
-   const circleGeometry2 = new THREE.TorusGeometry(10, 0.1, 16, 32);
-   const circleMaterial2 = new THREE.MeshBasicMaterial( { color : 0x0000ff  } );
-    circle2 = new THREE.Mesh(circleGeometry2, circleMaterial2);
+   const circleGeometry2 = new THREE.TorusGeometry(10, 0.1, 2, 24);
+   
+    circle2 = new THREE.Mesh(circleGeometry2, circleMaterial);
     scene.add(circle2);
    circle2.position.set(-2.5, -8, 0);
    circle2.scale.set(0.05, 0.05, 0.05);
    circle2.material.transparent = true;
 
    // CIRCLE OUTER 4th
-   const circleGeometry3 = new THREE.TorusGeometry(10, 0.1, 16, 32);
-   const circleMaterial3 = new THREE.MeshBasicMaterial( { color : 0x0000ff  } );
-    circle3 = new THREE.Mesh(circleGeometry3, circleMaterial3);
+   const circleGeometry3 = new THREE.TorusGeometry(10, 0.1, 2, 24);
+   
+    circle3 = new THREE.Mesh(circleGeometry3, circleMaterial);
   //  scene.add(circle3);
    circle3.position.set(-2.5, -8, 0);
    circle3.scale.set(0.025, 0.025, 0.025);
    circle3.material.transparent = true;
 
     // CIRCLE OUTER 2nd
-    const circleGeometry4 = new THREE.TorusGeometry(10, 0.1, 16, 32);
-    const circleMaterial4 = new THREE.MeshBasicMaterial( { color : 0x0000ff } );
-     circle4 = new THREE.Mesh(circleGeometry4, circleMaterial4);
-     scene.add(circle4);
+    const circleGeometry4 = new THREE.TorusGeometry(10, 0.1, 2, 24);
+  
+    circle4 = new THREE.Mesh(circleGeometry4, circleMaterial);
+    scene.add(circle4);
     circle4.position.set(-2.5, -8, 0);
     circle4.scale.set(0.075, 0.075, 0.075);
     circle4.material.transparent = true;
 
     // RIGHT CIRCLE
   //  CIRCLE OUTER
-  const circleGeometry5 = new THREE.TorusGeometry(10, 0.1, 16, 32);
-  const circleMaterial5 = new THREE.MeshBasicMaterial( { color : 0x0000ff  } );
-   circle5 = new THREE.Mesh(circleGeometry5, circleMaterial5);
+  const circleGeometry5 = new THREE.TorusGeometry(10, 0.1, 2, 24);
+
+   circle5 = new THREE.Mesh(circleGeometry5, circleMaterial);
    scene.add(circle5);
   circle5.position.set(2.5, -8, 0);
   circle5.scale.set(0.1, 0.1, 0.1);
   circle5.material.transparent = true;
 
    // CIRCLE OUTER 3rd
-   const circleGeometry6 = new THREE.TorusGeometry(10, 0.1, 16, 32);
-   const circleMaterial6 = new THREE.MeshBasicMaterial( { color : 0x0000ff  } );
-    circle6 = new THREE.Mesh(circleGeometry6, circleMaterial6);
+   const circleGeometry6 = new THREE.TorusGeometry(10, 0.1, 2, 24);
+  
+    circle6 = new THREE.Mesh(circleGeometry6, circleMaterial);
     scene.add(circle6);
    circle6.position.set(2.5, -8, 0);
    circle6.scale.set(0.05, 0.05, 0.05);
    circle6.material.transparent = true;
 
    // CIRCLE OUTER 4th
-   const circleGeometry7 = new THREE.TorusGeometry(10, 0.1, 16, 32);
-   const circleMaterial7 = new THREE.MeshBasicMaterial( { color : 0x0000ff  } );
-    circle7 = new THREE.Mesh(circleGeometry3, circleMaterial7);
+   const circleGeometry7 = new THREE.TorusGeometry(10, 0.1, 2, 24);
+  
+    circle7 = new THREE.Mesh(circleGeometry7, circleMaterial);
    //  scene.add(circle7);
    circle7.position.set(2.5, -8, 0);
    circle7.scale.set(0.025, 0.025, 0.025);
    circle7.material.transparent = true;
 
     // CIRCLE OUTER 2nd
-    const circleGeometry8 = new THREE.TorusGeometry(10, 0.1, 16, 32);
-    const circleMaterial8 = new THREE.MeshBasicMaterial( { color : 0x0000ff  } );
-     circle8 = new THREE.Mesh(circleGeometry8, circleMaterial8);
+    const circleGeometry8 = new THREE.TorusGeometry(10, 0.1, 2, 24);
+  
+    circle8 = new THREE.Mesh(circleGeometry8, circleMaterial);
     scene.add(circle8);
     circle8.position.set(2.5, -8, 0);
     circle8.scale.set(0.075, 0.075, 0.075);
@@ -351,27 +353,27 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
     });
 
   
+
   const fontLoader = new FontLoader();
   
   fontLoader.load('./src/font.json', function (font) {
+
+    // MATERIALS
+
+    const whiteTextMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    const blueTextMaterial = new THREE.MeshBasicMaterial({ color: 0x00ffff });
+
     // LEFT 1 DONE
     const textGeometry1 = new TextGeometry( 'ICE Team', {
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+  
       
     } );
 
-    leftText1 = new THREE.Mesh(textGeometry1, [
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-    ]);
+    leftText1 = new THREE.Mesh(textGeometry1, [ whiteTextMaterial, whiteTextMaterial ]);
     leftText1.position.set(-1, -14, 0);
     circle1.add( leftText1 );
     
@@ -380,18 +382,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+   
     } );
 
-    leftSubText1 = new THREE.Mesh(textSubGeometry1, [
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-    ]);
+    leftSubText1 = new THREE.Mesh(textSubGeometry1, [ blueTextMaterial, blueTextMaterial ]);
 
     leftSubText1.position.set(-1.25, -12.5, 0);
     circle1.add( leftSubText1 );
@@ -403,18 +398,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: false,
-      bevelThickness: 0.01,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+  
     } );
 
-    leftText2 = new THREE.Mesh(textGeometry2, [
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-    ]);
+    leftText2 = new THREE.Mesh(textGeometry2, [ whiteTextMaterial, whiteTextMaterial ]);
     leftText2.position.set(-15, -7, 0);
     circle1.add( leftText2 );
     
@@ -423,18 +411,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+    
     } );
 
-    leftSubText2 = new THREE.Mesh(textSubGeometry2, [
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-    ]);
+    leftSubText2 = new THREE.Mesh(textSubGeometry2, [ blueTextMaterial, blueTextMaterial ]);
 
     leftSubText2.position.set(-13, -5.5, 0);
 
@@ -445,18 +426,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+   
     } );
 
-    leftText3 = new THREE.Mesh(textGeometry3, [
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-    ]);
+    leftText3 = new THREE.Mesh(textGeometry3, [ whiteTextMaterial, whiteTextMaterial ]);
 
     leftText3.position.set(10.85, -7, 0);
     circle1.add( leftText3 );
@@ -466,18 +440,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+  
     } );
 
-    leftSubText3 = new THREE.Mesh(textSubGeometry3, [
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-    ]);
+    leftSubText3 = new THREE.Mesh(textSubGeometry3, [ blueTextMaterial, blueTextMaterial ]);
 
     leftSubText3.position.set(10.75, -5.5, 0);
 
@@ -488,18 +455,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+   
     } );
 
-    leftText4 = new THREE.Mesh(textGeometry4, [
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-    ]);
+    leftText4 = new THREE.Mesh(textGeometry4, [ whiteTextMaterial, whiteTextMaterial ]);
 
     leftText4.position.set(9.25, 8, 0);
     circle1.add( leftText4 );
@@ -509,18 +469,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+      
     } );
 
-    leftSubText4 = new THREE.Mesh(textSubGeometry4, [
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-    ]);
+    leftSubText4 = new THREE.Mesh(textSubGeometry4, [ blueTextMaterial, blueTextMaterial ]);
 
     leftSubText4.position.set(9.1, 9.5, 0);
 
@@ -531,18 +484,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+    
     } );
 
-    leftText5 = new THREE.Mesh(textGeometry5, [
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-    ]);
+    leftText5 = new THREE.Mesh(textGeometry5, [ whiteTextMaterial, whiteTextMaterial ]);
 
     leftText5.position.set(-12.5, 8, 0);
     circle1.add( leftText5 );
@@ -552,18 +498,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+
     } );
 
-    leftSubText5 = new THREE.Mesh(textSubGeometry5, [
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-    ]);
+    leftSubText5 = new THREE.Mesh(textSubGeometry5, [ blueTextMaterial, blueTextMaterial ]);
 
     leftSubText5.position.set(-10, 9.5, 0);
 
@@ -574,24 +513,12 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .15,
 		  height: 0.001,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.001,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
     } );
 
-    leftMainText = new THREE.Mesh(leftMainTextGeometry, [
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-    ]);
+    leftMainText = new THREE.Mesh(leftMainTextGeometry, [ whiteTextMaterial, whiteTextMaterial ]);
 
     leftMainText.position.set(-3.3, -8, 0);
-    leftMainText.material[0].transparent = true;
-    leftMainText.material[0].opacity = 0;
-    leftMainText.material[1].transparent = true;
-    leftMainText.material[1].opacity = 0;
     console.log(leftMainText.material)
     scene.add( leftMainText );
 
@@ -602,18 +529,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+     
     } );
 
-    rightText1 = new THREE.Mesh(textGeometry6, [
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-    ]);
+    rightText1 = new THREE.Mesh(textGeometry6, [ whiteTextMaterial, whiteTextMaterial ]);
 
     rightText1.position.set(-0.75, -14, 0);
     circle5.add( rightText1 );
@@ -623,18 +543,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+  
     } );
 
-    rightSubText1 = new THREE.Mesh(textSubGeometry6, [
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-    ]);
+    rightSubText1 = new THREE.Mesh(textSubGeometry6, [ blueTextMaterial, blueTextMaterial ]);
 
     rightSubText1.position.set(-1, -12.5, 0);
     circle5.add( rightSubText1 );
@@ -646,18 +559,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.01,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+ 
     } );
 
-    rightText2 = new THREE.Mesh(textGeometry7, [
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-    ]);
+    rightText2 = new THREE.Mesh(textGeometry7, [ whiteTextMaterial, whiteTextMaterial ]);
 
     rightText2.position.set(-19.5, -7, 0);
     circle5.add( rightText2 );
@@ -667,18 +573,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+
     } );
 
-    rightSubText2 = new THREE.Mesh(textSubGeometry7, [
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-    ]);
+    rightSubText2 = new THREE.Mesh(textSubGeometry7, [ blueTextMaterial, blueTextMaterial ]);
 
     rightSubText2.position.set(-13, -5.5, 0);
 
@@ -689,18 +588,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+  
     } );
 
-    rightText3 = new THREE.Mesh(textGeometry8, [
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-    ]);
+    rightText3 = new THREE.Mesh(textGeometry8, [ whiteTextMaterial, whiteTextMaterial ]);
 
     rightText3.position.set(11.1, -7, 0);
     circle5.add( rightText3 );
@@ -710,18 +602,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+  
     } );
 
-    rightSubText3 = new THREE.Mesh(textSubGeometry8, [
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-    ]);
+    rightSubText3 = new THREE.Mesh(textSubGeometry8, [ blueTextMaterial, blueTextMaterial]);
 
     rightSubText3.position.set(11, -5.5, 0);
 
@@ -732,18 +617,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: 0.75,
 		  height: 0.001,
-      curveSegments: 64,
-      bevelEnabled: false,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+  
     } );
 
-    rightText4 = new THREE.Mesh(textGeometry9, [
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-    ]);
+    rightText4 = new THREE.Mesh(textGeometry9, [ whiteTextMaterial, whiteTextMaterial ]);
     rightText4.position.set(10, 8, 0);
     circle5.add( rightText4 );
     
@@ -752,18 +630,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: 0.75,
 		  height: 0.001,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+  
     } );
     
-    rightSubText4 = new THREE.Mesh(textSubGeometry9, [
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-    ]);
+    rightSubText4 = new THREE.Mesh(textSubGeometry9, [ blueTextMaterial, blueTextMaterial ]);
 
     rightSubText4.position.set(9.9, 9.5, 0);
     circle5.add( rightSubText4 );
@@ -773,18 +644,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+
     } );
 
-    rightText5 = new THREE.Mesh(textGeometry10, [
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-    ]);
+    rightText5 = new THREE.Mesh(textGeometry10, [ whiteTextMaterial, whiteTextMaterial]);
 
     rightText5.position.set(-13, 8, 0);
     circle5.add( rightText5 );
@@ -794,18 +658,11 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .75,
 		  height: 0.01,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.01,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+ 
     } );
 
-    rightSubText5 = new THREE.Mesh(textSubGeometry10, [
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-                new THREE.MeshBasicMaterial({ color: 0x00ffff }),
-    ]);
+    rightSubText5 = new THREE.Mesh(textSubGeometry10, [ blueTextMaterial, blueTextMaterial ]);
 
     rightSubText5.position.set(-9.25, 9.5, 0);
 
@@ -816,30 +673,16 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       font: font,
       size: .15,
 		  height: 0.001,
-      curveSegments: 64,
-      bevelEnabled: true,
-      bevelThickness: 0.001,
-      bevelSize: 0.001,
-      bevelOffset: 0,
-      bevelSegments: 3,
+      curveSegments: 2,
+ 
     } );
 
-    rightMainText = new THREE.Mesh(rightMainTextGeometry, [
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-    ]);
+    rightMainText = new THREE.Mesh(rightMainTextGeometry, [ whiteTextMaterial, whiteTextMaterial ]);
 
     rightMainText.position.set(1.75, -8, 0);
-    rightMainText.material[0].transparent = true;
-    rightMainText.material[0].opacity = 0;
-    rightMainText.material[1].transparent = true;
-    rightMainText.material[1].opacity = 0;
 
     scene.add( rightMainText );
-
-    circle1.rotation.set(0, 0, 0);
-    circle5.rotation.set(0, 0, 0);
-
+    
     scene_anim.to([
       leftMainText.position,
       rightMainText.position,
@@ -851,22 +694,6 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
     scrub: 1,
     update: camera.updateProjectionMatrix(),
     }});
-
-    scene_anim.to([
-        leftMainText.material[0],
-        leftMainText.material[1],
-        rightMainText.material[0],
-        rightMainText.material[1]
-      
-    ], { opacity: 1, scrollTrigger: {
-      // , gltf.scene.children[1].position, gltf.scene.children[2].position
-    trigger: ".services",
-    start: window.innerHeight,
-    end: window.innerHeight * 2,
-    scrub: 1,
-    update: camera.updateProjectionMatrix(),
-    }});
-
     
 
   });
@@ -912,11 +739,15 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       //  leftMainCube.children[1].material.opacity = 0;
         circle1.add( leftMainCube );
 
+        
+
         setInterval(()=> {
           if(mainCube.children[0].material.opacity != 0) {
-            gsap.to(mainCube.children[0].rotation, { y: "+=0.075", ease:Linear.easeNone });
-            gsap.to(mainCube.children[1].rotation, { y: "+=0.075", ease:Linear.easeNone });
-            gsap.to(mainCube.children[2].rotation, { y: "+=0.075", ease:Linear.easeNone });
+            gsap.to([
+              mainCube.children[0].rotation,
+              mainCube.children[1].rotation,
+              mainCube.children[2].rotation],
+            { y: "+=0.075", ease:Linear.easeNone });
             }
             /*
             if(window.pageYOffset === window.innerHeight * 2) {
@@ -924,42 +755,10 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
               gsap.to(circle5.rotation, { z: "-=0.5", ease: Linear.easeNone})
           }
           */
-            
 
         }, 100); //  x: "+=0.075"
 
-          /*
-        scene_anim.to([
-          leftMainCube.position,
-          rightMainCube.position,
-          
-        ], { z: 0, scrollTrigger: {
-          // , gltf.scene.children[1].position, gltf.scene.children[2].position
-        trigger: ".services",
-        start: window.innerHeight,
-        end: window.innerHeight * 2,
-        scrub: 3,
-        update: camera.updateProjectionMatrix(),
-        }});
 
-        scene_anim.to([
-          leftMainCube.children[0].material,
-          leftMainCube.children[1].material,
-         // leftMainCube.children[2].material,
-          rightMainCube.children[0].material,
-          rightMainCube.children[1].material,
-         // rightMainCube.children[2].material,
-          
-        ], { opacity: 1, scrollTrigger: {
-          // , gltf.scene.children[1].position, gltf.scene.children[2].position
-        trigger: ".services",
-        start: window.innerHeight,
-        end: window.innerHeight * 2,
-        scrub: 1,
-        update: camera.updateProjectionMatrix(),
-        }});
-        
-        */
         scene_anim.to([mainCube.children[0].position, mainCube.children[1].position, mainCube.children[2].position], { y: -3, x: "-=1", z: "-=12", scrollTrigger: {
           // , gltf.scene.children[1].position, gltf.scene.children[2].position
         trigger: ".home",
@@ -998,7 +797,7 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       new THREE.Vector3( 9, -4.5, -0.5 ),
     );
 
-    const leftLinePoints1 = leftLineCurve1.getPoints( 100 );
+    const leftLinePoints1 = leftLineCurve1.getPoints( 1 );
     const geometryLeftLine1 = new THREE.BufferGeometry().setFromPoints( leftLinePoints1 );
     leftLine1 = new THREE.Line( geometryLeftLine1, ecosystemMaterial );
     circle1.add( leftLine1 );
@@ -1009,7 +808,7 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
         new THREE.Vector3( 7, 7, -0.5 ),
       );
   
-      const leftLinePoints2 = leftLineCurve2.getPoints( 100 );
+      const leftLinePoints2 = leftLineCurve2.getPoints( 1 );
       const geometryLeftLine2 = new THREE.BufferGeometry().setFromPoints( leftLinePoints2 );
       leftLine2 = new THREE.Line( geometryLeftLine2, ecosystemMaterial );
       circle1.add( leftLine2 );
@@ -1020,7 +819,7 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
              new THREE.Vector3( -7, 8, -0.5 ),
            );
        
-    const leftLinePoints3 = leftLineCurve3.getPoints( 100 );
+    const leftLinePoints3 = leftLineCurve3.getPoints( 1 );
     const geometryLeftLine3 = new THREE.BufferGeometry().setFromPoints( leftLinePoints3 );
     leftLine3 = new THREE.Line( geometryLeftLine3, ecosystemMaterial );
      circle1.add( leftLine3 );
@@ -1031,7 +830,7 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
               new THREE.Vector3( -9, -5, -0.5 ),
             );
         
-     const leftLinePoints4 = leftLineCurve4.getPoints( 100 );
+     const leftLinePoints4 = leftLineCurve4.getPoints( 1 );
      const geometryLeftLine4 = new THREE.BufferGeometry().setFromPoints( leftLinePoints4 );
      leftLine4 = new THREE.Line( geometryLeftLine4, ecosystemMaterial );
       circle1.add( leftLine4 );
@@ -1042,7 +841,7 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
                 new THREE.Vector3( 0, -10, -0.5 ),
               );
           
-       const leftLinePoints5 = leftLineCurve5.getPoints( 100 );
+       const leftLinePoints5 = leftLineCurve5.getPoints( 1 );
        const geometryLeftLine5 = new THREE.BufferGeometry().setFromPoints( leftLinePoints5 );
        leftLine5 = new THREE.Line( geometryLeftLine5, ecosystemMaterial );
         circle1.add( leftLine5 );
@@ -1055,7 +854,7 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
       new THREE.Vector3( 0, 0, -0.5 ),
       new THREE.Vector3( 9, -4.5, -0.5 ),
     );
-    const rightLinePoints1 = rightLineCurve1.getPoints( 100 );
+    const rightLinePoints1 = rightLineCurve1.getPoints( 1 );
     const geometryrightLine1 = new THREE.BufferGeometry().setFromPoints( rightLinePoints1 );
     rightLine1 = new THREE.Line( geometryrightLine1, ecosystemMaterial );
     circle5.add( rightLine1 );
@@ -1066,7 +865,7 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
         new THREE.Vector3( 7, 7, -0.5 ),
       );
   
-      const rightLinePoints2 = rightLineCurve2.getPoints( 100 );
+      const rightLinePoints2 = rightLineCurve2.getPoints( 1 );
       const geometryrightLine2 = new THREE.BufferGeometry().setFromPoints( rightLinePoints2 );
       rightLine2 = new THREE.Line( geometryrightLine2, ecosystemMaterial );
       circle5.add( rightLine2 );
@@ -1077,7 +876,7 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
              new THREE.Vector3( -6.75, 8, -0.5 ),
            );
        
-    const rightLinePoints3 = rightLineCurve3.getPoints( 100 );
+    const rightLinePoints3 = rightLineCurve3.getPoints( 1 );
     const geometryrightLine3 = new THREE.BufferGeometry().setFromPoints( rightLinePoints3 );
     rightLine3 = new THREE.Line( geometryrightLine3, ecosystemMaterial );
      circle5.add( rightLine3 );
@@ -1088,7 +887,7 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
               new THREE.Vector3( -9, -5, -0.5 ),
             );
         
-     const rightLinePoints4 = rightLineCurve4.getPoints( 100 );
+     const rightLinePoints4 = rightLineCurve4.getPoints( 1 );
      const geometryrightLine4 = new THREE.BufferGeometry().setFromPoints( rightLinePoints4 );
      rightLine4 = new THREE.Line( geometryrightLine4, ecosystemMaterial );
       circle5.add( rightLine4 );
@@ -1099,26 +898,14 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
                 new THREE.Vector3( 0, -10, -0.5 ),
               );
           
-       const rightLinePoints5 = rightLineCurve5.getPoints( 100 );
+       const rightLinePoints5 = rightLineCurve5.getPoints( 1 );
        const geometryrightLine5 = new THREE.BufferGeometry().setFromPoints( rightLinePoints5 );
        rightLine5 = new THREE.Line( geometryrightLine5, ecosystemMaterial );
         circle5.add( rightLine5 );
 
     // LINES
-
-    // main curve one
-    
-
-const material1 = new THREE.LineDashedMaterial( { color : 0xffffff, linewidth: 10 } );
-const material2 = new THREE.LineDashedMaterial( { color : 0xffffff, linewidth: 10 } );
-const material3 = new THREE.LineDashedMaterial( { color : 0xffffff, linewidth: 10.0 } );
-const material4 = new THREE.LineDashedMaterial( { color : 0xffffff, linewidth: 10.0 } );
-const material5= new THREE.LineDashedMaterial( { color : 0xffffff, linewidth: 10.0 } );
-const material6 = new THREE.LineDashedMaterial( { color : 0xffffff, linewidth: 10.0 } );
-const material7 = new THREE.LineDashedMaterial( { color : 0xffffff, linewidth: 10.0 } );
-const material8 = new THREE.LineDashedMaterial( { color : 0xffffff, linewidth: 10.0 } );
-const materialLightBlue = new THREE.LineDashedMaterial( { color : 0x00ffff, linewidth: 1.0 } );
-
+  
+const materialWhite = new THREE.LineDashedMaterial( { color : 0xffffff, linewidth: 10 } );
 
     // LEFT
 // sub curve left, first from top
@@ -1134,26 +921,8 @@ const pointsSub1 = curveSub1.getPoints( 1000 );
 const geometrySub1 = new THREE.BufferGeometry().setFromPoints( pointsSub1 );
 geometrySub1.drawRange.start = 0;
 geometrySub1.drawRange.count = 0;
- subLine1 = new THREE.Line( geometrySub1, material1 );
+ subLine1 = new THREE.Line( geometrySub1, materialWhite );
 scene.add(subLine1);
-
-
-
-// ANIM1
-
-const curve_anim1 = new THREE.SplineCurve( [
-  new THREE.Vector2( -0.3, -4.1 ),
-  new THREE.Vector2( -1.5, -3.3 ),
-  new THREE.Vector2( -2.5, -3.4),
-  new THREE.Vector2( -3.5, -3.2 )
-] );
-
-const points_anim1 = curve_anim1.getPoints( 1000 );
-const geometry_anim1 = new THREE.BufferGeometry().setFromPoints( points_anim1 );
-geometry_anim1.drawRange.start = 0;
-geometry_anim1.drawRange.count = 0;
-subline_anim1 = new THREE.Line( geometry_anim1, materialLightBlue );
-scene.add(subline_anim1);
 
 
 // sub curve left, second from top
@@ -1169,26 +938,10 @@ const pointsSub2 = curveSub2.getPoints( 1000 );
 const geometrySub2 = new THREE.BufferGeometry().setFromPoints( pointsSub2 );
 geometrySub2.drawRange.start = 0;
 geometrySub2.drawRange.count = 0;
- subLine2 = new THREE.Line( geometrySub2, material2 );
+subLine2 = new THREE.Line( geometrySub2, materialWhite );
 
 scene.add(subLine2);
 
-// ANIM2
-
-const curve_anim2 = new THREE.SplineCurve( [
-  new THREE.Vector2( -0.4, -4.25 ),
-  new THREE.Vector2( -1, -4.25 ),
-  new THREE.Vector2( -2, -3.95 ),
-  new THREE.Vector2( -3.5, -4.15 )
-] );
-
-const points_anim2 = curve_anim2.getPoints( 1000 );
-const geometry_anim2 = new THREE.BufferGeometry().setFromPoints( points_anim2 );
-geometry_anim2.drawRange.start = 0;
-geometry_anim2.drawRange.count = 0;
-subline_anim2 = new THREE.Line( geometry_anim2, materialLightBlue );
-
-scene.add(subline_anim2);
 
 // sub curve left, third from top
 
@@ -1203,26 +956,9 @@ const pointsSub3 = curveSub3.getPoints( 1000 );
 const geometrySub3 = new THREE.BufferGeometry().setFromPoints( pointsSub3 );
 geometrySub3.drawRange.start = 0;
 geometrySub3.drawRange.count = 0;
- subLine3 = new THREE.Line( geometrySub3, material3 );
+ subLine3 = new THREE.Line( geometrySub3, materialWhite );
 
 scene.add(subLine3);
-
-// ANIM3
-
-const curve_anim3 = new THREE.SplineCurve( [
-  new THREE.Vector2( -0.4, -4.45 ),
-  new THREE.Vector2( -1, -4.6 ),
-  new THREE.Vector2( -2, -5.25 ),
-  new THREE.Vector2( -3.5, -5.2 )
-] );
-
-const points_anim3 = curve_anim3.getPoints( 1000 );
-const geometry_anim3 = new THREE.BufferGeometry().setFromPoints( points_anim3 );
-geometry_anim3.drawRange.start = 0;
-geometry_anim3.drawRange.count = 0;
- subline_anim3 = new THREE.Line( geometry_anim3, materialLightBlue );
-
-scene.add(subline_anim3);
 
 // sub curve left, fourth from top
 
@@ -1237,26 +973,10 @@ const pointsSub4 = curveSub4.getPoints( 1000 );
 const geometrySub4 = new THREE.BufferGeometry().setFromPoints( pointsSub4 );
 geometrySub4.drawRange.start = 0;
 geometrySub4.drawRange.count = 0;
- subLine4 = new THREE.Line( geometrySub4, material2 );
+subLine4 = new THREE.Line( geometrySub4, materialWhite );
 
 scene.add(subLine4);
 
-// ANIM4
-
-const curve_anim4 = new THREE.SplineCurve( [
-  new THREE.Vector2( -0.3, -4.8 ),
-  new THREE.Vector2( -1.25, -5.6 ),
-  new THREE.Vector2( -2.5, -5.8 ),
-  new THREE.Vector2( -3.5, -6.4 )
-] );
-
-const points_anim4 = curve_anim4.getPoints( 1000 );
-const geometry_anim4 = new THREE.BufferGeometry().setFromPoints( points_anim4 );
-geometry_anim4.drawRange.start = 0;
-geometry_anim4.drawRange.count = 0;
- subline_anim4 = new THREE.Line( geometry_anim4, materialLightBlue );
-
-scene.add(subline_anim4);
 
   // RIGHT
 
@@ -1273,28 +993,10 @@ const pointsSub5 = curveSub5.getPoints( 1000 );
 const geometrySub5 = new THREE.BufferGeometry().setFromPoints( pointsSub5 );
 geometrySub5.drawRange.start = 0;
 geometrySub5.drawRange.count = 0;
- subLine5 = new THREE.Line( geometrySub5, material5 );
+subLine5 = new THREE.Line( geometrySub5, materialWhite );
 
 
 scene.add(subLine5);
-
-// ANIM5
-
-const curve_anim5 = new THREE.SplineCurve( [
-  new THREE.Vector2( 0.3, -4.1 ),
-  new THREE.Vector2( 1.5, -3.3 ),
-  new THREE.Vector2( 2.5, -3.4),
-  new THREE.Vector2( 3.5, -3.2 )
-] );
-
-const points_anim5 = curve_anim5.getPoints( 1000 );
-const geometry_anim5 = new THREE.BufferGeometry().setFromPoints( points_anim5 );
-geometry_anim5.drawRange.start = 0;
-geometry_anim5.drawRange.count = 0;
- subline_anim5 = new THREE.Line( geometry_anim5, materialLightBlue );
-
-
-scene.add(subline_anim5);
 
 // sub curve rightLayer, second from top
 
@@ -1309,26 +1011,10 @@ const pointsSub6 = curveSub6.getPoints( 1000 );
 const geometrySub6 = new THREE.BufferGeometry().setFromPoints( pointsSub6 );
 geometrySub6.drawRange.start = 0;
 geometrySub6.drawRange.count = 0;
- subLine6 = new THREE.Line( geometrySub6, material6 );
+ subLine6 = new THREE.Line( geometrySub6, materialWhite );
 
 scene.add(subLine6);
 
-// ANIM6
-
-const curve_anim6 = new THREE.SplineCurve( [
-  new THREE.Vector2( 0.4, -4.25 ),
-  new THREE.Vector2( 1, -4.25 ),
-  new THREE.Vector2( 2, -3.95 ),
-  new THREE.Vector2( 3.5, -4.15 )
-] );
-
-const points_anim6 = curve_anim6.getPoints( 1000 );
-const geometry_anim6 = new THREE.BufferGeometry().setFromPoints( points_anim6 );
-geometry_anim6.drawRange.start = 0;
-geometry_anim6.drawRange.count = 0;
- subline_anim6 = new THREE.Line( geometry_anim6, materialLightBlue );
-
-scene.add(subline_anim6);
 
 // sub curve rightLayer, third from top
 
@@ -1343,26 +1029,10 @@ const pointsSub7 = curveSub7.getPoints( 1000 );
 const geometrySub7 = new THREE.BufferGeometry().setFromPoints( pointsSub7 );
 geometrySub7.drawRange.start = 0;
 geometrySub7.drawRange.count = 0;
- subLine7 = new THREE.Line( geometrySub7, material7 );
+ subLine7 = new THREE.Line( geometrySub7, materialWhite );
 
 scene.add(subLine7);
 
-// sub curve rightLayer, third from top
-
-const curve_anim7 = new THREE.SplineCurve( [
-  new THREE.Vector2( 0.4, -4.45 ),
-  new THREE.Vector2( 1, -4.6 ),
-  new THREE.Vector2( 2, -5.25 ),
-  new THREE.Vector2( 3.5, -5.2 )
-] );
-
-const points_anim7 = curve_anim7.getPoints( 1000 );
-const geometry_anim7 = new THREE.BufferGeometry().setFromPoints( points_anim7 );
-geometry_anim7.drawRange.start = 0;
-geometry_anim7.drawRange.count = 0;
- subline_anim7 = new THREE.Line( geometry_anim7, materialLightBlue );
-
-scene.add(subline_anim7);
 
 // sub curve rightLayer, fourth from top
 
@@ -1377,28 +1047,11 @@ const pointsSub8 = curveSub8.getPoints( 1000 );
 const geometrySub8 = new THREE.BufferGeometry().setFromPoints( pointsSub8 );
 geometrySub8.drawRange.start = 0;
 geometrySub8.drawRange.count = 0;
- subLine8 = new THREE.Line( geometrySub8, material8 );
+ subLine8 = new THREE.Line( geometrySub8, materialWhite );
 
 
 scene.add(subLine8);
 
-// ANIM8
-
-const curve_anim8 = new THREE.SplineCurve( [
-  new THREE.Vector2( 0.3, -4.8 ),
-  new THREE.Vector2( 1.25, -5.6 ),
-  new THREE.Vector2( 2.5, -5.8 ),
-  new THREE.Vector2( 3.5, -6.4 )
-] );
-
-const points_anim8 = curve_anim8.getPoints( 1000 );
-const geometry_anim8 = new THREE.BufferGeometry().setFromPoints( points_anim8 );
-geometry_anim8.drawRange.start = 0;
-geometry_anim8.drawRange.count = 0;
-subline_anim8 = new THREE.Line( geometry_anim8, materialLightBlue );
-
-
-scene.add(subline_anim8);
 
 
   // LIGHTS
@@ -1412,7 +1065,7 @@ scene.add(subline_anim8);
    scene.add( particlesMeshLowerLower );
    
   
-  gsap.to([particlesMesh.material, particlesMeshLower.material,particlesMeshLowerLower.material,], {size: 0.015, duration: 7.5, ease: Sine});
+  gsap.to([particlesMesh.material, particlesMeshLower.material,particlesMeshLowerLower.material,], {size: 0.015, duration: 5, ease: Sine});
   // EFFECT COMPOSER + BLOOM EFFECT
   composer = new EffectComposer( renderer );
   const renderPass = new RenderPass( scene, camera );
@@ -1458,18 +1111,19 @@ function onDocumentMouseMove(event) {
     camera.updateProjectionMatrix();
 
     //render();
-  composer.render();
+    composer.render();
 }
   
- 
-
   
   function animate() {
     
-    updateCamera();
-    requestAnimationFrame(animate);
+      updateCamera();
+      requestAnimationFrame( animate );
    // controls.update();
-     composer.render();
+   composer.render();
+    
+    
+    
      //render();
  
   }
@@ -1477,6 +1131,7 @@ function onDocumentMouseMove(event) {
   function render() {
     renderer.render( scene, camera );
 }
+animate();
 
   // VIDEO JS
 
@@ -1513,7 +1168,7 @@ $(videoContainer).on('click', function(e) {
   immediateRender: false,
   ease: "power1.inOut",
   scrub: true,
-  anticipatePin: true,
+ // anticipatePin: true,
 });
 
 scene_anim = gsap.timeline();
@@ -1575,15 +1230,25 @@ document.addEventListener('scroll', (e)=> {
 
     if((window.scrollY / window.innerHeight) === 0) {
       if(!(home.classList.contains("active"))){
-        gsap.to(leftLayer.children[0].children[0], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[0], { "right": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(leftLayer.children[0].children[1], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[1], { "right": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(leftLayer.children[0].children[2], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[2], { "right": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(leftLayer.children[0].children[3], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[3], { "right": "-150%", duration: 0.4, ease: Sine});
+        
+        gsap.to([
+          leftLayer.children[0].children[0],
+          leftLayer.children[0].children[1],
+          leftLayer.children[0].children[2],
+          leftLayer.children[0].children[3]
+        ], { "left": "-150%", duration: 0.4, ease: Sine});
+
+        gsap.to([
+          rightLayer.children[0].children[0],
+          rightLayer.children[0].children[1],
+          rightLayer.children[0].children[2],
+          rightLayer.children[0].children[3],
+
+        ], { "right": "-150%", duration: 0.4, ease: Sine});
+
         gsap.to('#tokenLayer', { top: "20%", opacity: 0, duration: 1.5, ease: Sine});
+        
+
 
         for(let i = 0; i < container.length; i++)  {
             if(container[i].classList.contains("active")){
@@ -1597,31 +1262,28 @@ document.addEventListener('scroll', (e)=> {
     }
     
     else if((window.scrollY / window.innerHeight) >= 0.9 && (window.scrollY / window.innerHeight) <= 1.1 || (window.scrollY / window.innerHeight) === 1) {
-      /*
-      if(subline_anim1.geometry.drawRange.count != 1000 && counter == 0){
-        counter += 1;
-        gsap.to([ 
-        subline_anim1.geometry.drawRange,
-        subline_anim2.geometry.drawRange,
-        subline_anim3.geometry.drawRange,
-        subline_anim4.geometry.drawRange,
-        subline_anim5.geometry.drawRange,
-        subline_anim6.geometry.drawRange,
-        subline_anim7.geometry.drawRange,
-        subline_anim8.geometry.drawRange,
       
-      ], { count: 1000, duration: 2, delay: 0.8, ease: Sine});
-    }
-    */
-     gsap.to(leftLayer.children[0].children[0], { "left": "0", duration: 0.55, ease: Sine});
-     gsap.to(rightLayer.children[0].children[0], { "right": "0", duration: 0.55, ease: Sine});
-     gsap.to(leftLayer.children[0].children[1], { "left": "0", duration: 0.55, delay: 0.1, ease: Sine});
-     gsap.to(rightLayer.children[0].children[1], { "right": "0", duration: 0.55, delay: 0.1, ease: Sine});
-     gsap.to(leftLayer.children[0].children[2], { "left": "0", duration: 0.55, delay: 0.2, ease: Sine});
-     gsap.to(rightLayer.children[0].children[2], { "right": "0", duration: 0.55, delay: 0.2, ease: Sine});
-     gsap.to(leftLayer.children[0].children[3], { "left": "0", duration: 0.55, delay: 0.3, ease: Sine});
-     gsap.to(rightLayer.children[0].children[3], { "right": "0", duration: 0.55, delay: 0.3, ease: Sine});
-     gsap.to('#tokenLayer', { top: "20%", opacity: 0, duration: 1.5, ease: Sine});
+    
+    
+    
+      gsap.to([
+          leftLayer.children[0].children[0],
+          leftLayer.children[0].children[1],
+          leftLayer.children[0].children[2],
+          leftLayer.children[0].children[3]
+        ], { "left": 0, duration: 0.4, ease: Sine});
+
+        gsap.to([
+          rightLayer.children[0].children[0],
+          rightLayer.children[0].children[1],
+          rightLayer.children[0].children[2],
+          rightLayer.children[0].children[3],
+
+        ], { "right": 0, duration: 0.4, ease: Sine});
+
+    // gsap.to('#tokenLayer', { top: "20%", opacity: 0, duration: 1.5, ease: Sine});
+
+     
 
       
       if(!(about.classList.contains("active"))){
@@ -1638,14 +1300,22 @@ document.addEventListener('scroll', (e)=> {
 
     if((window.scrollY / window.innerHeight) >= 1.9 && (window.scrollY / window.innerHeight) <= 2.1 || (window.scrollY / window.innerHeight) === 2) {
       if(!(services.classList.contains("active"))){
-        gsap.to(leftLayer.children[0].children[0], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[0], { "right": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(leftLayer.children[0].children[1], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[1], { "right": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(leftLayer.children[0].children[2], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[2], { "right": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(leftLayer.children[0].children[3], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[3], { "right": "-150%", duration: 0.4, ease: Sine});
+        
+        gsap.to([
+          leftLayer.children[0].children[0],
+          leftLayer.children[0].children[1],
+          leftLayer.children[0].children[2],
+          leftLayer.children[0].children[3]
+        ], { "left": "-150%", duration: 0.4, ease: Sine});
+
+        gsap.to([
+          rightLayer.children[0].children[0],
+          rightLayer.children[0].children[1],
+          rightLayer.children[0].children[2],
+          rightLayer.children[0].children[3],
+
+        ], { "right": "-150%", duration: 0.4, ease: Sine});
+        
 
         gsap.to([
           circle1.material,
@@ -1670,6 +1340,7 @@ document.addEventListener('scroll', (e)=> {
         ], { opacity: 1, duration: 0.4, delay: 0.4, ease: Sine });
 
         gsap.to('#tokenLayer', { top: 0, opacity: 1, duration: 1.5, ease: Sine});
+        
 
         for(let i = 0; i < container.length; i++)  {
             if(container[i].classList.contains("active")){
@@ -1685,15 +1356,25 @@ document.addEventListener('scroll', (e)=> {
 
     else if((window.scrollY / window.innerHeight) >= 2.9 && (window.scrollY / window.innerHeight) <= 3.1 || (window.scrollY / window.innerHeight) === 3) {
       if(!(project.classList.contains("active"))){
-        gsap.to(leftLayer.children[0].children[0], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[0], { "right": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(leftLayer.children[0].children[1], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[1], { "right": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(leftLayer.children[0].children[2], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[2], { "right": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(leftLayer.children[0].children[3], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[3], { "right": "-150%", duration: 0.4, ease: Sine});
+        
+        gsap.to([
+          leftLayer.children[0].children[0],
+          leftLayer.children[0].children[1],
+          leftLayer.children[0].children[2],
+          leftLayer.children[0].children[3]
+        ], { "left": "-150%", duration: 0.4, ease: Sine});
+
+        gsap.to([
+          rightLayer.children[0].children[0],
+          rightLayer.children[0].children[1],
+          rightLayer.children[0].children[2],
+          rightLayer.children[0].children[3],
+
+        ], { "right": "-150%", duration: 0.4, ease: Sine});
+
         gsap.to('#tokenLayer', { top: "20%", opacity: 0, duration: 0.1, ease: Sine});
+        
+
         for(let i = 0; i < container.length; i++)  {
             if(container[i].classList.contains("active")){
               container[i].classList.remove("active");
@@ -1707,16 +1388,28 @@ document.addEventListener('scroll', (e)=> {
 
     else if((window.scrollY / window.innerHeight) >= 3.9 && (window.scrollY / window.innerHeight) <= 4.1 || (window.scrollY / window.innerHeight) === 4) {
       if(!(contact.classList.contains("active"))){
-        gsap.to(leftLayer.children[0].children[0], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[0], { "right": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(leftLayer.children[0].children[1], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[1], { "right": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(leftLayer.children[0].children[2], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[2], { "right": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(leftLayer.children[0].children[3], { "left": "-150%", duration: 0.4, ease: Sine});
-        gsap.to(rightLayer.children[0].children[3], { "right": "-150%", duration: 0.4, ease: Sine});
+        
+         gsap.to([
+          leftLayer.children[0].children[0],
+          leftLayer.children[0].children[1],
+          leftLayer.children[0].children[2],
+          leftLayer.children[0].children[3]
+        ], { "left": "-150%", duration: 0.4, ease: Sine});
+
+        gsap.to([
+          rightLayer.children[0].children[0],
+          rightLayer.children[0].children[1],
+          rightLayer.children[0].children[2],
+          rightLayer.children[0].children[3],
+
+        ], { "right": "-150%", duration: 0.4, ease: Sine});
+
         gsap.to('#tokenLayer', { top: "20%", opacity: 0, duration: 1.5, ease: Sine});
+
+        
+
         for(let i = 0; i < container.length; i++)  {
+
             if(container[i].classList.contains("active")){
               container[i].classList.remove("active");
               break;
@@ -1815,8 +1508,8 @@ let layer = document.querySelector('#tokenLayer');
 let layerMain = document.querySelector('#tokenLayerMain');
 
 layer.addEventListener('click', (e)=> {
-    if(tokenCounter % 2 == 0) gsap.to(layerMain, { 'clip-path': 'circle(70%)', duration: 0.75});
-    else gsap.to(layerMain, { 'clip-path': 'circle(0%)', duration: 0.75});
+    if(tokenCounter % 2 == 0) gsap.to(layerMain, { 'clip-path': 'circle(70%)', duration: 0.2, ease: Sine});
+    else gsap.to(layerMain, { 'clip-path': 'circle(0%)', duration: 0.2, ease: Sine});
     tokenCounter+=1;
 });
 
