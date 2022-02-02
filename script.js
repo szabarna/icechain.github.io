@@ -8,6 +8,8 @@ import { RenderPass } from './three.js-r134-min/examples/jsm/postprocessing/Rend
 import { GlitchPass } from './three.js-r134-min/examples/jsm/postprocessing/GlitchPass.js';
 import { UnrealBloomPass } from './three.js-r134-min/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
+import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
+
 
 
 
@@ -85,10 +87,26 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
   var leftMainCube, rightMainCube;
   var leftMainText, rightMainText;
   var mainCube;
+  var stats;
+  var OFFSETLEFT, OFFSETTOP;
+  var WIDTH, HEIGHT;
+  
   
   gsap.registerPlugin(ScrollTrigger);
   init();
   
+
+  function addStatsObject() {
+    stats = new Stats();
+    stats.setMode(0);
+
+    stats.domElement.style.position = 'fixed';
+    stats.domElement.style.left = 0 + 'px';
+    stats.domElement.style.top = 0 + 'px';
+    stats.domElement.style.zIndex = 100;
+
+    document.body.appendChild( stats.domElement );
+}
   
 
   function init() {
@@ -118,7 +136,15 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
   
   //document.body.appendChild( renderer.domElement );
 
+  WIDTH = canvReference.clientWidth;
+  HEIGHT = canvReference.clientHeight;
+  OFFSETLEFT = canvReference.offsetLeft;
+  OFFSETTOP = canvReference.offsetTop;
+
+  addStatsObject();
+
   // Objects
+  
 
   const particlesGeometry = new THREE.BufferGeometry();
   const particlesGeometryLower = new THREE.BufferGeometry();
@@ -1117,7 +1143,7 @@ function onDocumentMouseMove(event) {
    // controls.update();
    composer.render();
     
-    
+   stats.update()
     
      //render();
  
