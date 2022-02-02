@@ -5,12 +5,7 @@ import { FontLoader } from './three.js-r134-min/examples/jsm/loaders/FontLoader.
 import { TextGeometry } from './three.js-r134-min/examples/jsm/geometries/TextGeometry.js';
 import { EffectComposer } from './three.js-r134-min/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from './three.js-r134-min/examples/jsm/postprocessing/RenderPass.js';
-import { SavePass } from './three.js-r134-min/examples/jsm/postprocessing/SavePass.js';
-import { ShaderPass } from './three.js-r134-min/examples/jsm/postprocessing/ShaderPass.js';
 import { GlitchPass } from './three.js-r134-min/examples/jsm/postprocessing/GlitchPass.js';
-import { BloomPass } from './three.js-r134-min/examples/jsm/postprocessing/BloomPass.js';
-import { CopyShader } from './three.js-r134-min/examples/jsm/shaders/CopyShader.js';
-import { BlendShader } from './three.js-r134-min/examples/jsm/shaders/BlendShader.js';
 import { UnrealBloomPass } from './three.js-r134-min/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
 
