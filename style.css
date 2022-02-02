@@ -228,8 +228,9 @@ section {
 
 .container {
     height: 100vh;
-    
 }
+
+
 
         /*       HOME SECTION        */
 .home {
@@ -806,34 +807,38 @@ h2 {
 }
 
 
+
+
 /* TOKEN DETAILS */
 
-.projects {
-    height: 500vh;
+.services {
+    position: relative;
 }
 
 .tokenContainer {
-    position: absolute;
+    position: relative;
     height: 100%;
     width: 100%;
-    left: 0;
+    left: 37.5%;
+    top: 87.5%;
 }
 
 #tokenLayer {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    width: 30em;
+    height: 20em;
     background-color: rgb(34, 202, 214, 0.1);
-    clip-path: polygon(30% 90%, 50% 85%, 70% 90%, 100% 90%, 100% 100%, 0 100%, 0 99%, 0 90%);
-    transition: 0.4s all;
+    border-radius: 50%;
+    transition: 0.2s all;
     cursor: pointer;
-    top: 20%;
-    opacity: 0;
     z-index: 1;
+    box-shadow: 0 0 300px 0px rgb(0, 110, 255) inset;
+   /* filter: drop-shadow(0 0 300px rgb(0, 132, 255)) */
 }
 
 #tokenLayer:hover {
-    background-color: rgb(34, 202, 214, 0.125);
+    box-shadow: 0 0 5px 0px rgb(0, 94, 206, 1) inset;
+   /* filter: drop-shadow(0 0 1px white) */
 }
 
 #tokenLayer:hover #tokenButton {
@@ -842,8 +847,8 @@ h2 {
 
 #tokenButton {
         position: relative;
-        top: 88.5%;
-        left: 42.5%;
+        top: 7.5%;
+        left: 23%;
         width: fit-content;
         height: fit-content;
         padding: 10px;
@@ -859,10 +864,14 @@ h2 {
 
 #tokenLayerMain {
     position: absolute;
-    width: 100%;
-    height: 90%;
-    background-color: rgb(1, 1, 73, 0.95);
-    clip-path: circle(0%);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(1, 1, 73, 0.75);
     transition: 0.4s all;
-    bottom: 0;
+    top: 5%;
+    clip-path: circle(0%);  
 }
+
+
+
+

@@ -88,8 +88,8 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   var leftMainText, rightMainText;
   var mainCube;
   var stats;
-  var OFFSETLEFT, OFFSETTOP;
-  var WIDTH, HEIGHT;
+  var cubeRotation = true;
+  
   
   
   gsap.registerPlugin(ScrollTrigger);
@@ -136,10 +136,6 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   
   //document.body.appendChild( renderer.domElement );
 
-  WIDTH = canvReference.clientWidth;
-  HEIGHT = canvReference.clientHeight;
-  OFFSETLEFT = canvReference.offsetLeft;
-  OFFSETTOP = canvReference.offsetTop;
 
   addStatsObject();
 
@@ -198,6 +194,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   circle1.position.set(-2.5, -8, 0);
   circle1.scale.set(0.1, 0.1, 0.1);
   circle1.material.transparent = true;
+  circle1.material.opacity = 0.1;
 
    // CIRCLE OUTER 3rd
    const circleGeometry2 = new THREE.TorusGeometry(10, 0.1, 2, 24);
@@ -207,6 +204,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
    circle2.position.set(-2.5, -8, 0);
    circle2.scale.set(0.05, 0.05, 0.05);
    circle2.material.transparent = true;
+   circle2.material.opacity = 0.1;
 
    // CIRCLE OUTER 4th
    const circleGeometry3 = new THREE.TorusGeometry(10, 0.1, 2, 24);
@@ -216,6 +214,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
    circle3.position.set(-2.5, -8, 0);
    circle3.scale.set(0.025, 0.025, 0.025);
    circle3.material.transparent = true;
+   circle3.material.opacity = 0.1;
 
     // CIRCLE OUTER 2nd
     const circleGeometry4 = new THREE.TorusGeometry(10, 0.1, 2, 24);
@@ -225,6 +224,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
     circle4.position.set(-2.5, -8, 0);
     circle4.scale.set(0.075, 0.075, 0.075);
     circle4.material.transparent = true;
+    circle4.material.opacity = 0.1;
 
     // RIGHT CIRCLE
   //  CIRCLE OUTER
@@ -235,6 +235,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   circle5.position.set(2.5, -8, 0);
   circle5.scale.set(0.1, 0.1, 0.1);
   circle5.material.transparent = true;
+  circle5.material.opacity = 0.1;
 
    // CIRCLE OUTER 3rd
    const circleGeometry6 = new THREE.TorusGeometry(10, 0.1, 2, 24);
@@ -244,6 +245,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
    circle6.position.set(2.5, -8, 0);
    circle6.scale.set(0.05, 0.05, 0.05);
    circle6.material.transparent = true;
+   circle6.material.opacity = 0.1;
 
    // CIRCLE OUTER 4th
    const circleGeometry7 = new THREE.TorusGeometry(10, 0.1, 2, 24);
@@ -253,6 +255,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
    circle7.position.set(2.5, -8, 0);
    circle7.scale.set(0.025, 0.025, 0.025);
    circle7.material.transparent = true;
+   circle7.material.opacity = 0.1;
 
     // CIRCLE OUTER 2nd
     const circleGeometry8 = new THREE.TorusGeometry(10, 0.1, 2, 24);
@@ -262,6 +265,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
     circle8.position.set(2.5, -8, 0);
     circle8.scale.set(0.075, 0.075, 0.075);
     circle8.material.transparent = true;
+    circle8.material.opacity = 0.1;
 
     //leftGroup.position.set(circle3.position);
 
@@ -741,6 +745,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
           // RIGHT MAIN CUBE
         rightMainCube = gltf.scene.clone();
         rightMainCube.position.set(0, -3.75, 0);
+        rightMainCube.rotation.set(0, 0, 0);
         rightMainCube.scale.set(2, 2, 2);
         rightMainCube.children[0].material.transparent = true;
         rightMainCube.children[1].material.transparent = true;
@@ -752,6 +757,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
            // LEFT MAIN CUBE
         leftMainCube = gltf.scene.clone();
         leftMainCube.position.set(0, -3.75, 0);
+        leftMainCube.rotation.set(0, 0, 0);
         leftMainCube.scale.set(2, 2, 2);
         leftMainCube.children[0].material.transparent = true;
         leftMainCube.children[1].material.transparent = true;
@@ -763,7 +769,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
         
 
         setInterval(()=> {
-          if(mainCube.children[0].material.opacity != 0) {
+          if(mainCube.children[0].material.opacity != 0 && cubeRotation ) {
             gsap.to([
               mainCube.children[0].rotation,
               mainCube.children[1].rotation,
@@ -1165,6 +1171,7 @@ video.volume = 0.05;
 videoButton.addEventListener('click', (e) => {
       gsap.to(videoContainer, { 'clip-path': 'circle(100%)', duration: 0.75, ease: Sine})
       video.play();
+      cubeRotation = false;
       
 });
 
@@ -1172,6 +1179,7 @@ document.addEventListener('keydown', (e) => {
     if(e.key === "Escape" && videoContainer.style.clipPath != "circle(0% at center center)") {
         video.pause();
         gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
+        cubeRotation = true;
     }
 });
 
@@ -1180,6 +1188,7 @@ $(videoContainer).on('click', function(e) {
 
   video.pause();
   gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
+  cubeRotation = true;
 });
 
 
@@ -1242,8 +1251,7 @@ scene_anim.to([
     }});
 
   
-const leftLayer = document.querySelector('#leftEco');
-const rightLayer = document.querySelector('#rightEco');
+
 
 
 // Scroll dependent active class for navigation items
@@ -1252,24 +1260,6 @@ document.addEventListener('scroll', (e)=> {
     if((window.scrollY / window.innerHeight) === 0) {
       if(!(home.classList.contains("active"))){
         
-        gsap.to([
-          leftLayer.children[0].children[0],
-          leftLayer.children[0].children[1],
-          leftLayer.children[0].children[2],
-          leftLayer.children[0].children[3]
-        ], { "left": "-150%", duration: 0.4, ease: Sine});
-
-        gsap.to([
-          rightLayer.children[0].children[0],
-          rightLayer.children[0].children[1],
-          rightLayer.children[0].children[2],
-          rightLayer.children[0].children[3],
-
-        ], { "right": "-150%", duration: 0.4, ease: Sine});
-
-        gsap.to('#tokenLayer', { top: "20%", opacity: 0, duration: 1.5, ease: Sine});
-        
-
 
         for(let i = 0; i < container.length; i++)  {
             if(container[i].classList.contains("active")){
@@ -1282,31 +1272,8 @@ document.addEventListener('scroll', (e)=> {
       return;
     }
     
-    else if((window.scrollY / window.innerHeight) >= 0.9 && (window.scrollY / window.innerHeight) <= 1.1 || (window.scrollY / window.innerHeight) === 1) {
-      
-    
-    
-    
-      gsap.to([
-          leftLayer.children[0].children[0],
-          leftLayer.children[0].children[1],
-          leftLayer.children[0].children[2],
-          leftLayer.children[0].children[3]
-        ], { "left": 0, duration: 0.4, ease: Sine});
+    else if((window.scrollY / window.innerHeight) >= 0.975 && (window.scrollY / window.innerHeight) <= 1.025 || (window.scrollY / window.innerHeight) === 1) {
 
-        gsap.to([
-          rightLayer.children[0].children[0],
-          rightLayer.children[0].children[1],
-          rightLayer.children[0].children[2],
-          rightLayer.children[0].children[3],
-
-        ], { "right": 0, duration: 0.4, ease: Sine});
-
-    // gsap.to('#tokenLayer', { top: "20%", opacity: 0, duration: 1.5, ease: Sine});
-
-     
-
-      
       if(!(about.classList.contains("active"))){
         for(let i = 0; i < container.length; i++)  {
             if(container[i].classList.contains("active")) {
@@ -1319,49 +1286,8 @@ document.addEventListener('scroll', (e)=> {
       return;
     }
 
-    if((window.scrollY / window.innerHeight) >= 1.9 && (window.scrollY / window.innerHeight) <= 2.1 || (window.scrollY / window.innerHeight) === 2) {
+    if((window.scrollY / window.innerHeight) >= 1.975 && (window.scrollY / window.innerHeight) <= 2.025 || (window.scrollY / window.innerHeight) === 2) {
       if(!(services.classList.contains("active"))){
-        
-        gsap.to([
-          leftLayer.children[0].children[0],
-          leftLayer.children[0].children[1],
-          leftLayer.children[0].children[2],
-          leftLayer.children[0].children[3]
-        ], { "left": "-150%", duration: 0.4, ease: Sine});
-
-        gsap.to([
-          rightLayer.children[0].children[0],
-          rightLayer.children[0].children[1],
-          rightLayer.children[0].children[2],
-          rightLayer.children[0].children[3],
-
-        ], { "right": "-150%", duration: 0.4, ease: Sine});
-        
-
-        gsap.to([
-          circle1.material,
-          circle2.material,
-          circle3.material,
-          circle4.material,
-          circle5.material,
-          circle6.material,
-          circle7.material,
-          circle8.material,
-        ], { opacity: 0.1, duration: 0.4, ease: Sine });
-
-        gsap.to([
-          circle1.material,
-          circle2.material,
-          circle3.material,
-          circle4.material,
-          circle5.material,
-          circle6.material,
-          circle7.material,
-          circle8.material,
-        ], { opacity: 1, duration: 0.4, delay: 0.4, ease: Sine });
-
-        gsap.to('#tokenLayer', { top: 0, opacity: 1, duration: 1.5, ease: Sine});
-        
 
         for(let i = 0; i < container.length; i++)  {
             if(container[i].classList.contains("active")){
@@ -1375,27 +1301,10 @@ document.addEventListener('scroll', (e)=> {
           return;
     }
 
-    else if((window.scrollY / window.innerHeight) >= 2.9 && (window.scrollY / window.innerHeight) <= 3.1 || (window.scrollY / window.innerHeight) === 3) {
+    else if((window.scrollY / window.innerHeight) >= 2.975 && (window.scrollY / window.innerHeight) <= 3.025 || (window.scrollY / window.innerHeight) === 3) {
       if(!(project.classList.contains("active"))){
-        
-        gsap.to([
-          leftLayer.children[0].children[0],
-          leftLayer.children[0].children[1],
-          leftLayer.children[0].children[2],
-          leftLayer.children[0].children[3]
-        ], { "left": "-150%", duration: 0.4, ease: Sine});
-
-        gsap.to([
-          rightLayer.children[0].children[0],
-          rightLayer.children[0].children[1],
-          rightLayer.children[0].children[2],
-          rightLayer.children[0].children[3],
-
-        ], { "right": "-150%", duration: 0.4, ease: Sine});
-
-        gsap.to('#tokenLayer', { top: "20%", opacity: 0, duration: 0.1, ease: Sine});
-        
-
+      
+      
         for(let i = 0; i < container.length; i++)  {
             if(container[i].classList.contains("active")){
               container[i].classList.remove("active");
@@ -1407,27 +1316,9 @@ document.addEventListener('scroll', (e)=> {
       return;
     }
 
-    else if((window.scrollY / window.innerHeight) >= 3.9 && (window.scrollY / window.innerHeight) <= 4.1 || (window.scrollY / window.innerHeight) === 4) {
+    else if((window.scrollY / window.innerHeight) >= 3.975 && (window.scrollY / window.innerHeight) <= 4.025 || (window.scrollY / window.innerHeight) === 4) {
       if(!(contact.classList.contains("active"))){
-        
-         gsap.to([
-          leftLayer.children[0].children[0],
-          leftLayer.children[0].children[1],
-          leftLayer.children[0].children[2],
-          leftLayer.children[0].children[3]
-        ], { "left": "-150%", duration: 0.4, ease: Sine});
-
-        gsap.to([
-          rightLayer.children[0].children[0],
-          rightLayer.children[0].children[1],
-          rightLayer.children[0].children[2],
-          rightLayer.children[0].children[3],
-
-        ], { "right": "-150%", duration: 0.4, ease: Sine});
-
-        gsap.to('#tokenLayer', { top: "20%", opacity: 0, duration: 1.5, ease: Sine});
-
-        
+           
 
         for(let i = 0; i < container.length; i++)  {
 
@@ -1440,7 +1331,6 @@ document.addEventListener('scroll', (e)=> {
       }
       return;
     }
-   
 
 });
 
@@ -1523,16 +1413,44 @@ for(let i = 0; i < textHolders.length; i++) {
 }
 
 
+/* ECOSYSTEM ANIMATION */
+const leftLayer = document.querySelector('#leftEco');
+const rightLayer = document.querySelector('#rightEco');
+
+
+scene_anim.to([
+  leftLayer.children[0].children[0],
+  leftLayer.children[0].children[1],
+  leftLayer.children[0].children[2],
+  leftLayer.children[0].children[3]
+], { "left": "0%", duration: 0.4, ease: Sine});
+
+scene_anim.to([
+  rightLayer.children[0].children[0],
+  rightLayer.children[0].children[1],
+  rightLayer.children[0].children[2],
+  rightLayer.children[0].children[3],
+
+], { "right": "0%", duration: 0.4, ease: Sine});
+
+
+
+
 /* TOKEN SECTION */
+
 let tokenCounter = 2;
 let layer = document.querySelector('#tokenLayer');
-let layerMain = document.querySelector('#tokenLayerMain');
 
 layer.addEventListener('click', (e)=> {
-    if(tokenCounter % 2 == 0) gsap.to(layerMain, { 'clip-path': 'circle(70%)', duration: 0.2, ease: Sine});
-    else gsap.to(layerMain, { 'clip-path': 'circle(0%)', duration: 0.2, ease: Sine});
+    if(tokenCounter % 2 == 0) gsap.to('#tokenLayerMain', { 'clip-path': 'circle(100%)', duration: 0.4, ease: Sine });
+    else gsap.to('#tokenLayerMain', { 'clip-path': 'circle(0%)', duration: 0.4, ease: Sine });
     tokenCounter+=1;
 });
+
+/* TOKEN ANIMATION */
+
+
+
 
 
  
