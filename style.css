@@ -833,12 +833,12 @@ h2 {
     cursor: pointer;
     z-index: 1;
     box-shadow: 0 0 300px 0px rgb(0, 110, 255) inset;
-   /* filter: drop-shadow(0 0 300px rgb(0, 132, 255)) */
+    filter: drop-shadow(0 0 300px rgb(0, 132, 255)) 
 }
 
 #tokenLayer:hover {
     box-shadow: 0 0 5px 0px rgb(0, 94, 206, 1) inset;
-   /* filter: drop-shadow(0 0 1px white) */
+    filter: drop-shadow(0 0 1px white) 
 }
 
 #tokenLayer:hover #tokenButton {
@@ -870,6 +870,10 @@ h2 {
     transition: 0.4s all;
     top: 5%;
     clip-path: circle(0%);  
+}
+
+.projects {
+    height: 300vh;
 }
 
 

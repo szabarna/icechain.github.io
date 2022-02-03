@@ -111,7 +111,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
   function init() {
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 150 );
+    camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 100 );
     camera.position.z = 4;
     cameraCenter.x = camera.position.x;
     cameraCenter.y = camera.position.y;
@@ -191,7 +191,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
   circle1 = new THREE.Mesh(circleGeometry1, circleMaterial);
   scene.add(circle1);
-  circle1.position.set(-2.5, -8, 0);
+  circle1.position.set(-2.5, -9.25, 0);
   circle1.scale.set(0.1, 0.1, 0.1);
   circle1.material.transparent = true;
   circle1.material.opacity = 0.1;
@@ -201,7 +201,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
    
     circle2 = new THREE.Mesh(circleGeometry2, circleMaterial);
     scene.add(circle2);
-   circle2.position.set(-2.5, -8, 0);
+   circle2.position.set(-2.5, -9.25, 0);
    circle2.scale.set(0.05, 0.05, 0.05);
    circle2.material.transparent = true;
    circle2.material.opacity = 0.1;
@@ -211,7 +211,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
    
     circle3 = new THREE.Mesh(circleGeometry3, circleMaterial);
   //  scene.add(circle3);
-   circle3.position.set(-2.5, -8, 0);
+   circle3.position.set(-2.5, -9.25, 0);
    circle3.scale.set(0.025, 0.025, 0.025);
    circle3.material.transparent = true;
    circle3.material.opacity = 0.1;
@@ -221,7 +221,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   
     circle4 = new THREE.Mesh(circleGeometry4, circleMaterial);
     scene.add(circle4);
-    circle4.position.set(-2.5, -8, 0);
+    circle4.position.set(-2.5, -9.25, 0);
     circle4.scale.set(0.075, 0.075, 0.075);
     circle4.material.transparent = true;
     circle4.material.opacity = 0.1;
@@ -232,7 +232,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
    circle5 = new THREE.Mesh(circleGeometry5, circleMaterial);
    scene.add(circle5);
-  circle5.position.set(2.5, -8, 0);
+  circle5.position.set(2.5, -9.25, 0);
   circle5.scale.set(0.1, 0.1, 0.1);
   circle5.material.transparent = true;
   circle5.material.opacity = 0.1;
@@ -242,7 +242,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   
     circle6 = new THREE.Mesh(circleGeometry6, circleMaterial);
     scene.add(circle6);
-   circle6.position.set(2.5, -8, 0);
+   circle6.position.set(2.5, -9.25, 0);
    circle6.scale.set(0.05, 0.05, 0.05);
    circle6.material.transparent = true;
    circle6.material.opacity = 0.1;
@@ -252,7 +252,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   
     circle7 = new THREE.Mesh(circleGeometry7, circleMaterial);
    //  scene.add(circle7);
-   circle7.position.set(2.5, -8, 0);
+   circle7.position.set(2.5, -9.25, 0);
    circle7.scale.set(0.025, 0.025, 0.025);
    circle7.material.transparent = true;
    circle7.material.opacity = 0.1;
@@ -262,7 +262,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   
     circle8 = new THREE.Mesh(circleGeometry8, circleMaterial);
     scene.add(circle8);
-    circle8.position.set(2.5, -8, 0);
+    circle8.position.set(2.5, -9.25, 0);
     circle8.scale.set(0.075, 0.075, 0.075);
     circle8.material.transparent = true;
     circle8.material.opacity = 0.1;
@@ -543,7 +543,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
     leftMainText = new THREE.Mesh(leftMainTextGeometry, [ whiteTextMaterial, whiteTextMaterial ]);
 
-    leftMainText.position.set(-3.3, -8, 0);
+    leftMainText.position.set(-3.3, -10, 0);
     console.log(leftMainText.material)
     scene.add( leftMainText );
 
@@ -704,7 +704,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
     rightMainText = new THREE.Mesh(rightMainTextGeometry, [ whiteTextMaterial, whiteTextMaterial ]);
 
-    rightMainText.position.set(1.75, -8, 0);
+    rightMainText.position.set(1.75, -10, 0);
 
     scene.add( rightMainText );
     
@@ -712,7 +712,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
       leftMainText.position,
       rightMainText.position,
       
-    ], { y: -6.5, scrollTrigger: {
+    ], { y: -7.75, scrollTrigger: {
     trigger: ".services",
     start: window.innerHeight,
     end: window.innerHeight * 2,
@@ -815,7 +815,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
     });
 
-    // LINES FOR ECOSYSTEM
+    // LINES FOR TOKEN DETAILS
 
       // LEFT LINE 1
     const ecosystemMaterial = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 10.0 });
@@ -938,10 +938,10 @@ const materialWhite = new THREE.LineDashedMaterial( { color : 0xffffff, linewidt
 // sub curve left, first from top
 
 const curveSub1 = new THREE.SplineCurve( [
-  new THREE.Vector2( -0.3, -4.1 ),
-  new THREE.Vector2( -1.5, -3.3 ),
-  new THREE.Vector2( -2.5, -3.4),
-  new THREE.Vector2( -3.5, -3.2 )
+  new THREE.Vector2( -0.3, -5.1 ),
+  new THREE.Vector2( -1.5, -4.3 ),
+  new THREE.Vector2( -2.5, -4.4),
+  new THREE.Vector2( -3.5, -4.2 )
 ] );
 
 const pointsSub1 = curveSub1.getPoints( 1000 );
@@ -955,10 +955,10 @@ scene.add(subLine1);
 // sub curve left, second from top
 
 const curveSub2 = new THREE.SplineCurve( [
-  new THREE.Vector2( -0.4, -4.25 ),
-  new THREE.Vector2( -1, -4.25 ),
-  new THREE.Vector2( -2, -3.95 ),
-  new THREE.Vector2( -3.5, -4.15 )
+  new THREE.Vector2( -0.4, -5.25 ),
+  new THREE.Vector2( -1, -5.25 ),
+  new THREE.Vector2( -2, -4.95 ),
+  new THREE.Vector2( -3.5, -5.15 )
 ] );
 
 const pointsSub2 = curveSub2.getPoints( 1000 );
@@ -973,10 +973,10 @@ scene.add(subLine2);
 // sub curve left, third from top
 
 const curveSub3 = new THREE.SplineCurve( [
-  new THREE.Vector2( -0.4, -4.45 ),
-  new THREE.Vector2( -1, -4.6 ),
-  new THREE.Vector2( -2, -5.25 ),
-  new THREE.Vector2( -3.5, -5.2 )
+  new THREE.Vector2( -0.4, -5.45 ),
+  new THREE.Vector2( -1, -5.6 ),
+  new THREE.Vector2( -2, -6.25 ),
+  new THREE.Vector2( -3.5, -6.2 )
 ] );
 
 const pointsSub3 = curveSub3.getPoints( 1000 );
@@ -990,10 +990,10 @@ scene.add(subLine3);
 // sub curve left, fourth from top
 
 const curveSub4 = new THREE.SplineCurve( [
-  new THREE.Vector2( -0.3, -4.8 ),
-  new THREE.Vector2( -1.25, -5.6 ),
-  new THREE.Vector2( -2.5, -5.8 ),
-  new THREE.Vector2( -3.5, -6.4 )
+  new THREE.Vector2( -0.3, -5.8 ),
+  new THREE.Vector2( -1.25, -6.6 ),
+  new THREE.Vector2( -2.5, -6.8 ),
+  new THREE.Vector2( -3.5, -7.4 )
 ] );
 
 const pointsSub4 = curveSub4.getPoints( 1000 );
@@ -1010,10 +1010,10 @@ scene.add(subLine4);
   // sub curve rightLayer, first from top
 
 const curveSub5 = new THREE.SplineCurve( [
-  new THREE.Vector2( 0.3, -4.1 ),
-  new THREE.Vector2( 1.5, -3.3 ),
-  new THREE.Vector2( 2.5, -3.4),
-  new THREE.Vector2( 3.5, -3.2 )
+  new THREE.Vector2( 0.3, -5.1 ),
+  new THREE.Vector2( 1.5, -4.3 ),
+  new THREE.Vector2( 2.5, -4.4),
+  new THREE.Vector2( 3.5, -4.2 )
 ] );
 
 const pointsSub5 = curveSub5.getPoints( 1000 );
@@ -1028,10 +1028,10 @@ scene.add(subLine5);
 // sub curve rightLayer, second from top
 
 const curveSub6 = new THREE.SplineCurve( [
-  new THREE.Vector2( 0.4, -4.25 ),
-  new THREE.Vector2( 1, -4.25 ),
-  new THREE.Vector2( 2, -3.95 ),
-  new THREE.Vector2( 3.5, -4.15 )
+  new THREE.Vector2( 0.4, -5.25 ),
+  new THREE.Vector2( 1, -5.25 ),
+  new THREE.Vector2( 2, -4.95 ),
+  new THREE.Vector2( 3.5, -5.15 )
 ] );
 
 const pointsSub6 = curveSub6.getPoints( 1000 );
@@ -1046,10 +1046,10 @@ scene.add(subLine6);
 // sub curve rightLayer, third from top
 
 const curveSub7 = new THREE.SplineCurve( [
-  new THREE.Vector2( 0.4, -4.45 ),
-  new THREE.Vector2( 1, -4.6 ),
-  new THREE.Vector2( 2, -5.25 ),
-  new THREE.Vector2( 3.5, -5.2 )
+  new THREE.Vector2( 0.4, -5.45 ),
+  new THREE.Vector2( 1, -5.6 ),
+  new THREE.Vector2( 2, -6.25 ),
+  new THREE.Vector2( 3.5, -6.2 )
 ] );
 
 const pointsSub7 = curveSub7.getPoints( 1000 );
@@ -1064,10 +1064,10 @@ scene.add(subLine7);
 // sub curve rightLayer, fourth from top
 
 const curveSub8 = new THREE.SplineCurve( [
-  new THREE.Vector2( 0.3, -4.8 ),
-  new THREE.Vector2( 1.25, -5.6 ),
-  new THREE.Vector2( 2.5, -5.8 ),
-  new THREE.Vector2( 3.5, -6.4 )
+  new THREE.Vector2( 0.3, -5.8 ),
+  new THREE.Vector2( 1.25, -6.6 ),
+  new THREE.Vector2( 2.5, -6.8 ),
+  new THREE.Vector2( 3.5, -7.4 )
 ] );
 
 const pointsSub8 = curveSub8.getPoints( 1000 );
@@ -1146,10 +1146,9 @@ function onDocumentMouseMove(event) {
     
       updateCamera();
       requestAnimationFrame( animate );
-   // controls.update();
-   composer.render();
-    
-   stats.update()
+      // controls.update();
+      composer.render();
+      stats.update()
     
      //render();
  
@@ -1203,14 +1202,23 @@ $(videoContainer).on('click', function(e) {
 
 scene_anim = gsap.timeline();
 
-scene_anim.to([camera.position, cameraCenter, ], { y: "-=12", scrollTrigger: {
+scene_anim.to([camera.position, cameraCenter, ], { y: "-=10", scrollTrigger: {
 
 trigger: ".about",
 start: 0,
-end: window.innerHeight * 5,
+end: window.innerHeight * 3,
 scrub: 1,
 update: camera.updateProjectionMatrix(),
 }});
+
+scene_anim.to([camera.position ], { z: "-=5", scrollTrigger: {
+
+  trigger: ".services",
+  start: window.innerHeight * 2,
+  end: window.innerHeight * 2.5,
+  scrub: 1,
+  update: camera.updateProjectionMatrix(),
+  }});
 
 
 scene_anim.to([ 
@@ -1225,9 +1233,9 @@ scene_anim.to([
 
 ], { count: 1000, scrollTrigger: {
   trigger: ".about",
-  start: 0,
-  end: window.innerHeight - window.innerHeight / 5,
-  scrub: 1,
+  start: window.innerHeight - window.innerHeight / 7.5,
+  end: window.innerHeight,
+  scrub: 5,
   update: camera.updateProjectionMatrix(),
   }});
 
@@ -1244,9 +1252,9 @@ scene_anim.to([
   
   ], { count: 0, scrollTrigger: {
     trigger: ".about",
-    start: window.innerHeight,
+    start: window.innerHeight + window.innerHeight / 5,
     end: window.innerHeight * 1.5,
-    scrub: 1,
+    scrub: 3,
     update: camera.updateProjectionMatrix(),
     }});
 
@@ -1316,7 +1324,7 @@ document.addEventListener('scroll', (e)=> {
       return;
     }
 
-    else if((window.scrollY / window.innerHeight) >= 3.975 && (window.scrollY / window.innerHeight) <= 4.025 || (window.scrollY / window.innerHeight) === 4) {
+    else if((window.scrollY / window.innerHeight) >= 5.975 && (window.scrollY / window.innerHeight) <= 6.025 || (window.scrollY / window.innerHeight) === 4) {
       if(!(contact.classList.contains("active"))){
            
 
@@ -1384,7 +1392,7 @@ else if((window.scrollY / window.innerHeight) >= 2.9 && (window.scrollY / window
   }
 }
 
-else if((window.scrollY / window.innerHeight) >= 3.9 && (window.scrollY / window.innerHeight) <= 4.1 || (window.scrollY / window.innerHeight) === 4) {
+else if((window.scrollY / window.innerHeight) >= 5.9 && (window.scrollY / window.innerHeight) <= 6.1 || (window.scrollY / window.innerHeight) === 4) {
   if(!(contact.classList.contains("active"))){
     for(let i = 0; i < container.length; i++)  {
         if(container[i].classList.contains("active")){
@@ -1394,7 +1402,11 @@ else if((window.scrollY / window.innerHeight) >= 3.9 && (window.scrollY / window
     }
       contact.classList.add("active");
   }
+
+  
 }
+
+
 
 
 let textHolders = document.querySelectorAll('.textHolder');
@@ -1442,8 +1454,8 @@ let tokenCounter = 2;
 let layer = document.querySelector('#tokenLayer');
 
 layer.addEventListener('click', (e)=> {
-    if(tokenCounter % 2 == 0) gsap.to('#tokenLayerMain', { 'clip-path': 'circle(100%)', duration: 0.4, ease: Sine });
-    else gsap.to('#tokenLayerMain', { 'clip-path': 'circle(0%)', duration: 0.4, ease: Sine });
+    if(tokenCounter % 2 == 0) gsap.to('#tokenLayerMain', { 'clip-path': 'circle(100%)', duration: 0.25, ease: Sine });
+    else gsap.to('#tokenLayerMain', { 'clip-path': 'circle(0%)', duration: 0.25, ease: Sine });
     tokenCounter+=1;
 });
 
