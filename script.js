@@ -194,7 +194,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   circle1.position.set(-2.5, -9.25, 0);
   circle1.scale.set(0.1, 0.1, 0.1);
   circle1.material.transparent = true;
-  circle1.material.opacity = 0.1;
+  circle1.material.opacity = 1;
 
    // CIRCLE OUTER 3rd
    const circleGeometry2 = new THREE.TorusGeometry(10, 0.1, 2, 24);
@@ -204,7 +204,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
    circle2.position.set(-2.5, -9.25, 0);
    circle2.scale.set(0.05, 0.05, 0.05);
    circle2.material.transparent = true;
-   circle2.material.opacity = 0.1;
+   circle2.material.opacity = 1;
 
    // CIRCLE OUTER 4th
    const circleGeometry3 = new THREE.TorusGeometry(10, 0.1, 2, 24);
@@ -214,7 +214,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
    circle3.position.set(-2.5, -9.25, 0);
    circle3.scale.set(0.025, 0.025, 0.025);
    circle3.material.transparent = true;
-   circle3.material.opacity = 0.1;
+   circle3.material.opacity = 1;
 
     // CIRCLE OUTER 2nd
     const circleGeometry4 = new THREE.TorusGeometry(10, 0.1, 2, 24);
@@ -224,7 +224,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
     circle4.position.set(-2.5, -9.25, 0);
     circle4.scale.set(0.075, 0.075, 0.075);
     circle4.material.transparent = true;
-    circle4.material.opacity = 0.1;
+    circle4.material.opacity = 1;
 
     // RIGHT CIRCLE
   //  CIRCLE OUTER
@@ -235,7 +235,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   circle5.position.set(2.5, -9.25, 0);
   circle5.scale.set(0.1, 0.1, 0.1);
   circle5.material.transparent = true;
-  circle5.material.opacity = 0.1;
+  circle5.material.opacity = 1;
 
    // CIRCLE OUTER 3rd
    const circleGeometry6 = new THREE.TorusGeometry(10, 0.1, 2, 24);
@@ -245,7 +245,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
    circle6.position.set(2.5, -9.25, 0);
    circle6.scale.set(0.05, 0.05, 0.05);
    circle6.material.transparent = true;
-   circle6.material.opacity = 0.1;
+   circle6.material.opacity = 1;
 
    // CIRCLE OUTER 4th
    const circleGeometry7 = new THREE.TorusGeometry(10, 0.1, 2, 24);
@@ -255,7 +255,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
    circle7.position.set(2.5, -9.25, 0);
    circle7.scale.set(0.025, 0.025, 0.025);
    circle7.material.transparent = true;
-   circle7.material.opacity = 0.1;
+   circle7.material.opacity = 1;
 
     // CIRCLE OUTER 2nd
     const circleGeometry8 = new THREE.TorusGeometry(10, 0.1, 2, 24);
@@ -265,7 +265,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
     circle8.position.set(2.5, -9.25, 0);
     circle8.scale.set(0.075, 0.075, 0.075);
     circle8.material.transparent = true;
-    circle8.material.opacity = 0.1;
+    circle8.material.opacity = 1;
 
     //leftGroup.position.set(circle3.position);
 
@@ -722,7 +722,34 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
     
 
   });
+  var cubeModel;
   
+  loader.load("./src/cubeModel.glb", (gltf) => {
+
+      cubeModel = gltf.scene.clone();
+
+      cubeModel.position.set(0, -10.5, -5);
+      cubeModel.scale.set(.5, .5, .5);
+
+      scene.add( cubeModel );
+
+      scene_anim.to(cubeModel.rotation, { y: "+=" + Math.PI * 6, scrollTrigger: {
+        // , gltf.scene.children[1].position, gltf.scene.children[2].position
+      trigger: ".projects",
+      start: window.innerHeight * 3,
+      end: window.innerHeight * 6,
+      scrub: 1,
+      update: camera.updateProjectionMatrix(),
+      }});
+  
+
+
+}, undefined, function ( error ) {
+
+console.error( error );
+
+});
+
   
 
   loader.load("./src/new.glb", (gltf) => {
@@ -1202,7 +1229,7 @@ $(videoContainer).on('click', function(e) {
 
 scene_anim = gsap.timeline();
 
-scene_anim.to([camera.position, cameraCenter, ], { y: "-=10", scrollTrigger: {
+scene_anim.to([camera.position, cameraCenter, ], { y: "-=10.15", scrollTrigger: {
 
 trigger: ".about",
 start: 0,
@@ -1233,9 +1260,9 @@ scene_anim.to([
 
 ], { count: 1000, scrollTrigger: {
   trigger: ".about",
-  start: window.innerHeight - window.innerHeight / 7.5,
+  start: window.innerHeight - window.innerHeight / 5,
   end: window.innerHeight,
-  scrub: 5,
+  scrub: 2,
   update: camera.updateProjectionMatrix(),
   }});
 
@@ -1254,7 +1281,7 @@ scene_anim.to([
     trigger: ".about",
     start: window.innerHeight + window.innerHeight / 5,
     end: window.innerHeight * 1.5,
-    scrub: 3,
+    scrub: 2,
     update: camera.updateProjectionMatrix(),
     }});
 
@@ -1461,7 +1488,13 @@ layer.addEventListener('click', (e)=> {
 
 /* TOKEN ANIMATION */
 
-
+scene_anim.to('.tokenContainer', { top: "75%", scrollTrigger: {
+  trigger: ".services",
+  start: window.innerHeight * 2,
+  end: window.innerHeight * 3,
+  scrub: 1,
+  update: camera.updateProjectionMatrix(),
+  }});
 
 
 
