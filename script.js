@@ -111,7 +111,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
   function init() {
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 100 );
+    camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 20 );
     camera.position.z = 4;
     cameraCenter.x = camera.position.x;
     cameraCenter.y = camera.position.y;
@@ -170,7 +170,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
   // Materials
   //const particlematerial = new THREE.MeshBasicMaterial( {  color:  0x00ecff00, wireframe: true } );
-  const texture = new THREE.TextureLoader().load('./src/ice.png');
+  const texture = new THREE.TextureLoader().load('./src/iceTexture.png');
   const textureAlpha = new THREE.TextureLoader().load('./src/alpha.png');
   const particlesMaterial = new THREE.PointsMaterial({size: 0.25, map: texture, alphaMap: textureAlpha, alphaTest: 0.25, transparent: false});
   
@@ -722,19 +722,42 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
     
 
   });
-  var cubeModel;
+  var modelCurve;
+
+
   
   loader.load("./src/cubeModel.glb", (gltf) => {
 
-      cubeModel = gltf.scene.clone();
+      modelCurve = gltf.scene.children[0].clone();
+    
+      
 
-      cubeModel.position.set(0, -10.5, -5);
-      cubeModel.scale.set(.5, .5, .5);
+      modelCurve.position.set(0, -11.5, -20);
+      modelCurve.scale.set(2, 2, 2);
 
-      scene.add( cubeModel );
-
-      scene_anim.to(cubeModel.rotation, { y: "+=" + Math.PI * 6, scrollTrigger: {
+      //scene.add( cubeModel );
+      scene.add( modelCurve );
+    
+      scene_anim.to(modelCurve.rotation, { y: "+=" + Math.PI * 3.96, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
+      trigger: ".projects",
+      start: window.innerHeight * 3,
+      end: window.innerHeight * 6,
+      scrub: 1,
+      update: camera.updateProjectionMatrix(),
+      }});
+
+      scene_anim.to(modelCurve.position, { z: -4.5, scrollTrigger: {
+        // , gltf.scene.children[1].position, gltf.scene.children[2].position
+      trigger: ".services",
+      start: window.innerHeight * 2,
+      end: window.innerHeight * 2.5,
+      scrub: 1,
+      update: camera.updateProjectionMatrix(),
+      }});
+
+
+      scene_anim.to(modelCurve.position, { y: "+=" + 3.5, scrollTrigger: {
       trigger: ".projects",
       start: window.innerHeight * 3,
       end: window.innerHeight * 6,
@@ -749,6 +772,9 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 console.error( error );
 
 });
+
+
+
 
   
 
@@ -959,7 +985,7 @@ console.error( error );
 
     // LINES
   
-const materialWhite = new THREE.LineDashedMaterial( { color : 0xffffff, linewidth: 10 } );
+const materialWhite = new THREE.LineDashedMaterial( { color : 0xffffff, linewidth: 1 } );
 
     // LEFT
 // sub curve left, first from top
@@ -971,7 +997,7 @@ const curveSub1 = new THREE.SplineCurve( [
   new THREE.Vector2( -3.5, -4.2 )
 ] );
 
-const pointsSub1 = curveSub1.getPoints( 1000 );
+const pointsSub1 = curveSub1.getPoints( 50 );
 const geometrySub1 = new THREE.BufferGeometry().setFromPoints( pointsSub1 );
 geometrySub1.drawRange.start = 0;
 geometrySub1.drawRange.count = 0;
@@ -988,7 +1014,7 @@ const curveSub2 = new THREE.SplineCurve( [
   new THREE.Vector2( -3.5, -5.15 )
 ] );
 
-const pointsSub2 = curveSub2.getPoints( 1000 );
+const pointsSub2 = curveSub2.getPoints( 50 );
 const geometrySub2 = new THREE.BufferGeometry().setFromPoints( pointsSub2 );
 geometrySub2.drawRange.start = 0;
 geometrySub2.drawRange.count = 0;
@@ -1006,7 +1032,7 @@ const curveSub3 = new THREE.SplineCurve( [
   new THREE.Vector2( -3.5, -6.2 )
 ] );
 
-const pointsSub3 = curveSub3.getPoints( 1000 );
+const pointsSub3 = curveSub3.getPoints( 50 );
 const geometrySub3 = new THREE.BufferGeometry().setFromPoints( pointsSub3 );
 geometrySub3.drawRange.start = 0;
 geometrySub3.drawRange.count = 0;
@@ -1023,7 +1049,7 @@ const curveSub4 = new THREE.SplineCurve( [
   new THREE.Vector2( -3.5, -7.4 )
 ] );
 
-const pointsSub4 = curveSub4.getPoints( 1000 );
+const pointsSub4 = curveSub4.getPoints( 50 );
 const geometrySub4 = new THREE.BufferGeometry().setFromPoints( pointsSub4 );
 geometrySub4.drawRange.start = 0;
 geometrySub4.drawRange.count = 0;
@@ -1043,7 +1069,7 @@ const curveSub5 = new THREE.SplineCurve( [
   new THREE.Vector2( 3.5, -4.2 )
 ] );
 
-const pointsSub5 = curveSub5.getPoints( 1000 );
+const pointsSub5 = curveSub5.getPoints( 50 );
 const geometrySub5 = new THREE.BufferGeometry().setFromPoints( pointsSub5 );
 geometrySub5.drawRange.start = 0;
 geometrySub5.drawRange.count = 0;
@@ -1061,7 +1087,7 @@ const curveSub6 = new THREE.SplineCurve( [
   new THREE.Vector2( 3.5, -5.15 )
 ] );
 
-const pointsSub6 = curveSub6.getPoints( 1000 );
+const pointsSub6 = curveSub6.getPoints( 50 );
 const geometrySub6 = new THREE.BufferGeometry().setFromPoints( pointsSub6 );
 geometrySub6.drawRange.start = 0;
 geometrySub6.drawRange.count = 0;
@@ -1079,7 +1105,7 @@ const curveSub7 = new THREE.SplineCurve( [
   new THREE.Vector2( 3.5, -6.2 )
 ] );
 
-const pointsSub7 = curveSub7.getPoints( 1000 );
+const pointsSub7 = curveSub7.getPoints( 50 );
 const geometrySub7 = new THREE.BufferGeometry().setFromPoints( pointsSub7 );
 geometrySub7.drawRange.start = 0;
 geometrySub7.drawRange.count = 0;
@@ -1097,7 +1123,7 @@ const curveSub8 = new THREE.SplineCurve( [
   new THREE.Vector2( 3.5, -7.4 )
 ] );
 
-const pointsSub8 = curveSub8.getPoints( 1000 );
+const pointsSub8 = curveSub8.getPoints( 50 );
 const geometrySub8 = new THREE.BufferGeometry().setFromPoints( pointsSub8 );
 geometrySub8.drawRange.start = 0;
 geometrySub8.drawRange.count = 0;
@@ -1126,7 +1152,7 @@ scene.add(subLine8);
   composer.addPass( renderPass );
 
 
-  var unRealBloomPass = new UnrealBloomPass({ x: 800, y: 600}, 0.5, 0.5, 0.1);
+  var unRealBloomPass = new UnrealBloomPass({ x: 800, y: 600}, 0.5, 0, 0.1);
 
   var glitchPass = new GlitchPass();
     composer.addPass( renderPass );
@@ -1258,11 +1284,11 @@ scene_anim.to([
   subLine7.geometry.drawRange,
   subLine8.geometry.drawRange,
 
-], { count: 1000, scrollTrigger: {
+], { count: 50, scrollTrigger: {
   trigger: ".about",
-  start: window.innerHeight - window.innerHeight / 5,
+  start: window.innerHeight - window.innerHeight / 4,
   end: window.innerHeight,
-  scrub: 2,
+  scrub: 1,
   update: camera.updateProjectionMatrix(),
   }});
 
@@ -1279,9 +1305,9 @@ scene_anim.to([
   
   ], { count: 0, scrollTrigger: {
     trigger: ".about",
-    start: window.innerHeight + window.innerHeight / 5,
+    start: window.innerHeight + window.innerHeight / 4,
     end: window.innerHeight * 1.5,
-    scrub: 2,
+    scrub: 1,
     update: camera.updateProjectionMatrix(),
     }});
 
@@ -1493,7 +1519,6 @@ scene_anim.to('.tokenContainer', { top: "75%", scrollTrigger: {
   start: window.innerHeight * 2,
   end: window.innerHeight * 3,
   scrub: 1,
-  update: camera.updateProjectionMatrix(),
   }});
 
 

@@ -821,6 +821,7 @@ h2 {
     width: 100%;
     left: 37.5%;
     top: 87.5%;
+    display: none;  
 }
 
 #tokenLayer {
@@ -869,7 +870,8 @@ h2 {
     background-color: rgb(1, 1, 73, 0.75);
     transition: 0.4s all;
     top: 5%;
-    clip-path: circle(0%);  
+    clip-path: circle(0%);
+   
 }
 
 .projects {
