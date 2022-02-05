@@ -191,7 +191,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
   circle1 = new THREE.Mesh(circleGeometry1, circleMaterial);
   scene.add(circle1);
-  circle1.position.set(-2.5, -9.25, 0);
+  circle1.position.set(-2.5, -10, 0);
   circle1.scale.set(0.1, 0.1, 0.1);
   circle1.material.transparent = true;
   circle1.material.opacity = 1;
@@ -201,7 +201,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
    
     circle2 = new THREE.Mesh(circleGeometry2, circleMaterial);
     scene.add(circle2);
-   circle2.position.set(-2.5, -9.25, 0);
+   circle2.position.set(-2.5, -10, 0);
    circle2.scale.set(0.05, 0.05, 0.05);
    circle2.material.transparent = true;
    circle2.material.opacity = 1;
@@ -211,7 +211,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
    
     circle3 = new THREE.Mesh(circleGeometry3, circleMaterial);
   //  scene.add(circle3);
-   circle3.position.set(-2.5, -9.25, 0);
+   circle3.position.set(-2.5, -10, 0);
    circle3.scale.set(0.025, 0.025, 0.025);
    circle3.material.transparent = true;
    circle3.material.opacity = 1;
@@ -221,7 +221,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   
     circle4 = new THREE.Mesh(circleGeometry4, circleMaterial);
     scene.add(circle4);
-    circle4.position.set(-2.5, -9.25, 0);
+    circle4.position.set(-2.5, -10, 0);
     circle4.scale.set(0.075, 0.075, 0.075);
     circle4.material.transparent = true;
     circle4.material.opacity = 1;
@@ -232,7 +232,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
    circle5 = new THREE.Mesh(circleGeometry5, circleMaterial);
    scene.add(circle5);
-  circle5.position.set(2.5, -9.25, 0);
+  circle5.position.set(2.5, -10, 0);
   circle5.scale.set(0.1, 0.1, 0.1);
   circle5.material.transparent = true;
   circle5.material.opacity = 1;
@@ -242,7 +242,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   
     circle6 = new THREE.Mesh(circleGeometry6, circleMaterial);
     scene.add(circle6);
-   circle6.position.set(2.5, -9.25, 0);
+   circle6.position.set(2.5, -10, 0);
    circle6.scale.set(0.05, 0.05, 0.05);
    circle6.material.transparent = true;
    circle6.material.opacity = 1;
@@ -252,7 +252,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   
     circle7 = new THREE.Mesh(circleGeometry7, circleMaterial);
    //  scene.add(circle7);
-   circle7.position.set(2.5, -9.25, 0);
+   circle7.position.set(2.5, -10, 0);
    circle7.scale.set(0.025, 0.025, 0.025);
    circle7.material.transparent = true;
    circle7.material.opacity = 1;
@@ -262,7 +262,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   
     circle8 = new THREE.Mesh(circleGeometry8, circleMaterial);
     scene.add(circle8);
-    circle8.position.set(2.5, -9.25, 0);
+    circle8.position.set(2.5, -10, 0);
     circle8.scale.set(0.075, 0.075, 0.075);
     circle8.material.transparent = true;
     circle8.material.opacity = 1;
@@ -712,7 +712,25 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
       leftMainText.position,
       rightMainText.position,
       
-    ], { y: -7.75, scrollTrigger: {
+    ], { y: -8, scrollTrigger: {
+    trigger: ".services",
+    start: window.innerHeight,
+    end: window.innerHeight * 2,
+    scrub: 1,
+    update: camera.updateProjectionMatrix(),
+    }});
+
+    scene_anim.to([
+      circle1.position,
+      circle2.position,
+      circle3.position,
+      circle4.position,
+      circle5.position,
+      circle6.position,
+      circle7.position,
+      circle8.position
+      
+    ], { y: -9.5, scrollTrigger: {
     trigger: ".services",
     start: window.innerHeight,
     end: window.innerHeight * 2,
