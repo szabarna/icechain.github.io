@@ -291,7 +291,7 @@ section {
 
 #videoButton {
     position: absolute;
-    padding: 2.5px 85px 0 0;
+    padding: 5px 85px 0 0;
     height: fit-content;
     width: fit-content;
     display: flex;
@@ -299,7 +299,7 @@ section {
     justify-content: center;
     cursor: pointer;
     left: 0;
-    top: 92.5%;
+    top: 22em;
     background-color: transparent;
     color: white;
     /*box-shadow: 0 0 0 100px var(--light-blue-color) inset,
@@ -307,41 +307,41 @@ section {
                 */
     transition: 0.1s;
     border: 2px solid white;
-    border-radius: 7.5px;
+    border-radius: 2.5em;
     
 }
 
 #otherButton {
     position: absolute;
-    padding:  6.975px 85px 0 0;
+    padding:  7px 85px 0 0;
     height: fit-content;
     width: fit-content;
     display: flex;
     align-content: center;
     justify-content: center;
     cursor: pointer;
-    top: 92.5%;
-    left: 50%;
+    top: 22em;
+    left: 17.5em;
     background-color: transparent;
     color: white;
-    box-shadow: 0 0 0 100px var(--light-blue-color) inset,
+    box-shadow: 0 0 0 100px rgb(0, 91, 177) inset,
                 0 0 0 0 var(--light-blue-color);
                 
     transition: 0.1s;
     border: 2px solid white;
-    border-radius: 7.5px;
+    border-radius: 2.5em;
     
     
 }
 
 #otherButton:hover {
-    box-shadow: 0 0 100px 7.5px var(--light-blue-color) inset,
-                0 0 100px 7.5px var(--light-blue-color);
+    box-shadow: 0 0 100px 7.5px rgb(0, 91, 177) inset,
+                0 0 100px 7.5px rgb(0, 91, 177);
 }
 
 #videoButton:hover {
-    box-shadow: 0 0 100px 7.5px var(--light-blue-color) inset,
-                0 0 100px 7.5px var(--light-blue-color);
+    box-shadow: 0 0 100px 7.5px rgb(0, 91, 177) inset,
+                0 0 100px 7.5px rgb(0, 91, 177);
 }
 
 #videoText {
@@ -393,7 +393,7 @@ section {
 #dataText {
     display: flex;
     position: relative;
-    font-size: 10em;
+    font-size: 5.25em;
     font-family: 'Alegreya Sans SC', sans-serif;
 
     font-family: 'Economica', sans-serif;
@@ -408,6 +408,7 @@ section {
 
     font-family: 'Teko', sans-serif;
     left: 0%;
+    top: 0.5em;
     /*
     -webkit-text-stroke: 3px black;
     -webkit-text-fill-color: white;
@@ -419,7 +420,7 @@ section {
 #yoursText {
     display: flex;
     position: absolute;
-    font-size: 11em;
+    font-size: 2.25em;
     font-family: 'Alegreya Sans SC', sans-serif;
 
     font-family: 'Economica', sans-serif;
@@ -435,8 +436,8 @@ section {
     font-family: 'Teko', sans-serif;
     width: fit-content;
     height: fit-content;
-    top: 22.5%;
-    left: -2.4%;
+    top: 72.5%;
+    left: 0%;
     white-space: nowrap;
     user-select: none;
     text-shadow: 0 0 50px rgb(31, 127, 165);
