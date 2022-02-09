@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&family=Economica:wght@700&family=Inconsolata:wght@500&family=Lato:wght@300&family=Montagu+Slab:wght@600&family=Roboto:wght@300;400&family=Teko:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&family=Economica:wght@700&family=Inconsolata:wght@500&family=Lato:wght@300&family=Montagu+Slab:wght@600&family=Oxygen:wght@700&family=Roboto:wght@300;400&family=Teko:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&family=Economica:wght@700&family=Inconsolata:wght@500&family=Lato:wght@300&family=Montagu+Slab:wght@600&family=Oxygen:wght@700&family=Roboto:wght@300;400&family=Teko:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&family=Arimo&family=Economica:wght@700&family=Inconsolata:wght@500&family=Lato:wght@300&family=Montagu+Slab:wght@600&family=Oxygen:wght@700&family=Roboto:wght@300;400&family=Teko:wght@300&display=swap');
 :root{
     scrollbar-color: rgb(49, 197, 255) rgb(46, 46, 46) !important;
     scrollbar-width: 10px !important;
@@ -32,7 +32,7 @@ body {
     align-items: center;
 }
 .logo {
-    left: 22.5%;
+    left: 11em;
     font-size: 2em;
     color: white;
     font-family: 'Alegreya Sans SC', sans-serif;
@@ -45,7 +45,7 @@ body {
 }
 
 #logo {
-    left: 12.5%;
+    left: 9.25em;
     font-family: sans-serif;
     cursor: pointer;
 }
@@ -230,7 +230,6 @@ section {
 .container {
     height: 100vh;
 }
-
 
 
         /*       HOME SECTION        */
@@ -439,6 +438,7 @@ section {
     height: fit-content;
     top: 72.5%;
     left: 0%;
+    opacity: 0.8;
     white-space: nowrap;
     user-select: none;
     text-shadow: 0 0 50px rgb(31, 127, 165);
@@ -714,7 +714,7 @@ h2 {
     height: 25%;
     padding: 1.5em 0;
     display: flex;
-    left: -150%;  
+    left: 0%;  
 }
 #ecoContainer2 {
     
@@ -723,7 +723,7 @@ h2 {
     padding: 10px;
     display: flex;
     margin: 4em 0px;
-    left: -150%; 
+    left: 0%; 
 }
 #ecoContainer3 {
    
@@ -732,7 +732,7 @@ h2 {
     padding: 10px;
     display: flex;
     margin: 4em 0px;
-    left: -150%; 
+    left: 0%; 
 }
 #ecoContainer4 {
    
@@ -741,7 +741,7 @@ h2 {
     padding: 1.5em;
     display: flex;
     margin: 4em 0px;
-    left: -150%; 
+    left: 0%; 
 }
 
 /* RIGHT */
@@ -751,7 +751,7 @@ h2 {
     height: 25%;
     padding: 1.5em 0;
     display: flex;
-    right: -150%;
+    right: 0%;
 }
 #ecoContainer6 {
     padding: 10px;
@@ -759,7 +759,7 @@ h2 {
     height: 25%;
     display: flex;
     margin: 4em 0px;
-    right: -150%;
+    right: 0%;
 }
 #ecoContainer7 {
     padding: 10px;
@@ -767,7 +767,7 @@ h2 {
     height: 25%;
     display: flex;
     margin: 4em 0px;
-    right: -150%;
+    right: 0%;
 }
 #ecoContainer8 {
     padding: 10px;
@@ -775,7 +775,7 @@ h2 {
     height: 25%;
     display: flex;
     margin: 4em 0px;
-    right: -150%;
+    right: 0%;
 }
 
 .textHolder {
@@ -815,70 +815,214 @@ h2 {
 
 .services {
     position: relative;
+    height: 150vh;
 }
 
-.tokenContainer {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    left: 37.5%;
-    top: 87.5%;
-    display: none;  
-}
-
-#tokenLayer {
+#overview {
     position: absolute;
-    width: 30em;
-    height: 20em;
-    background-color: rgb(34, 202, 214, 0.1);
-    border-radius: 50%;
-    transition: 0.2s all;
-    cursor: pointer;
-    z-index: 1;
-    box-shadow: 0 0 300px 0px rgb(0, 110, 255) inset;
-    filter: drop-shadow(0 0 300px rgb(0, 132, 255)) 
-}
+    top: 1.75em;
+    left: 4.75em;
+    font-size: 4em;
+    user-select: none;
 
-#tokenLayer:hover {
-    box-shadow: 0 0 5px 0px rgb(0, 94, 206, 1) inset;
-    filter: drop-shadow(0 0 1px white) 
-}
-
-#tokenLayer:hover #tokenButton {
-    transform: scaleX(1.1)
-}
-
-#tokenButton {
-        position: relative;
-        top: 7.5%;
-        left: 23%;
-        width: fit-content;
-        height: fit-content;
-        padding: 10px;
-        background: transparent;
-        cursor: pointer;
-        border: none;
-        transition: all 0.4s; 
-}
-
-#tokenText {
-    font-size: 1.75em;
-}
-
-#tokenLayerMain {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(1, 1, 73, 0.75);
-    transition: 0.4s all;
-    top: 5%;
-    clip-path: circle(0%);
+    font-family: 'Arimo', sans-serif;
    
 }
 
-.projects {
-    height: 300vh;
+
+#icetoken {
+    position: absolute;
+    top: 5em;
+    left: 7em;
+    font-size: 2.75em;
+    user-select: none;
+    color: rgb(0, 0, 255);
+    font-family: 'Arimo', sans-serif;
+  
 }
+
+#tokenText {
+    position: absolute;
+    top: 15em;
+    left: 14.2em;
+    font-size: 1.35em;
+    user-select: none;
+
+    font-family: 'Arimo', sans-serif;
+  
+}
+
+.tokenContainer {
+    position: absolute;
+    width: 15em;
+    height: 7em;
+    background-color: #001D3B;
+    top: 30em;
+    border-radius: 10em;
+    text-align: center;
+    border: 2px solid #2463BE;
+}
+
+.tokenContainer:hover {
+    box-shadow: 0 0 30px 0 #2463BE;
+}
+
+#t1 {
+    left: 19.2em;
+}
+
+#t2 {
+    left: 41.2em;
+}
+
+#t3 {
+    left: 63em;
+}
+
+#t4 {
+    left: 85em;
+}
+
+.blueText {
+    position: relative;
+    color: rgb(0, 0, 255);
+    font-family: 'Teko', sans-serif;
+    font-size: 2em;
+    bottom: 0.5em;
+    user-select: none;
+}
+
+.normalText {
+    position: relative;
+    font-family: 'Teko', sans-serif;
+    font-size: 1.75em;
+    bottom: 1.75em;
+    user-select: none;
+}
+
+#tooBig {
+    font-size: 1.6em;
+    bottom: 2em;
+    line-height: 1em;
+}
+
+#utilityContainer {
+    position: absolute;
+    width: 82em;
+    height: 5em;
+    background-color: #001D3B;
+    left: 19em;
+    top: 47.5em;
+    border-radius: 2.5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+#utility {
+    position: relative;
+    top: 16em;
+    font-size: 2.5em;
+    color: rgb(0, 247, 255);
+    font-family: 'Arimo', sans-serif;
+    user-select: none;
+}
+
+.utilityContent {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+}
+
+.img {
+    position: relative;
+    top: 1.1em;
+}
+
+.uT {
+    position: relative;
+    top: 0.3em;
+    margin-left: 1em;
+    user-select: none;
+    font-size: 1.25em;
+}
+
+#img1 {
+    left: 2.25em;
+}
+
+#uT1 {
+    left: 1.75em;
+}
+
+#img4 {
+    right: 2.25em;
+}
+
+#uT4 {
+    right: 2.25em;
+}
+
+
+
+/* ROADMAP */
+.projects {
+    height: 400vh;
+}
+
+/* NFT Marketplace */ 
+
+.marketSection {
+   background: transparent linear-gradient(180deg, #000524 0%, #000524 100%) 0% 0% no-repeat padding-box;
+   border-top: 1px solid red;
+   border-bottom: 1px solid red;
+}
+
+.marketContainer {
+    width: 70vw;
+    height: 82.5vh;
+    background: #1B1D23 0% 0% no-repeat padding-box;
+    border-radius: 2.5em;
+    position: relative;
+    top: 7.5em;
+
+}
+
+.contact {
+    background: transparent linear-gradient(180deg, #000524 0%, #000000 100%) 0% 0% no-repeat padding-box;
+}
+
+.sliderContainer {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    top: 12.5em;
+    display: flex;
+    left: 17.1em;
+}
+
+
+li {
+    list-style: none;
+    left: 7.5em;
+}
+
+.marketContent {
+    border-radius: 1.35em;
+    background-color: red;
+    width: 15em;
+    height: 20em;
+    position: relative;
+    top: 7.5em;
+}
+
+#market1 {
+    height: 30em;
+    top: 0em;
+    border-radius: 3em;
+}
+
+
 
 
 

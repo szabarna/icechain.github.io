@@ -200,11 +200,11 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
     tokenModel.position.set(0, -15, 0 );
     tokenModel.rotation.set(0, Math.PI * 1.5, 0);
 
-    scene_anim.to(tokenModel.position, { y: -9.35, scrollTrigger: {
+    scene_anim.to(tokenModel.position, { y: -9.9, scrollTrigger: {
       // , gltf.scene.children[1].position, gltf.scene.children[2].position
-    trigger: ".about",
-    start: window.innerHeight,
-    end: window.innerHeight * 2,
+    trigger: ".services",
+    start: window.innerHeight * 2,
+    end: window.innerHeight * 2.5,
     scrub: 1,
     update: camera.updateProjectionMatrix(),
     }});
@@ -236,7 +236,8 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
       //scene.add( cubeModel );
       scene.add( modelCurve );
-    
+      
+      /*
       scene_anim.to(modelCurve.rotation, { y: "+=" + Math.PI * 4, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".projects",
@@ -263,7 +264,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
-  
+      */
 
 
 }, undefined, function ( error ) {
@@ -343,7 +344,6 @@ console.error( error );
 
     });
 
- 
 
     // LINES
   
@@ -617,7 +617,7 @@ $(videoContainer).on('click', function(e) {
 
 scene_anim = gsap.timeline();
 
-scene_anim.to([camera.position, cameraCenter, ], { y: "-=10.15", scrollTrigger: {
+scene_anim.to([camera.position, cameraCenter ], { y: "-=10.15", scrollTrigger: {
 
 trigger: ".about",
 start: 0,
@@ -626,14 +626,28 @@ scrub: 1,
 update: camera.updateProjectionMatrix(),
 }});
 
+
+
+
+
 scene_anim.to([camera.position ], { z: "-=5", scrollTrigger: {
 
   trigger: ".services",
-  start: window.innerHeight * 2,
-  end: window.innerHeight * 2.5,
+  start: window.innerHeight * 2.5,
+  end: window.innerHeight * 3.5,
   scrub: 1,
   update: camera.updateProjectionMatrix(),
   }});
+
+
+scene_anim.to([camera.position, cameraCenter ] , { y: "-=5", scrollTrigger: {
+
+    trigger: ".marketSection",
+    start: window.innerHeight * 6.5,
+    end: window.innerHeight * 7,
+    scrub: 1,
+    update: camera.updateProjectionMatrix(),
+    }});
 
 
 scene_anim.to([ 
@@ -845,43 +859,31 @@ const leftLayer = document.querySelector('#leftEco');
 const rightLayer = document.querySelector('#rightEco');
 
 
-scene_anim.to([
-  leftLayer.children[0].children[0],
-  leftLayer.children[0].children[1],
-  leftLayer.children[0].children[2],
-  leftLayer.children[0].children[3]
-], { "left": "0%", duration: 0.4, ease: Sine});
-
-scene_anim.to([
-  rightLayer.children[0].children[0],
-  rightLayer.children[0].children[1],
-  rightLayer.children[0].children[2],
-  rightLayer.children[0].children[3],
-
-], { "right": "0%", duration: 0.4, ease: Sine});
-
 
 
 
 /* TOKEN SECTION */
 
-let tokenCounter = 2;
-let layer = document.querySelector('#tokenLayer');
 
-layer.addEventListener('click', (e)=> {
-    if(tokenCounter % 2 == 0) gsap.to('#tokenLayerMain', { 'clip-path': 'circle(100%)', duration: 0.25, ease: Sine });
-    else gsap.to('#tokenLayerMain', { 'clip-path': 'circle(0%)', duration: 0.25, ease: Sine });
-    tokenCounter+=1;
-});
 
 /* TOKEN ANIMATION */
 
-scene_anim.to('.tokenContainer', { top: "75%", scrollTrigger: {
+let utilityContainer = document.querySelector('#utilityContainer');
+let tokens = document.querySelectorAll('.tokenContainer');
+
+
+scene_anim.to(['#utilityContainer', '.tokenContainer', '#utility'], { top: 2, scrollTrigger: {
   trigger: ".services",
   start: window.innerHeight * 2,
-  end: window.innerHeight * 3,
+  end: window.innerHeight * 2.5,
   scrub: 1,
   }});
+
+
+
+
+/* MARKETPLACE SECTION */
+
 
 
 
