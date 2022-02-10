@@ -133,7 +133,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   //controls.rotateSpeed = 5.0;
   //controls.panSpeed = 1.0;
   renderer.setSize( window.innerWidth, window.innerHeight );
-  renderer.setPixelRatio( 2 );
+  renderer.setPixelRatio( window.devicePixelRatio  );
   
   
   //document.body.appendChild( renderer.domElement );
@@ -224,6 +224,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
 
   var modelCurve;
+  
 
   loader.load("./src/cubeModel.glb", (gltf) => {
 
@@ -296,24 +297,23 @@ console.error( error );
         
        
           // RIGHT MAIN CUBE
-
+        
         setInterval(()=> {
           if(mainCube.children[0].material.opacity != 0 && cubeRotation ) {
             gsap.to([
+              
               mainCube.children[0].rotation,
               mainCube.children[1].rotation,
-              mainCube.children[2].rotation],
+              mainCube.children[2].rotation
+              
+            
+            ],
             { y: "+=0.075", ease:Linear.easeNone });
             }
-            /*
-            if(window.pageYOffset === window.innerHeight * 2) {
-              gsap.to(circle1.rotation, { z: "+=0.5", ease: Linear.easeNone})
-              gsap.to(circle5.rotation, { z: "-=0.5", ease: Linear.easeNone})
-          }
-          */
+        
 
         }, 100); //  x: "+=0.075"
-
+        
 
         scene_anim.to([mainCube.children[0].position, mainCube.children[1].position, mainCube.children[2].position], { y: -3, x: "-=1.25", z: "-=12", scrollTrigger: {
           // , gltf.scene.children[1].position, gltf.scene.children[2].position
@@ -609,13 +609,13 @@ $(videoContainer).on('click', function(e) {
  // ScrollTrigger animations
  
  ScrollTrigger.defaults({
-  immediateRender: false,
+  immediateRender: true,
   ease: "power1.inOut",
-  scrub: true,
+  scrub: 1,
  // anticipatePin: true,
 });
 
-scene_anim = gsap.timeline();
+
 
 scene_anim.to([camera.position, cameraCenter ], { y: "-=10.15", scrollTrigger: {
 
