@@ -133,7 +133,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   //controls.rotateSpeed = 5.0;
   //controls.panSpeed = 1.0;
   renderer.setSize( window.innerWidth, window.innerHeight );
-  renderer.setPixelRatio( window.devicePixelRatio  );
+  renderer.setPixelRatio( window.devicePixelRatio );
   
   
   //document.body.appendChild( renderer.domElement );
@@ -238,7 +238,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
       //scene.add( cubeModel );
       scene.add( modelCurve );
       
-      /*
+      
       scene_anim.to(modelCurve.rotation, { y: "+=" + Math.PI * 4, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".projects",
@@ -265,7 +265,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
-      */
+      
 
 
 }, undefined, function ( error ) {
