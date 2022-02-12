@@ -498,8 +498,7 @@ h2 {
     height: 100%;
     margin-top: 5%;
     left: 2%;
-    background-color: rgb(1, 1, 73, 0);
-    backdrop-filter: blur( 2.5px );
+    background-color: transparent;
 }
 
 #rightEco {
@@ -509,7 +508,7 @@ h2 {
     margin-top: 5%;
     height: 100%;
     right: 2%;
-    background-color: rgb(1, 1, 73, 0);
+    background-color: transparent;
     
 }
 
