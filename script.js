@@ -5,12 +5,11 @@ import { EffectComposer } from './three.js-r134-min/examples/jsm/postprocessing/
 import { RenderPass } from './three.js-r134-min/examples/jsm/postprocessing/RenderPass.js';
 import { GlitchPass } from './three.js-r134-min/examples/jsm/postprocessing/GlitchPass.js';
 import { UnrealBloomPass } from './three.js-r134-min/examples/jsm/postprocessing/UnrealBloomPass.js';
+import { ShaderPass } from './three.js-r134-min/examples/jsm/postprocessing/ShaderPass.js';
+import { FXAAShader } from './three.js-r134-min/examples/jsm/shaders/FXAAShader.js';
 import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
 import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
-
-
-window.onload = function() {
 
 
 
@@ -112,7 +111,7 @@ window.onload = function() {
   
     // Then pass it to the renderer constructor
       renderer = new THREE.WebGLRenderer({
-     // preserveDrawingBuffer: true,
+      preserveDrawingBuffer: true,
       powerPreference: "high-performance",
       canvas: canvReference,
       
@@ -267,10 +266,19 @@ console.error( error );
   
 
   loader.load("./src/new.glb", (gltf) => {
-
+        let offsetX = null;
         mainCube = gltf.scene.clone();
-    
-        mainCube.position.set(1.25, -1.8, 0);
+   
+        if(window.innerWidth < 1600) {
+          offsetX = 1.5;
+          mainCube.position.set(1.5, -1.8, 0);
+        }
+
+        else {
+          offsetX = 1.25;
+          mainCube.position.set(1.25, -1.8, 0);
+        }
+        
         // y -1.8
         mainCube.children[0].rotation.set(Math.PI * 0.125, 0, 0);
         mainCube.children[1].rotation.set(Math.PI * 0.125, 0, 0);
@@ -303,7 +311,7 @@ console.error( error );
         }, 100); //  x: "+=0.075"
         
 
-        scene_anim.to([mainCube.children[0].position, mainCube.children[1].position, mainCube.children[2].position], { y: -3, x: "-=1.25", z: "-=12", scrollTrigger: {
+        scene_anim.to([mainCube.children[0].position, mainCube.children[1].position, mainCube.children[2].position], { y: -3, x: "-=" + offsetX, z: "-=12", scrollTrigger: {
           // , gltf.scene.children[1].position, gltf.scene.children[2].position
         trigger: ".home",
         start: 0,
@@ -501,8 +509,14 @@ scene.add(subLine8);
   const renderPass = new RenderPass( scene, camera );
   composer.addPass( renderPass );
 
+  const fxaaPass = new ShaderPass( FXAAShader );
 
-  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.5, 0, 0.1);
+  fxaaPass.material.uniforms[ 'resolution' ].value.x = 1 / ( window.innerWidth * window.devicePixelRatio );
+	fxaaPass.material.uniforms[ 'resolution' ].value.y = 1 / ( window.innerHeight * window.devicePixelRatio );
+
+  composer.addPass( fxaaPass );
+
+  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.5, 0.5, 0.1);
 
   var glitchPass = new GlitchPass();
     composer.addPass( renderPass );
@@ -669,7 +683,7 @@ scene_anim.to([
   
   ], { count: 0, scrollTrigger: {
     trigger: ".about",
-    start: window.innerHeight,
+    start: window.innerHeight + window.innerHeight / 4,
     end: window.innerHeight * 1.35,
     scrub: 1,
     update: camera.updateProjectionMatrix(),
@@ -873,5 +887,4 @@ scene_anim.to(['#utilityContainer', '.tokenContainer', '#utility'], { top: 2, sc
 /* MARKETPLACE SECTION */
 
 
-}
 

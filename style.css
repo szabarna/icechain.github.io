@@ -1024,3 +1024,108 @@ li {
 
 
 
+/* MEDIA QUERYS FOR LAPTOP */
+
+@media screen and (min-width: 1024px){
+    .logo {
+        left: 8.75em;
+    }
+
+    #logo {
+        left: 5.5em;
+    }
+
+    .linkContainer {
+        left: 28em;
+    }
+
+    #ecoContainer1 {
+        width: 17em;
+        margin-top: 0.75em;
+    }
+
+    #ecoContainer2 {
+        width: 15.75em;
+        margin-top: 1em;
+    }
+
+    #ecoContainer3 {
+        width: 15.75em;
+        margin-top: -3em;
+    }
+
+    #ecoContainer4 {
+        width: 14.25em;
+        margin-top: -3em;
+    }
+
+    #ecoContainer5 {
+        width: 17em;
+        margin-top: 1.25em;
+        margin-left: -2em;
+    }
+
+    #ecoContainer6 {
+        width: 16em;
+        margin-top: 1em;
+        margin-left: -2em;
+    }
+
+    #ecoContainer7 {
+        width: 16em;
+        margin-top: -3em;
+        margin-left: -2em;
+    }
+
+    #ecoContainer8 {
+        width: 16em;
+        margin-top: -3em;
+        margin-left: -2em;
+    }
+
+    #overview {
+        left: 3.75em;
+        top: 1.2em;
+
+    }
+
+    #icetoken {
+        left: 5.5em;
+        top: 4em;
+    }
+
+    #tokenText {
+        left: 11.2em;
+        top: 12.5em;
+    }
+
+   #t1 {
+       left: 15em;
+       top: 23em;
+   }
+
+   #t2 {
+        left: 32.5em;
+        top: 23em;
+    }
+
+    #t3 {
+        left: 50em;
+        top: 23em;
+    }
+
+    #t4 {
+        left: 67.5em;
+        top: 23em;
+    }
+
+    #utilityContainer {
+        top: 37.5em;
+        left: 11.5em;
+    }
+
+    #utility {
+       top: 12.2em;
+    }
+
+}
