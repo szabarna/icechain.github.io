@@ -1,8 +1,6 @@
 import * as THREE from "./three.js-r134-min/build/three.module.js";
 import { TrackballControls } from './three.js-r134-min/examples/jsm/controls/TrackballControls.js';
 import { GLTFLoader } from './three.js-r134-min/examples/jsm/loaders/GLTFLoader.js';
-import { FontLoader } from './three.js-r134-min/examples/jsm/loaders/FontLoader.js';
-import { TextGeometry } from './three.js-r134-min/examples/jsm/geometries/TextGeometry.js';
 import { EffectComposer } from './three.js-r134-min/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from './three.js-r134-min/examples/jsm/postprocessing/RenderPass.js';
 import { GlitchPass } from './three.js-r134-min/examples/jsm/postprocessing/GlitchPass.js';
@@ -11,6 +9,8 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
 import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
 
+
+window.onload = function() {
 
 
 
@@ -75,17 +75,6 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   var mouse = new THREE.Vector2();
   var scene_anim = gsap.timeline();
   var subLine1, subLine2, subLine3, subLine4, subLine5, subLine6, subLine7, subLine8;
-  var circle1, circle2, circle3, circle4, circle5, circle6, circle7, circle8;
-  var leftCube1, leftCube2, leftCube3, leftCube4, leftCube5;
-  var rightCube1, rightCube2, rightCube3, rightCube4, rightCube5;
-  var leftText1, leftText2, leftText3, leftText4, leftText5;
-  var leftSubText1, leftSubText2, leftSubText3, leftSubText4, leftSubText5;
-  var rightText1, rightText2, rightText3, rightText4, rightText5;
-  var rightSubText1, rightSubText2, rightSubText3, rightSubText4, rightSubText5;
-  var leftLine1, leftLine2, leftLine3, leftLine4, leftLine5;
-  var rightLine1, rightLine2, rightLine3, rightLine4, rightLine5;
-  var leftMainCube, rightMainCube;
-  var leftMainText, rightMainText;
   var mainCube;
   var stats;
   var cubeRotation = true;
@@ -123,10 +112,9 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   
     // Then pass it to the renderer constructor
       renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      preserveDrawingBuffer: true,
+     // preserveDrawingBuffer: true,
       powerPreference: "high-performance",
-      canvas: canvReference
+      canvas: canvReference,
       
   });
  // controls = new TrackballControls(camera, renderer.domElement);
@@ -136,8 +124,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   renderer.setPixelRatio( window.devicePixelRatio );
   
   
-  //document.body.appendChild( renderer.domElement );
-
+ // document.body.appendChild( renderer.domElement );
 
   addStatsObject();
 
@@ -194,7 +181,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   loader.load('./src/tokenModel.glb', (gltf) => {
 
     tokenModel = gltf.scene.clone();
-    
+    tokenModel.frustumCulled = false;
     
 
     tokenModel.position.set(0, -15, 0 );
@@ -229,7 +216,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   loader.load("./src/cubeModel.glb", (gltf) => {
 
       modelCurve = gltf.scene.children[0].clone();
-    
+      modelCurve.frustumCulled = false;
       
 
       modelCurve.position.set(0, -11.5, -20);
@@ -282,11 +269,13 @@ console.error( error );
   loader.load("./src/new.glb", (gltf) => {
 
         mainCube = gltf.scene.clone();
+    
         mainCube.position.set(1.25, -1.8, 0);
         // y -1.8
         mainCube.children[0].rotation.set(Math.PI * 0.125, 0, 0);
         mainCube.children[1].rotation.set(Math.PI * 0.125, 0, 0);
         mainCube.children[2].rotation.set(Math.PI * 0.125, 0, 0);
+        
         mainCube.children[0].material = gltf.scene.children[0].material.clone();
         mainCube.children[1].material = gltf.scene.children[1].material.clone();
         mainCube.children[2].material = gltf.scene.children[2].material.clone();
@@ -294,7 +283,6 @@ console.error( error );
         mainCube.children[1].material.transparent = true;
         mainCube.children[2].material.transparent = true;
        
-        
        
           // RIGHT MAIN CUBE
         
@@ -514,7 +502,7 @@ scene.add(subLine8);
   composer.addPass( renderPass );
 
 
-  var unRealBloomPass = new UnrealBloomPass({ x: 800, y: 600}, 0.5, 0, 0.1);
+  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.5, 0, 0.1);
 
   var glitchPass = new GlitchPass();
     composer.addPass( renderPass );
@@ -565,7 +553,7 @@ function onDocumentMouseMove(event) {
       composer.render();
       stats.update()
     
-     //render();
+    // render();
  
   }
 
@@ -681,8 +669,8 @@ scene_anim.to([
   
   ], { count: 0, scrollTrigger: {
     trigger: ".about",
-    start: window.innerHeight + window.innerHeight / 4,
-    end: window.innerHeight * 1.5,
+    start: window.innerHeight,
+    end: window.innerHeight * 1.35,
     scrub: 1,
     update: camera.updateProjectionMatrix(),
     }});
@@ -885,6 +873,5 @@ scene_anim.to(['#utilityContainer', '.tokenContainer', '#utility'], { top: 2, sc
 /* MARKETPLACE SECTION */
 
 
+}
 
-
- 

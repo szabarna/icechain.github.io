@@ -283,7 +283,6 @@ section {
     left: 0;
     background-color: rgb(1, 1, 73);
     opacity: 0.275;
-    backdrop-filter: blur( 2.5px );
     box-shadow: 0 8px 12px 0 rgba( 31, 38, 135, 0.37 ),
                 0 -8px 12px 0 rgba( 31, 38, 135, 0.37 );
 
@@ -511,7 +510,6 @@ h2 {
     height: 100%;
     right: 2%;
     background-color: rgb(1, 1, 73, 0);
-    backdrop-filter: blur( 2.5px );
     
 }
 
