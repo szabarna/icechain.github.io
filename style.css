@@ -21,6 +21,10 @@ body {
     padding: 0;
     margin: 0;
     overflow-x: hidden;
+    
+}
+
+html {
     overscroll-behavior: none;
 }
 
@@ -1138,4 +1142,10 @@ li {
         overflow-x: hidden;
     }
 
+}
+
+.node {
+    background-color: transparent;
+    max-height: 100vh;
+    background-color: rgb(0, 0, 255, 0.1);
 }

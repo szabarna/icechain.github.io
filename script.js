@@ -218,7 +218,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
       modelCurve.frustumCulled = false;
       
 
-      modelCurve.position.set(0, -11.5, -20);
+      modelCurve.position.set(0, -11.5, -25);
       modelCurve.scale.set(2, 2, 2);
 
       //scene.add( cubeModel );
@@ -228,26 +228,26 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
       scene_anim.to(modelCurve.rotation, { y: "+=" + Math.PI * 4, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".projects",
-      start: window.innerHeight * 3,
-      end: window.innerHeight * 6,
+      start: window.innerHeight * 4.5,
+      end: window.innerHeight * 7.5,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
-
+      
       scene_anim.to(modelCurve.position, { z: -4.5, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: window.innerHeight * 2,
-      end: window.innerHeight * 2.5,
+      start: window.innerHeight * 4,
+      end: window.innerHeight * 4.5,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
-
+        
 
       scene_anim.to(modelCurve.position, { y: "+=" + 3.5, scrollTrigger: {
       trigger: ".projects",
-      start: window.innerHeight * 3,
-      end: window.innerHeight * 6,
+      start: window.innerHeight * 4.5,
+      end: window.innerHeight * 7.5,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
@@ -632,21 +632,11 @@ update: camera.updateProjectionMatrix(),
 
 
 
-scene_anim.to([camera.position ], { z: "-=5", scrollTrigger: {
+scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
 
-  trigger: ".services",
-  start: window.innerHeight * 2.5,
-  end: window.innerHeight * 3.5,
-  scrub: 1,
-  update: camera.updateProjectionMatrix(),
-  }});
-
-
-scene_anim.to([camera.position, cameraCenter ] , { y: "-=5", scrollTrigger: {
-
-    trigger: ".marketSection",
-    start: window.innerHeight * 6.5,
-    end: window.innerHeight * 7,
+    trigger: ".node",
+    start: window.innerHeight * 2.5,
+    end: window.innerHeight * 3.5,
     scrub: 1,
     update: camera.updateProjectionMatrix(),
     }});
@@ -683,7 +673,7 @@ scene_anim.to([
   
   ], { count: 0, scrollTrigger: {
     trigger: ".about",
-    start: window.innerHeight + window.innerHeight / 4,
+    start: window.innerHeight,
     end: window.innerHeight * 1.35,
     scrub: 1,
     update: camera.updateProjectionMatrix(),
