@@ -12,6 +12,10 @@
     --light-blue-color: rgb(49, 197, 255);
   }
 
+img {
+    pointer-events: none;
+    user-select: none;
+}
 body {
     box-sizing: border-box;
     padding: 0;
@@ -211,7 +215,8 @@ a:hover:after {
 */
 .header-container {
     position: fixed;
-    width: 100%;
+    width: 100vw;
+    height: fit-content;
     background-color: rgb(0, 10, 49, 1);
     z-index: 5;
     align-items: center;
@@ -228,7 +233,7 @@ section {
 }
 
 .container {
-    height: 100vh;
+    height: clamp(100vh, 100vh, 100vh);
 }
 
 
@@ -1026,7 +1031,7 @@ li {
 
 /* MEDIA QUERYS FOR LAPTOP */
 
-@media screen and (min-width: 1024px){
+@media screen and (max-width: 1024px){
     .logo {
         left: 8.75em;
     }
