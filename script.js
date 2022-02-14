@@ -640,7 +640,7 @@ scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
     }});
 
 
-scene_anim.to([camera.position, cameraCenter ], { y: "-=2.5", scrollTrigger: {
+scene_anim.to([camera.position, cameraCenter ], { y: "-=3", scrollTrigger: {
 
       trigger: ".projects",
       start: window.innerHeight * 7.75,
