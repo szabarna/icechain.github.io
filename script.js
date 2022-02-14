@@ -630,8 +630,6 @@ update: camera.updateProjectionMatrix(),
 
 
 
-
-
 scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
 
     trigger: ".node",
@@ -640,6 +638,16 @@ scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
     scrub: 1,
     update: camera.updateProjectionMatrix(),
     }});
+
+
+scene_anim.to([camera.position, cameraCenter ], { y: "-=2.5", scrollTrigger: {
+
+      trigger: ".projects",
+      start: window.innerHeight * 7.75,
+      end: window.innerHeight * 8.5,
+      scrub: 1,
+      update: camera.updateProjectionMatrix(),
+      }});   
 
 
 scene_anim.to([ 
@@ -730,7 +738,7 @@ document.addEventListener('scroll', (e)=> {
           return;
     }
 
-    else if((window.scrollY / window.innerHeight) >= 2.975 && (window.scrollY / window.innerHeight) <= 3.025 || (window.scrollY / window.innerHeight) === 3) {
+    else if((window.scrollY / window.innerHeight) >= 4.475 && (window.scrollY / window.innerHeight) <= 4.525 || (window.scrollY / window.innerHeight) === 3) {
       if(!(project.classList.contains("active"))){
       
       
@@ -745,7 +753,7 @@ document.addEventListener('scroll', (e)=> {
       return;
     }
 
-    else if((window.scrollY / window.innerHeight) >= 5.975 && (window.scrollY / window.innerHeight) <= 6.025 || (window.scrollY / window.innerHeight) === 4) {
+    else if((window.scrollY / window.innerHeight) >= 9.075 && (window.scrollY / window.innerHeight) <= 9.525 || (window.scrollY / window.innerHeight) === 4) {
       if(!(contact.classList.contains("active"))){
            
 

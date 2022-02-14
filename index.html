@@ -11,21 +11,21 @@
 </head>
     <body>
         <canvas id="webgl"></canvas>
-        
+        <div class="header-container">
+            <ul class="list">
+                <li class="logo"><span id="ice">ice</span><span id="chain">chain</span></li>
+                <li id="logo"><a href="#home"><img src="./src/ice.png" alt="logo" width="64" height="64" /></a></li>
+                    <div class="linkContainer">
+                <li><a href="#home" id="homeLink" class="li active">Home</a></li>
+                <li><a href="#about" id="aboutLink" class="li">Ecosystem</a></li>
+                <li><a href="#services" id="servicesLink" class="li">Token Details</a></li>
+                <li><a href="#projects" id="projectLink" class="li">Roadmap</a></li>
+                <li><a href="#contact" id="contactLink" class="li">Team</a></li>
+                    </div>
+            </ul>
+    </div> 
         <div class="container">
-            <div class="header-container">
-                    <ul class="list">
-                        <li class="logo"><span id="ice">ice</span><span id="chain">chain</span></li>
-                        <li id="logo"><a href="#home"><img src="./src/ice.png" alt="logo" width="64" height="64" /></a></li>
-                            <div class="linkContainer">
-                        <li><a href="#home" id="homeLink" class="li active">Home</a></li>
-                        <li><a href="#about" id="aboutLink" class="li">Ecosystem</a></li>
-                        <li><a href="#services" id="servicesLink" class="li">Token Details</a></li>
-                        <li><a href="#projects" id="projectLink" class="li">Roadmap</a></li>
-                        <li><a href="#contact" id="contactLink" class="li">Team</a></li>
-                            </div>
-                    </ul>
-            </div>  
+        
         <section class="home" id="home">
             <div id="videoContainer">
                 <video id="video" src="./src/ice.mp4" controls></video>
@@ -206,13 +206,16 @@
         </section>
 
         <section class="node" id="node">
+            <img src="./src/node.png" alt="" id="nodeImg" width="768px" height="590px">
         </section>
         
         <section class="projects" id="projects">
         </section>
 
         <section class="marketSection" id="marketSection">
-
+            <div id="marketContainer">
+          <img src="./src/market.png" id="marketImg" alt="" width="1024px" height="961px">
+        </div>
         </section>
 
         <section class="contact" id="contact">
