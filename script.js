@@ -644,7 +644,7 @@ scene_anim.to([camera.position, cameraCenter ], { y: "-=2.5", scrollTrigger: {
 
       trigger: ".projects",
       start: window.innerHeight * 7.75,
-      end: window.innerHeight * 8.5,
+      end: window.innerHeight * 9,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});   
