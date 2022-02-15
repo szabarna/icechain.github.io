@@ -561,8 +561,6 @@ function onDocumentMouseMove(event) {
     camera.aspect = aspectRatio;
     camera.updateProjectionMatrix();
 
-    canvReference.style.height = HEIGHT;
-
 
     //render();
     composer.render();
