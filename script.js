@@ -41,7 +41,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
         // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
         $('html, body').animate({
           scrollTop: $(hash).offset().top
-        }, 800, function(){
+        }, 700, function(){
   
           // Add hash (#) to URL when done scrolling (default click behavior)
           window.location.hash = hash;
@@ -553,6 +553,15 @@ function onDocumentMouseMove(event) {
     aspectRatio = WIDTH / HEIGHT;
     camera.aspect = aspectRatio;
     camera.updateProjectionMatrix();
+
+    let sections = document.querySelectorAll('section');
+
+    for(let i = 0; i < sections.length; i++) {
+          if(sections[i].classList.contains('projects')) sections[i].style.height = HEIGHT * 4;
+          else if(sections[i].classList.contains('services')) sections[i].style.height = HEIGHT * 1.5;
+          else sections[i].style.height = HEIGHT;
+          console.log("i work")
+        }
 
     //render();
     composer.render();
