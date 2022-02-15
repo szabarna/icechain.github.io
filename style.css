@@ -10,6 +10,7 @@
     --dark-blue-nonTransparent-color: rgb(0, 10, 49, 1);
     --dark-blue-color: rgb(0, 10, 49, 0.8);
     --light-blue-color: rgb(49, 197, 255);
+
   }
 
 img {
@@ -172,6 +173,7 @@ section {
 
 .container {
     scroll-snap-type: y mandatory;
+
 }
 
 
@@ -1019,6 +1021,13 @@ h2 {
 
 @media screen and (max-width: 1024px){
 
+    body {
+        min-height: -webkit-fill-avaliable;
+    }
+
+    section {
+        min-height: -webkit-fill-avaliable;
+    }
 
     .logo {
         left: 8.75em;
