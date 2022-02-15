@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>IceChain - Ice</title>
-    <link rel="icon" href="./src/ice.png" type="image/icon type">
+    <link rel="icon" href="./src/ice.png" >
     <link rel="stylesheet" href="./style.css">      
              
 </head>
@@ -13,15 +13,15 @@
         <canvas id="webgl"></canvas>
         <div class="header-container">
             <ul class="list">
-                <li class="logo"><span id="ice">ice</span><span id="chain">chain</span></li>
-                <li id="logo"><a href="#home"><img src="./src/ice.png" alt="logo" width="64" height="64" /></a></li>
-                    <div class="linkContainer">
-                <li><a href="#home" id="homeLink" class="li active">Home</a></li>
-                <li><a href="#about" id="aboutLink" class="li">Ecosystem</a></li>
-                <li><a href="#services" id="servicesLink" class="li">Token Details</a></li>
-                <li><a href="#projects" id="projectLink" class="li">Roadmap</a></li>
-                <li><a href="#contact" id="contactLink" class="li">Team</a></li>
-                    </div>
+                    <li class="logo"><span id="ice">ice</span><span id="chain">chain</span></li>
+                    <li id="logo"><a href="#home"><img src="./src/ice.png" alt="logo" width="64" height="64" /></a></li>
+                <div class="linkContainer">
+                    <li><a href="#home" id="homeLink" class="li active">Home</a></li>
+                    <li><a href="#about" id="aboutLink" class="li">Ecosystem</a></li>
+                    <li><a href="#services" id="servicesLink" class="li">Token Details</a></li>
+                    <li><a href="#projects" id="projectLink" class="li">Roadmap</a></li>
+                    <li><a href="#contact" id="contactLink" class="li">Team</a></li>
+                </div>
             </ul>
     </div> 
         <div class="container">
@@ -34,7 +34,7 @@
             </div>
             <div class="landingText">
                 <h1 id="dataText"><span id="data">Protect yourself with NFT‘s</span></h1>
-                <h2 id="yoursText">NFT Marketplace for digital and physical products or assets</h1>
+                <h2 id="yoursText">NFT Marketplace for digital and physical products or assets</h2>
                 <button id="videoButton"><p id="videoText">Explainer Video</p></button>
                 <button id="otherButton"><p id="otherText">Private Sale</p></button>
             </div>  
@@ -206,7 +206,7 @@
         </section>
 
         <section class="node" id="node">
-            <img src="./src/node.png" alt="" id="nodeImg" width="768px" height="590px">
+            <img src="./src/node.png" alt="" id="nodeImg" width="768" height="590">
         </section>
         
         <section class="projects" id="projects">
@@ -219,7 +219,13 @@
                 <h3 id="marketH3">Are you ready for the next drop?</h3>
                 <button id="marketB1"><a href="" id="marketB1A1">NFT Launchpad</a></button>
                 <button id="marketB2"><a href="#" id="marketB1A2">Claim a Whitelist Spot</a></button>
-          <img src="./src/market.png" id="marketImg" alt="" width="768px" height="721px">
+            <div id="marketDivContainer">
+                <div class="marketDivs" id="mD1"></div>
+                <div class="marketDivs" id="mD2"></div>
+                <div class="marketDivs" id="mD3"></div>
+                <div class="marketDivs" id="mD4"></div>
+                <div class="marketDivs" id="mD5"></div>
+            </div>
         </div>
         </section>
 
@@ -227,7 +233,7 @@
         </section>
         </div>
         
-    </div>
+   
         <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
         <script src="./gsap-public/minified/gsap.min.js"></script>
         <script type="module" src="./script.js"></script>  

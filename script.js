@@ -564,10 +564,9 @@ function onDocumentMouseMove(event) {
     let sections = document.querySelectorAll('section');
 
     for(let i = 0; i < sections.length; i++) {
-          if(sections[i].classList.contains('projects')) sections[i].style.height = HEIGHT * 4;
-          else if(sections[i].classList.contains('services')) sections[i].style.height = HEIGHT * 1.5;
-          else sections[i].style.height = HEIGHT;
-          console.log("i work")
+          if(sections[i].classList.contains('projects')) sections[i].style.height = HEIGHT * 4 + 60;
+          else if(sections[i].classList.contains('services')) sections[i].style.height = HEIGHT * 1.5 + 60;
+          else sections[i].style.height = HEIGHT + 60;
         }
 
     //render();
@@ -660,7 +659,7 @@ scene_anim.to([camera.position, cameraCenter ], { x: "+=7.5", scrollTrigger: {
 
       trigger: ".marketSection",
       start: window.innerHeight * 7.75,
-      end: window.innerHeight * 8.25,
+      end: window.innerHeight * 8.5,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});   

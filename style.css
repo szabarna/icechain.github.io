@@ -936,70 +936,91 @@ h2 {
 
 
 #marketContainer {
-    position: relative;
-    width: 80em;
+    position: absolute;
+    width: 82.5em;
     height: 100vh;
     background: rgb(0,0,0);
      /*background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(40,41,46,1) 47%, rgba(32,32,32,1) 100%);  */
      background-color: transparent; 
-    top: 3.75em;
     border-radius: 0.75em;
     overflow: hidden;
 
 }
 
 
-#marketImg {
-    position: absolute;
-    bottom: 2em;
-    left: 24.75em;
-    filter: drop-shadow(0 0 0.1em rgb(78, 70, 179));
-    transition: all 0.4s;
-}
+
 
 #marketH1 {
-    font-size: 3.5em;
+    font-size: 4.25em;
     font-family: 'Arimo', sans-serif;
     position: relative;
-    top: 3em;
-    left: 4.55em;
+    top: 1.5em;
 }
 
 #marketH2 {
-    font-size: 1.5em;
+    font-size: 2em;
     font-family: 'Arimo', sans-serif;
     position: relative;
-    top: 0.5em;
-    left: 10.75em;
+    top: -3em;
     color: rgb(47, 199, 67)
 }
 
 #marketH3 {
-    font-size: 1.25em;
+    font-size: 1.75em;
     font-family: 'Arimo', sans-serif;
     position: relative;
-    top: 5em;
-    left: 13em;
+    top: -0.5em;
+    left: 0.5em;
 }
 
 #marketB1 {
-    padding: 0.75em;
+    padding: 1.25em 1.75em;
     border-radius: 2.5em;
     background-color: rgb(1, 1, 182);
     border: none;
     position: relative;
-    top: 8.5em;
-    left: 19em;
+    top: -1em;
+    font-size: 1.02em;
+    font-family: 'Arimo', sans-serif;
 }
 
 #marketB2 {
-    padding: 0.75em;
+    padding: 1.25em 1.75em;
     border-radius: 2.5em;
-    background-color: rgb(1, 1, 182);
+    background-color: rgb(30, 30, 31);
     border: none;
     position: relative;
-    top: 8.5em;
-    left: 20em;
+    top: -1em;
+    left: 2em;
+    font-size: 1em;
+    font-family: 'Arimo', sans-serif;
+}
+
+#marketDivContainer {
+        position: absolute;
+        width: 100em;
+        height: 30em;
+        top: 25em;
+        display: flex;
+        justify-content: space-between;
+}
+
+.marketDivs {
+    position: relative;
+    height: 27.5em;
+    width: 20em;
+    background-color: blue;
+    display: flex;
+    align-self: center;
+    border-radius: 2.5em;
+    margin-right: 2em;
+    cursor: pointer;
+}
+
+#mD4 {
+    height: 35em;
+    bottom: 3.75em;
+    border: 5px solid white;
 }
 
 
