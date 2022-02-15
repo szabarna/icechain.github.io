@@ -561,13 +561,8 @@ function onDocumentMouseMove(event) {
     camera.aspect = aspectRatio;
     camera.updateProjectionMatrix();
 
-    let sections = document.querySelectorAll('section');
+    canvReference.style.height = HEIGHT;
 
-    for(let i = 0; i < sections.length; i++) {
-          if(sections[i].classList.contains('projects')) sections[i].style.height = HEIGHT * 4 + 60;
-          else if(sections[i].classList.contains('services')) sections[i].style.height = HEIGHT * 1.5 + 60;
-          else sections[i].style.height = HEIGHT + 60;
-        }
 
     //render();
     composer.render();
