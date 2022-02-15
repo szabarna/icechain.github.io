@@ -11,7 +11,7 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
 import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
 
-
+window.onload = function() {
 
 /*     setting active class for nav  */
 
@@ -133,11 +133,14 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   const particlesGeometry = new THREE.BufferGeometry();
   const particlesGeometryLower = new THREE.BufferGeometry();
   const particlesGeometryLowerLower = new THREE.BufferGeometry();
-  const particlesCnt = 150;
+  const particlesGeometryLowerLowerRight = new THREE.BufferGeometry();
+  const particlesCnt = 300;
 
   const posArray = new Float32Array(particlesCnt * 3);
   const posArrayLower = new Float32Array(particlesCnt * 3);
   const posArrayLowerLower = new Float32Array(particlesCnt * 3);
+  const posArrayLowerLowerRight = new Float32Array(particlesCnt * 3);
+
 
   for(let i = 0; i < particlesCnt * 3; i++){
       posArray[i] = (Math.random() - 0.5) * 10
@@ -150,11 +153,15 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
     posArrayLowerLower[i] = posArrayLower[i];
     posArrayLowerLower[i+1] = posArrayLower[i+1] - 5;
     posArrayLowerLower[i+2] = posArrayLower[i+2];
+    posArrayLowerLowerRight[i] = posArrayLower[i] + 7.5;
+    posArrayLowerLowerRight[i+1] = posArrayLower[i+1] - 5;
+    posArrayLowerLowerRight[i+2] = posArrayLower[i+2];
   }
 
   particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
   particlesGeometryLower.setAttribute('position', new THREE.BufferAttribute(posArrayLower, 3));
   particlesGeometryLowerLower.setAttribute('position', new THREE.BufferAttribute(posArrayLowerLower, 3));
+  particlesGeometryLowerLowerRight.setAttribute('position', new THREE.BufferAttribute(posArrayLowerLowerRight, 3));
 
   // Materials
   //const particlematerial = new THREE.MeshBasicMaterial( {  color:  0x00ecff00, wireframe: true } );
@@ -169,8 +176,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
   
   const particlesMeshLower = new THREE.Points(particlesGeometryLower, particlesMaterial);
   const particlesMeshLowerLower = new THREE.Points(particlesGeometryLowerLower, particlesMaterial);
-
-
+  const particlesMeshLowerLowerRight = new THREE.Points(particlesGeometryLowerLowerRight, particlesMaterial);
 
     
   // Cube Object 
@@ -501,6 +507,7 @@ scene.add(subLine8);
    scene.add( particlesMesh );
    scene.add( particlesMeshLower );
    scene.add( particlesMeshLowerLower );
+   scene.add( particlesMeshLowerLowerRight );
    
   
   gsap.to([particlesMesh.material, particlesMeshLower.material,particlesMeshLowerLower.material,], {size: 0.015, duration: 5, ease: Sine});
@@ -671,7 +678,7 @@ scene_anim.to([
 
 ], { count: 50, scrollTrigger: {
   trigger: ".about",
-  start: window.innerHeight - window.innerHeight / 4,
+  start: window.innerHeight - window.innerHeight * 0.35,
   end: window.innerHeight,
   scrub: 1,
   update: camera.updateProjectionMatrix(),
@@ -688,10 +695,10 @@ scene_anim.to([
     subLine7.geometry.drawRange,
     subLine8.geometry.drawRange,
   
-  ], { count: 0, scrollTrigger: {
+  ], { count: 5, scrollTrigger: {
     trigger: ".about",
-    start: window.innerHeight,
-    end: window.innerHeight * 1.35,
+    start: window.innerHeight + window.innerHeight * 0.35,
+    end: window.innerHeight * 1.5,
     scrub: 1,
     update: camera.updateProjectionMatrix(),
     }});
@@ -895,3 +902,4 @@ scene_anim.to(['#utilityContainer', '.tokenContainer', '#utility'], { top: 2, sc
 
 
 
+}
