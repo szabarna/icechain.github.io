@@ -24,10 +24,6 @@ body {
     
 }
 
-html {
-    overscroll-behavior: none;
-}
-
 
 .list {
     position: relative;
@@ -65,6 +61,7 @@ html {
 #chain {
     color: rgb(27, 109, 141);
 }
+
 .linkContainer {
     position: relative;
     width: fit-content;
@@ -74,6 +71,7 @@ html {
     padding: 10px;
     right: -52.5em;
 }
+
 li {
     position: relative;
     margin-right: 0.75em;
@@ -107,39 +105,6 @@ a:nth-child(-n+2) {
     
 }
 
-/*
-a:nth-child(-n+2):before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid white;
-    border-left: 2px solid white;
-    transition: 0.5s;
-    transition-delay: all 1s;
-}
-a:nth-child(-n+1):hover:before {
-    width: 102%;
-    height: 102%;
-}
-a:nth-child(-n+2):after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 10px;
-    height: 10px;
-    border-bottom: 2px solid whitesmoke;
-    border-right: 2px solid whitesmoke;
-    transition: 0.5s;
-}
-a:nth-child(-n+2):hover:after {
-    width: 102%;
-    height: 102%;
-}
-*/
 .active {
     color: var(--light-blue-color) !important;
     
@@ -183,40 +148,6 @@ a:hover:after {
     opacity: 1;
 }
 
-/*
-.active:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid turquoise !important;
-    border-left: 2px solid turquoise !important;
-    transition: 0.5s;
-    transition-delay: all 1s;
-}
-.active:hover:before {
-    width: 102%;
-    height: 102%;
-}
-.active:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 10px;
-    height: 10px;
-    border-bottom: 2px solid turquoise !important;
-    border-right: 2px solid turquoise !important;
-    transition: 0.5s;
-}
-.active:hover:after {
-    width: 102%;
-    height: 102%;
-}
-
-*/
 .header-container {
     position: fixed;
     width: 100vw;
@@ -240,7 +171,6 @@ section {
 
 .container {
     scroll-snap-type: y mandatory;
-    scroll-snap-points-y: repeat(100vh);
 }
 
 
@@ -977,8 +907,18 @@ h2 {
 #uT4 {
     right: 2.25em;
 }
+/* NODE  SECTION*/
 
+.node {
+    height: 100vh;
+    background-color: transparent;
+}
 
+#nodeImg {
+    position: relative;
+    top: 17.5em;
+    filter: drop-shadow(0 0 1em rgb(28, 102, 212)); 
+}
 
 /* ROADMAP */
 
@@ -1178,20 +1118,6 @@ h2 {
        top: 12.2em;
     }
 
-    section {
-        max-height: 100vh;
-    }
-
 }
 
-.node {
-    max-height: 100vh;
-    background-color: transparent;
-}
 
-#nodeImg {
-    position: relative;
-    top: 17.5em;
-    filter: drop-shadow(0 0 1em rgb(28, 102, 212));
-    
-}
