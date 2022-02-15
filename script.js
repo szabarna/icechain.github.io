@@ -50,7 +50,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
     });
   });
 
-
+/*
   $(function(){
     var current = location.pathname;
     $('#nav li a').each(function(){
@@ -61,7 +61,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
         }
     })
 })
-
+*/
   
   /*                       THREEJS                             */
 
@@ -234,7 +234,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
       update: camera.updateProjectionMatrix(),
       }});
       
-      scene_anim.to(modelCurve.position, { z: -4.5, scrollTrigger: {
+      scene_anim.to(modelCurve.position, { z: -4.25, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
       start: window.innerHeight * 4,
@@ -243,7 +243,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
       update: camera.updateProjectionMatrix(),
       }});
         
-
+      
       scene_anim.to(modelCurve.position, { y: "+=" + 3.5, scrollTrigger: {
       trigger: ".projects",
       start: window.innerHeight * 4.5,
@@ -640,11 +640,11 @@ scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
     }});
 
 
-scene_anim.to([camera.position, cameraCenter ], { y: "-=3", scrollTrigger: {
+scene_anim.to([camera.position, cameraCenter ], { x: "+=7.5", scrollTrigger: {
 
-      trigger: ".projects",
+      trigger: ".marketSection",
       start: window.innerHeight * 7.75,
-      end: window.innerHeight * 9,
+      end: window.innerHeight * 8.25,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});   
