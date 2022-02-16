@@ -4,6 +4,6 @@
 
     Structure:
 
-Home(100) -> Ecosystem(100) -> TokenDetails(150) -> Node(100) -> RoadMap(400) -> MarketSection(100) -> Team(100)
-1         -> 2              -> 3.5               -> 4.5       -> 8.5          -> 9.5                -> 10.5
+Home(100) -> Ecosystem(100) -> TokenDetails(100) -> Node(100) -> RoadMap(400) -> MarketSection(100) -> Team(100)
+1         -> 2              -> 3                 -> 4         -> 8            -> 9                  -> 10
 

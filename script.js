@@ -24,44 +24,17 @@ window.onload = function() {
     const project = document.querySelector('#projectLink');
     const contact = document.querySelector('#contactLink');
 
-   // window.location.href = './#home'
-    $(document).ready(function(){
-    // Add smooth scrolling to all links
-    $("a").on('click', function(event) {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+          e.preventDefault();
   
-      // Make sure this.hash has a value before overriding default behavior
-      if (this.hash !== "") {
-        // Prevent default anchor click behavior
-        event.preventDefault();
-  
-        // Store hash
-        var hash = this.hash;
-  
-        // Using jQuery's animate() method to add smooth page scroll
-        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-        $('html, body').animate({
-          scrollTop: $(hash).offset().top
-        }, 700, function(){
-  
-          // Add hash (#) to URL when done scrolling (default click behavior)
-          window.location.hash = hash;
-        });
-      } // End if
-    });
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+          });
+      });
   });
 
-/*
-  $(function(){
-    var current = location.pathname;
-    $('#nav li a').each(function(){
-        var $this = $(this);
-        // if the current path is like this link, make it active
-        if($this.attr('href').indexOf(current) !== -1){
-            $this.addClass('active');
-        }
-    })
-})
-*/
+
   
   /*                       THREEJS                             */
 
@@ -192,7 +165,7 @@ window.onload = function() {
     tokenModel.position.set(0, -15, 0 );
     tokenModel.rotation.set(0, Math.PI * 1.5, 0);
 
-    scene_anim.to(tokenModel.position, { y: -9.9, scrollTrigger: {
+    scene_anim.to(tokenModel.position, { y: -10.5, scrollTrigger: {
       // , gltf.scene.children[1].position, gltf.scene.children[2].position
     trigger: ".services",
     start: window.innerHeight * 2,
@@ -234,8 +207,8 @@ window.onload = function() {
       scene_anim.to(modelCurve.rotation, { y: "+=" + Math.PI * 4, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".projects",
-      start: window.innerHeight * 4.5,
-      end: window.innerHeight * 7.5,
+      start: window.innerHeight * 5,
+      end: window.innerHeight * 8,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
@@ -243,8 +216,8 @@ window.onload = function() {
       scene_anim.to(modelCurve.position, { z: -4.25, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: window.innerHeight * 4,
-      end: window.innerHeight * 4.5,
+      start: window.innerHeight * 4.5,
+      end: window.innerHeight * 5,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
@@ -252,8 +225,8 @@ window.onload = function() {
       
       scene_anim.to(modelCurve.position, { y: "+=" + 3.5, scrollTrigger: {
       trigger: ".projects",
-      start: window.innerHeight * 4.5,
-      end: window.innerHeight * 7.5,
+      start: window.innerHeight * 5,
+      end: window.innerHeight * 8,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
@@ -619,9 +592,10 @@ $(videoContainer).on('click', function(e) {
  // ScrollTrigger animations
  
  ScrollTrigger.defaults({
-  immediateRender: true,
+  immediateRender: false,
   ease: "power1.inOut",
   scrub: 1,
+  scroller: ".container",
  // anticipatePin: true,
 });
 
@@ -641,8 +615,8 @@ update: camera.updateProjectionMatrix(),
 scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
 
     trigger: ".node",
-    start: window.innerHeight * 2.5,
-    end: window.innerHeight * 3.5,
+    start: window.innerHeight * 3,
+    end: window.innerHeight * 4,
     scrub: 1,
     update: camera.updateProjectionMatrix(),
     }});
@@ -651,8 +625,8 @@ scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
 scene_anim.to([camera.position, cameraCenter ], { x: "+=7.5", scrollTrigger: {
 
       trigger: ".marketSection",
-      start: window.innerHeight * 7.75,
-      end: window.innerHeight * 8.5,
+      start: window.innerHeight * 7.75 + 0.5,
+      end: window.innerHeight * 8.5  + 0.5,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});   
@@ -670,14 +644,13 @@ scene_anim.to([
 
 ], { count: 50, scrollTrigger: {
   trigger: ".about",
-  start: window.innerHeight - window.innerHeight * 0.35,
+  start: window.innerHeight - window.innerHeight * 0.5,
   end: window.innerHeight,
   scrub: 1,
   update: camera.updateProjectionMatrix(),
   }});
 
-
-scene_anim.to([ 
+  scene_anim.to([ 
     subLine1.geometry.drawRange,
     subLine2.geometry.drawRange,
     subLine3.geometry.drawRange,
@@ -687,13 +660,16 @@ scene_anim.to([
     subLine7.geometry.drawRange,
     subLine8.geometry.drawRange,
   
-  ], { count: 5, scrollTrigger: {
+  ], { count: 0, scrollTrigger: {
     trigger: ".about",
-    start: window.innerHeight + window.innerHeight * 0.35,
+    start: window.innerHeight + window.innerHeight * 0.5,
     end: window.innerHeight * 1.5,
     scrub: 1,
     update: camera.updateProjectionMatrix(),
     }});
+
+
+
 
   
 
