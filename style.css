@@ -44,11 +44,6 @@ html, body {
     left: 11em;
     font-size: 2em;
     color: white;
-    font-family: 'Alegreya Sans SC', sans-serif;
-    font-family: 'Economica', sans-serif;
-    font-family: 'Lato', sans-serif;
-    font-family: 'Montagu Slab', serif;
-    font-family: 'Roboto', sans-serif;
     font-family: 'Teko', sans-serif;
 
 }
@@ -64,7 +59,7 @@ html, body {
 }
 
 #chain {
-    color: rgb(27, 109, 141);
+    color: #1b6d8d;
 }
 
 .linkContainer {
