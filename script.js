@@ -92,10 +92,10 @@ window.onload = function() {
   
     // Then pass it to the renderer constructor
       renderer = new THREE.WebGLRenderer({
-      preserveDrawingBuffer: true,
       powerPreference: "high-performance",
       canvas: canvReference,
       alpha: true,
+      antialias: true
       
   });
  // controls = new TrackballControls(camera, renderer.domElement);
@@ -161,8 +161,21 @@ window.onload = function() {
   const particlesMeshLowerLowerRight = new THREE.Points(particlesGeometryLowerLowerRight, particlesMaterial);
 
     
-  // Cube Object 
-  const loader = new GLTFLoader();
+  /* LOADING MANAGER */
+  const loadingManager = new THREE.LoadingManager( () => {
+	
+		const loadingScreen = document.getElementById( 'loading-screen' );
+		loadingScreen.classList.add( 'fade-out' );
+		
+		// optional: remove loader from DOM via event listener
+		loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
+		
+	} );
+
+  /* BLENDER IMPORTS */
+  const loader = new GLTFLoader(loadingManager);
+
+
   var tokenModel;
   
   loader.load('./src/tokenModel.glb', (gltf) => {
@@ -194,8 +207,37 @@ window.onload = function() {
     
     });
 
+    var nodeModel;
+
+    loader.load('./src/node.glb', (gltf) => {
+
+      nodeModel = gltf.scene.clone();
+      nodeModel.scale.set(.2, .2, .2)
+      nodeModel.position.set(0, -11, -3.5 - 20);
+
+      scene_anim.to(nodeModel.position , { z: -3.5, scrollTrigger: {
+
+        trigger: ".node",
+        start: window.innerHeight * 3,
+        end: window.innerHeight * 4,
+        scrub: 1,
+        update: camera.updateProjectionMatrix(),
+        }});
 
 
+
+
+      
+  
+      scene.add( nodeModel );
+  
+  
+  
+    } , undefined, function ( error ) {
+  
+      console.error( error );
+      
+      });
 
   var modelCurve;
   
@@ -502,6 +544,10 @@ scene.add(subLine8);
   var glitchPass = new GlitchPass();
     composer.addPass( renderPass );
     composer.addPass( unRealBloomPass );
+
+    
+
+   
     
     // composer.addPass( glitchPass );
   document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -679,6 +725,7 @@ scene_anim.to([
     update: camera.updateProjectionMatrix(),
     }});
 
+    
 
 
 
@@ -731,6 +778,11 @@ scene_anim.to(['#utilityContainer', '.tokenContainer', '#utility'], { top: 2, sc
 
 /* MARKETPLACE SECTION */
 
+function onTransitionEnd( event ) {
+
+	event.target.remove();
+	
+}
 
 
 }
