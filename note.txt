@@ -7,3 +7,17 @@
 Home(100) -> Ecosystem(100) -> TokenDetails(100) -> Node(100) -> RoadMap(400) -> MarketSection(100) -> Team(100)
 1         -> 2              -> 3                 -> 4         -> 8            -> 9                  -> 10
 
+
+
+ ~~   TODO   ~~
+
+ - LOADING SECTION + ANIMATION
+ - VIDEO RESPONSIVENESS
+ - LINKS
+ - UPGRADING TOKEN MODEL AND SECTION
+ - UGRADING Roadmap Model and SECTION
+ - FINISHING NODE SECTION
+ - FINISHING LAST SECTIONS
+ - MAKE ALL RESPONSIVE: HAMBURGER MENU ETC..
+
+

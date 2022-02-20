@@ -145,9 +145,10 @@ li {
     font-weight: 600;
     
 }
-
+/*
 .active {
     color: var(--light-blue-color) !important;
+    opacity: 1;
     
 }
 
@@ -159,11 +160,11 @@ li {
     top: 160%;
     left: 0;
     width: 100%;
-    opacity: 1;
+    opacity: 1 !important;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
 }
-
+*/
 .li:hover {
     color: rgb(49, 197, 255);
     text-shadow: 0px 0px 15px var(--light-blue-color);

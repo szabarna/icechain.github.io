@@ -13,6 +13,7 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
 window.onload = function() {
 
+
 /*     setting active class for nav  */
 
    const container = document.getElementsByClassName("li");
@@ -23,17 +24,24 @@ window.onload = function() {
     const services = document.querySelector('#servicesLink');
     const project = document.querySelector('#projectLink');
     const contact = document.querySelector('#contactLink');
+    
+
+   
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
           e.preventDefault();
-  
+
+
           document.querySelector(this.getAttribute('href')).scrollIntoView({
               behavior: 'smooth'
           });
+          
+          
       });
   });
-
+  
+  
 
   
   /*                       THREEJS                             */
@@ -55,7 +63,7 @@ window.onload = function() {
   
   gsap.registerPlugin(ScrollTrigger);
   init();
-  
+  animate();
 
   function addStatsObject() {
     stats = new Stats();
@@ -534,9 +542,6 @@ function onDocumentMouseMove(event) {
     camera.aspect = aspectRatio;
     camera.updateProjectionMatrix();
 
-
-    //render();
-    composer.render();
 }
   
   
@@ -555,7 +560,7 @@ function onDocumentMouseMove(event) {
   function render() {
     renderer.render( scene, camera );
 }
-animate();
+
 
   // VIDEO JS
 
@@ -668,156 +673,6 @@ scene_anim.to([
     update: camera.updateProjectionMatrix(),
     }});
 
-
-
-
-  
-
-
-
-// Scroll dependent active class for navigation items
-document.addEventListener('scroll', (e)=> {
-
-    if((window.scrollY / window.innerHeight) === 0) {
-      if(!(home.classList.contains("active"))){
-        
-
-        for(let i = 0; i < container.length; i++)  {
-            if(container[i].classList.contains("active")){
-               container[i].classList.remove("active");
-                break;
-              }
-        }
-        home.classList.add("active");
-      }
-      return;
-    }
-    
-    else if((window.scrollY / window.innerHeight) >= 0.975 && (window.scrollY / window.innerHeight) <= 1.025 || (window.scrollY / window.innerHeight) === 1) {
-
-      if(!(about.classList.contains("active"))){
-        for(let i = 0; i < container.length; i++)  {
-            if(container[i].classList.contains("active")) {
-              container[i].classList.remove("active");
-              break;
-            } 
-        }
-        about.classList.add("active");
-      }
-      return;
-    }
-
-    if((window.scrollY / window.innerHeight) >= 1.975 && (window.scrollY / window.innerHeight) <= 2.025 || (window.scrollY / window.innerHeight) === 2) {
-      if(!(services.classList.contains("active"))){
-
-        for(let i = 0; i < container.length; i++)  {
-            if(container[i].classList.contains("active")){
-               container[i].classList.remove("active");
-               break;
-              }
-        }
-          services.classList.add("active");
-      }
-    
-          return;
-    }
-
-    else if((window.scrollY / window.innerHeight) >= 4.475 && (window.scrollY / window.innerHeight) <= 4.525 || (window.scrollY / window.innerHeight) === 3) {
-      if(!(project.classList.contains("active"))){
-      
-      
-        for(let i = 0; i < container.length; i++)  {
-            if(container[i].classList.contains("active")){
-              container[i].classList.remove("active");
-              break;
-            }
-        }
-          project.classList.add("active");
-      }
-      return;
-    }
-
-    else if((window.scrollY / window.innerHeight) >= 9.075 && (window.scrollY / window.innerHeight) <= 9.525 || (window.scrollY / window.innerHeight) === 4) {
-      if(!(contact.classList.contains("active"))){
-           
-
-        for(let i = 0; i < container.length; i++)  {
-
-            if(container[i].classList.contains("active")){
-              container[i].classList.remove("active");
-              break;
-            } 
-        }
-          contact.classList.add("active");
-      }
-      return;
-    }
-
-});
-
-// on refresh check which section we are in
-
-if((window.scrollY / window.innerHeight) === 0) {
-  if(!(home.classList.contains("active"))){
-    for(let i = 0; i < container.length; i++)  {
-        if(container[i].classList.contains("active")){
-           container[i].classList.remove("active");
-            break;
-          }
-    }
-    home.classList.add("active");
-  }
-}
-
-else if((window.scrollY / window.innerHeight) >= 0.9 && (window.scrollY / window.innerHeight) <= 1.1 || (window.scrollY / window.innerHeight) === 1) {
-  if(!(about.classList.contains("active"))){
-    for(let i = 0; i < container.length; i++)  {
-        if(container[i].classList.contains("active")) {
-          container[i].classList.remove("active");
-          break;
-        } 
-    }
-    about.classList.add("active");
-  }
-}
-
-else if((window.scrollY / window.innerHeight) >= 1.9 && (window.scrollY / window.innerHeight) <= 2.1 || (window.scrollY / window.innerHeight) === 2) {
-  if(!(services.classList.contains("active"))){
-    for(let i = 0; i < container.length; i++)  {
-        if(container[i].classList.contains("active")){
-           container[i].classList.remove("active");
-           break;
-          }
-    }
-      services.classList.add("active");
-  }
-}
-
-else if((window.scrollY / window.innerHeight) >= 2.9 && (window.scrollY / window.innerHeight) <= 3.1 || (window.scrollY / window.innerHeight) === 3) {
-  if(!(project.classList.contains("active"))){
-    for(let i = 0; i < container.length; i++)  {
-        if(container[i].classList.contains("active")){
-          container[i].classList.remove("active");
-          break;
-        }
-    }
-      project.classList.add("active");
-  }
-}
-
-else if((window.scrollY / window.innerHeight) >= 5.9 && (window.scrollY / window.innerHeight) <= 6.1 || (window.scrollY / window.innerHeight) === 4) {
-  if(!(contact.classList.contains("active"))){
-    for(let i = 0; i < container.length; i++)  {
-        if(container[i].classList.contains("active")){
-          container[i].classList.remove("active");
-          break;
-        } 
-    }
-      contact.classList.add("active");
-  }
-
-  
-}
 
 
 
