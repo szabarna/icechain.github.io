@@ -571,7 +571,17 @@ var video = document.querySelector('#video');
 video.volume = 0.05;
 
 videoButton.addEventListener('click', (e) => {
-      gsap.to(videoContainer, { 'clip-path': 'circle(100%)', duration: 0.75, ease: Sine})
+      gsap.to(videoContainer, { 'clip-path': 'circle(100%)', duration: 0.75, ease: Sine});
+
+      if(window.innerWidth <= 786) {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.webkitRequestFullscreen) { /* Safari */
+        video.webkitRequestFullscreen();
+      } else if (video.msRequestFullscreen) { /* IE11 */
+        video.msRequestFullscreen();
+      }
+    }
       video.play();
       cubeRotation = false;
       
@@ -587,11 +597,14 @@ document.addEventListener('keydown', (e) => {
 
 $(videoContainer).on('click', function(e) {
   if (e.target !== this) return;
+  
 
   video.pause();
   gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
   cubeRotation = true;
 });
+
+
 
 
  // ScrollTrigger animations
@@ -691,6 +704,8 @@ for(let i = 0; i < textHolders.length; i++) {
         
     });
 }
+
+
 
 
 /* ECOSYSTEM ANIMATION */
