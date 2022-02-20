@@ -5,8 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&family=Economica:wght@700&family=Inconsolata:wght@500&family=Lato:wght@300&family=Montagu+Slab:wght@600&family=Oxygen:wght@700&family=Roboto:wght@300;400&family=Teko:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&family=Arimo&family=Economica:wght@700&family=Inconsolata:wght@500&family=Lato:wght@300&family=Montagu+Slab:wght@600&family=Oxygen:wght@700&family=Roboto:wght@300;400&family=Teko:wght@300&display=swap');
 :root{
-    scrollbar-color: rgb(49, 197, 255) rgb(46, 46, 46) !important;
-    scrollbar-width: 10px !important;
+    scrollbar-color: rgb(49, 145, 255) rgb(46, 46, 46);
     --dark-blue-nonTransparent-color: rgb(0, 10, 49, 1);
     --dark-blue-color: rgb(0, 10, 49, 0.8);
     --light-blue-color: rgb(49, 197, 255);
@@ -78,7 +77,7 @@ html, body {
     font-size: 2em;
     color: white;
     font-family: 'Teko', sans-serif;
-    margin-left: 5em;
+    margin-left: 8.25em;
     align-items: center;
 
 }
@@ -111,7 +110,7 @@ html, body {
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    margin-right: 7.5em;
+    margin-right: 18.25em;
 }
 
 li {
@@ -209,6 +208,7 @@ section {
     overflow-x: hidden;
     height: 100vh;
     overflow-y: scroll;
+    scroll-behavior: smooth;
  
 }
 
@@ -1265,7 +1265,7 @@ h2 {
 and (min-device-width: 1200px) 
 and (max-device-width: 1600px) 
 and (-webkit-min-device-pixel-ratio: 1){
-
+    
     body {
         min-height: -webkit-fill-avaliable;
     }
@@ -1273,7 +1273,7 @@ and (-webkit-min-device-pixel-ratio: 1){
     section {
         min-height: -webkit-fill-avaliable;
     }
-
+    
     #ecoContainer1 {
         width: 17em;
         margin-top: 0.75em;

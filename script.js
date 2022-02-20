@@ -26,7 +26,7 @@ window.onload = function() {
     const contact = document.querySelector('#contactLink');
     
 
-   
+   /*
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -40,7 +40,7 @@ window.onload = function() {
           
       });
   });
-  
+  */
   
 
   
@@ -95,6 +95,7 @@ window.onload = function() {
       preserveDrawingBuffer: true,
       powerPreference: "high-performance",
       canvas: canvReference,
+      alpha: true,
       
   });
  // controls = new TrackballControls(camera, renderer.domElement);
@@ -167,7 +168,7 @@ window.onload = function() {
   loader.load('./src/tokenModel.glb', (gltf) => {
 
     tokenModel = gltf.scene.clone();
-    tokenModel.frustumCulled = false;
+    // tokenModel.frustumCulled = false;
     
 
     tokenModel.position.set(0, -15, 0 );
@@ -199,10 +200,10 @@ window.onload = function() {
   var modelCurve;
   
 
-  loader.load("./src/cubeModel.glb", (gltf) => {
+  loader.load("./src/roadMapModel.glb", (gltf) => {
 
       modelCurve = gltf.scene.children[0].clone();
-      modelCurve.frustumCulled = false;
+      // modelCurve.frustumCulled = false;
       
 
       modelCurve.position.set(0, -11.5, -25);
@@ -252,53 +253,41 @@ console.error( error );
 
   
 
-  loader.load("./src/new.glb", (gltf) => {
+  loader.load("./src/mainCube.glb", (gltf) => {
         let offsetX = null;
-        mainCube = gltf.scene.clone();
+        mainCube = gltf.scene.children[0].clone();
    
         if(window.innerWidth < 1600) {
           offsetX = 1.5;
-          mainCube.position.set(1.5, -1.8, 0);
+          mainCube.position.set(1.5, 0, 0);
         }
 
         else {
           offsetX = 1.25;
-          mainCube.position.set(1.25, -1.8, 0);
+          mainCube.position.set(1.25, 0, 0);
         }
         
         // y -1.8
-        mainCube.children[0].rotation.set(Math.PI * 0.125, 0, 0);
-        mainCube.children[1].rotation.set(Math.PI * 0.125, 0, 0);
-        mainCube.children[2].rotation.set(Math.PI * 0.125, 0, 0);
-        
-        mainCube.children[0].material = gltf.scene.children[0].material.clone();
-        mainCube.children[1].material = gltf.scene.children[1].material.clone();
-        mainCube.children[2].material = gltf.scene.children[2].material.clone();
+
+        mainCube.rotation.set(Math.PI * 0.125, 0, 0);
+        console.log(mainCube)
+        mainCube.material.transparent = true;
         mainCube.children[0].material.transparent = true;
         mainCube.children[1].material.transparent = true;
-        mainCube.children[2].material.transparent = true;
+        mainCube.children[0].material.alphaTest = 0.10;
        
-       
-          // RIGHT MAIN CUBE
-        
-        setInterval(()=> {
+    
           if(mainCube.children[0].material.opacity != 0 && cubeRotation ) {
+
             gsap.to([
               
-              mainCube.children[0].rotation,
-              mainCube.children[1].rotation,
-              mainCube.children[2].rotation
-              
-            
+              mainCube.rotation,
             ],
-            { y: "+=0.075", ease:Linear.easeNone });
+            { duration: 30, y: Math.PI * 2, repeat: -1, ease: "none" });
             }
         
 
-        }, 100); //  x: "+=0.075"
-        
-
-        scene_anim.to([mainCube.children[0].position, mainCube.children[1].position, mainCube.children[2].position], { y: -3, x: "-=" + offsetX, z: "-=12", scrollTrigger: {
+        scene_anim.to(mainCube.position, { y: -4.8, x: "-=" + offsetX, z: "-=12", scrollTrigger: {
           // , gltf.scene.children[1].position, gltf.scene.children[2].position
         trigger: ".home",
         start: 0,
@@ -308,7 +297,11 @@ console.error( error );
         }});
 
         
-        scene_anim.to([mainCube.children[0].material, mainCube.children[1].material, mainCube.children[2].material], { opacity: 0, scrollTrigger: {
+        scene_anim.to([
+          mainCube.material,
+          mainCube.children[0].material,
+          mainCube.children[1].material],
+          { opacity: 0, scrollTrigger: {
           // , gltf.scene.children[1].position, 
         trigger: ".services",
         start: window.innerHeight,
@@ -680,7 +673,7 @@ scene_anim.to([
   
   ], { count: 0, scrollTrigger: {
     trigger: ".about",
-    start: window.innerHeight + window.innerHeight * 0.5,
+    start: window.innerHeight,
     end: window.innerHeight * 1.5,
     scrub: 1,
     update: camera.updateProjectionMatrix(),
