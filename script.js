@@ -1,12 +1,9 @@
 import * as THREE from "./three.js-r134-min/build/three.module.js";
-import { TrackballControls } from './three.js-r134-min/examples/jsm/controls/TrackballControls.js';
 import { GLTFLoader } from './three.js-r134-min/examples/jsm/loaders/GLTFLoader.js';
 import { EffectComposer } from './three.js-r134-min/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from './three.js-r134-min/examples/jsm/postprocessing/RenderPass.js';
 import { GlitchPass } from './three.js-r134-min/examples/jsm/postprocessing/GlitchPass.js';
 import { UnrealBloomPass } from './three.js-r134-min/examples/jsm/postprocessing/UnrealBloomPass.js';
-import { ShaderPass } from './three.js-r134-min/examples/jsm/postprocessing/ShaderPass.js';
-import { FXAAShader } from './three.js-r134-min/examples/jsm/shaders/FXAAShader.js';
 import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
 import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
@@ -47,6 +44,7 @@ window.onload = function() {
   /*                       THREEJS                             */
 
   var renderer,  camera, HEIGHT, WIDTH, aspectRatio, tl4, controls, composer;
+  var ambientLight;
   var scene = null;
   var canvReference = null;
   var cameraCenter = new THREE.Vector3();
@@ -102,7 +100,9 @@ window.onload = function() {
   //controls.rotateSpeed = 5.0;
   //controls.panSpeed = 1.0;
   renderer.setSize( window.innerWidth, window.innerHeight );
-  renderer.setPixelRatio( window.devicePixelRatio );
+  if(window.innerWidth >= 1200) renderer.setPixelRatio( 2 );
+  else renderer.setPixelRatio( window.devicePixelRatio );
+
   
   
  // document.body.appendChild( renderer.domElement );
@@ -209,17 +209,43 @@ window.onload = function() {
 
     var nodeModel;
 
+  
+
     loader.load('./src/node.glb', (gltf) => {
 
       nodeModel = gltf.scene.clone();
       nodeModel.scale.set(.2, .2, .2)
       nodeModel.position.set(0, -11, -3.5 - 20);
 
+      nodeModel.children[0].children[0].material = new THREE.MeshBasicMaterial({ map: gltf.scene.children[0].children[0].material.map, side: THREE.DoubleSide});
+      nodeModel.children[1].children[0].material = new THREE.MeshBasicMaterial({ map: gltf.scene.children[1].children[0].material.map, side: THREE.DoubleSide});
+      nodeModel.children[0].material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true });
+      nodeModel.children[1].material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: false });
+     renderer.initTexture(nodeModel.children[0].children[0].material.map);
+     renderer.initTexture(nodeModel.children[1].children[0].material.map);
+
+     /*
+     gsap.to([
+              
+      nodeModel.rotation,
+    ],
+    { duration: 30, y: Math.PI * 2, repeat: -1, ease: "none" });
+    */
+
       scene_anim.to(nodeModel.position , { z: -3.5, scrollTrigger: {
 
         trigger: ".node",
         start: window.innerHeight * 3,
         end: window.innerHeight * 4,
+        scrub: 1,
+        update: camera.updateProjectionMatrix(),
+        }});
+
+        scene_anim.to(nodeModel.rotation, { y: "-=" + Math.PI * 2, scrollTrigger: {
+          // , gltf.scene.children[1].position, gltf.scene.children[2].position
+        trigger: ".projects",
+        start: window.innerHeight * 5,
+        end: window.innerHeight * 8,
         scrub: 1,
         update: camera.updateProjectionMatrix(),
         }});
@@ -248,7 +274,7 @@ window.onload = function() {
       // modelCurve.frustumCulled = false;
       
 
-      modelCurve.position.set(0, -11.5, -25);
+      modelCurve.position.set(0, -20, -4.25);
       modelCurve.scale.set(2, 2, 2);
 
       //scene.add( cubeModel );
@@ -264,14 +290,15 @@ window.onload = function() {
       update: camera.updateProjectionMatrix(),
       }});
       
-      scene_anim.to(modelCurve.position, { z: -4.25, scrollTrigger: {
-        // , gltf.scene.children[1].position, gltf.scene.children[2].position
-      trigger: ".services",
-      start: window.innerHeight * 4.5,
-      end: window.innerHeight * 5,
+       scene_anim.to(modelCurve.position, { y: -11.5, scrollTrigger: {
+         //, gltf.scene.children[1].position, gltf.scene.children[2].position
+       trigger: ".services",
+       start: window.innerHeight * 4,
+      end: window.innerHeight * 4.85,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
+
         
       
       scene_anim.to(modelCurve.position, { y: "+=" + 3.5, scrollTrigger: {
@@ -377,7 +404,7 @@ const curveSub1 = new THREE.SplineCurve( [
   new THREE.Vector2( -3.5, -4.2 )
 ] );
 
-const pointsSub1 = curveSub1.getPoints( 50 );
+const pointsSub1 = curveSub1.getPoints( 100 );
 const geometrySub1 = new THREE.BufferGeometry().setFromPoints( pointsSub1 );
 geometrySub1.drawRange.start = 0;
 geometrySub1.drawRange.count = 0;
@@ -394,7 +421,7 @@ const curveSub2 = new THREE.SplineCurve( [
   new THREE.Vector2( -3.5, -5.15 )
 ] );
 
-const pointsSub2 = curveSub2.getPoints( 50 );
+const pointsSub2 = curveSub2.getPoints( 100 );
 const geometrySub2 = new THREE.BufferGeometry().setFromPoints( pointsSub2 );
 geometrySub2.drawRange.start = 0;
 geometrySub2.drawRange.count = 0;
@@ -412,7 +439,7 @@ const curveSub3 = new THREE.SplineCurve( [
   new THREE.Vector2( -3.5, -6.2 )
 ] );
 
-const pointsSub3 = curveSub3.getPoints( 50 );
+const pointsSub3 = curveSub3.getPoints( 100 );
 const geometrySub3 = new THREE.BufferGeometry().setFromPoints( pointsSub3 );
 geometrySub3.drawRange.start = 0;
 geometrySub3.drawRange.count = 0;
@@ -429,7 +456,7 @@ const curveSub4 = new THREE.SplineCurve( [
   new THREE.Vector2( -3.5, -7.4 )
 ] );
 
-const pointsSub4 = curveSub4.getPoints( 50 );
+const pointsSub4 = curveSub4.getPoints( 100 );
 const geometrySub4 = new THREE.BufferGeometry().setFromPoints( pointsSub4 );
 geometrySub4.drawRange.start = 0;
 geometrySub4.drawRange.count = 0;
@@ -449,7 +476,7 @@ const curveSub5 = new THREE.SplineCurve( [
   new THREE.Vector2( 3.5, -4.2 )
 ] );
 
-const pointsSub5 = curveSub5.getPoints( 50 );
+const pointsSub5 = curveSub5.getPoints( 100 );
 const geometrySub5 = new THREE.BufferGeometry().setFromPoints( pointsSub5 );
 geometrySub5.drawRange.start = 0;
 geometrySub5.drawRange.count = 0;
@@ -467,7 +494,7 @@ const curveSub6 = new THREE.SplineCurve( [
   new THREE.Vector2( 3.5, -5.15 )
 ] );
 
-const pointsSub6 = curveSub6.getPoints( 50 );
+const pointsSub6 = curveSub6.getPoints( 100 );
 const geometrySub6 = new THREE.BufferGeometry().setFromPoints( pointsSub6 );
 geometrySub6.drawRange.start = 0;
 geometrySub6.drawRange.count = 0;
@@ -485,7 +512,7 @@ const curveSub7 = new THREE.SplineCurve( [
   new THREE.Vector2( 3.5, -6.2 )
 ] );
 
-const pointsSub7 = curveSub7.getPoints( 50 );
+const pointsSub7 = curveSub7.getPoints( 100 );
 const geometrySub7 = new THREE.BufferGeometry().setFromPoints( pointsSub7 );
 geometrySub7.drawRange.start = 0;
 geometrySub7.drawRange.count = 0;
@@ -503,7 +530,7 @@ const curveSub8 = new THREE.SplineCurve( [
   new THREE.Vector2( 3.5, -7.4 )
 ] );
 
-const pointsSub8 = curveSub8.getPoints( 50 );
+const pointsSub8 = curveSub8.getPoints( 100 );
 const geometrySub8 = new THREE.BufferGeometry().setFromPoints( pointsSub8 );
 geometrySub8.drawRange.start = 0;
 geometrySub8.drawRange.count = 0;
@@ -516,8 +543,11 @@ scene.add(subLine8);
 
   // LIGHTS
     
-    const ambientLight = new THREE.AmbientLight(0xFFFFFF, 50);
-    scene.add( ambientLight );
+    ambientLight = new THREE.AmbientLight(0xFFFFFF, 50);
+    
+   // gsap.to(ambientLight , { intensity: 2.25, duration: 2, ease: "none" });
+
+      scene.add( ambientLight );
 
   // scene.add
    scene.add( particlesMesh );
@@ -532,14 +562,7 @@ scene.add(subLine8);
   const renderPass = new RenderPass( scene, camera );
   composer.addPass( renderPass );
 
-  const fxaaPass = new ShaderPass( FXAAShader );
-
-  fxaaPass.material.uniforms[ 'resolution' ].value.x = 1 / ( window.innerWidth * window.devicePixelRatio );
-	fxaaPass.material.uniforms[ 'resolution' ].value.y = 1 / ( window.innerHeight * window.devicePixelRatio );
-
-  composer.addPass( fxaaPass );
-
-  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.5, 0.5, 0.1);
+  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.5, 0.25, 0.1);
 
   var glitchPass = new GlitchPass();
     composer.addPass( renderPass );
@@ -547,7 +570,6 @@ scene.add(subLine8);
 
     
 
-   
     
     // composer.addPass( glitchPass );
   document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -682,7 +704,7 @@ scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
 scene_anim.to([camera.position, cameraCenter ], { x: "+=7.5", scrollTrigger: {
 
       trigger: ".marketSection",
-      start: window.innerHeight * 7.75 + 0.5,
+      start: window.innerHeight * 7.75 + 0.5 + 0.25,
       end: window.innerHeight * 8.5  + 0.5,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
@@ -699,7 +721,7 @@ scene_anim.to([
   subLine7.geometry.drawRange,
   subLine8.geometry.drawRange,
 
-], { count: 50, scrollTrigger: {
+], { count: 100, scrollTrigger: {
   trigger: ".about",
   start: window.innerHeight - window.innerHeight * 0.5,
   end: window.innerHeight,
@@ -707,23 +729,23 @@ scene_anim.to([
   update: camera.updateProjectionMatrix(),
   }});
 
-  scene_anim.to([ 
-    subLine1.geometry.drawRange,
-    subLine2.geometry.drawRange,
-    subLine3.geometry.drawRange,
-    subLine4.geometry.drawRange,
-    subLine5.geometry.drawRange,
-    subLine6.geometry.drawRange,
-    subLine7.geometry.drawRange,
-    subLine8.geometry.drawRange,
+  // scene_anim.to([ 
+  //   subLine1.geometry.drawRange,
+  //   subLine2.geometry.drawRange,
+  //   subLine3.geometry.drawRange,
+  //   subLine4.geometry.drawRange,
+  //   subLine5.geometry.drawRange,
+  //   subLine6.geometry.drawRange,
+  //   subLine7.geometry.drawRange,
+  //   subLine8.geometry.drawRange,
   
-  ], { count: 0, scrollTrigger: {
-    trigger: ".about",
-    start: window.innerHeight,
-    end: window.innerHeight * 1.5,
-    scrub: 1,
-    update: camera.updateProjectionMatrix(),
-    }});
+  // ], { count: 25, scrollTrigger: {
+  //   trigger: ".about",
+  //   start: window.innerHeight + window.innerHeight * 0.1,
+  //   end: window.innerHeight * 2,
+  //   scrub: 1,
+  //   update: camera.updateProjectionMatrix(),
+  //   }});
 
     
 
