@@ -140,8 +140,8 @@ html, body {
     display: flex;
     z-index: 5;
     right: 15px;
-    
-    
+
+
 }
 
 .list {
@@ -153,7 +153,7 @@ html, body {
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    
+
 }
 .logo {
     display: flex;
@@ -197,13 +197,13 @@ html, body {
 }
 
 li {
-    position: relative; 
+    position: relative;
     user-select: none;
 }
 
 
 .li {
-    
+
     font-family: 'Alegreya Sans SC', sans-serif;
 
     font-family: 'Economica', sans-serif;
@@ -217,7 +217,7 @@ li {
     font-family: 'Roboto', sans-serif;
 
     font-family: 'Teko', sans-serif;
-    
+
     position: relative;
     text-decoration: none;
     color: white;
@@ -225,13 +225,13 @@ li {
     padding: 5px 15px;
     transition: all 100ms ease-in;
     font-weight: 600;
-    
+
 }
 /*
 .active {
     color: var(--light-blue-color) !important;
     opacity: 1;
-    
+
 }
 
 .active:after {
@@ -292,7 +292,7 @@ section {
     height: 100vh;
     overflow-y: scroll;
     scroll-behavior: smooth;
- 
+
 }
 
 
@@ -376,7 +376,7 @@ section {
     transition: 0.1s;
     border: 2px solid white;
     border-radius: 2.5em;
-    
+
 }
 
 #otherButton {
@@ -394,12 +394,12 @@ section {
     color: white;
     box-shadow: 0 0 0 100px rgb(0, 91, 177) inset,
                 0 0 0 0 var(--light-blue-color);
-                
+
     transition: 0.1s;
     border: 2px solid white;
     border-radius: 2.5em;
-    
-    
+
+
 }
 
 #otherButton:hover {
@@ -432,7 +432,7 @@ section {
     text-transform: uppercase;
     font-size: 1.75em;
     line-height: 0.56em;
-    
+
 }
 
 #otherText {
@@ -455,7 +455,7 @@ section {
     text-transform: uppercase;
     font-size: 1.75em;
     line-height: 0.4em;
-    
+
 }
 
 #dataText {
@@ -515,18 +515,18 @@ section {
     -webkit-text-stroke: 3px black;
     -webkit-text-fill-color: white;
     */
- 
+
 }
 
 
 
 h1 {
-    color: white;  
+    color: white;
 }
 
 h2 {
     font-size: 1.5em;
-    color: white; 
+    color: white;
 }
 /*
 ::-webkit-scrollbar {
@@ -578,7 +578,7 @@ h2 {
     height: 100vh;
     right: 2%;
     background-color: transparent;
-    
+
 }
 
 .ecoContainers {
@@ -618,7 +618,7 @@ h2 {
 /* LOGO TOP LEFT FIRST */
 #globeLogo {
     margin-left: 1.5em;
-    filter: drop-shadow(0 0 15px rgb(49, 197, 255, 1));             
+    filter: drop-shadow(0 0 15px rgb(49, 197, 255, 1));
 }
 
 #ecoContainer1:hover #globePath1 {
@@ -663,10 +663,10 @@ h2 {
 #exchangeLogo {
      margin-left: 1.5em;
      filter: drop-shadow(0 0 10px rgb(49, 197, 255, 1));
-     transition: all 0.6s;              
+     transition: all 0.6s;
 }
 #ecoContainer2:hover #exchangeLogo {
-    filter: drop-shadow(0 0 20px rgb(49, 197, 255, 1)); 
+    filter: drop-shadow(0 0 20px rgb(49, 197, 255, 1));
 }
 #ecoContainer2:hover #exchangePath3, #exchangePath4 {
     fill: rgb(36, 136, 255);
@@ -700,7 +700,7 @@ h2 {
 }
 
 #ecoContainer3:hover #nftLogo {
-    filter: drop-shadow(0 0 20px rgb(49, 197, 255, 1)); 
+    filter: drop-shadow(0 0 20px rgb(49, 197, 255, 1));
 }
 
 /* LOGO TOP LEFT FOURTH */
@@ -711,7 +711,7 @@ h2 {
 }
 
 #ecoContainer4:hover #connectLogo {
-    filter: drop-shadow(0 0 20px rgb(49, 197, 255, 1)); 
+    filter: drop-shadow(0 0 20px rgb(49, 197, 255, 1));
 }
 
 /* LOGO TOP RIGHT FIRST */
@@ -722,7 +722,7 @@ h2 {
     transition: all 0.6s;
 }
 #ecoContainer5:hover #stakingLogo {
-    filter: drop-shadow(0 0 20px rgb(49, 197, 255, 1)); 
+    filter: drop-shadow(0 0 20px rgb(49, 197, 255, 1));
 }
 
 /* LOGO TOP RIGHT SECOND */
@@ -734,7 +734,7 @@ h2 {
 }
 
 #ecoContainer6:hover #launchLogo {
-    filter: drop-shadow(0 0 20px rgb(49, 197, 255, 1)); 
+    filter: drop-shadow(0 0 20px rgb(49, 197, 255, 1));
 }
 
 /* LOGO TOP RIGHT THIRD */
@@ -745,7 +745,7 @@ h2 {
     transition: all 0.6s;
 }
 #ecoContainer7:hover #messengerLogo {
-    filter: drop-shadow(0 0 10px rgb(49, 197, 255, 1)); 
+    filter: drop-shadow(0 0 10px rgb(49, 197, 255, 1));
 }
 
 /* LOGO TOP RIGHT FOURTH */
@@ -756,8 +756,8 @@ h2 {
     transition: all 0.6s;
 }
 #ecoContainer8:hover #socialLogo {
-    filter: 
-            drop-shadow(0 0 20px rgb(0, 247, 255)); 
+    filter:
+            drop-shadow(0 0 20px rgb(0, 247, 255));
 }
 
 
@@ -780,34 +780,34 @@ h2 {
     height: 25%;
     padding: 1.5em 0;
     display: flex;
-    left: 0%;  
+    left: 0%;
 }
 #ecoContainer2 {
-    
+
     width: auto;
     height: 25%;
     padding: 10px;
     display: flex;
     margin: 4em 0px;
-    left: 0%; 
+    left: 0%;
 }
 #ecoContainer3 {
-   
+
     width: auto;
     height: 25%;
     padding: 10px;
     display: flex;
     margin: 4em 0px;
-    left: 0%; 
+    left: 0%;
 }
 #ecoContainer4 {
-   
+
     width: auto;
     height: 25%;
     padding: 1.5em;
     display: flex;
     margin: 4em 0px;
-    left: 0%; 
+    left: 0%;
 }
 
 /* RIGHT */
@@ -899,7 +899,7 @@ h2 {
     user-select: none;
 
     font-family: 'Arimo', sans-serif;
-   
+
 }
 
 
@@ -911,7 +911,7 @@ h2 {
     user-select: none;
     color: rgb(0, 0, 255);
     font-family: 'Arimo', sans-serif;
-  
+
 }
 
 #tokenText {
@@ -922,7 +922,7 @@ h2 {
     user-select: none;
 
     font-family: 'Arimo', sans-serif;
-  
+
 }
 
 .tokenContainer {
@@ -1035,6 +1035,116 @@ h2 {
 #uT4 {
     right: 2.25em;
 }
+
+/* TOKEN DETAILS 2 */
+
+#icoButton {
+    background: linear-gradient(#3772FF, #1C3980);
+    position: relative;
+    width: 8.5em;
+    height: 3.5em;
+    top: 32.5em;
+    border-radius: 4.5em;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    font-family: 'Arimo', sans-serif;
+    z-index: 2;
+}
+
+#icoButton:hover {
+    filter: drop-shadow(0 0 10px rgb(104, 61, 173) );
+}
+
+#tokenContent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(28, 57, 128, 0.95);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tokenHolder {
+    width: 70%;
+    height: 85%;
+    position: relative;
+    background: linear-gradient(180deg, rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
+    top: 2em;
+    border-radius: 1em;
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.25));
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+
+.tokens {
+    position: relative;
+    width: 20em;
+    height: 12.5em;
+    background-color: rgba(28, 57, 128, 0.95);
+    border-radius: 2.25em;
+    border: 10px solid rgba(95, 145, 255, 1);
+    top: 20em;
+
+}
+
+#tokenT1 {
+    position: absolute;
+    top: 4.75em;
+    background-color: rgb(95, 164, 255);
+    width: 47.5em;
+    height: 1.25em;
+    z-index: 2;
+    text-align: center;
+    border-radius: 1.25em;
+    filter: drop-shadow(0 0 10px rgba(0, 81, 255, 0.5));
+    font-family: 'Arimo', sans-serif;
+    user-select: none;
+}
+
+#tokenT2 {
+    position: absolute;
+    background-color: rgba(95, 145, 255, 1);
+    bottom: 18.25em;
+    width: 15em;
+    height: 1.25em;
+    z-index: 2;
+    text-align: center;
+    border-radius: 1.25em;
+    filter: drop-shadow(0 0 10px rgba(0, 81, 255, 0.5));
+    font-family: 'Arimo', sans-serif;
+    user-select: none;
+}
+
+.tokens:hover {
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.25));
+}
+
+.whiteToken {
+    margin: 0;
+    margin-left: 1em;
+    font-family: 'Arimo', sans-serif;
+    user-select: none;
+}
+
+.blueToken {
+    margin-left: 0.75em;
+    color: var(--light-blue-color);
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    font-family: 'Arimo', sans-serif;
+    user-select: none;
+}
+
+
+
+
+
 /* NODE  SECTION*/
 
 .node {
@@ -1045,13 +1155,137 @@ h2 {
 #nodeImg {
     position: relative;
     top: 17.5em;
-    filter: drop-shadow(0 0 1em rgb(28, 102, 212)); 
+    filter: drop-shadow(0 0 1em rgb(28, 102, 212));
 }
 
 /* ROADMAP */
 
+.sticky {
+    display: flex;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background-color: rgba(49, 131, 255, 1);
+    position: sticky;
+    top: 10em;
+    right: 107.5em;
+    cursor: pointer;
+    filter: drop-shadow(0 0 1em rgb(28, 102, 212));
+}
 
-/* NFT Marketplace */ 
+#s1:after {
+    content: "";
+    position: relative;
+    border-right: 2px solid rgba(49, 131, 255, 0.5);
+    height: 4em;
+    top: 1em;
+    left: 0.95em;
+    cursor: default;
+}
+
+#s2 {
+    top: 15em;
+}
+
+#s2:after {
+    content: "";
+    position: relative;
+    border-right: 2px solid rgba(49, 131, 255, 0.5);
+    height: 4em;
+    top: 1em;
+    left: 0.95em;
+    cursor: default;
+}
+
+#s3 {
+    top: 20em;
+}
+
+#s3:after {
+    content: "";
+    position: relative;
+    border-right: 2px solid rgba(49, 131, 255, 0.5);
+    height: 4em;
+    top: 1em;
+    left: 0.95em;
+    cursor: default;
+}
+
+#s4 {
+    top: 25em;
+}
+
+#s4:after {
+    content: "";
+    position: relative;
+    border-right: 2px solid rgba(49, 131, 255, 0.5);
+    height: 4em;
+    top: 1em;
+    left: 0.95em;
+    cursor: default;
+}
+
+#s5 {
+    top: 30em;
+}
+
+#s5:after {
+    content: "";
+    position: relative;
+    border-right: 2px solid rgba(49, 131, 255, 0.5);
+    height: 4em;
+    top: 1em;
+    left: 0.95em;
+    cursor: default;
+}
+
+#s6 {
+    top: 35em;
+}
+
+#s6:after {
+    content: "";
+    position: relative;
+    border-right: 2px solid rgba(49, 131, 255, 0.5);
+    height: 4em;
+    top: 1em;
+    left: 0.95em;
+    cursor: default;
+}
+
+#s7 {
+    top: 40em;
+}
+
+#s7:after {
+    content: "";
+    position: relative;
+    border-right: 2px solid rgba(49, 131, 255, 0.5);
+    height: 4em;
+    top: 1em;
+    left: 0.95em;
+    cursor: default;
+}
+
+#s8 {
+    top: 45em;
+}
+
+#s8:after {
+    content: "";
+    position: relative;
+    border-right: 2px solid rgba(49, 131, 255, 0.5);
+    height: 4em;
+    top: 1em;
+    left: 0.95em;
+    cursor: default;
+}
+
+#s9 {
+    top: 50em;
+}
+
+/* NFT Marketplace */
 
 .marketSection {
    background: transparent;
@@ -1066,10 +1300,10 @@ h2 {
     height: 100vh;
     background: rgb(0,0,0);
      /*background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(40,41,46,1) 47%, rgba(32,32,32,1) 100%);  */
-     background-color: transparent; 
+     background-color: transparent;
     border-radius: 0.75em;
     overflow: hidden;
-   
+
 }
 
 
@@ -1134,7 +1368,7 @@ h2 {
     position: relative;
     height: 32.5em;
     width: 30em;
-    
+
     display: flex;
     align-self: center;
     border-radius: 1.75em;
@@ -1328,7 +1562,7 @@ h2 {
     color: rgb(0, 0, 255)
 }
 
-/* FOOTER SECTION */ 
+/* FOOTER SECTION */
 
 .footer {
     height: 40vh;
@@ -1344,11 +1578,11 @@ h2 {
 
 /* MEDIA QUERYS FOR LAPTOP */
 
-@media screen 
-and (min-device-width: 1200px) 
-and (max-device-width: 1600px) 
+@media screen
+and (min-device-width: 1200px)
+and (max-device-width: 1600px)
 and (-webkit-min-device-pixel-ratio: 1){
-    
+
     body {
         min-height: -webkit-fill-avaliable;
     }
@@ -1356,7 +1590,7 @@ and (-webkit-min-device-pixel-ratio: 1){
     section {
         min-height: -webkit-fill-avaliable;
     }
-    
+
     #ecoContainer1 {
         width: 17em;
         margin-top: 0.75em;

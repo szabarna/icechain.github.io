@@ -109,6 +109,17 @@ window.onload = function() {
 
   addStatsObject();
 
+  /* LOADING MANAGER */
+  const loadingManager = new THREE.LoadingManager( () => {
+	
+		const loadingScreen = document.getElementById( 'loading-screen' );
+		loadingScreen.classList.add( 'fade-out' );
+		
+		// optional: remove loader from DOM via event listener
+		loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
+		
+	} );
+
   // Objects
   
 
@@ -147,10 +158,12 @@ window.onload = function() {
 
   // Materials
   //const particlematerial = new THREE.MeshBasicMaterial( {  color:  0x00ecff00, wireframe: true } );
-  const texture = new THREE.TextureLoader().load('./src/iceTexture.png');
-  const textureAlpha = new THREE.TextureLoader().load('./src/alpha.png');
-  const particlesMaterial = new THREE.PointsMaterial({size: 0.25, map: texture, alphaMap: textureAlpha, alphaTest: 0.25, transparent: false});
+  const texture = new THREE.TextureLoader(loadingManager).load('./src/iceTexture.png');
+  const textureAlpha = new THREE.TextureLoader(loadingManager).load('./src/alpha.png');
+  const particlesMaterial = new THREE.PointsMaterial({ color: 0x4f8fe5 ,size: 0.25, map: texture, alphaMap: textureAlpha, alphaTest: 0.25, transparent: false});
   
+  renderer.initTexture(texture);
+  renderer.initTexture(textureAlpha);
   // Mesh
  // const cube = new THREE.Points( geometry, tmaterial );
  
@@ -161,16 +174,7 @@ window.onload = function() {
   const particlesMeshLowerLowerRight = new THREE.Points(particlesGeometryLowerLowerRight, particlesMaterial);
 
     
-  /* LOADING MANAGER */
-  const loadingManager = new THREE.LoadingManager( () => {
-	
-		const loadingScreen = document.getElementById( 'loading-screen' );
-		loadingScreen.classList.add( 'fade-out' );
-		
-		// optional: remove loader from DOM via event listener
-		loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
-		
-	} );
+  
 
   /* BLENDER IMPORTS */
   const loader = new GLTFLoader(loadingManager);
@@ -187,14 +191,23 @@ window.onload = function() {
     tokenModel.position.set(0, -15, 0 );
     tokenModel.rotation.set(0, Math.PI * 1.5, 0);
 
-    scene_anim.to(tokenModel.position, { y: -10.5, scrollTrigger: {
+    scene_anim.to(tokenModel.position, { y: -10.2, scrollTrigger: {
       // , gltf.scene.children[1].position, gltf.scene.children[2].position
     trigger: ".services",
     start: window.innerHeight * 2,
-    end: window.innerHeight * 2.5,
+    end: window.innerHeight * 3.25,
     scrub: 1,
     update: camera.updateProjectionMatrix(),
     }});
+
+    scene_anim.to(tokenModel.position , { x: -10, scrollTrigger: {
+
+      trigger: ".node",
+      start: window.innerHeight * 3,
+      end: window.innerHeight * 4,
+      scrub: 1,
+      update: camera.updateProjectionMatrix(),
+      }});
 
 
     scene.add( tokenModel );
@@ -215,7 +228,7 @@ window.onload = function() {
 
       nodeModel = gltf.scene.clone();
       nodeModel.scale.set(.2, .2, .2)
-      nodeModel.position.set(0, -11, -3.5 - 20);
+      nodeModel.position.set(5, -11.2, 1.5);
 
       nodeModel.children[0].children[0].material = new THREE.MeshBasicMaterial({ map: gltf.scene.children[0].children[0].material.map, side: THREE.DoubleSide});
       nodeModel.children[1].children[0].material = new THREE.MeshBasicMaterial({ map: gltf.scene.children[1].children[0].material.map, side: THREE.DoubleSide});
@@ -231,8 +244,8 @@ window.onload = function() {
     ],
     { duration: 30, y: Math.PI * 2, repeat: -1, ease: "none" });
     */
-
-      scene_anim.to(nodeModel.position , { z: -3.5, scrollTrigger: {
+      
+      scene_anim.to(nodeModel.position , { x: 0, scrollTrigger: {
 
         trigger: ".node",
         start: window.innerHeight * 3,
@@ -241,14 +254,14 @@ window.onload = function() {
         update: camera.updateProjectionMatrix(),
         }});
 
-        scene_anim.to(nodeModel.rotation, { y: "-=" + Math.PI * 2, scrollTrigger: {
-          // , gltf.scene.children[1].position, gltf.scene.children[2].position
-        trigger: ".projects",
-        start: window.innerHeight * 5,
-        end: window.innerHeight * 8,
-        scrub: 1,
-        update: camera.updateProjectionMatrix(),
-        }});
+        // scene_anim.to(nodeModel.rotation, { y: "-=" + Math.PI * 2, scrollTrigger: {
+        //   , gltf.scene.children[1].position, gltf.scene.children[2].position
+        // trigger: ".projects",
+        // start: window.innerHeight * 5,
+        // end: window.innerHeight * 8,
+        // scrub: 1,
+        // update: camera.updateProjectionMatrix(),
+        // }});
 
 
 
@@ -274,7 +287,7 @@ window.onload = function() {
       // modelCurve.frustumCulled = false;
       
 
-      modelCurve.position.set(0, -20, -4.25);
+      modelCurve.position.set(0, -11.5, -30);
       modelCurve.scale.set(2, 2, 2);
 
       //scene.add( cubeModel );
@@ -284,17 +297,17 @@ window.onload = function() {
       scene_anim.to(modelCurve.rotation, { y: "+=" + Math.PI * 4, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".projects",
-      start: window.innerHeight * 5,
-      end: window.innerHeight * 8,
+      start: window.innerHeight * 5.25,
+      end: window.innerHeight * 8.25,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
       
-       scene_anim.to(modelCurve.position, { y: -11.5, scrollTrigger: {
+       scene_anim.to(modelCurve.position, { z: -4.25, scrollTrigger: {
          //, gltf.scene.children[1].position, gltf.scene.children[2].position
        trigger: ".services",
        start: window.innerHeight * 4,
-      end: window.innerHeight * 4.85,
+      end: window.innerHeight * 5,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
@@ -303,8 +316,8 @@ window.onload = function() {
       
       scene_anim.to(modelCurve.position, { y: "+=" + 3.5, scrollTrigger: {
       trigger: ".projects",
-      start: window.innerHeight * 5,
-      end: window.innerHeight * 8,
+      start: window.innerHeight * 5.25,
+      end: window.innerHeight * 8.25,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
@@ -393,7 +406,7 @@ console.error( error );
     // LINES
   
 const materialWhite = new THREE.LineDashedMaterial( { color : 0xffffff, linewidth: 1 } );
-
+const pointsMaterial = new THREE.PointsMaterial({ color: 0x3477af, size: .05, map: texture, alphaMap: textureAlpha, alphaTest: 0.5 });
     // LEFT
 // sub curve left, first from top
 
@@ -404,11 +417,11 @@ const curveSub1 = new THREE.SplineCurve( [
   new THREE.Vector2( -3.5, -4.2 )
 ] );
 
-const pointsSub1 = curveSub1.getPoints( 100 );
+const pointsSub1 = curveSub1.getPoints( 50 );
 const geometrySub1 = new THREE.BufferGeometry().setFromPoints( pointsSub1 );
 geometrySub1.drawRange.start = 0;
 geometrySub1.drawRange.count = 0;
- subLine1 = new THREE.Line( geometrySub1, materialWhite );
+ subLine1 = new THREE.Points( geometrySub1, pointsMaterial );
 scene.add(subLine1);
 
 
@@ -421,11 +434,12 @@ const curveSub2 = new THREE.SplineCurve( [
   new THREE.Vector2( -3.5, -5.15 )
 ] );
 
-const pointsSub2 = curveSub2.getPoints( 100 );
+const pointsSub2 = curveSub2.getPoints( 50 );
 const geometrySub2 = new THREE.BufferGeometry().setFromPoints( pointsSub2 );
 geometrySub2.drawRange.start = 0;
 geometrySub2.drawRange.count = 0;
-subLine2 = new THREE.Line( geometrySub2, materialWhite );
+
+subLine2 = new THREE.Points( geometrySub2, pointsMaterial );
 
 scene.add(subLine2);
 
@@ -439,11 +453,11 @@ const curveSub3 = new THREE.SplineCurve( [
   new THREE.Vector2( -3.5, -6.2 )
 ] );
 
-const pointsSub3 = curveSub3.getPoints( 100 );
+const pointsSub3 = curveSub3.getPoints( 50 );
 const geometrySub3 = new THREE.BufferGeometry().setFromPoints( pointsSub3 );
 geometrySub3.drawRange.start = 0;
 geometrySub3.drawRange.count = 0;
- subLine3 = new THREE.Line( geometrySub3, materialWhite );
+ subLine3 = new THREE.Points( geometrySub3, pointsMaterial );
 
 scene.add(subLine3);
 
@@ -456,11 +470,11 @@ const curveSub4 = new THREE.SplineCurve( [
   new THREE.Vector2( -3.5, -7.4 )
 ] );
 
-const pointsSub4 = curveSub4.getPoints( 100 );
+const pointsSub4 = curveSub4.getPoints( 50 );
 const geometrySub4 = new THREE.BufferGeometry().setFromPoints( pointsSub4 );
 geometrySub4.drawRange.start = 0;
 geometrySub4.drawRange.count = 0;
-subLine4 = new THREE.Line( geometrySub4, materialWhite );
+subLine4 = new THREE.Points( geometrySub4, pointsMaterial );
 
 scene.add(subLine4);
 
@@ -476,11 +490,11 @@ const curveSub5 = new THREE.SplineCurve( [
   new THREE.Vector2( 3.5, -4.2 )
 ] );
 
-const pointsSub5 = curveSub5.getPoints( 100 );
+const pointsSub5 = curveSub5.getPoints( 50 );
 const geometrySub5 = new THREE.BufferGeometry().setFromPoints( pointsSub5 );
 geometrySub5.drawRange.start = 0;
 geometrySub5.drawRange.count = 0;
-subLine5 = new THREE.Line( geometrySub5, materialWhite );
+subLine5 = new THREE.Points( geometrySub5, pointsMaterial );
 
 
 scene.add(subLine5);
@@ -494,11 +508,11 @@ const curveSub6 = new THREE.SplineCurve( [
   new THREE.Vector2( 3.5, -5.15 )
 ] );
 
-const pointsSub6 = curveSub6.getPoints( 100 );
+const pointsSub6 = curveSub6.getPoints( 50 );
 const geometrySub6 = new THREE.BufferGeometry().setFromPoints( pointsSub6 );
 geometrySub6.drawRange.start = 0;
 geometrySub6.drawRange.count = 0;
- subLine6 = new THREE.Line( geometrySub6, materialWhite );
+ subLine6 = new THREE.Points( geometrySub6, pointsMaterial );
 
 scene.add(subLine6);
 
@@ -512,11 +526,11 @@ const curveSub7 = new THREE.SplineCurve( [
   new THREE.Vector2( 3.5, -6.2 )
 ] );
 
-const pointsSub7 = curveSub7.getPoints( 100 );
+const pointsSub7 = curveSub7.getPoints( 50 );
 const geometrySub7 = new THREE.BufferGeometry().setFromPoints( pointsSub7 );
 geometrySub7.drawRange.start = 0;
 geometrySub7.drawRange.count = 0;
- subLine7 = new THREE.Line( geometrySub7, materialWhite );
+ subLine7 = new THREE.Points( geometrySub7, pointsMaterial );
 
 scene.add(subLine7);
 
@@ -530,11 +544,11 @@ const curveSub8 = new THREE.SplineCurve( [
   new THREE.Vector2( 3.5, -7.4 )
 ] );
 
-const pointsSub8 = curveSub8.getPoints( 100 );
+const pointsSub8 = curveSub8.getPoints( 50 );
 const geometrySub8 = new THREE.BufferGeometry().setFromPoints( pointsSub8 );
 geometrySub8.drawRange.start = 0;
 geometrySub8.drawRange.count = 0;
- subLine8 = new THREE.Line( geometrySub8, materialWhite );
+ subLine8 = new THREE.Points( geometrySub8, pointsMaterial );
 
 
 scene.add(subLine8);
@@ -555,6 +569,15 @@ scene.add(subLine8);
    scene.add( particlesMeshLowerLower );
    scene.add( particlesMeshLowerLowerRight );
    
+   gsap.to([
+              
+    particlesMesh.rotation,
+    particlesMeshLower.rotation,
+    particlesMeshLowerLower.rotation,
+    particlesMeshLowerLowerRight.rotation,
+  ],
+  { duration: 25, y: Math.PI * 2, repeat: -1, ease: "none" });
+  
   
   gsap.to([particlesMesh.material, particlesMeshLower.material,particlesMeshLowerLower.material,], {size: 0.015, duration: 5, ease: Sine});
   // EFFECT COMPOSER + BLOOM EFFECT
@@ -673,7 +696,6 @@ $(videoContainer).on('click', function(e) {
  ScrollTrigger.defaults({
   immediateRender: false,
   ease: "power1.inOut",
-  scrub: 1,
   scroller: ".container",
  // anticipatePin: true,
 });
@@ -691,27 +713,28 @@ update: camera.updateProjectionMatrix(),
 
 
 
-scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
 
-    trigger: ".node",
-    start: window.innerHeight * 3,
-    end: window.innerHeight * 4,
-    scrub: 1,
-    update: camera.updateProjectionMatrix(),
-    }});
+    scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
+
+      trigger: ".node",
+      start: window.innerHeight * 4,
+      end: window.innerHeight * 5,
+      scrub: 1,
+      update: camera.updateProjectionMatrix(),
+      }});
 
 
 scene_anim.to([camera.position, cameraCenter ], { x: "+=7.5", scrollTrigger: {
 
       trigger: ".marketSection",
-      start: window.innerHeight * 7.75 + 0.5 + 0.25,
-      end: window.innerHeight * 8.5  + 0.5,
+      start: window.innerHeight * 8.15,
+      end: window.innerHeight * 9,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});   
 
 
-scene_anim.to([ 
+const eco_anim = gsap.to([ 
   subLine1.geometry.drawRange,
   subLine2.geometry.drawRange,
   subLine3.geometry.drawRange,
@@ -721,33 +744,30 @@ scene_anim.to([
   subLine7.geometry.drawRange,
   subLine8.geometry.drawRange,
 
-], { count: 100, scrollTrigger: {
+], { count: 75, scrollTrigger: {
   trigger: ".about",
-  start: window.innerHeight - window.innerHeight * 0.5,
-  end: window.innerHeight,
+  start: window.innerHeight * 0.35,
+  end: window.innerHeight * 1.5,
   scrub: 1,
   update: camera.updateProjectionMatrix(),
-  }});
-
-  // scene_anim.to([ 
-  //   subLine1.geometry.drawRange,
-  //   subLine2.geometry.drawRange,
-  //   subLine3.geometry.drawRange,
-  //   subLine4.geometry.drawRange,
-  //   subLine5.geometry.drawRange,
-  //   subLine6.geometry.drawRange,
-  //   subLine7.geometry.drawRange,
-  //   subLine8.geometry.drawRange,
+  onLeave: function() { gsap.to([ 
+    subLine1.geometry.drawRange,
+    subLine2.geometry.drawRange,
+    subLine3.geometry.drawRange,
+    subLine4.geometry.drawRange,
+    subLine5.geometry.drawRange,
+    subLine6.geometry.drawRange,
+    subLine7.geometry.drawRange,
+    subLine8.geometry.drawRange,
   
-  // ], { count: 25, scrollTrigger: {
-  //   trigger: ".about",
-  //   start: window.innerHeight + window.innerHeight * 0.1,
-  //   end: window.innerHeight * 2,
-  //   scrub: 1,
-  //   update: camera.updateProjectionMatrix(),
-  //   }});
+  ], { count: 0, duration: 1, ease: "none"})
+  },
 
-    
+  }});
+  
+
+
+
 
 
 
@@ -778,15 +798,9 @@ const rightLayer = document.querySelector('#rightEco');
 
 
 
-/* TOKEN SECTION */
-
 
 
 /* TOKEN ANIMATION */
-
-let utilityContainer = document.querySelector('#utilityContainer');
-let tokens = document.querySelectorAll('.tokenContainer');
-
 
 scene_anim.to(['#utilityContainer', '.tokenContainer', '#utility'], { top: 2, scrollTrigger: {
   trigger: ".services",
@@ -795,7 +809,30 @@ scene_anim.to(['#utilityContainer', '.tokenContainer', '#utility'], { top: 2, sc
   scrub: 1,
   }});
 
+/* TOKEN2 ANIMATION */
 
+let icoButton = document.querySelector('#icoButton');
+
+const tl = gsap.timeline({
+  defaults: { ease: "power4.inOut", duration: 0.75 }
+});
+tl.to("#tokenContent", { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" });
+tl.reversed(true);
+
+const tl2 = gsap.timeline({
+  defaults: { ease: "power4.inOut", duration: 0.75 }
+});
+tl2.to(".tokens", { top: 0 });
+tl2.reversed(true);
+
+
+icoButton.addEventListener('click', icoAnim);
+
+function icoAnim() {
+  tl.reversed(!tl.reversed());
+  tl2.reversed(!tl2.reversed());
+
+}
 
 
 /* MARKETPLACE SECTION */
