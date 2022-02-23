@@ -1382,40 +1382,40 @@ h2 {
 
 #marketContainer {
     position: absolute;
-    width: 82.5em;
-    height: 100vh;
-    background: rgb(0,0,0);
-     /*background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(40,41,46,1) 47%, rgba(32,32,32,1) 100%);  */
-     background-color: transparent;
+    width: 84em;
+    height: 90vh;
+    background: rgb(0, 10, 49, 0.25);
+    filter: drop-shadow(0 0 2px rgb(12, 79, 156, 0.5));
     border-radius: 0.75em;
     overflow: hidden;
-
+    bottom: 0;
 }
-
-
-
 
 #marketH1 {
     font-size: 4.25em;
-    font-family: 'Arimo', sans-serif;
+    font-family: 'Roboto', sans-serif;
     position: relative;
-    top: 1.75em;
+    top: 0.5em;
+    left: 0.3575em;
+    user-select: none;
 }
 
 #marketH2 {
-    font-size: 2em;
+    font-size: 1.75em;
     font-family: 'Arimo', sans-serif;
     position: relative;
-    top: -2.2em;
-    color: rgb(47, 199, 67)
+    top: -6em;
+    left: 1em;
+    color: rgb(47, 199, 110);
+    user-select: none;
 }
 
 #marketH3 {
     font-size: 1.75em;
     font-family: 'Arimo', sans-serif;
     position: relative;
-    top: -0.2em;
-    left: 0.5em;
+    top: -3em;
+    left: 1.25em;
 }
 
 #marketB1 {
@@ -1424,9 +1424,16 @@ h2 {
     background-color: rgb(1, 1, 182);
     border: none;
     position: relative;
-    top: -1em;
+    top: -5em;
+    left: 1.525em;
     font-size: 1.02em;
     font-family: 'Arimo', sans-serif;
+    cursor: pointer;
+}
+
+#marketB1A1 {
+    color: white;
+    text-decoration: none;
 }
 
 #marketB2 {
@@ -1435,117 +1442,149 @@ h2 {
     background-color: rgb(30, 30, 31);
     border: none;
     position: relative;
-    top: -1em;
-    left: 2em;
+    top: -5em;
+    left: 3.55em;
     font-size: 1em;
     font-family: 'Arimo', sans-serif;
+    cursor: pointer;
+}
+
+#marketB1A2 {
+    color: white;
+    text-decoration: none;
 }
 
 #marketDivContainer {
-        position: absolute;
+        position: relative;
         width: 100em;
-        height: 32.5em;
-        top: 25em;
+        height: 37.5em;
+        bottom: 2.5em;
         display: flex;
-        justify-content: space-between;
 }
 
 .marketDivs {
     position: relative;
-    height: 32.5em;
-    width: 30em;
-
+    height: 27.5em;
+    width: 20em;
     display: flex;
-    align-self: center;
     border-radius: 1.75em;
-    margin-right: 2em;
-    cursor: pointer;
-    margin-left: 0.5em;
-}
-#mD1 {
-    overflow: hidden;
-    filter: drop-shadow(0 0 2px rgb(98, 70, 197));
+    left: 1.75em;
+    margin-right: 3em;
+    justify-content: center;
 }
 
-
-#mD1:hover #imgH1 {
-    transform: scale(1.05);
-}
-
-#imgH1 {
+.purchaseNow {
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5em 1em;
+    border-radius: 2em;
+    font-size: 1.175em;
     position: relative;
-    width: 100%;
-    height: 100%;
-    background-image: url('./src/img/nftImg1.jpg');
-    background-size: cover;
-    transition: all 0.4s;
+    top: 19.25em;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
 }
 
+
+#mD1 {
+
+    background-image: url('./src/img/nft1_2x.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: all 0.2s;
+    filter: drop-shadow(0 0 0px rgb(98, 70, 197));
+}
+
+#mD1:hover {
+    filter: drop-shadow(0 0 7.5px rgb(98, 70, 197));
+}
+
+
+#nft1SubImg {
+    position: absolute;
+    right: 44em;
+    bottom: 9.25em;
+}
 
 #mD2 {
-    overflow: hidden;
-    filter: drop-shadow(0 0 2px rgb(98, 70, 197));
-}
-
-#mD2:hover #imgH2 {
-    transform: scale(1.05);
-
-}
-
-#imgH2 {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-image: url('./src/img/nftImg2.jpg');
+    background-image: url('./src/img/nft2_2x.jpg');
     background-size: cover;
-    transition: all 0.4s;
-
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: all 0.2s;
+    filter: drop-shadow(0 0 0px rgb(55, 148, 224));
 }
 
-#mD3 {
-    overflow: hidden;
-    filter: drop-shadow(0 0 2px rgb(98, 70, 197));
+#mD2:hover {
+    filter: drop-shadow(0 0 7.5px rgb(55, 148, 224));
 }
 
-#mD3:hover #imgH3 {
-    transform: scale(1.05);
-
-}
-
-#imgH3 {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-image: url('./src/img/nftImg3.jpg');
-    background-size: cover;
-    transition: all 0.4s;
+#nft2SubImg {
+    position: absolute;
+    bottom: 9.75em;
 }
 
 
 #mD4 {
-    height: 40em;
-    bottom: 3.75em;
+    height: 42.5em;
+    width: 21.5em;
+    bottom: 12em;
     border: 5px solid white;
+    border-radius: 2.5em;
     overflow: hidden;
-    filter: drop-shadow(0 0 7px rgb(98, 70, 197));
 }
 
-#mD4:hover #imgH4 {
-    transform: scale(1.05);
-
-}
-
-#imgH4 {
+#mD4Sub {
+    display: flex;
     position: relative;
-    width: 100%;
-    height: 100%;
-    background-image: url('./src/img/nftImg4.jpg');
-    background-size: 102.15%;
-    transition: all 0.4s;
+    height: 27.5em;
+    width: 20em;
+    border-radius: 1.75em;
+    top: 12em;
+    justify-content: center;
+    background-image: url('./src/img/nft3_2x.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: all 0.2s;
+    box-shadow: 0 0 0px 0 white;
 }
+
+#mD4Sub:hover {
+    box-shadow: 0 0 15px 0 white;
+}
+
+#nft3SubImg {
+    position: absolute;
+    bottom: -0.5em;
+}
+
+#nft4SubImg {
+    position: absolute;
+    left: 0em;
+    bottom: 10.5em;
+}
+
 
 #mD5 {
-    background-color: blue;
+    background-image: url('./src/img/nft4_2x.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: all 0.2s;
+    filter: drop-shadow(0 0 0px rgb(55, 148, 224));
+}
+
+#mD5:hover {
+    filter: drop-shadow(0 0 7px rgb(19, 131, 165));
+}
+
+#nft5SubImg {
+    position: absolute;
+    bottom: -0.75em;
 }
 
 /* DROP */
@@ -1568,17 +1607,20 @@ h2 {
 
 /* CREATE SECTION */
 
+.create {
+    display: flex;
+    align-items: center;
+}
 #createImg {
     position: absolute;
-    top: 8.5em;
-    left: 0em;
+    left: 7.5em;
     filter: drop-shadow(0 0 1px rgb(70, 150, 197));
 }
 
 #createImg2 {
     position: absolute;
-    top: 8.5em;
-    right: 0em;
+    
+    right: 7.5em;
     filter: drop-shadow(0 0 1px rgb(70, 150, 197));
 }
 
@@ -1586,11 +1628,12 @@ h2 {
 
 .contact {
     background-color: transparent;
+    display: flex;
 }
 
 #teamImg {
     position: absolute;
-    top: 12.5em;
+    top: 6em;
     right: 17.5em;
     filter: drop-shadow(0 0 75px rgb(70, 114, 197));
 }
@@ -1601,17 +1644,9 @@ h2 {
     left: 0.75em;
     font-size: 3.75em;
     font-family: 'Arimo', sans-serif;
+    transform: rotateZ(-90deg);
 }
 
-#teamH2 {
-    position: absolute;
-    top: 15em;
-    left: 4em;
-    font-size: 1.75em;
-    font-family: 'Arimo', sans-serif;
-    color: rgb(0, 0, 255);
-    text-transform: uppercase;
-}
 
 
 
@@ -1619,33 +1654,37 @@ h2 {
 
 .portfolio {
     background: transparent linear-gradient(180deg, #000524 0%, #000000 100%) 0% 0% no-repeat padding-box;
+    display: flex;
 }
 
 #portfolioImg {
     position: absolute;
-    top: 15em
+    top: 10em;
 }
 
 #portfolioH1 {
     position: absolute;
     font-size: 4em;
-    top: 2.25em;
+    top: 1.25em;
     font-family: 'Arimo', sans-serif;
+    user-select: none;
 }
 
 #portfolioH1Sub {
     position: absolute;
     font-size: 4em;
-    top: 3.25em;
+    top: 2.25em;
     font-family: 'Arimo', sans-serif;
+    user-select: none;
 }
 
 #portfolioH2 {
     position: absolute;
     font-size: 1.25em;
-    top: 6.5em;
+    top: 4em;
     font-family: 'Arimo', sans-serif;
-    color: rgb(0, 0, 255)
+    color: rgb(0, 102, 255);
+    user-select: none;
 }
 
 /* FOOTER SECTION */

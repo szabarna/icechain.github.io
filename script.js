@@ -578,7 +578,7 @@ scene.add(subLine8);
     particlesMeshLowerLower.rotation,
     particlesMeshLowerLowerRight.rotation,
   ],
-  { duration: 25, y: Math.PI * 2, repeat: -1, ease: "none" });
+  { duration: 75, y: Math.PI * 2, repeat: -1, ease: "none" });
   
   
   gsap.to([particlesMesh.material, particlesMeshLower.material,particlesMeshLowerLower.material,], {size: 0.015, duration: 5, ease: Sine});
