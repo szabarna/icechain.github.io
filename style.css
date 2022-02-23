@@ -304,7 +304,7 @@ section {
 
 .projects {
     height: 400vh;
-    scroll-snap-align: start;
+    scroll-snap-align: none;
 }
 
 #videoContainer {
@@ -1162,25 +1162,37 @@ h2 {
 
 .sticky {
     display: flex;
-    width: 2em;
-    height: 2em;
+    width: 1.25em;
+    height: 1.25em;
     border-radius: 50%;
-    background-color: rgba(49, 131, 255, 1);
+    background-color: transparent;
+    border: 2px solid rgba(49, 131, 255, 1);
+    filter: drop-shadow(0 0 10px rgba(49, 131, 255, 1)); 
+    /* rgba(49, 131, 255, 1) */
     position: sticky;
     top: 10em;
     right: 107.5em;
     cursor: pointer;
-    filter: drop-shadow(0 0 1em rgb(28, 102, 212));
+    z-index: 3;
+    box-shadow: 0 0 0px 0 rgba(49, 131, 255, 1) inset;
+    transition: all 0.2s;
+}
+
+.sticky:hover {
+    box-shadow: 0 0 100px 0 rgba(49, 131, 255, 1) inset;
 }
 
 #s1:after {
     content: "";
     position: relative;
     border-right: 2px solid rgba(49, 131, 255, 0.5);
-    height: 4em;
-    top: 1em;
-    left: 0.95em;
-    cursor: default;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    height: 0em;
+    top: 1.2em;
+    left: 0.55em;
+    z-index: 1;
+   
 }
 
 #s2 {
@@ -1191,10 +1203,11 @@ h2 {
     content: "";
     position: relative;
     border-right: 2px solid rgba(49, 131, 255, 0.5);
-    height: 4em;
-    top: 1em;
-    left: 0.95em;
-    cursor: default;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    height: 0em;
+    top: 1.2em;
+    left: 0.55em;
 }
 
 #s3 {
@@ -1205,10 +1218,11 @@ h2 {
     content: "";
     position: relative;
     border-right: 2px solid rgba(49, 131, 255, 0.5);
-    height: 4em;
-    top: 1em;
-    left: 0.95em;
-    cursor: default;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    height: 0em;
+    top: 1.2em;
+    left: 0.55em;
 }
 
 #s4 {
@@ -1219,10 +1233,11 @@ h2 {
     content: "";
     position: relative;
     border-right: 2px solid rgba(49, 131, 255, 0.5);
-    height: 4em;
-    top: 1em;
-    left: 0.95em;
-    cursor: default;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    height: 0em;
+    top: 1.2em;
+    left: 0.55em;
 }
 
 #s5 {
@@ -1233,10 +1248,11 @@ h2 {
     content: "";
     position: relative;
     border-right: 2px solid rgba(49, 131, 255, 0.5);
-    height: 4em;
-    top: 1em;
-    left: 0.95em;
-    cursor: default;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    height: 0em;
+    top: 1.2em;
+    left: 0.55em;
 }
 
 #s6 {
@@ -1247,10 +1263,11 @@ h2 {
     content: "";
     position: relative;
     border-right: 2px solid rgba(49, 131, 255, 0.5);
-    height: 4em;
-    top: 1em;
-    left: 0.95em;
-    cursor: default;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    height: 0em;
+    top: 1.2em;
+    left: 0.55em;
 }
 
 #s7 {
@@ -1261,10 +1278,11 @@ h2 {
     content: "";
     position: relative;
     border-right: 2px solid rgba(49, 131, 255, 0.5);
-    height: 4em;
-    top: 1em;
-    left: 0.95em;
-    cursor: default;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    height: 0em;
+    top: 1.2em;
+    left: 0.55em;
 }
 
 #s8 {
@@ -1275,14 +1293,82 @@ h2 {
     content: "";
     position: relative;
     border-right: 2px solid rgba(49, 131, 255, 0.5);
-    height: 4em;
-    top: 1em;
-    left: 0.95em;
-    cursor: default;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    height: 0em;
+    top: 1.2em;
+    left: 0.55em;
 }
 
 #s9 {
     top: 50em;
+}
+
+.sText {
+    width: 2.5em;
+    height: 2.5em;
+    position: sticky;
+    top: 3.925em;
+    user-select: none;
+    font-family: 'Teko', sans-serif;
+    font-size: 2.35em;
+}
+
+#s1t {
+    right: 47em;
+}
+
+#s2t {
+    right: 47em;
+    top: 6.1em;
+}
+
+#s3t {
+    right: 47em;
+    top: 8.2em;
+}
+
+#s4t {
+    right: 47em;
+    top: 10.3em;
+}
+
+#s5t {
+    right: 47em;
+    top: 12.4em;
+}
+
+#s6t {
+    right: 47em;
+    top: 14.5em;
+}
+
+#s7t {
+    right: 47em;
+    top: 16.7em;
+}
+
+#s8t {
+    right: 42.5em;
+    top: 18.815em;
+}
+
+#s9t {
+    right: 42.5em;
+    top: 20.95em;
+}
+
+#roadLayer {
+    display: flex;
+    width: 18.75em;
+    height: 44.5em;
+    background-color: rgb(0, 0, 255, 0.1);
+    border-top-right-radius: 1.5em;
+    border-bottom-right-radius: 1.5em;
+    /* rgba(49, 131, 255, 1) */
+    position: sticky;
+    top: 8.75em;
+    right: 125em;
 }
 
 /* NFT Marketplace */
@@ -1589,6 +1675,10 @@ and (-webkit-min-device-pixel-ratio: 1){
 
     section {
         min-height: -webkit-fill-avaliable;
+    }
+
+    .container {
+        scroll-snap-type: none;
     }
 
     #ecoContainer1 {

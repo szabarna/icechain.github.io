@@ -5,6 +5,8 @@ import { RenderPass } from './three.js-r134-min/examples/jsm/postprocessing/Rend
 import { GlitchPass } from './three.js-r134-min/examples/jsm/postprocessing/GlitchPass.js';
 import { UnrealBloomPass } from './three.js-r134-min/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
+import { CSSPlugin } from "./gsap-public/esm/CSSPlugin.js";
+import { CSSRulePlugin } from "./gsap-public/esm/CSSRulePlugin.js";
 import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
 
@@ -59,7 +61,7 @@ window.onload = function() {
   
   
   
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, CSSPlugin, CSSRulePlugin );
   init();
   animate();
 
@@ -297,8 +299,8 @@ window.onload = function() {
       scene_anim.to(modelCurve.rotation, { y: "+=" + Math.PI * 4, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".projects",
-      start: window.innerHeight * 5.25,
-      end: window.innerHeight * 8.25,
+      start: window.innerHeight * 5,
+      end: window.innerHeight * 8,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
@@ -316,8 +318,8 @@ window.onload = function() {
       
       scene_anim.to(modelCurve.position, { y: "+=" + 3.5, scrollTrigger: {
       trigger: ".projects",
-      start: window.innerHeight * 5.25,
-      end: window.innerHeight * 8.25,
+      start: window.innerHeight * 5,
+      end: window.innerHeight * 8,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
@@ -352,7 +354,7 @@ console.error( error );
         // y -1.8
 
         mainCube.rotation.set(Math.PI * 0.125, 0, 0);
-        console.log(mainCube)
+       
         mainCube.material.transparent = true;
         mainCube.children[0].material.transparent = true;
         mainCube.children[1].material.transparent = true;
@@ -834,9 +836,163 @@ function icoAnim() {
 
 }
 
+let s1 = CSSRulePlugin.getRule('#s1:after');
+let s2 = CSSRulePlugin.getRule('#s2:after');
+let s3 = CSSRulePlugin.getRule('#s3:after');
+let s4 = CSSRulePlugin.getRule('#s4:after');
+let s5 = CSSRulePlugin.getRule('#s5:after');
+let s6 = CSSRulePlugin.getRule('#s6:after');
+let s7 = CSSRulePlugin.getRule('#s7:after');
+let s8 = CSSRulePlugin.getRule('#s8:after');
+
+
+scene_anim.to(s1, { height: "+=" + "3.8em", scrollTrigger: {
+
+  trigger: ".projects",
+  start: window.innerHeight * 5,
+  end: window.innerHeight * (5 + 0.2),
+  scrub: 1,
+  }});
+
+scene_anim.to(s2, { height: "+=" + "3.8em", scrollTrigger: {
+
+  trigger: ".projects",
+  start: window.innerHeight * (5 + 0.2),
+  end: window.innerHeight * (5 + 0.4),
+  scrub: 1,
+  }});
+
+scene_anim.to(s3, { height: "+=" + "3.8em", scrollTrigger: {
+
+    trigger: ".projects",
+    start: window.innerHeight * (5 + 0.4),
+    end: window.innerHeight * (5 + 0.6275),
+    scrub: 1,
+    }});
+  
+scene_anim.to(s4, { height: "+=" + "3.8em", scrollTrigger: {
+  
+    trigger: ".about",
+    start: window.innerHeight * (5 + 0.6275),
+    end: window.innerHeight * (5 + 0.8775),
+    scrub: 1,
+    }});
+scene_anim.to(s5, { height: "+=" + "3.8em", scrollTrigger: {
+
+      trigger: ".projects",
+      start: window.innerHeight * (5 + 0.8775),
+      end: window.innerHeight * (5 + 1.1725),
+      scrub: 1,
+      }});
+    
+scene_anim.to(s6, { height: "+=" + "3.8em", scrollTrigger: {
+    
+      trigger: ".projects",
+      start: window.innerHeight * (5 + 1.1725),
+      end: window.innerHeight * (5 + 1.51),
+      scrub: 1,
+      }});
+    
+scene_anim.to(s7, { height: "+=" + "3.8em", scrollTrigger: {
+    
+        trigger: ".projects",
+        start: window.innerHeight * (5 + 1.51),
+        end: window.innerHeight * (5 + 1.945),
+        scrub: 1,
+        }});
+      
+scene_anim.to(s8, { height: "+=" + "3.8em", scrollTrigger: {
+      
+        trigger: ".about",
+        start: window.innerHeight * (5 + 1.945),
+        end: window.innerHeight * (5 + 2.875),
+        scrub: 1,
+        }});       
+
+    
+ 
+
+
 
 /* MARKETPLACE SECTION */
 
+let stickys = document.querySelectorAll('.sticky');
+
+
+
+    stickys[0].addEventListener('click', (e)=> {
+      e.preventDefault();
+          document.querySelector('.container').scrollTo({
+           top: window.innerHeight * 5,
+           behavior: 'smooth'
+          });
+    });
+
+    stickys[1].addEventListener('click', (e)=> {
+      e.preventDefault();
+      document.querySelector('.container').scrollTo({
+       top: window.innerHeight * (5 + 0.2),
+       behavior: 'smooth'
+      });
+});
+
+stickys[2].addEventListener('click', (e)=> {
+  e.preventDefault();
+  document.querySelector('.container').scrollTo({
+   top: window.innerHeight * (5 + 0.4),
+   behavior: 'smooth'
+  });
+});
+
+stickys[3].addEventListener('click', (e)=> {
+  e.preventDefault();
+  document.querySelector('.container').scrollTo({
+   top: window.innerHeight * (5 + 0.6275),
+   behavior: 'smooth'
+  });
+});
+
+stickys[4].addEventListener('click', (e)=> {
+  e.preventDefault();
+  document.querySelector('.container').scrollTo({
+   top: window.innerHeight * (5 + 0.8775),
+   behavior: 'smooth'
+  });
+});
+
+stickys[5].addEventListener('click', (e)=> {
+  e.preventDefault();
+  document.querySelector('.container').scrollTo({
+   top: window.innerHeight * (5 + 1.1725),
+   behavior: 'smooth'
+  });
+});
+
+stickys[6].addEventListener('click', (e)=> {
+  e.preventDefault();
+  document.querySelector('.container').scrollTo({
+   top: window.innerHeight * (5 + 1.51),
+   behavior: 'smooth'
+  });
+});
+
+stickys[7].addEventListener('click', (e)=> {
+  e.preventDefault();
+  document.querySelector('.container').scrollTo({
+   top: window.innerHeight * (5 + 1.945),
+   behavior: 'smooth'
+  });
+});
+
+stickys[8].addEventListener('click', (e)=> {
+  e.preventDefault();
+  document.querySelector('.container').scrollTo({
+   top: window.innerHeight * (5 + 2.875),
+   behavior: 'smooth'
+  });
+});
+
+// 5.25 -> 8.25
 function onTransitionEnd( event ) {
 
 	event.target.remove();
