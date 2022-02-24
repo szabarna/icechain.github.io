@@ -12,6 +12,19 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
 window.onload = function() {
 
+  function getDeviceWidth() {
+    if (typeof (window.innerWidth) == 'number') {
+        //Non-IE
+        return window.innerWidth;
+    } else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+        //IE 6+ in 'standards compliant mode'
+        return document.documentElement.clientWidth;
+    } else if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
+        //IE 4 compatible
+        return document.body.clientWidth;
+    }
+    return 0;
+}
 
 /*     setting active class for nav  */
 
@@ -62,8 +75,10 @@ window.onload = function() {
   
   
   gsap.registerPlugin(ScrollTrigger, CSSPlugin, CSSRulePlugin );
-  init();
-  animate();
+
+    init();
+    animate();
+ 
 
   function addStatsObject() {
     stats = new Stats();
@@ -101,8 +116,9 @@ window.onload = function() {
  // controls = new TrackballControls(camera, renderer.domElement);
   //controls.rotateSpeed = 5.0;
   //controls.panSpeed = 1.0;
+  console.log(getDeviceWidth())
   renderer.setSize( window.innerWidth, window.innerHeight );
-  if(window.innerWidth >= 1200) renderer.setPixelRatio( 2 );
+  if(getDeviceWidth() >= 1200) renderer.setPixelRatio( 2 );
   else renderer.setPixelRatio( window.devicePixelRatio );
 
   
@@ -230,7 +246,7 @@ window.onload = function() {
 
       nodeModel = gltf.scene.clone();
       nodeModel.scale.set(.2, .2, .2)
-      nodeModel.position.set(5, -11.2, 1.5);
+      nodeModel.position.set(5, -11.3, 1.25);
 
       nodeModel.children[0].children[0].material = new THREE.MeshBasicMaterial({ map: gltf.scene.children[0].children[0].material.map, side: THREE.DoubleSide});
       nodeModel.children[1].children[0].material = new THREE.MeshBasicMaterial({ map: gltf.scene.children[1].children[0].material.map, side: THREE.DoubleSide});
@@ -256,19 +272,6 @@ window.onload = function() {
         update: camera.updateProjectionMatrix(),
         }});
 
-        // scene_anim.to(nodeModel.rotation, { y: "-=" + Math.PI * 2, scrollTrigger: {
-        //   , gltf.scene.children[1].position, gltf.scene.children[2].position
-        // trigger: ".projects",
-        // start: window.innerHeight * 5,
-        // end: window.innerHeight * 8,
-        // scrub: 1,
-        // update: camera.updateProjectionMatrix(),
-        // }});
-
-
-
-
-      
   
       scene.add( nodeModel );
   
@@ -594,8 +597,6 @@ scene.add(subLine8);
     composer.addPass( unRealBloomPass );
 
     
-
-    
     // composer.addPass( glitchPass );
   document.addEventListener('mousemove', onDocumentMouseMove, false);
   window.addEventListener( 'resize', handleWindowResize, false );
@@ -627,6 +628,12 @@ function onDocumentMouseMove(event) {
     aspectRatio = WIDTH / HEIGHT;
     camera.aspect = aspectRatio;
     camera.updateProjectionMatrix();
+
+    let container = document.querySelector('.container');
+
+    container.style.width = window.innerWidth + "px";
+    container.style.height = window.innerHeight + "px";
+    
 
 }
   
@@ -781,7 +788,7 @@ for(let i = 0; i < textHolders.length; i++) {
   
   let ecoCounter = 2;
     ecoContainers[i].addEventListener('click', (e)=> {
-      
+        e.preventDefault();
         if(ecoCounter % 2 == 0) gsap.to(textHolders[i], { 'clip-path': 'circle(100%)', duration: 0.75, ease: Sine});
         else gsap.to(textHolders[i], { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
         ecoCounter+=1;
@@ -830,7 +837,8 @@ tl2.reversed(true);
 
 icoButton.addEventListener('click', icoAnim);
 
-function icoAnim() {
+function icoAnim(e) {
+  e.preventDefault();
   tl.reversed(!tl.reversed());
   tl2.reversed(!tl2.reversed());
 

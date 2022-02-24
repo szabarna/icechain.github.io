@@ -1154,7 +1154,7 @@ h2 {
 
 #nodeImg {
     position: relative;
-    top: 17.5em;
+    top: -7.5em;
     filter: drop-shadow(0 0 1em rgb(28, 102, 212));
 }
 
@@ -1690,15 +1690,13 @@ h2 {
 /* FOOTER SECTION */
 
 .footer {
-    height: 40vh;
+    height: 73vh;
     background: linear-gradient(rgb(10, 10, 10), rgb(0, 0, 0));
 }
 
-
-
-
-
-
+#footerImg {
+   position: absolute;
+}
 
 
 /* MEDIA QUERYS FOR LAPTOP */
@@ -1708,9 +1706,7 @@ and (min-device-width: 1200px)
 and (max-device-width: 1600px)
 and (-webkit-min-device-pixel-ratio: 1){
 
-    body {
-        min-height: -webkit-fill-avaliable;
-    }
+    
 
     section {
         min-height: -webkit-fill-avaliable;
