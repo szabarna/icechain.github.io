@@ -87,7 +87,7 @@ html, body {
     bottom: 5px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #5755d3;
+    border-top-color: #0b24b4;
     -webkit-animation: spin 3s linear infinite;
     animation: spin 3s linear infinite;
 }
@@ -287,7 +287,7 @@ section {
 }
 
 .container {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
     overflow-x: hidden;
     height: 100vh;
     overflow-y: scroll;
@@ -327,6 +327,7 @@ section {
     width: auto;
     height: auto;
     cursor: default;
+    object-fit: contain;
 }
 
 .landingText {
@@ -528,20 +529,6 @@ h2 {
     font-size: 1.5em;
     color: white;
 }
-/*
-::-webkit-scrollbar {
-    scrollbar-color: turquoise;
-}
-::-webkit-scrollbar-track {
-    background: yellow;
-    border-radius: 50px;
-}
-::-webkit-scrollbar-thumb {
-    background: yellow;
-    border-radius: 50px;
-}
-*/
-
 
 /* ThreeJs */
 
@@ -560,6 +547,7 @@ h2 {
 
 
 /* ECOSYSTEM */
+
 #leftEco {
     position: absolute;
     display: flex;
@@ -1059,8 +1047,8 @@ h2 {
 
 #tokenContent {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(28, 57, 128, 0.95);
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     display: flex;
@@ -1182,123 +1170,40 @@ h2 {
     box-shadow: 0 0 100px 0 rgba(49, 131, 255, 1) inset;
 }
 
-#s1:after {
-    content: "";
-    position: relative;
-    border-right: 2px solid rgba(49, 131, 255, 0.5);
-    border-top-left-radius: 25%;
-    border-top-right-radius: 25%;
-    height: 0em;
-    top: 1.2em;
-    left: 0.55em;
-    z-index: 1;
-   
-}
 
 #s2 {
     top: 15em;
-}
-
-#s2:after {
-    content: "";
-    position: relative;
-    border-right: 2px solid rgba(49, 131, 255, 0.5);
-    border-top-left-radius: 25%;
-    border-top-right-radius: 25%;
-    height: 0em;
-    top: 1.2em;
-    left: 0.55em;
 }
 
 #s3 {
     top: 20em;
 }
 
-#s3:after {
-    content: "";
-    position: relative;
-    border-right: 2px solid rgba(49, 131, 255, 0.5);
-    border-top-left-radius: 25%;
-    border-top-right-radius: 25%;
-    height: 0em;
-    top: 1.2em;
-    left: 0.55em;
-}
 
 #s4 {
     top: 25em;
 }
 
-#s4:after {
-    content: "";
-    position: relative;
-    border-right: 2px solid rgba(49, 131, 255, 0.5);
-    border-top-left-radius: 25%;
-    border-top-right-radius: 25%;
-    height: 0em;
-    top: 1.2em;
-    left: 0.55em;
-}
 
 #s5 {
     top: 30em;
 }
 
-#s5:after {
-    content: "";
-    position: relative;
-    border-right: 2px solid rgba(49, 131, 255, 0.5);
-    border-top-left-radius: 25%;
-    border-top-right-radius: 25%;
-    height: 0em;
-    top: 1.2em;
-    left: 0.55em;
-}
 
 #s6 {
     top: 35em;
 }
 
-#s6:after {
-    content: "";
-    position: relative;
-    border-right: 2px solid rgba(49, 131, 255, 0.5);
-    border-top-left-radius: 25%;
-    border-top-right-radius: 25%;
-    height: 0em;
-    top: 1.2em;
-    left: 0.55em;
-}
 
 #s7 {
     top: 40em;
 }
 
-#s7:after {
-    content: "";
-    position: relative;
-    border-right: 2px solid rgba(49, 131, 255, 0.5);
-    border-top-left-radius: 25%;
-    border-top-right-radius: 25%;
-    height: 0em;
-    top: 1.2em;
-    left: 0.55em;
-}
 
 #s8 {
     top: 45em;
 }
 
-#s8:after {
-    content: "";
-    position: relative;
-    border-right: 2px solid rgba(49, 131, 255, 0.5);
-    border-top-left-radius: 25%;
-    border-top-right-radius: 25%;
-    height: 0em;
-    top: 1.2em;
-    left: 0.55em;
-}
 
 #s9 {
     top: 50em;
@@ -1406,7 +1311,7 @@ h2 {
     position: relative;
     top: -6em;
     left: 1em;
-    color: rgb(47, 199, 110);
+    color: rgb(31, 110, 214);
     user-select: none;
 }
 
@@ -1490,7 +1395,7 @@ h2 {
 
 #mD1 {
 
-    background-image: url('./src/img/nft1_2x.jpg');
+    background-image: url('./src/img/nft1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -1510,7 +1415,7 @@ h2 {
 }
 
 #mD2 {
-    background-image: url('./src/img/nft2_2x.jpg');
+    background-image: url('./src/img/nft2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -1545,7 +1450,7 @@ h2 {
     border-radius: 1.75em;
     top: 12em;
     justify-content: center;
-    background-image: url('./src/img/nft3_2x.jpg');
+    background-image: url('./src/img/nft3.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -1570,7 +1475,7 @@ h2 {
 
 
 #mD5 {
-    background-image: url('./src/img/nft4_2x.jpg');
+    background-image: url('./src/img/nft4.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -1699,6 +1604,28 @@ h2 {
 }
 
 
+
+/* VIDEO BREAKPOINT */
+
+@media screen
+and (max-device-width: 1263px) {
+    #video {
+        min-width: 100%; 
+        min-height: 100%;
+        
+    }
+
+    .container {
+        scroll-snap-type: none;
+    }
+
+    section {
+        scroll-snap-align: none;
+        min-height: -webkit-fill-avaliable;
+    }
+    
+}
+
 /* MEDIA QUERYS FOR LAPTOP */
 
 @media screen
@@ -1706,14 +1633,22 @@ and (min-device-width: 1200px)
 and (max-device-width: 1600px)
 and (-webkit-min-device-pixel-ratio: 1){
 
-    
-
-    section {
-        min-height: -webkit-fill-avaliable;
+    html, body {
+        overflow: hidden;
     }
 
     .container {
-        scroll-snap-type: none;
+        scroll-snap-type: y proximity;
+    }
+
+    section {
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        min-height: -webkit-fill-avaliable;
+    }
+
+    .projects {
+        scroll-snap-align: none;
     }
 
     #ecoContainer1 {
@@ -1738,7 +1673,7 @@ and (-webkit-min-device-pixel-ratio: 1){
 
     #ecoContainer5 {
         width: 17em;
-        margin-top: 1.25em;
+        margin-top: 0.25em;
         margin-left: -2em;
     }
 
@@ -1804,6 +1739,128 @@ and (-webkit-min-device-pixel-ratio: 1){
     #utility {
        top: 12.2em;
     }
+
+    .logo {
+        margin-left: 8.5em;
+    }
+
+    .linkContainer {
+        margin-right: 15.85em;
+    }
+
+    #icoButton {
+        top: 27.25em;
+    }
+
+    #tokenContent {
+        height: 102.5vh;
+    }
+
+   #tokenT1 {
+       top: 3.5em;
+       width: 42.5em;
+   }
+
+   #tokenT2 {
+       top: 14.85em;
+   }
+
+   #nodeImg {
+       top: -10em;
+   }
+
+   #roadLayer {
+        width: 13em;
+        height: 40em;
+        top: 5.75em;
+   }
+
+   .sticky {
+    top: 7.5em;
+    right: 87.5em;
+   }
+
+   .sText{
+       top: 2.9em;
+   }
+
+   #s1t {
+       right: 37.8em;
+   }
+
+   #s2 {
+       top: 12em;
+   }
+
+   #s2t {
+        top: 4.8em;
+        right: 37.8em;
+   }
+
+   #s3 {
+        top: 16.25em;
+    }
+
+    #s3t {
+        top: 6.6em;
+        right: 37.8em;
+    }
+
+    #s4 {
+        top: 20.5em;
+    }
+
+    #s4t {
+        top: 8.45em;
+        right: 37.8em;
+    }
+
+    #s5 {
+        top: 24.75em;
+    }
+
+    #s5t {
+        top: 10.25em;
+        right: 37.8em;
+    }
+
+    #s6 {
+        top: 29em;
+    }
+
+    #s6t {
+        top: 12em;
+        right: 37.8em;
+    }
+
+    #s7 {
+        top: 33.25em;
+    }
+
+    #s7t {
+        top: 13.8em;
+        right: 37.8em;
+    }
+
+    #s8 {
+        top: 37.5em;
+    }
+
+    #s8t {
+        top: 15.6em;
+        right: 34.2em;
+
+    }
+
+    #s9 {
+        top: 41.75em;
+    }
+
+    #s9t {
+        top: 17.4em;
+        right: 34.2em;
+    }
+
 
 }
 

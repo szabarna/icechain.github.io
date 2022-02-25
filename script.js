@@ -58,7 +58,7 @@ window.onload = function() {
   
   /*                       THREEJS                             */
 
-  var renderer,  camera, HEIGHT, WIDTH, aspectRatio, tl4, controls, composer;
+  var renderer,  camera, HEIGHT, WIDTH, aspectRatio, composer;
   var ambientLight;
   var scene = null;
   var canvReference = null;
@@ -71,6 +71,7 @@ window.onload = function() {
   var mainCube;
   var stats;
   var cubeRotation = true;
+  var particleRotation = true;
   
   
   
@@ -102,6 +103,7 @@ window.onload = function() {
     cameraCenter.x = camera.position.x;
     cameraCenter.y = camera.position.y;
     
+    let bigDevice = getDeviceWidth() >= 1600;
     // Select the canvas from the document
     canvReference = document.getElementById("webgl");
   
@@ -109,16 +111,14 @@ window.onload = function() {
       renderer = new THREE.WebGLRenderer({
       powerPreference: "high-performance",
       canvas: canvReference,
-      alpha: true,
-      antialias: true
+      // alpha: true,
+      antialias: bigDevice, 
       
   });
- // controls = new TrackballControls(camera, renderer.domElement);
-  //controls.rotateSpeed = 5.0;
-  //controls.panSpeed = 1.0;
+ 
   console.log(getDeviceWidth())
   renderer.setSize( window.innerWidth, window.innerHeight );
-  if(getDeviceWidth() >= 1200) renderer.setPixelRatio( 2 );
+  if(getDeviceWidth() >= 1600) renderer.setPixelRatio( 2 );
   else renderer.setPixelRatio( window.devicePixelRatio );
 
   
@@ -182,6 +182,7 @@ window.onload = function() {
   
   renderer.initTexture(texture);
   renderer.initTexture(textureAlpha);
+
   // Mesh
  // const cube = new THREE.Points( geometry, tmaterial );
  
@@ -221,7 +222,7 @@ window.onload = function() {
     scene_anim.to(tokenModel.position , { x: -10, scrollTrigger: {
 
       trigger: ".node",
-      start: window.innerHeight * 3,
+      start: window.innerHeight * 3.15,
       end: window.innerHeight * 4,
       scrub: 1,
       update: camera.updateProjectionMatrix(),
@@ -574,6 +575,8 @@ scene.add(subLine8);
    scene.add( particlesMeshLowerLower );
    scene.add( particlesMeshLowerLowerRight );
    
+   if(cubeRotation && particleRotation) {
+
    gsap.to([
               
     particlesMesh.rotation,
@@ -582,8 +585,10 @@ scene.add(subLine8);
     particlesMeshLowerLowerRight.rotation,
   ],
   { duration: 75, y: Math.PI * 2, repeat: -1, ease: "none" });
+
+  }
   
-  
+
   gsap.to([particlesMesh.material, particlesMeshLower.material,particlesMeshLowerLower.material,], {size: 0.015, duration: 5, ease: Sine});
   // EFFECT COMPOSER + BLOOM EFFECT
   composer = new EffectComposer( renderer );
@@ -595,14 +600,13 @@ scene.add(subLine8);
   var glitchPass = new GlitchPass();
     composer.addPass( renderPass );
     composer.addPass( unRealBloomPass );
-
     
     // composer.addPass( glitchPass );
   document.addEventListener('mousemove', onDocumentMouseMove, false);
   window.addEventListener( 'resize', handleWindowResize, false );
   
  }
- 
+
 
  function updateCamera() {
   //offset the camera x/y based on the mouse's position in the window
@@ -664,9 +668,10 @@ var video = document.querySelector('#video');
 video.volume = 0.05;
 
 videoButton.addEventListener('click', (e) => {
+    e.preventDefault();
       gsap.to(videoContainer, { 'clip-path': 'circle(100%)', duration: 0.75, ease: Sine});
 
-      if(window.innerWidth <= 786) {
+      if(getDeviceWidth() <= 786) {
       if (video.requestFullscreen) {
         video.requestFullscreen();
       } else if (video.webkitRequestFullscreen) { /* Safari */
@@ -681,6 +686,7 @@ videoButton.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
+    e.preventDefault();
     if(e.key === "Escape" && videoContainer.style.clipPath != "circle(0% at center center)") {
         video.pause();
         gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
@@ -689,6 +695,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 $(videoContainer).on('click', function(e) {
+  e.preventDefault();
   if (e.target !== this) return;
   
 
@@ -758,7 +765,7 @@ const eco_anim = gsap.to([
   start: window.innerHeight * 0.35,
   end: window.innerHeight * 1.5,
   scrub: 1,
-  update: camera.updateProjectionMatrix(),
+ // update: camera.updateProjectionMatrix(),
   onLeave: function() { gsap.to([ 
     subLine1.geometry.drawRange,
     subLine2.geometry.drawRange,
@@ -853,7 +860,7 @@ let s6 = CSSRulePlugin.getRule('#s6:after');
 let s7 = CSSRulePlugin.getRule('#s7:after');
 let s8 = CSSRulePlugin.getRule('#s8:after');
 
-
+/*
 scene_anim.to(s1, { height: "+=" + "3.8em", scrollTrigger: {
 
   trigger: ".projects",
@@ -911,13 +918,13 @@ scene_anim.to(s7, { height: "+=" + "3.8em", scrollTrigger: {
       
 scene_anim.to(s8, { height: "+=" + "3.8em", scrollTrigger: {
       
-        trigger: ".about",
+        trigger: ".projects",
         start: window.innerHeight * (5 + 1.945),
         end: window.innerHeight * (5 + 2.875),
         scrub: 1,
         }});       
 
-    
+    */
  
 
 
