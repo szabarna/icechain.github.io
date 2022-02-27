@@ -104,6 +104,7 @@ window.onload = function() {
     cameraCenter.y = camera.position.y;
     
     let bigDevice = getDeviceWidth() >= 1600;
+    let smallDevice = getDeviceWidth() <= 768;
     // Select the canvas from the document
     canvReference = document.getElementById("webgl");
   
@@ -118,7 +119,7 @@ window.onload = function() {
  
   console.log(getDeviceWidth())
   renderer.setSize( window.innerWidth, window.innerHeight );
-  if(getDeviceWidth() >= 1600) renderer.setPixelRatio( 2 );
+  if(bigDevice) renderer.setPixelRatio( 2 );
   else renderer.setPixelRatio( window.devicePixelRatio );
 
   
@@ -345,7 +346,7 @@ console.error( error );
         let offsetX = null;
         mainCube = gltf.scene.children[0].clone();
    
-        if(window.innerWidth < 1600) {
+        if(getDeviceWidth() < 1600) {
           offsetX = 1.5;
           mainCube.position.set(1.5, 0, 0);
         }
@@ -428,7 +429,7 @@ const geometrySub1 = new THREE.BufferGeometry().setFromPoints( pointsSub1 );
 geometrySub1.drawRange.start = 0;
 geometrySub1.drawRange.count = 0;
  subLine1 = new THREE.Points( geometrySub1, pointsMaterial );
-scene.add(subLine1);
+ if(!smallDevice)  scene.add(subLine1);
 
 
 // sub curve left, second from top
@@ -447,7 +448,7 @@ geometrySub2.drawRange.count = 0;
 
 subLine2 = new THREE.Points( geometrySub2, pointsMaterial );
 
-scene.add(subLine2);
+subLine1.add(subLine2);
 
 
 // sub curve left, third from top
@@ -465,7 +466,7 @@ geometrySub3.drawRange.start = 0;
 geometrySub3.drawRange.count = 0;
  subLine3 = new THREE.Points( geometrySub3, pointsMaterial );
 
-scene.add(subLine3);
+ subLine1.add(subLine3);
 
 // sub curve left, fourth from top
 
@@ -482,7 +483,7 @@ geometrySub4.drawRange.start = 0;
 geometrySub4.drawRange.count = 0;
 subLine4 = new THREE.Points( geometrySub4, pointsMaterial );
 
-scene.add(subLine4);
+subLine1.add(subLine4);
 
 
   // RIGHT
@@ -503,7 +504,7 @@ geometrySub5.drawRange.count = 0;
 subLine5 = new THREE.Points( geometrySub5, pointsMaterial );
 
 
-scene.add(subLine5);
+subLine1.add(subLine5);
 
 // sub curve rightLayer, second from top
 
@@ -520,7 +521,7 @@ geometrySub6.drawRange.start = 0;
 geometrySub6.drawRange.count = 0;
  subLine6 = new THREE.Points( geometrySub6, pointsMaterial );
 
-scene.add(subLine6);
+ subLine1.add(subLine6);
 
 
 // sub curve rightLayer, third from top
@@ -538,7 +539,7 @@ geometrySub7.drawRange.start = 0;
 geometrySub7.drawRange.count = 0;
  subLine7 = new THREE.Points( geometrySub7, pointsMaterial );
 
-scene.add(subLine7);
+ subLine1.add(subLine7);
 
 
 // sub curve rightLayer, fourth from top
@@ -557,7 +558,7 @@ geometrySub8.drawRange.count = 0;
  subLine8 = new THREE.Points( geometrySub8, pointsMaterial );
 
 
-scene.add(subLine8);
+ subLine1.add(subLine8);
 
 
 
