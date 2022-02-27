@@ -638,6 +638,82 @@ function onDocumentMouseMove(event) {
 
     container.style.width = window.innerWidth + "px";
     container.style.height = window.innerHeight + "px";
+
+    let stickys = document.querySelectorAll('.sticky');
+
+
+
+    stickys[0].addEventListener('click', (e)=> {
+      e.preventDefault();
+          document.querySelector('.container').scrollTo({
+           top: window.innerHeight * 5,
+           behavior: 'smooth'
+          });
+    });
+
+    stickys[1].addEventListener('click', (e)=> {
+      e.preventDefault();
+      document.querySelector('.container').scrollTo({
+       top: window.innerHeight * (5 + 0.2),
+       behavior: 'smooth'
+      });
+});
+
+stickys[2].addEventListener('click', (e)=> {
+  e.preventDefault();
+  document.querySelector('.container').scrollTo({
+   top: window.innerHeight * (5 + 0.4),
+   behavior: 'smooth'
+  });
+});
+
+stickys[3].addEventListener('click', (e)=> {
+  e.preventDefault();
+  document.querySelector('.container').scrollTo({
+   top: window.innerHeight * (5 + 0.6275),
+   behavior: 'smooth'
+  });
+});
+
+stickys[4].addEventListener('click', (e)=> {
+  e.preventDefault();
+  document.querySelector('.container').scrollTo({
+   top: window.innerHeight * (5 + 0.8775),
+   behavior: 'smooth'
+  });
+});
+
+stickys[5].addEventListener('click', (e)=> {
+  e.preventDefault();
+  document.querySelector('.container').scrollTo({
+   top: window.innerHeight * (5 + 1.1725),
+   behavior: 'smooth'
+  });
+});
+
+stickys[6].addEventListener('click', (e)=> {
+  e.preventDefault();
+  document.querySelector('.container').scrollTo({
+   top: window.innerHeight * (5 + 1.51),
+   behavior: 'smooth'
+  });
+});
+
+stickys[7].addEventListener('click', (e)=> {
+  e.preventDefault();
+  document.querySelector('.container').scrollTo({
+   top: window.innerHeight * (5 + 1.945),
+   behavior: 'smooth'
+  });
+});
+
+stickys[8].addEventListener('click', (e)=> {
+  e.preventDefault();
+  document.querySelector('.container').scrollTo({
+   top: window.innerHeight * (5 + 2.875),
+   behavior: 'smooth'
+  });
+});
     
 
 }
