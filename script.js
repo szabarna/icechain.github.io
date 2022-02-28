@@ -104,6 +104,7 @@ window.onload = function() {
     cameraCenter.y = camera.position.y;
     
     let bigDevice = getDeviceWidth() >= 1600;
+    let mediumDevice = getDeviceWidth() <= 1600 && getDeviceWidth() >= 1200;
     let smallDevice = getDeviceWidth() <= 768;
     // Select the canvas from the document
     canvReference = document.getElementById("webgl");
@@ -207,18 +208,53 @@ window.onload = function() {
     tokenModel = gltf.scene.clone();
     // tokenModel.frustumCulled = false;
     
+    if(getDeviceWidth() >= 1280 && getDeviceWidth() < 1440) {
+      tokenModel.scale.set( 0.815, 0.815, 0.815 );
+      tokenModel.position.set(0, -13, 0 );
+      tokenModel.children[0].position.z = 1.65;
+      tokenModel.children[1].position.z = -2;
 
-    tokenModel.position.set(0, -15, 0 );
+      scene_anim.to(tokenModel.position, { y: -9.8, scrollTrigger: {
+        // , gltf.scene.children[1].position, gltf.scene.children[2].position
+      trigger: ".services",
+      start: window.innerHeight * 2,
+      end: window.innerHeight * 3.25,
+      scrub: 1,
+      update: camera.updateProjectionMatrix(),
+      }});
+    }
+    else if(getDeviceWidth() >= 1440 && getDeviceWidth() < 1600) {
+      tokenModel.scale.set( 0.9, 0.9, 0.9 );
+      tokenModel.position.set(0, -13, 0 );
+      tokenModel.children[0].position.z = 1.85;
+      tokenModel.children[1].position.z = -2.2;
+
+      scene_anim.to(tokenModel.position, { y: -10.2, scrollTrigger: {
+        // , gltf.scene.children[1].position, gltf.scene.children[2].position
+      trigger: ".services",
+      start: window.innerHeight * 2,
+      end: window.innerHeight * 3.25,
+      scrub: 1,
+      update: camera.updateProjectionMatrix(),
+      }});
+    }
+
+    else {
+      tokenModel.position.set(0, -15, 0 );
+      scene_anim.to(tokenModel.position, { y: -10.2, scrollTrigger: {
+        // , gltf.scene.children[1].position, gltf.scene.children[2].position
+      trigger: ".services",
+      start: window.innerHeight * 2,
+      end: window.innerHeight * 3.25,
+      scrub: 1,
+      update: camera.updateProjectionMatrix(),
+      }});
+    }
+
+    
     tokenModel.rotation.set(0, Math.PI * 1.5, 0);
 
-    scene_anim.to(tokenModel.position, { y: -10.2, scrollTrigger: {
-      // , gltf.scene.children[1].position, gltf.scene.children[2].position
-    trigger: ".services",
-    start: window.innerHeight * 2,
-    end: window.innerHeight * 3.25,
-    scrub: 1,
-    update: camera.updateProjectionMatrix(),
-    }});
+    
 
     scene_anim.to(tokenModel.position , { x: -10, scrollTrigger: {
 
@@ -252,18 +288,11 @@ window.onload = function() {
 
       nodeModel.children[0].children[0].material = new THREE.MeshBasicMaterial({ map: gltf.scene.children[0].children[0].material.map, side: THREE.DoubleSide});
       nodeModel.children[1].children[0].material = new THREE.MeshBasicMaterial({ map: gltf.scene.children[1].children[0].material.map, side: THREE.DoubleSide});
-      nodeModel.children[0].material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true });
-      nodeModel.children[1].material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: false });
+      nodeModel.children[0].material = new THREE.MeshBasicMaterial({ color: 0x483D8B, wireframe: true });
+      nodeModel.children[1].material = new THREE.MeshBasicMaterial({ color: 0x4169E1, wireframe: true });
      renderer.initTexture(nodeModel.children[0].children[0].material.map);
      renderer.initTexture(nodeModel.children[1].children[0].material.map);
 
-     /*
-     gsap.to([
-              
-      nodeModel.rotation,
-    ],
-    { duration: 30, y: Math.PI * 2, repeat: -1, ease: "none" });
-    */
       
       scene_anim.to(nodeModel.position , { x: 0, scrollTrigger: {
 
@@ -928,81 +957,6 @@ function icoAnim(e) {
 
 }
 
-let s1 = CSSRulePlugin.getRule('#s1:after');
-let s2 = CSSRulePlugin.getRule('#s2:after');
-let s3 = CSSRulePlugin.getRule('#s3:after');
-let s4 = CSSRulePlugin.getRule('#s4:after');
-let s5 = CSSRulePlugin.getRule('#s5:after');
-let s6 = CSSRulePlugin.getRule('#s6:after');
-let s7 = CSSRulePlugin.getRule('#s7:after');
-let s8 = CSSRulePlugin.getRule('#s8:after');
-
-/*
-scene_anim.to(s1, { height: "+=" + "3.8em", scrollTrigger: {
-
-  trigger: ".projects",
-  start: window.innerHeight * 5,
-  end: window.innerHeight * (5 + 0.2),
-  scrub: 1,
-  }});
-
-scene_anim.to(s2, { height: "+=" + "3.8em", scrollTrigger: {
-
-  trigger: ".projects",
-  start: window.innerHeight * (5 + 0.2),
-  end: window.innerHeight * (5 + 0.4),
-  scrub: 1,
-  }});
-
-scene_anim.to(s3, { height: "+=" + "3.8em", scrollTrigger: {
-
-    trigger: ".projects",
-    start: window.innerHeight * (5 + 0.4),
-    end: window.innerHeight * (5 + 0.6275),
-    scrub: 1,
-    }});
-  
-scene_anim.to(s4, { height: "+=" + "3.8em", scrollTrigger: {
-  
-    trigger: ".about",
-    start: window.innerHeight * (5 + 0.6275),
-    end: window.innerHeight * (5 + 0.8775),
-    scrub: 1,
-    }});
-scene_anim.to(s5, { height: "+=" + "3.8em", scrollTrigger: {
-
-      trigger: ".projects",
-      start: window.innerHeight * (5 + 0.8775),
-      end: window.innerHeight * (5 + 1.1725),
-      scrub: 1,
-      }});
-    
-scene_anim.to(s6, { height: "+=" + "3.8em", scrollTrigger: {
-    
-      trigger: ".projects",
-      start: window.innerHeight * (5 + 1.1725),
-      end: window.innerHeight * (5 + 1.51),
-      scrub: 1,
-      }});
-    
-scene_anim.to(s7, { height: "+=" + "3.8em", scrollTrigger: {
-    
-        trigger: ".projects",
-        start: window.innerHeight * (5 + 1.51),
-        end: window.innerHeight * (5 + 1.945),
-        scrub: 1,
-        }});
-      
-scene_anim.to(s8, { height: "+=" + "3.8em", scrollTrigger: {
-      
-        trigger: ".projects",
-        start: window.innerHeight * (5 + 1.945),
-        end: window.innerHeight * (5 + 2.875),
-        scrub: 1,
-        }});       
-
-    */
- 
 
 
 
@@ -1023,7 +977,7 @@ let stickys = document.querySelectorAll('.sticky');
     stickys[1].addEventListener('click', (e)=> {
       e.preventDefault();
       document.querySelector('.container').scrollTo({
-       top: window.innerHeight * (5 + 0.2),
+       top: window.innerHeight * (5 + 0.1955),
        behavior: 'smooth'
       });
 });
@@ -1039,7 +993,7 @@ stickys[2].addEventListener('click', (e)=> {
 stickys[3].addEventListener('click', (e)=> {
   e.preventDefault();
   document.querySelector('.container').scrollTo({
-   top: window.innerHeight * (5 + 0.6275),
+   top: window.innerHeight * (5 + 0.63),
    behavior: 'smooth'
   });
 });
@@ -1055,7 +1009,7 @@ stickys[4].addEventListener('click', (e)=> {
 stickys[5].addEventListener('click', (e)=> {
   e.preventDefault();
   document.querySelector('.container').scrollTo({
-   top: window.innerHeight * (5 + 1.1725),
+   top: window.innerHeight * (5 + 1.165),
    behavior: 'smooth'
   });
 });
