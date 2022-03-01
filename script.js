@@ -26,35 +26,7 @@ window.onload = function() {
     return 0;
 }
 
-/*     setting active class for nav  */
-
-   const container = document.getElementsByClassName("li");
   
-    const logo = document.querySelector('#logo');
-    const home = document.querySelector('#homeLink');
-    const about = document.querySelector('#aboutLink');
-    const services = document.querySelector('#servicesLink');
-    const project = document.querySelector('#projectLink');
-    const contact = document.querySelector('#contactLink');
-    
-
-   /*
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-
-
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-              behavior: 'smooth'
-          });
-          
-          
-      });
-  });
-  */
-  
-
   
   /*                       THREEJS                             */
 
@@ -80,6 +52,7 @@ window.onload = function() {
     init();
     animate();
  
+    
 
   function addStatsObject() {
     stats = new Stats();
@@ -239,6 +212,67 @@ window.onload = function() {
       }});
     }
 
+    else if(getDeviceWidth() >= 768 && getDeviceWidth() < 1200) {
+      tokenModel.scale.set( 1, 1, 1);
+      tokenModel.position.set(0, -15, 0 );
+      tokenModel.children[0].position.x = 0;
+      tokenModel.children[1].position.x = -10;
+      tokenModel.children[1].visible = false;
+
+      let graphButton = document.querySelector('#graphButton');
+
+    const tlToken = gsap.timeline({
+      defaults: { ease: "power4.inOut", duration: 0.75 }
+    });
+    tlToken.to(tokenModel.children[1].position, { x: 0 });
+    tlToken.reversed(true);
+
+    const tlToken2 = gsap.timeline({
+      defaults: { ease: "power4.inOut", duration: 0.75 }
+    });
+    tlToken2.to(tokenModel.children[0].position, { x: -10 });
+    tlToken2.reversed(true);
+
+    const tlToken3 = gsap.timeline({
+      defaults: { ease: "power4.inOut", duration: 0.325 }
+    });
+    tlToken3.to('#graphButton', { innerText: "Token Distribution" });
+    tlToken3.reversed(true);
+
+
+    graphButton.addEventListener('click', tokenAnim);
+
+    function tokenAnim(e) {
+      e.preventDefault();
+      tlToken.reversed(!tlToken.reversed());
+      tlToken2.reversed(!tlToken2.reversed());
+      tlToken3.reversed(!tlToken3.reversed());
+      if(tokenModel.children[0].visible) {
+
+        tokenModel.children[0].visible = false;
+        tokenModel.children[1].visible = true;
+      }
+      
+      else {
+        tokenModel.children[0].visible = true;
+        tokenModel.children[1].visible = false;
+      }
+
+    }
+
+      tokenModel.children[0].position.z = 0;
+      tokenModel.children[1].position.z = 0;
+
+      scene_anim.to(tokenModel.position, { y: -10.1, scrollTrigger: {
+        // , gltf.scene.children[1].position, gltf.scene.children[2].position
+      trigger: ".services",
+      start: window.innerHeight * 2,
+      end: window.innerHeight * 3.25,
+      scrub: 1,
+      update: camera.updateProjectionMatrix(),
+      }});
+    }
+
     else {
       tokenModel.position.set(0, -15, 0 );
       scene_anim.to(tokenModel.position, { y: -10.2, scrollTrigger: {
@@ -375,10 +409,16 @@ console.error( error );
         let offsetX = null;
         mainCube = gltf.scene.children[0].clone();
    
-        if(getDeviceWidth() < 1600) {
+        if(getDeviceWidth() < 1600 && getDeviceWidth() >= 1200) {
           offsetX = 1.5;
           mainCube.position.set(1.5, 0, 0);
         }
+        else if(getDeviceWidth() <= 1199) {
+            mainCube.scale.set(.6, .6, .6);
+            mainCube.position.set(1, 0, 0);
+            mainCube.rotation.set(Math.PI * 0.125, 0, 0);
+        }
+
 
         else {
           offsetX = 1.25;
@@ -387,7 +427,7 @@ console.error( error );
         
         // y -1.8
 
-        mainCube.rotation.set(Math.PI * 0.125, 0, 0);
+        if(getDeviceWidth() >= 1200) mainCube.rotation.set(Math.PI * 0.125, 0, 0);
        
         mainCube.material.transparent = true;
         mainCube.children[0].material.transparent = true;
@@ -404,6 +444,8 @@ console.error( error );
             { duration: 30, y: Math.PI * 2, repeat: -1, ease: "none" });
             }
         
+
+            if(getDeviceWidth() >= 1200) {
 
         scene_anim.to(mainCube.position, { y: -4.8, x: "-=" + offsetX, z: "-=12", scrollTrigger: {
           // , gltf.scene.children[1].position, gltf.scene.children[2].position
@@ -428,8 +470,31 @@ console.error( error );
         update: camera.updateProjectionMatrix(),
         }});
         
-       
-        
+      }
+      else {
+        scene_anim.to(mainCube.position, { y: -3, x: 0, z: "-=8", scrollTrigger: {
+          // , gltf.scene.children[1].position, gltf.scene.children[2].position
+        trigger: ".home",
+        start: 0,
+        end: window.innerHeight,
+        scrub: 1,
+        update: camera.updateProjectionMatrix(),
+        }});
+      
+
+      scene_anim.to([
+        mainCube.material,
+        mainCube.children[0].material,
+        mainCube.children[1].material],
+        { opacity: 0, scrollTrigger: {
+        // , gltf.scene.children[1].position, 
+      trigger: ".home",
+      start: window.innerHeight * 0.5,
+      end: window.innerHeight,
+      scrub: 1,
+      update: camera.updateProjectionMatrix(),
+      }});
+    }
         scene.add( mainCube );
 
   }, undefined, function ( error ) {
@@ -458,7 +523,7 @@ const geometrySub1 = new THREE.BufferGeometry().setFromPoints( pointsSub1 );
 geometrySub1.drawRange.start = 0;
 geometrySub1.drawRange.count = 0;
  subLine1 = new THREE.Points( geometrySub1, pointsMaterial );
- if(!smallDevice)  scene.add(subLine1);
+ if(getDeviceWidth() >= 1200)  scene.add(subLine1);
 
 
 // sub curve left, second from top
@@ -632,7 +697,7 @@ geometrySub8.drawRange.count = 0;
     composer.addPass( unRealBloomPass );
     
     // composer.addPass( glitchPass );
-  document.addEventListener('mousemove', onDocumentMouseMove, false);
+  if(getDeviceWidth() >= 1200 ) document.addEventListener('mousemove', onDocumentMouseMove, false);
   window.addEventListener( 'resize', handleWindowResize, false );
   
  }
@@ -1044,6 +1109,65 @@ function onTransitionEnd( event ) {
 	event.target.remove();
 	
 }
+
+
+/* HAMBURGER MENU FOR PHONE AND TABLETS */
+
+let hamburger = document.querySelector('#hamburgerMenu');
+
+const tlHamburger = gsap.timeline({
+  defaults: { ease: "power4.inOut", duration: 0.6, delay: 0.3 }
+});
+tlHamburger.to(".linkContainer", { clipPath: "polygon(0 0, 100% 0, 100% 120%, 0 120%)" });
+tlHamburger.reversed(true);
+
+const tl2Hamburger = gsap.timeline({
+  defaults: { ease: "power4.inOut", duration: 0.6 }
+});
+tl2Hamburger.to(".header-container", { height: "100vh", backgroundColor: "rgba(20, 18, 117, 0.95)" });
+tl2Hamburger.reversed(true);
+
+const tl3Hamburger = gsap.timeline({
+  defaults: { ease: "power4.inOut", duration: 0.6 }
+});
+tl3Hamburger.to('#hamburgerMenu', { transform: "rotateZ(-90deg)" });
+tl3Hamburger.reversed(true);
+
+
+/*
+let navLinks = document.querySelectorAll('.li');
+let headerContainer = document.querySelector('.header-container');
+
+for(let i = 0; i < navLinks.length; i++) {
+    navLinks[i].addEventListener('click', (e)=> {
+        e.preventDefault();
+       
+        if(headerContainer.style.height === "100vh") {
+          tlHamburger.reversed(!tlHamburger.reversed());
+          tl2Hamburger.reversed(!tl2Hamburger.reversed());
+        }
+
+        document.querySelector('.container').scrollTo({
+          top: window.innerHeight * i,
+          behavior: 'smooth'
+         });
+
+
+        
+    })
+}
+*/
+
+hamburger.addEventListener('click', hamburgerAnim);
+
+function hamburgerAnim(e) {
+  e.preventDefault();
+  tlHamburger.reversed(!tlHamburger.reversed());
+  tl2Hamburger.reversed(!tl2Hamburger.reversed());
+  tl3Hamburger.reversed(!tl3Hamburger.reversed());
+
+}
+
 
 
 }

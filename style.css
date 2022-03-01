@@ -196,6 +196,10 @@ html, body {
     margin-right: 18.25em;
 }
 
+.hamburgerLi {
+    display: none;
+}
+
 li {
     position: relative;
     user-select: none;
@@ -308,7 +312,7 @@ section {
 }
 
 #videoContainer {
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     background-color: #000a31;
@@ -834,6 +838,7 @@ h2 {
 
 .textHolder {
     position: absolute;
+    display: flex;
     width: 100%;
     height: 100%;
     background-color: var(--dark-blue-nonTransparent-color);
@@ -841,6 +846,9 @@ h2 {
     border-radius: 10px;
     clip-path: circle(0%);
     box-shadow: 0 0 100px var(--light-blue-color);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .text {
@@ -1043,6 +1051,10 @@ h2 {
 
 #icoButton:hover {
     filter: drop-shadow(0 0 10px rgb(104, 61, 173) );
+}
+
+#graphButton { 
+    display: none;
 }
 
 #tokenContent {
@@ -1759,6 +1771,8 @@ and (-webkit-min-device-pixel-ratio: 1){
         top: calc(32em + (100vh - 950px) * (15 - 100) / (800 -  950));
     }
 
+   
+
     #tokenContent {
         height: 102.5vh;
     }
@@ -1970,7 +1984,7 @@ and (-webkit-min-device-pixel-ratio: 1){
 @media screen
 and (min-device-width: 1200px)
 and (max-device-width: 1600px)
-and (max-device-height: 800px)
+and (max-device-height: 850px)
 and (-webkit-min-device-pixel-ratio: 1){
 
     #mD1 {
@@ -2010,7 +2024,310 @@ and (-webkit-min-device-pixel-ratio: 1){
         top: 5em;
     }
 
-   
-    
+    #ecoContainer1 {
+        width: 17em;
+        margin-top: calc(1em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+        margin-left: calc(-2em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+    }
+
+    #ecoContainer2 {
+        width: 15.75em;
+        margin-top: calc(2em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+        margin-left: calc(-2em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+    }
+
+    #ecoContainer3 {
+        width: 15.75em;
+        margin-top: calc(-1.5em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+        margin-left: calc(-2em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+    }
+
+    #ecoContainer4 {
+        width: 14.25em;
+        margin-top: calc(-1.5em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+        margin-left: calc(-2em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+    }
+
+    #ecoContainer5 {
+        width: 17em;
+        margin-top: calc(1em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+        margin-left: calc(-3.75em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+    }
+
+    #ecoContainer6 {
+        width: 16em;
+        margin-top: calc(2em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+        margin-left: calc(-4em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+    }
+
+    #ecoContainer7 {
+        width: 16em;
+        margin-top: calc(-1em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+        margin-left: calc(-4em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+    }
+
+    #ecoContainer8 {
+        width: 16em;
+        margin-top: calc(-1em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+        margin-left: calc(-4em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+    }
+
+
+}
+
+/* MEDIA QUERIES FOR LARGE PHONES, TABLETS  768 - 1199 */
+@media screen
+and (min-device-width: 768px)
+and (max-device-width: 1199px)
+and (max-device-height: 850px) {
+    .li {
+        height: 2.5em !important;
+        top: 1em;
+    }
+}
+
+@media screen
+and (min-device-width: 768px)
+and (max-device-width: 1199px)
+and (-webkit-min-device-pixel-ratio: 1){
+
+
+       .logo {
+
+            margin-left: 1.25em;
+            margin-top: 1.25em;
+            width: fit-content;
+            height: fit-content;
+       }
+
+       .list {
+           align-items: flex-start;
+           right: 2.5em;
+       }
+
+       .linkContainer {
+           display: grid;
+           align-self: center;
+           position: absolute;
+           font-size: 1.5em;
+           margin-right: 0;
+           justify-content: center;
+           width: 100%;
+           height: 25em;
+           left: 1.25em;
+           clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+       }
+
+       .li {
+           display: grid;
+           width: 100vw;
+           height: 3em;
+           text-align: center;
+           background-color: rgba(36, 94, 180, 0.5);
+           filter: drop-shadow(0 0 10px rgba(34, 105, 211, 0.5));
+           margin-bottom: 0.75em;
+           justify-content: center;
+           align-content: center;
+       }
+
+        .li:hover {
+            color: white;
+            text-shadow: 0px 0px 0px var(--light-blue-color);
+            background-color: rgba(36, 94, 180, 0.95);
+        }
+        
+        .li:after {
+            content: '';
+            position: absolute;
+            box-shadow: 0 2px 0px 0px var(--light-blue-color);
+            top: 160%;
+            left: 0;
+            width: 100%;
+            transition: 0.5s;
+            opacity: 0;
+        }
+        .li:hover:after {
+            content: '';
+            position: absolute;
+            box-shadow: 0 2px 0px 0px var(--light-blue-color);
+            top: 160%;
+            left: 0;
+            width: 100%;
+            opacity: 1;
+        }
+
+       .header-container {
+           height: 7.75em;
+           background-color: rgba(20, 18, 117, 0);
+           right: 0;
+       }
+
+       .hamburgerLi {
+            position: absolute;
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            height: fit-content;
+            right: 0;
+            margin-top: 1.75em;
+            cursor: pointer;
+
+       }
+
+       #hamburgerMenu {
+           display: flex;
+           width: 1.25em;
+           height: 1em;
+           position: relative;
+           border-bottom: 3px solid rgb(34, 96, 177);
+           border-top: 3px solid rgb(34, 96, 177);
+           border-bottom-left-radius: 1px;
+           border-bottom-right-radius: 1px;
+           border-top-left-radius: 1px;
+           border-top-right-radius: 1px;
+           filter: drop-shadow(0 0 5px rgb(45, 18, 196));
+       }
+
+       #hamburgerMenu:after {
+           position: relative;
+           content: '';
+           width: 2em;
+           border-bottom: 3px solid rgb(34, 96, 177);
+           border-radius: 1.5em;
+           display: flex;
+           align-self: center;
+       }
+
+       #hamburgerMenu:hover:after {
+            transform: translateX(20%)
+       }
+
+
+       #dataText {
+           font-size: 3.25em;
+           left: -0.9em;
+       }
+
+       #yoursText {
+           font-size: 1.5em;
+           left: -1.9em;
+       }
+
+       #videoButton {
+           display: flex;
+           top: 15em;
+           left: -3.25em;
+           padding: 0px 25px;
+           justify-content: center;
+
+       }
+
+       #otherButton {
+        display: flex;
+        top: 15em;
+        left: 9.5em;
+        padding: 0px 25px;
+        justify-content: center;
+
+        }
+
+        #otherText {
+            left: 0;
+            font-size: 1.72em;
+        }
+
+
+       #videoText {
+           font-size: 1.65em;
+           display: flex;
+           width: fit-content;
+           height: fit-content;
+           justify-self: center;
+           left: 0;
+       }
+
+       #leftEco {
+           display: grid;
+           margin-top: 8.25em;
+           position: relative;
+           left: -2.5em;
+           height: 37.5em;
+           width: 17.5em;
+       }
+
+
+       #rightEco {
+        display: grid;
+        margin-top: 8.25em;
+        position: relative;
+        right: -2.5em;
+        height: 37.5em;
+        width: 17.5em;
+    }
+
+       .ecoContainer {
+            width: 15em;
+            font-size: 1em;
+       }
+
+       #ecoContainer2 {
+           margin-top: 2em;
+       }
+
+       #ecoContainer3 {
+        margin-top: -2em;
+        }
+
+        #ecoContainer4 {
+            margin-top: -2.25em;
+        }
+
+        .ecoContainer5 {
+            width: 15em;
+            font-size: 1em;
+       }
+
+       #ecoContainer6 {
+           margin-top: 2em;
+       }
+
+       #ecoContainer7 {
+        margin-top: -2em;
+        }
+
+        #ecoContainer8 {
+            margin-top: -2.75em;
+        }
+
+        #icoButton {
+            position: absolute;
+            top: 29.5em;
+            left: 6em;
+        }
+
+        #tokenContent {
+            height: 102vh;
+        }
+
+        #graphButton {
+            display: block;
+            background-color: transparent;
+            box-shadow: 0 0 15px 0 rgb(34, 146, 211);
+            position: absolute;
+            width: 8.5em;
+            height: 3.5em;
+            top: 29.5em;
+            right: 6em;
+            border-radius: 4.5em;
+            cursor: pointer;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            font-family: 'Arimo', sans-serif;
+            z-index: 2;
+        }
+       
+       
 }
 

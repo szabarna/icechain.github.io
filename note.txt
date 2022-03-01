@@ -20,4 +20,6 @@ Home(100) -> Ecosystem(100) -> TokenDetails(100) -> Node(100) -> RoadMap(400) ->
  - FINISHING LAST SECTIONS
  - MAKE ALL RESPONSIVE: HAMBURGER MENU ETC..
 
+-- KILL OFF ANIMATIONS ON VIDEO .PLAY()
+
 
