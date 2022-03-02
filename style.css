@@ -1288,6 +1288,9 @@ h2 {
     right: 125em;
 }
 
+.lilRoad {
+    display: none;
+}
 /* NFT Marketplace */
 
 .marketSection {
@@ -1615,6 +1618,33 @@ h2 {
    position: absolute;
 }
 
+#nodeH2T1 {
+    font-size: 1.7em;
+    font-family: 'Teko', sans-serif;
+    text-transform: uppercase;
+    position: absolute;
+    top: 3em;
+    color: rgb(119, 36, 197);
+    text-shadow: 0 0 10px rgb(119, 36, 197);
+}
+
+#nodeH1 {
+    font-size: 2.25em;
+    font-family: 'Teko', sans-serif;
+    text-transform: uppercase;
+    position: absolute;
+    top: 3.5em;
+}
+
+#nodeH2T2 {
+    font-size: 1.7em;
+    font-family: 'Teko', sans-serif;
+    text-transform: uppercase;
+    position: absolute;
+    top: 7em;
+    color:rgb(25, 138, 212);
+    text-shadow: 0 0 10px rgb(34, 140, 201);
+}
 
 
 /* VIDEO BREAKPOINT */
@@ -2086,11 +2116,29 @@ and (max-device-height: 850px) {
     }
 }
 
+
+@media screen
+and (min-device-width: 768px)
+and (max-device-width: 1199px)
+and (min-device-height: 950px) {
+    .linkContainer {
+        top: 6em;
+    }
+
+    
+    /* #tokenT1 {
+        top: calc(7.4em + (100vh - 950px) * (50 - 100) / (800 -  950));
+    }
+ 
+    #tokenT2 {
+        top: calc(22.7em + (100vh - 950px) * (50 - 100) / (800 -  950));
+    } */
+}
+
 @media screen
 and (min-device-width: 768px)
 and (max-device-width: 1199px)
 and (-webkit-min-device-pixel-ratio: 1){
-
 
        .logo {
 
@@ -2300,10 +2348,142 @@ and (-webkit-min-device-pixel-ratio: 1){
             margin-top: -2.75em;
         }
 
+        .services {
+            display: grid;
+            justify-items: center;
+        }
+
+        #overview {
+            width: 10em;
+            height: fit-content;
+            display: flex;
+            text-align: center;
+            left: auto;
+        }
+
+        #icetoken {
+            width: 12em;
+            height: fit-content;
+            display: flex;
+            text-align: center;
+            left: auto;
+        }
+
+        #tokenText {
+            top: 17em;
+            font-size: 1.2em;
+            width: 34em;
+            height: fit-content;
+            display: flex;
+            text-align: center;
+            left: auto;
+        }
+
+        #t1 {
+            left: 0;
+            width: 12em;
+            height: 7em;
+            text-align: center;
+            border-radius: 0;
+            transform: scale(0.825);
+        }
+
+        #t2 {
+            left: 0;
+            width: 12em;
+            height: 7em;
+            text-align: center;
+            border-radius: 0;
+            transform: scale(0.825);
+        }
+
+        #t3 {
+            left: 0;
+            width: 12em;
+            height: 7em;
+            text-align: center;
+            border-radius: 0;
+            transform: scale(0.825);
+        }
+
+        #t4 {
+            left: 0;
+            width: 12em;
+            height: 7em;
+            text-align: center;
+            border-radius: 0;
+            transform: scale(0.825);
+        }
+
+        .blueText {
+            font-size: 2em;
+        }
+
+        .whiteText {
+            font-size: 1.5em;
+        }
+
+        .tokenContainer {
+            position: relative;
+            top: 0;
+           
+        }
+
+        #tokenMainContainer {
+            display: flex;
+            width: calc(49em + (100vh - 800px) * (15 - 10) / (800 -  1080));
+            height: 7.5em;
+            position: absolute;
+            left: auto;
+            top: 27.5em;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 29, 59, 0.925);
+            border-top: 1px solid rgba(8, 63, 145, 0.925);;
+            border-bottom: 1px solid rgba(15, 84, 156, 0.925);;
+        }
+
+        #utility {
+            top: 12em !important;
+            height: fit-content;
+            padding: 0.25em 5em;
+            border: 2px solid #001D3B;
+            border-radius: 1.25em;
+            left: auto;
+            color: white;
+            font-family: 'Teko', sans-serif;
+            font-size: 3em;
+            box-shadow: 0 0 100px 0 #001D3B;
+        }
+
+        #utilityContainer {
+            border: 2px solid #001D3B;
+            box-shadow: 0 0 30px 0 #001D3B;
+            display: flex;
+            left: auto;
+            width: 45.25em;
+            top: 43em !important;
+            align-items: center;
+        }
+
+        .utilityContent {
+            align-items: center;
+        }
+
+        .img {
+            top: 0;
+        }
+
+        .uT {
+            font-family: 'Teko', sans-serif;
+            font-size: 1.25em;
+            top: 0;
+        }
+
         #icoButton {
             position: absolute;
-            top: 29.5em;
-            left: 6em;
+            top: calc(29.5em + (100vh - 800px) * (15 - 250) / (800 -  1080));
+            left: calc(6em + (100vw - 768px) * (15 - 200) / (768 -  1199));
         }
 
         #tokenContent {
@@ -2317,8 +2497,8 @@ and (-webkit-min-device-pixel-ratio: 1){
             position: absolute;
             width: 8.5em;
             height: 3.5em;
-            top: 29.5em;
-            right: 6em;
+            top: calc(29.5em + (100vh - 800px) * (15 - 250) / (800 -  1080));
+            right: calc(6em + (100vw - 768px) * (15 - 200) / (768 -  1199));
             border-radius: 4.5em;
             cursor: pointer;
             border: none;
@@ -2327,7 +2507,262 @@ and (-webkit-min-device-pixel-ratio: 1){
             font-family: 'Arimo', sans-serif;
             z-index: 2;
         }
-       
+
+
+        #tokenContent {
+            height: 102.5vh;
+        }
+    
+        #tokenHolder {
+            height: 80vh;
+            width: 42.75em;
+            top: 3em;
+        }
+    
+       #tokenT1 {
+           top: calc(6.3em + (100vh - 800px) * (15 - 75) / (800 -  1080));
+           width: 25em;
+           font-size: 1.25em;
+           background-color: rgba(49, 131, 255, 0.5);
+           border: 2px solid rgba(49, 131, 255, 0.75);
+       }
+    
+       #tokenT2 {
+           top: calc(19.25em + (100vh - 800px) * (15 - 130 ) / (800 -  1080));
+           font-size: 1.3em;
+           background-color: rgba(49, 131, 255, 0.5);
+           border: 2px solid rgba(49, 131, 255, 0.75);
+       }
+    
+       .tokens {
+           width: 12.5em;
+           font-size: 1em;
+       }
+
+       .whiteToken {
+            font-size: 1em;
+       }
+
+       .blueToken {
+           font-size: 1.35em;
+       }
+
+
+        #nodeText {
+            position: relative;
+            display: flex;
+        }
+
+        .node {
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        }
+        
+        .projects {
+            display: flex;
+            justify-content: center;
+        }
+
+        #roadLayer {
+            position: sticky;
+            width: 87.5vh;
+            height: 5em;
+            right: auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 3em;
+            top: calc(41.5em + (100vh - 800px) * (15 - 200 ) / (800 -  1080));
+            background-color: #000524;
+            filter: drop-shadow(0 0 20px rgb(79, 122, 179));
+        }
+
+        /* #roadLayer:after {
+            position: absolute;
+            content: '';
+            width: 0e;
+            height: 100%;
+            left: 0;
+            border-radius: 3em;
+            background-color: rgb(16, 61, 145, 0.3);
+            filter: drop-shadow(0 0 10px rgb(79, 122, 179));
+        } */
+
+        
+        
+        .sText {
+            display: none;
+        }
+
+        .sticky {
+            position: relative;
+            right: 0;
+            top: 0;
+            display: grid;
+        }
+
+        #s2 {
+            top: 0;
+        }
+
+        #s3 {
+            top: 0;
+        }
+
+        #s4 {
+            top: 0;
+        }
+
+        #s5 {
+            top: 0;
+        }
+
+        #s6 {
+            top: 0;
+        }
+
+        #s7 {
+            top: 0;
+        }
+
+        #s8 {
+            top: 0;
+        }
+
+        #s9 {
+            top: 0;
+        }
+
+        #marketContainer {
+            height: 82.5vh;
+            width: 42.75em;
+            position: relative;
+            display: grid;
+            align-self: flex-end;
+        }
+
+        #marketH1 {
+            font-size: 3em;
+            left: 0.25em;
+            top: 1.25em;
+        }
+
+        #marketH2 {
+            font-size: 1.25em;
+            left: 0.65em;
+            top: -5em;
+        }
+
+        #marketH3 {
+            font-size: 1.15em;
+            left: 1.25em;
+            top: -2.25em;
+        }
+
+        #marketB1, #marketB2 {
+            display: none;
+        }
+        #marketDivContainer {
+            transform: scale(0.65);
+            bottom: 6em;
+            left: -20.25em;
+        }
+
+        #mD1 {
+            left: 4.5em;
+        }
+
+        #mD2 {
+            left: 3em;
+        }
+
+        #mD4 {
+            left: 1.5em;
+        }
+
+        #nft1SubImg {
+            right: 41.5em;
+        }
+
+        #dropH1 {
+            display: flex;
+            font-size: 2em;
+            position: absolute;
+            top: calc(2.5em + (100vh - 800px) * (15 - 100 ) / (800 -  1080));
+        }
+
+        #dropImg {
+            transform: scale(0.6);
+            display: flex;
+            position: absolute;
+            bottom: calc(-10em + (100vh - 800px) * (15 - 100 ) / (800 -  1080));
+        }
+
+        .create {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #createImg {
+            display: flex;
+            transform: scale(0.85);
+            left: calc(-18.5em + (100vw - 768px) * (15 - 200) / (768 -  1199));
+            top: 7.5em;
+        }
+
+        #createImg2 {
+            display: flex;
+            transform: scale(0.85);
+            right: calc(-21.5em + (100vw - 768px) * (15 - 200) / (768 -  1199));
+            top: 5em;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center !important;
+        }
+
+        #teamImg {
+            position: relative;
+            display: flex;
+            transform: scale(0.65);
+            right: 0;
+            bottom: 0;
+        }
+
+        #teamH1 {
+            font-size: 3em;
+            transform: rotate(0);
+            left: auto;
+            position: absolute;
+            display: flex;
+            top: 2em;
+        }
+
+        #portfolioImg {
+            transform: scale(0.7);
+            top: 7em;
+        }
+
+        #portfolioH1 {
+            font-size: 2.75em;
+            top: 3em;
+        }
+
+        #portfolioH1Sub {
+            font-size: 2.75em;
+            top: 4.25em;
+        }
+
+        #portfolioH2 {
+            top: 5em;
+        }
+
+        .bigRoad {
+            display: none;
+        }
        
 }
 

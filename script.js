@@ -26,6 +26,20 @@ window.onload = function() {
     return 0;
 }
 
+function getDeviceHeight() {
+  if (typeof (window.innerHeight) == 'number') {
+      //Non-IE
+      return window.innerHeight;
+  } else if (document.documentElement && (document.documentElement.clientHeight || document.documentElement.clientWidth)) {
+      //IE 6+ in 'standards compliant mode'
+      return document.documentElement.clientHeight;
+  } else if (document.body && (document.body.clientHeight || document.body.clientWidth)) {
+      //IE 4 compatible
+      return document.body.clientHeight;
+  }
+  return 0;
+}
+
   
   
   /*                       THREEJS                             */
@@ -92,6 +106,7 @@ window.onload = function() {
   });
  
   console.log(getDeviceWidth())
+  console.log(getDeviceHeight())
   renderer.setSize( window.innerWidth, window.innerHeight );
   if(bigDevice) renderer.setPixelRatio( 2 );
   else renderer.setPixelRatio( window.devicePixelRatio );
@@ -212,7 +227,70 @@ window.onload = function() {
       }});
     }
 
-    else if(getDeviceWidth() >= 768 && getDeviceWidth() < 1200) {
+    else if(getDeviceWidth() <= 1199 && getDeviceWidth() >= 768 && getDeviceHeight() >= 950) {
+
+      tokenModel.scale.set( 0.95, 0.95, 0.95);
+      tokenModel.position.set(0, -15, 0 );
+      tokenModel.children[0].position.x = 0;
+      tokenModel.children[1].position.x = -10;
+      tokenModel.children[1].visible = false;
+
+      let graphButton = document.querySelector('#graphButton');
+
+    const tlToken = gsap.timeline({
+      defaults: { ease: "power4.inOut", duration: 0.75 }
+    });
+    tlToken.to(tokenModel.children[1].position, { x: 0 });
+    tlToken.reversed(true);
+
+    const tlToken2 = gsap.timeline({
+      defaults: { ease: "power4.inOut", duration: 0.75 }
+    });
+    tlToken2.to(tokenModel.children[0].position, { x: -10 });
+    tlToken2.reversed(true);
+
+    const tlToken3 = gsap.timeline({
+      defaults: { ease: "power4.inOut", duration: 0.375 }
+    });
+    tlToken3.to('#graphButton', { innerText: "Token Distribution" });
+    tlToken3.reversed(true);
+
+
+    graphButton.addEventListener('click', tokenAnim);
+
+    function tokenAnim(e) {
+      e.preventDefault();
+      tlToken.reversed(!tlToken.reversed());
+      tlToken2.reversed(!tlToken2.reversed());
+      tlToken3.reversed(!tlToken3.reversed());
+      if(tokenModel.children[0].visible) {
+
+        tokenModel.children[0].visible = false;
+        tokenModel.children[1].visible = true;
+      }
+      
+      else {
+        tokenModel.children[0].visible = true;
+        tokenModel.children[1].visible = false;
+      }
+
+    }
+
+      tokenModel.children[0].position.z = 0;
+      tokenModel.children[1].position.z = 0;
+
+      scene_anim.to(tokenModel.position, { y: -9.95, scrollTrigger: {
+        // , gltf.scene.children[1].position, gltf.scene.children[2].position
+      trigger: ".services",
+      start: window.innerHeight * 2,
+      end: window.innerHeight * 3.25,
+      scrub: 1,
+      update: camera.updateProjectionMatrix(),
+      }});
+
+    }
+
+    else if(getDeviceWidth() >= 768 && getDeviceWidth() < 1200 && getDeviceHeight() < 950) {
       tokenModel.scale.set( 1, 1, 1);
       tokenModel.position.set(0, -15, 0 );
       tokenModel.children[0].position.x = 0;
@@ -234,7 +312,7 @@ window.onload = function() {
     tlToken2.reversed(true);
 
     const tlToken3 = gsap.timeline({
-      defaults: { ease: "power4.inOut", duration: 0.325 }
+      defaults: { ease: "power4.inOut", duration: 0.375 }
     });
     tlToken3.to('#graphButton', { innerText: "Token Distribution" });
     tlToken3.reversed(true);
@@ -356,7 +434,6 @@ window.onload = function() {
       modelCurve = gltf.scene.children[0].clone();
       // modelCurve.frustumCulled = false;
       
-
       modelCurve.position.set(0, -11.5, -30);
       modelCurve.scale.set(2, 2, 2);
 
@@ -372,16 +449,39 @@ window.onload = function() {
       scrub: 1,
       update: camera.updateProjectionMatrix(),
       }});
-      
-       scene_anim.to(modelCurve.position, { z: -4.25, scrollTrigger: {
-         //, gltf.scene.children[1].position, gltf.scene.children[2].position
-       trigger: ".services",
-       start: window.innerHeight * 4,
-      end: window.innerHeight * 5,
-      scrub: 1,
-      update: camera.updateProjectionMatrix(),
-      }});
+      if(getDeviceWidth() < 1199 && getDeviceHeight() < 950) {
 
+          scene_anim.to(modelCurve.position, { z: -4.5, scrollTrigger: {
+            //, gltf.scene.children[1].position, gltf.scene.children[2].position
+          trigger: ".services",
+          start: window.innerHeight * 4,
+        end: window.innerHeight * 5,
+        scrub: 1,
+        update: camera.updateProjectionMatrix(),
+        }});
+      }
+
+      else if(getDeviceWidth() < 1199 && getDeviceHeight() >= 950) {
+        scene_anim.to(modelCurve.position, { z: -5, scrollTrigger: {
+            //, gltf.scene.children[1].position, gltf.scene.children[2].position
+          trigger: ".services",
+          start: window.innerHeight * 4,
+        end: window.innerHeight * 5,
+        scrub: 1,
+        update: camera.updateProjectionMatrix(),
+        }});
+      }
+
+      else {
+          scene_anim.to(modelCurve.position, { z: -4.25, scrollTrigger: {
+            //, gltf.scene.children[1].position, gltf.scene.children[2].position
+          trigger: ".services",
+          start: window.innerHeight * 4,
+        end: window.innerHeight * 5,
+        scrub: 1,
+        update: camera.updateProjectionMatrix(),
+        }});
+      }
         
       
       scene_anim.to(modelCurve.position, { y: "+=" + 3.5, scrollTrigger: {
@@ -413,11 +513,17 @@ console.error( error );
           offsetX = 1.5;
           mainCube.position.set(1.5, 0, 0);
         }
-        else if(getDeviceWidth() <= 1199) {
+        else if(getDeviceWidth() <= 1199 && getDeviceHeight() < 950) {
             mainCube.scale.set(.6, .6, .6);
             mainCube.position.set(1, 0, 0);
             mainCube.rotation.set(Math.PI * 0.125, 0, 0);
         }
+
+        else if(getDeviceWidth() <= 1199 && getDeviceWidth() >= 768 && getDeviceHeight() >= 950) {
+          mainCube.scale.set(.5, .5, .5);
+          mainCube.position.set(0.85, 0, 0);
+          mainCube.rotation.set(Math.PI * 0.125, 0, 0);
+      }
 
 
         else {
@@ -989,12 +1095,14 @@ const rightLayer = document.querySelector('#rightEco');
 
 /* TOKEN ANIMATION */
 
-scene_anim.to(['#utilityContainer', '.tokenContainer', '#utility'], { top: 2, scrollTrigger: {
-  trigger: ".services",
-  start: window.innerHeight * 2,
-  end: window.innerHeight * 2.5,
-  scrub: 1,
-  }});
+
+// scene_anim.to(['#utilityContainer', '#tokenMainContainer', '#utility'], { top: 2, scrollTrigger: {
+//   trigger: ".services",
+//   start: window.innerHeight * 2,
+//   end: window.innerHeight * 2.5,
+//   scrub: 1,
+//   }});
+
 
 /* TOKEN2 ANIMATION */
 
@@ -1023,11 +1131,10 @@ function icoAnim(e) {
 }
 
 
-
-
 /* MARKETPLACE SECTION */
-
-let stickys = document.querySelectorAll('.sticky');
+let stickys;
+if(getDeviceWidth() < 1200) { stickys = document.querySelectorAll('div.lilRoad');} 
+else  { stickys = document.querySelectorAll('div.bigRoad'); }
 
 
 
