@@ -23,3 +23,5 @@ Home(100) -> Ecosystem(100) -> TokenDetails(100) -> Node(100) -> RoadMap(400) ->
 -- KILL OFF ANIMATIONS ON VIDEO .PLAY()
 
 
+Mobile WIDTH 360 - 767 HEIGHT 600 - 1079
+

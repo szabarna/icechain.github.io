@@ -56,8 +56,8 @@ function getDeviceHeight() {
   var subLine1, subLine2, subLine3, subLine4, subLine5, subLine6, subLine7, subLine8;
   var mainCube;
   var stats;
-  var cubeRotation = true;
-  var particleRotation = true;
+  var cubeRotation = gsap.timeline();;
+  var particleRotation = gsap.timeline();;
   
   
   
@@ -101,14 +101,14 @@ function getDeviceHeight() {
       powerPreference: "high-performance",
       canvas: canvReference,
       // alpha: true,
-      antialias: bigDevice, 
+      antialias: false, 
       
   });
  
   console.log(getDeviceWidth())
   console.log(getDeviceHeight())
   renderer.setSize( window.innerWidth, window.innerHeight );
-  if(bigDevice) renderer.setPixelRatio( 2 );
+  if(bigDevice) renderer.setPixelRatio( window.devicePixelRatio );
   else renderer.setPixelRatio( window.devicePixelRatio );
 
   
@@ -513,7 +513,7 @@ console.error( error );
           offsetX = 1.5;
           mainCube.position.set(1.5, 0, 0);
         }
-        else if(getDeviceWidth() <= 1199 && getDeviceHeight() < 950) {
+        else if(getDeviceWidth() <= 1199 && getDeviceWidth() >= 768 && getDeviceHeight() < 950) {
             mainCube.scale.set(.6, .6, .6);
             mainCube.position.set(1, 0, 0);
             mainCube.rotation.set(Math.PI * 0.125, 0, 0);
@@ -525,6 +525,11 @@ console.error( error );
           mainCube.rotation.set(Math.PI * 0.125, 0, 0);
       }
 
+      else if(getDeviceWidth() <= 768 && getDeviceWidth() >= 360 && getDeviceHeight() < 1080) {
+        mainCube.scale.set(.5, .5, .5);
+        mainCube.position.set(0, 0, 0);
+        mainCube.rotation.set(Math.PI * 0.0, 0, 0);
+      }
 
         else {
           offsetX = 1.25;
@@ -543,14 +548,13 @@ console.error( error );
     
           if(mainCube.children[0].material.opacity != 0 && cubeRotation ) {
 
-            gsap.to([
+        cubeRotation.to([
               
               mainCube.rotation,
             ],
-            { duration: 30, y: Math.PI * 2, repeat: -1, ease: "none" });
+            { duration: 30, y: Math.PI * 2, repeat: -1, ease: "none", });
             }
         
-
             if(getDeviceWidth() >= 1200) {
 
         scene_anim.to(mainCube.position, { y: -4.8, x: "-=" + offsetX, z: "-=12", scrollTrigger: {
@@ -577,14 +581,14 @@ console.error( error );
         }});
         
       }
-      else {
-        scene_anim.to(mainCube.position, { y: -3, x: 0, z: "-=8", scrollTrigger: {
+
+      else if(getDeviceWidth() < 768 && getDeviceHeight() < 1000){
+        scene_anim.to(mainCube.position, { y: -5, x: 0, z: "-=5", scrollTrigger: {
           // , gltf.scene.children[1].position, gltf.scene.children[2].position
         trigger: ".home",
         start: 0,
         end: window.innerHeight,
         scrub: 1,
-        update: camera.updateProjectionMatrix(),
         }});
       
 
@@ -598,7 +602,29 @@ console.error( error );
       start: window.innerHeight * 0.5,
       end: window.innerHeight,
       scrub: 1,
-      update: camera.updateProjectionMatrix(),
+      }});
+    }
+
+      else {
+        scene_anim.to(mainCube.position, { y: -3, x: 0, z: "-=8", scrollTrigger: {
+          // , gltf.scene.children[1].position, gltf.scene.children[2].position
+        trigger: ".home",
+        start: 0,
+        end: window.innerHeight,
+        scrub: 1,
+        }});
+      
+
+      scene_anim.to([
+        mainCube.material,
+        mainCube.children[0].material,
+        mainCube.children[1].material],
+        { opacity: 0, scrollTrigger: {
+        // , gltf.scene.children[1].position, 
+      trigger: ".home",
+      start: window.innerHeight * 0.5,
+      end: window.innerHeight,
+      scrub: 1,
       }});
     }
         scene.add( mainCube );
@@ -776,9 +802,8 @@ geometrySub8.drawRange.count = 0;
    scene.add( particlesMeshLowerLower );
    scene.add( particlesMeshLowerLowerRight );
    
-   if(cubeRotation && particleRotation) {
-
-   gsap.to([
+  
+  particleRotation.to([
               
     particlesMesh.rotation,
     particlesMeshLower.rotation,
@@ -787,7 +812,7 @@ geometrySub8.drawRange.count = 0;
   ],
   { duration: 75, y: Math.PI * 2, repeat: -1, ease: "none" });
 
-  }
+  
   
 
   gsap.to([particlesMesh.material, particlesMeshLower.material,particlesMeshLowerLower.material,], {size: 0.015, duration: 5, ease: Sine});
@@ -958,7 +983,8 @@ videoButton.addEventListener('click', (e) => {
       }
     }
       video.play();
-      cubeRotation = false;
+      cubeRotation.pause();
+      particleRotation.pause();
       
 });
 
@@ -967,7 +993,8 @@ document.addEventListener('keydown', (e) => {
     if(e.key === "Escape" && videoContainer.style.clipPath != "circle(0% at center center)") {
         video.pause();
         gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
-        cubeRotation = true;
+         cubeRotation.play();
+         particleRotation.play();
     }
 });
 
@@ -975,10 +1002,10 @@ $(videoContainer).on('click', function(e) {
   e.preventDefault();
   if (e.target !== this) return;
   
-
   video.pause();
   gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
-  cubeRotation = true;
+   cubeRotation.play();
+   particleRotation.play();
 });
 
 
