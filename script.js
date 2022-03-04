@@ -92,7 +92,7 @@ function getDeviceHeight() {
     
     let bigDevice = getDeviceWidth() >= 1600;
     let mediumDevice = getDeviceWidth() <= 1600 && getDeviceWidth() >= 1200;
-    let smallDevice = getDeviceWidth() <= 768;
+    let smallDevice = getDeviceWidth() < 1200;
     // Select the canvas from the document
     canvReference = document.getElementById("webgl");
   
@@ -100,16 +100,13 @@ function getDeviceHeight() {
       renderer = new THREE.WebGLRenderer({
       powerPreference: "high-performance",
       canvas: canvReference,
-      // alpha: true,
-      antialias: false, 
       
   });
  
   console.log(getDeviceWidth())
   console.log(getDeviceHeight())
   renderer.setSize( window.innerWidth, window.innerHeight );
-  if(bigDevice) renderer.setPixelRatio( window.devicePixelRatio );
-  else renderer.setPixelRatio( window.devicePixelRatio );
+  renderer.setPixelRatio( window.devicePixelRatio );
 
   
   
@@ -135,7 +132,10 @@ function getDeviceHeight() {
   const particlesGeometryLower = new THREE.BufferGeometry();
   const particlesGeometryLowerLower = new THREE.BufferGeometry();
   const particlesGeometryLowerLowerRight = new THREE.BufferGeometry();
-  const particlesCnt = 300;
+  var particlesCnt;
+  if(smallDevice) particlesCnt = 100;
+  else particlesCnt = 300;
+  
 
   const posArray = new Float32Array(particlesCnt * 3);
   const posArrayLower = new Float32Array(particlesCnt * 3);
@@ -208,7 +208,6 @@ function getDeviceHeight() {
       start: window.innerHeight * 2,
       end: window.innerHeight * 3.25,
       scrub: 1,
-      update: camera.updateProjectionMatrix(),
       }});
     }
     else if(getDeviceWidth() >= 1440 && getDeviceWidth() < 1600) {
@@ -223,7 +222,6 @@ function getDeviceHeight() {
       start: window.innerHeight * 2,
       end: window.innerHeight * 3.25,
       scrub: 1,
-      update: camera.updateProjectionMatrix(),
       }});
     }
 
@@ -285,7 +283,6 @@ function getDeviceHeight() {
       start: window.innerHeight * 2,
       end: window.innerHeight * 3.25,
       scrub: 1,
-      update: camera.updateProjectionMatrix(),
       }});
 
     }
@@ -347,7 +344,66 @@ function getDeviceHeight() {
       start: window.innerHeight * 2,
       end: window.innerHeight * 3.25,
       scrub: 1,
-      update: camera.updateProjectionMatrix(),
+      }});
+    }
+
+    else if(getDeviceWidth() >= 360 && getDeviceWidth() < 768 && getDeviceHeight() < 1080) {
+      tokenModel.scale.set( 1, 1, 1);
+      tokenModel.position.set(0, -15, 0 );
+      tokenModel.children[0].position.x = -2.5;
+      tokenModel.children[1].position.x = -10;
+      tokenModel.children[1].visible = false;
+
+      let graphButton = document.querySelector('#graphButton');
+
+    const tlToken = gsap.timeline({
+      defaults: { ease: "power4.inOut", duration: 0.75 }
+    });
+    tlToken.to(tokenModel.children[1].position, { x: -1.5 });
+    tlToken.reversed(true);
+
+    const tlToken2 = gsap.timeline({
+      defaults: { ease: "power4.inOut", duration: 0.75 }
+    });
+    tlToken2.to(tokenModel.children[0].position, { x: -10 });
+    tlToken2.reversed(true);
+
+    const tlToken3 = gsap.timeline({
+      defaults: { ease: "power4.inOut", duration: 0.375 }
+    });
+    tlToken3.to('#graphButton', { innerText: "Token Distribution" });
+    tlToken3.reversed(true);
+
+
+    graphButton.addEventListener('click', tokenAnim);
+
+    function tokenAnim(e) {
+      e.preventDefault();
+      tlToken.reversed(!tlToken.reversed());
+      tlToken2.reversed(!tlToken2.reversed());
+      tlToken3.reversed(!tlToken3.reversed());
+      if(tokenModel.children[0].visible) {
+
+        tokenModel.children[0].visible = false;
+        tokenModel.children[1].visible = true;
+      }
+      
+      else {
+        tokenModel.children[0].visible = true;
+        tokenModel.children[1].visible = false;
+      }
+
+    }
+
+      tokenModel.children[0].position.z = 0;
+      tokenModel.children[1].position.z = 0;
+
+      scene_anim.to(tokenModel.position, { y: -10.1, scrollTrigger: {
+        // , gltf.scene.children[1].position, gltf.scene.children[2].position
+      trigger: ".services",
+      start: window.innerHeight * 2,
+      end: window.innerHeight * 3.25,
+      scrub: 1,
       }});
     }
 
@@ -359,7 +415,6 @@ function getDeviceHeight() {
       start: window.innerHeight * 2,
       end: window.innerHeight * 3.25,
       scrub: 1,
-      update: camera.updateProjectionMatrix(),
       }});
     }
 
@@ -374,7 +429,6 @@ function getDeviceHeight() {
       start: window.innerHeight * 3.15,
       end: window.innerHeight * 4,
       scrub: 1,
-      update: camera.updateProjectionMatrix(),
       }});
 
 
@@ -412,7 +466,6 @@ function getDeviceHeight() {
         start: window.innerHeight * 3,
         end: window.innerHeight * 4,
         scrub: 1,
-        update: camera.updateProjectionMatrix(),
         }});
 
   
@@ -447,9 +500,9 @@ function getDeviceHeight() {
       start: window.innerHeight * 5,
       end: window.innerHeight * 8,
       scrub: 1,
-      update: camera.updateProjectionMatrix(),
       }});
-      if(getDeviceWidth() < 1199 && getDeviceHeight() < 950) {
+
+      if( getDeviceWidth() >= 768 && getDeviceWidth() < 1199 && getDeviceHeight() < 950) {
 
           scene_anim.to(modelCurve.position, { z: -4.5, scrollTrigger: {
             //, gltf.scene.children[1].position, gltf.scene.children[2].position
@@ -457,18 +510,26 @@ function getDeviceHeight() {
           start: window.innerHeight * 4,
         end: window.innerHeight * 5,
         scrub: 1,
-        update: camera.updateProjectionMatrix(),
         }});
       }
 
-      else if(getDeviceWidth() < 1199 && getDeviceHeight() >= 950) {
+      else if(getDeviceWidth() >= 768 && getDeviceWidth() < 1199 && getDeviceHeight() >= 950) {
         scene_anim.to(modelCurve.position, { z: -5, scrollTrigger: {
             //, gltf.scene.children[1].position, gltf.scene.children[2].position
           trigger: ".services",
           start: window.innerHeight * 4,
         end: window.innerHeight * 5,
         scrub: 1,
-        update: camera.updateProjectionMatrix(),
+        }});
+      }
+
+      else if(getDeviceWidth() < 767 && getDeviceHeight() < 1080) {
+        scene_anim.to(modelCurve.position, { z: -5.1, scrollTrigger: {
+            //, gltf.scene.children[1].position, gltf.scene.children[2].position
+          trigger: ".services",
+          start: window.innerHeight * 4,
+        end: window.innerHeight * 5,
+        scrub: 1,
         }});
       }
 
@@ -479,7 +540,6 @@ function getDeviceHeight() {
           start: window.innerHeight * 4,
         end: window.innerHeight * 5,
         scrub: 1,
-        update: camera.updateProjectionMatrix(),
         }});
       }
         
@@ -489,7 +549,6 @@ function getDeviceHeight() {
       start: window.innerHeight * 5,
       end: window.innerHeight * 8,
       scrub: 1,
-      update: camera.updateProjectionMatrix(),
       }});
       
 
@@ -513,19 +572,19 @@ console.error( error );
           offsetX = 1.5;
           mainCube.position.set(1.5, 0, 0);
         }
-        else if(getDeviceWidth() <= 1199 && getDeviceWidth() >= 768 && getDeviceHeight() < 950) {
+        else if(getDeviceWidth() < 1199 && getDeviceWidth() >= 768 && getDeviceHeight() < 950) {
             mainCube.scale.set(.6, .6, .6);
             mainCube.position.set(1, 0, 0);
             mainCube.rotation.set(Math.PI * 0.125, 0, 0);
         }
 
-        else if(getDeviceWidth() <= 1199 && getDeviceWidth() >= 768 && getDeviceHeight() >= 950) {
+        else if(getDeviceWidth() < 1200 && getDeviceWidth() >= 768 && getDeviceHeight() >= 950) {
           mainCube.scale.set(.5, .5, .5);
           mainCube.position.set(0.85, 0, 0);
           mainCube.rotation.set(Math.PI * 0.125, 0, 0);
       }
 
-      else if(getDeviceWidth() <= 768 && getDeviceWidth() >= 360 && getDeviceHeight() < 1080) {
+      else if(getDeviceWidth() < 768 && getDeviceWidth() >= 360 && getDeviceHeight() < 1080) {
         mainCube.scale.set(.5, .5, .5);
         mainCube.position.set(0, 0, 0);
         mainCube.rotation.set(Math.PI * 0.0, 0, 0);
@@ -563,7 +622,6 @@ console.error( error );
         start: 0,
         end: window.innerHeight,
         scrub: 1,
-        update: camera.updateProjectionMatrix(),
         }});
 
         
@@ -577,7 +635,6 @@ console.error( error );
         start: window.innerHeight,
         end: window.innerHeight * 2,
         scrub: 1,
-        update: camera.updateProjectionMatrix(),
         }});
         
       }
@@ -603,6 +660,7 @@ console.error( error );
       end: window.innerHeight,
       scrub: 1,
       }});
+      
     }
 
       else {
@@ -638,7 +696,6 @@ console.error( error );
 
     // LINES
   
-const materialWhite = new THREE.LineDashedMaterial( { color : 0xffffff, linewidth: 1 } );
 const pointsMaterial = new THREE.PointsMaterial({ color: 0x3477af, size: .05, map: texture, alphaMap: textureAlpha, alphaTest: 0.5 });
     // LEFT
 // sub curve left, first from top
@@ -802,6 +859,8 @@ geometrySub8.drawRange.count = 0;
    scene.add( particlesMeshLowerLower );
    scene.add( particlesMeshLowerLowerRight );
    
+  if(!smallDevice) {
+
   
   particleRotation.to([
               
@@ -812,6 +871,7 @@ geometrySub8.drawRange.count = 0;
   ],
   { duration: 75, y: Math.PI * 2, repeat: -1, ease: "none" });
 
+  }
   
   
 
@@ -1028,7 +1088,6 @@ trigger: ".about",
 start: 0,
 end: window.innerHeight * 3,
 scrub: 1,
-update: camera.updateProjectionMatrix(),
 }});
 
 
@@ -1040,7 +1099,6 @@ update: camera.updateProjectionMatrix(),
       start: window.innerHeight * 4,
       end: window.innerHeight * 5,
       scrub: 1,
-      update: camera.updateProjectionMatrix(),
       }});
 
 
@@ -1050,7 +1108,6 @@ scene_anim.to([camera.position, cameraCenter ], { x: "+=7.5", scrollTrigger: {
       start: window.innerHeight * 8.15,
       end: window.innerHeight * 9,
       scrub: 1,
-      update: camera.updateProjectionMatrix(),
       }});   
 
 
@@ -1069,7 +1126,6 @@ const eco_anim = gsap.to([
   start: window.innerHeight * 0.35,
   end: window.innerHeight * 1.5,
   scrub: 1,
- // update: camera.updateProjectionMatrix(),
   onLeave: function() { gsap.to([ 
     subLine1.geometry.drawRange,
     subLine2.geometry.drawRange,
@@ -1176,7 +1232,7 @@ else  { stickys = document.querySelectorAll('div.bigRoad'); }
     stickys[1].addEventListener('click', (e)=> {
       e.preventDefault();
       document.querySelector('.container').scrollTo({
-       top: window.innerHeight * (5 + 0.1955),
+       top: window.innerHeight * (5 + 0.1895),
        behavior: 'smooth'
       });
 });
@@ -1208,7 +1264,7 @@ stickys[4].addEventListener('click', (e)=> {
 stickys[5].addEventListener('click', (e)=> {
   e.preventDefault();
   document.querySelector('.container').scrollTo({
-   top: window.innerHeight * (5 + 1.165),
+   top: window.innerHeight * (5 + 1.15),
    behavior: 'smooth'
   });
 });
@@ -1216,7 +1272,7 @@ stickys[5].addEventListener('click', (e)=> {
 stickys[6].addEventListener('click', (e)=> {
   e.preventDefault();
   document.querySelector('.container').scrollTo({
-   top: window.innerHeight * (5 + 1.51),
+   top: window.innerHeight * (5 + 1.495),
    behavior: 'smooth'
   });
 });
@@ -1252,7 +1308,7 @@ let hamburger = document.querySelector('#hamburgerMenu');
 const tlHamburger = gsap.timeline({
   defaults: { ease: "power4.inOut", duration: 0.6, delay: 0.3 }
 });
-tlHamburger.to(".linkContainer", { clipPath: "polygon(0 0, 100% 0, 100% 120%, 0 120%)" });
+tlHamburger.to(".linkContainer", { clipPath: "polygon(0 0, 100% 0, 100% 120%, 0 120%)", "-webkit-clip-path": "polygon(0 0, 100% 0, 100% 120%, 0 120%)"  });
 tlHamburger.reversed(true);
 
 const tl2Hamburger = gsap.timeline({
