@@ -1637,10 +1637,10 @@ and (max-device-width: 1263px) {
         scroll-snap-type: none;
     }
 
-    section {
+    /* section {
         scroll-snap-align: none;
         min-height: -webkit-fill-avaliable;
-    }
+    } */
     
 }
 
@@ -2897,7 +2897,12 @@ and (max-device-width: 767px)
            top: auto;
            bottom: -0.3em;
            border-radius: 2em;
+       }
 
+       #videoContainer {
+           position: absolute;
+           clip-path: circle(0% at 50% 50%);;
+           -webkit-clip-path: circle(0% at 50% 50%);
        }
 
        #otherButton {

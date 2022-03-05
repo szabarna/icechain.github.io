@@ -1031,7 +1031,7 @@ video.volume = 0.05;
 
 videoButton.addEventListener('click', (e) => {
     e.preventDefault();
-      gsap.to(videoContainer, { 'clip-path': 'circle(100%)', duration: 0.75, ease: Sine});
+      gsap.to(videoContainer, { 'clip-path': 'circle(100% at 50% 50%)', '-webkit-clip-path': 'circle(100% at 50% 50%)', duration: 0.75, ease: Sine});
 
       if(getDeviceWidth() <= 786) {
       if (video.requestFullscreen) {
@@ -1052,7 +1052,7 @@ document.addEventListener('keydown', (e) => {
     e.preventDefault();
     if(e.key === "Escape" && videoContainer.style.clipPath != "circle(0% at center center)") {
         video.pause();
-        gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
+        gsap.to(videoContainer, { 'clip-path': 'circle(0% at 50% 50%)', '-webkit-clip-path': 'circle(0% at 50% 50%)', duration: 0.75, ease: Sine});
          cubeRotation.play();
          particleRotation.play();
     }
@@ -1063,7 +1063,7 @@ $(videoContainer).on('click', function(e) {
   if (e.target !== this) return;
   
   video.pause();
-  gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
+  gsap.to(videoContainer, { 'clip-path': 'circle(0% at 50% 50%)', '-webkit-clip-path': 'circle(0% at 50% 50%)', duration: 0.75, ease: Sine});
    cubeRotation.play();
    particleRotation.play();
 });
