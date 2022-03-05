@@ -348,7 +348,7 @@ function getDeviceHeight() {
       }});
     }
 
-    else if(getDeviceWidth() >= 360 && getDeviceWidth() < 768 && getDeviceHeight() < 1080) {
+    else if(getDeviceWidth() >= 360 && getDeviceWidth() < 768 && getDeviceHeight() <= 1080) {
       tokenModel.scale.set( 1, 1, 1);
       tokenModel.position.set(0, -15, 0 );
       tokenModel.children[0].position.x = -2.5;
@@ -407,6 +407,7 @@ function getDeviceHeight() {
       scrub: 1,
       }});
     }
+
 
     else {
       tokenModel.position.set(0, -15, 0 );
@@ -585,7 +586,7 @@ console.error( error );
           mainCube.rotation.set(Math.PI * 0.125, 0, 0);
       }
 
-      else if(getDeviceWidth() < 768 && getDeviceWidth() >= 360 && getDeviceHeight() < 1080) {
+      else if(getDeviceWidth() < 768 && getDeviceWidth() >= 360 && getDeviceHeight() <= 1080) {
         mainCube.scale.set(.5, .5, .5);
         mainCube.position.set(0, 0, 0);
         mainCube.rotation.set(Math.PI * 0.0, 0, 0);

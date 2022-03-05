@@ -2627,7 +2627,7 @@ and (max-device-width: 1199px)
 
 
 @media screen
-and (min-device-width: 360px)
+and (min-device-width: 0px)
 and (max-device-width: 767px)
 {
 
@@ -2663,8 +2663,8 @@ and (max-device-width: 767px)
            display: grid;
            align-self: center;
            position: absolute;
-           font-size: 1em;
-           bottom: 5.5em;
+           font-size: calc(1em + (100vh - 600px) * (15 - 25 ) / (600 -  1080));
+           bottom: calc(5.5em + (100vh - 600px) * (15 - 100 ) / (600 -  1080));
            margin-right: 0;
            justify-content: center;
            width: 100%;
@@ -2680,7 +2680,7 @@ and (max-device-width: 767px)
            height: 3em;
            text-align: center;
            background-color: rgba(36, 94, 180, 0.5);
-           margin-bottom: 0.75em;
+           margin-bottom: calc(0.75em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
            justify-content: center;
            align-content: center;
        }
@@ -2744,30 +2744,30 @@ and (max-device-width: 767px)
            background-color: rgba(1, 1, 73, 0.15);
            opacity: 1;
            width: 100vw;
-           height: 24em;
+           height: calc(24em + (100vh - 600px) * (15 - 250 ) / (600 -  1080));
            display: flex;
            left: auto;
             align-self: center;
-            top: 8.5em;
+            top: calc(8.5em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
            border-radius: 0.25em; 
        }
 
         .landingText {
             right: auto;
             width: 30em;
-            height: 24em;
-            top: 1.75em;
+            height: calc(24em + (100vh - 600px) * (15 - 250 ) / (600 -  1080));
+            top: calc(1.75em + (100vh - 600px) * (15 - 27.5 ) / (600 -  1080));
             justify-content: center;
         }
 
        #dataText {
-           font-size: 2em;
-           top: -0.25em;
+           font-size: calc(2em + (100vh - 600px) * (15 - 25 ) / (600 -  1080));
+           top: calc(-0.25em + (100vh - 600px) * (15 - 25 ) / (600 -  1080));
        }
 
        #yoursText {
-           font-size: 1.4em;
-           top: 10.25em;
+           font-size: calc(1.4em + (100vh - 600px) * (15 - 20 ) / (600 -  1080));
+           top: calc(10.25em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
            left: auto;
            width: 12.5em;
            white-space: normal;
@@ -2779,7 +2779,7 @@ and (max-device-width: 767px)
            padding: 0px 25px;
            left: 1em;
            top: auto;
-           bottom: -0.3em;
+           bottom: calc(0.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
            border-radius: 2em;
        }
 
@@ -2795,7 +2795,7 @@ and (max-device-width: 767px)
         left: auto;
         right: 1em;
         top: auto;
-        bottom: -0.3em;
+        bottom: calc(0.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
         border-radius: 2em;
         }
 
@@ -2820,8 +2820,8 @@ and (max-device-width: 767px)
            margin-top: 8em;
            position: sticky;
            left: auto;
-           height: 27.5em;
-           width: 30em;
+           height: calc(29em + (100vh - 600px) * (15 - 400 ) / (600 -  1080));
+           width: calc(30em + (100vw - 360px) * (15 - 300) / (360 -  767));;
            align-content: space-between;
            overflow-y: scroll;
            overflow-x: hidden;
@@ -2842,8 +2842,9 @@ and (max-device-width: 767px)
         }
 
         .ecoContainers {
-            width: 100%;
+            width: calc(22.5em + (100vw - 360px) * (15 - 30) / (360 -  767));
             position: sticky;
+            justify-self: center;
             top: 0em;
         }
 
@@ -2899,7 +2900,7 @@ and (max-device-width: 767px)
             text-align: center;
             left: auto;
             font-size: 2.25em;
-            top: 2.5em;
+            top: calc(2.5em + (100vh - 600px) * (15 - 100 ) / (600 -  1080));
         }
 
         #icetoken {
@@ -2908,11 +2909,11 @@ and (max-device-width: 767px)
             text-align: center;
             left: auto;
             font-size: 1.5em;
-            top: 6.5em;
+            top: calc(6.5em + (100vh - 600px) * (15 - 125 ) / (600 -  1080));
         }
 
         #tokenText {
-            top: 13em;
+            top: calc(13em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
             font-size: 1em;
             width: 22em;
             height: fit-content;
@@ -2978,11 +2979,11 @@ and (max-device-width: 767px)
         }
 
         #tokenMainContainer {
-            width: calc(22.5em + (100vh - 800px) * (15 - 10) / (800 -  1080));
+            width: calc(22.5em + (100vw - 360px) * (15 - 425) / (360 -  767));
             height: 7.5em;
             position: absolute;
             left: auto;
-            top: 19.5em;
+            top: calc(19.5em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
             justify-content: space-between;
             align-items: center;
             background-color: rgba(0, 29, 59, 0.525);
@@ -2994,7 +2995,7 @@ and (max-device-width: 767px)
         }
 
         #utility {
-            top: 19em !important;
+            top: calc(19em + (100vh - 600px) * (15 - 205 ) / (600 -  1080));;
             height: fit-content;
             padding: 0.25em 5em;
             border: 2px solid #001D3B;
@@ -3010,9 +3011,9 @@ and (max-device-width: 767px)
             display: grid;
             left: auto;
             height: 5em;
-            width: 22.5em;
+            width: calc(22.5em + (100vw - 360px) * (15 - 425) / (360 -  767));
             top: auto !important;
-            bottom: 0;
+            bottom: calc(0em + (100vh - 600px) * (15 - 300 ) / (600 -  1080));;
             align-items: center;
             border-radius: 0;
             grid-template-columns: auto auto auto auto;
@@ -3055,7 +3056,7 @@ and (max-device-width: 767px)
             width: 9em;
             height: 3.5em;
             font-size: 1em;
-            top: calc(32.5em + (100vh - 600px) * (15 - 250) / (600 -  1080));
+            top: calc(32.5em + (100vh - 600px) * (15 - 300) / (600 -  1080));
             left: calc(1em + (100vw - 360px) * (15 - 200) / (360 -  767));
         }
 
@@ -3070,7 +3071,7 @@ and (max-device-width: 767px)
             position: absolute;
             width: 9em;
             height: 3.5em;
-            top: calc(32.5em + (100vh - 600px) * (15 - 250) / (600 -  1080));
+            top: calc(32.5em + (100vh - 600px) * (15 - 300) / (600 -  1080));
             right: calc(1em + (100vw - 360px) * (15 - 200) / (360 -  767));
             border: 2px solid white;
             border-radius: 4.5em;
@@ -3082,9 +3083,9 @@ and (max-device-width: 767px)
         }
 
         #tokenHolder {
-            height: 42.5vh;
-            width: 45em;
-            top: 0em;
+            height: calc(15em + (100vh - 600px) * (15 - 100) / (600 -  1080));
+            width: calc(45em + (100vw - 360px) * (15 - 425) / (360 -  767));
+            top: calc(0em + (100vh - 600px) * (15 + 75) / (600 -  1080));
             background: linear-gradient( rgba(95, 145, 255, 1), rgba(95, 145, 255, 1));
             border-radius: 0;
             display: grid;
@@ -3108,7 +3109,7 @@ and (max-device-width: 767px)
        }
     
        #tokenT2 {
-           top: calc(21.3em + (100vh - 600px) * (15 - 130 ) / (600 -  1080));
+           top: calc(21.3em + (100vh - 600px) * (15 - 250 ) / (600 -  1080));
            font-size: 1.3em;
            background-color: rgba(49, 131, 255, 0.5);
            border: 2px solid rgba(49, 131, 255, 0.75);
@@ -3137,19 +3138,19 @@ and (max-device-width: 767px)
 
         #nodeH2T1 {
             font-size: 1.5em;
-            top: 3em;
+            top: 2em;
         }
 
         #nodeH2T2 {
             font-size: 1.5em;
-            top: 5.75em;
+            top: 4.75em;
         }
 
         #nodeH1 {
             font-size: 1.6em;
             width: fit-content;
             white-space: nowrap;
-            top: 4em;
+            top: 3em;
         }
 
         .node {
@@ -3165,14 +3166,14 @@ and (max-device-width: 767px)
 
         #roadLayer {
             position: sticky;
-            width: 87.5vh;
+            width: calc(87.5em + (100vw - 360px) * (15 - 425) / (360 -  767));
             height: 5em;
             right: auto;
             display: flex;
             justify-content: space-around;
             align-items: center;
             border-radius: 3em;
-            top: calc(41.5em + (100vh - 800px) * (15 - 200 ) / (800 -  1080));
+            top: calc(27.5em + (100vh - 600px) * (15 - 300 ) / (600 -  1080));
             background-color: #000524;
         }      
         
@@ -3254,7 +3255,7 @@ and (max-device-width: 767px)
         #marketDivContainer {
             transform: scale(0.75);
             width: 65em;
-            bottom: 3em;
+            bottom: calc(3em + (100vh - 600px) * (15 - 100) / (600 -  1080));
             left: -10em;
             display: grid;
             grid-template-columns: auto auto auto auto;
@@ -3300,7 +3301,7 @@ and (max-device-width: 767px)
             font-size: 1.3em;
             white-space: nowrap;
             position: absolute;
-            top: calc(1.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
+            top: calc(1.5em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
         }
 
         #dropImg {
@@ -3313,9 +3314,9 @@ and (max-device-width: 767px)
 
         .dropSlider {
             position: absolute;
-            width: 25em;
+            width: calc(25em + (100vw - 360px) * (15 - 425) / (360 -  767));
             height: 15em;
-            bottom: 0;
+            bottom: calc(0em + (100vh - 600px) * (15 - 100) / (600 -  1080));
             display: grid;
             grid-template-columns: auto auto auto auto auto auto auto;
             justify-content: space-between;
@@ -3369,7 +3370,7 @@ and (max-device-width: 767px)
             position: relative;
             display: flex;
             transform: scale(0.7);
-            right: calc(-23em + (100vw - 768px) * (15 - 200) / (768 -  1199));
+            right: calc(-34.5em + (100vw - 360px) * (15 - 200) / (360 -  767));
             top: 5em;
             
         }
@@ -3378,7 +3379,7 @@ and (max-device-width: 767px)
             position: relative;
             display: flex;
             transform: scale(0.7);
-            right: calc(17.5em + (100vw - 768px) * (15 - 200) / (768 -  1199));
+            right: calc(7.5em + (100vw - 360px) * (15 - 200) / (360 -  767));
             top: 3em;
         }
 
@@ -3391,33 +3392,33 @@ and (max-device-width: 767px)
             position: absolute;
             display: grid;
             grid-template-columns: auto auto auto auto auto;
-            width: 50em;
+            width: calc(50em + (100vw - 360px) * (15 - 300) / (360 -  767));
             overflow: auto;
             grid-column-gap: -50px;
 
-            bottom: -10em;
+            bottom: calc(-10em + (100vh - 600px) * (15 - 250) / (600 -  1080));
             justify-content: space-between;
             overflow-y: hidden;
         }
         
         #teamSlide1 {
-            margin-left: 12.5em;
+            margin-left: calc(12.5em + (100vw - 360px) * (15 + 57.5) / (360 -  767));
         }
 
         #teamSlide2 {
-            left: -3em;
+            left: calc(-3em + (100vw - 360px) * (15 + 7.5) / (360 -  767));
         }
 
         #teamSlide3 {
-            left: -6em;
+            left: calc(-6em + (100vw - 360px) * (15 + 30) / (360 -  767));
         }
 
         #teamSlide4 {
-            left: -9em;
+            left: calc(-9em + (100vw - 360px) * (15 + 57.5) / (360 -  767));
         }
 
         #teamSlide5 {
-            left: -12em;
+            left: calc(-12em + (100vw - 360px) * (15 + 85) / (360 -  767));
         }
 
         .teamSlide {
@@ -3443,7 +3444,7 @@ and (max-device-width: 767px)
             left: auto;
             position: absolute;
             display: flex;
-            top: 1.5em;
+            top: calc(1.5em + (100vh - 600px) * (15 - 200) / (600 -  1080));
         }
 
         #portfolioImg {
