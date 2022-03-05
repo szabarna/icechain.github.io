@@ -319,6 +319,7 @@ section {
     z-index: 5;
     box-shadow: 0 0 100px 10px rgb(31, 127, 165);
     clip-path: circle(0%);
+    -webkit-clip-path: circle(0%);
     display: flex;
     justify-content: center;
     cursor: pointer;
@@ -840,6 +841,7 @@ h2 {
     z-index: 3;
     border-radius: 10px;
     clip-path: circle(0%);
+    -webkit-clip-path: circle(0%);
     box-shadow: 0 0 100px var(--light-blue-color);
     text-align: center;
     align-items: center;
@@ -1055,6 +1057,7 @@ h2 {
     height: 100vh;
     background-color: rgba(28, 57, 128, 0.95);
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2140,6 +2143,7 @@ and (-webkit-min-device-pixel-ratio: 1){
            height: 25em;
            left: 1.25em;
            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+           -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
        }
 
        .li {
@@ -2753,10 +2757,6 @@ and (max-device-width: 767px)
         -ms-overflow-style: none;
     }
 
-    .container {
-        -webkit-overflow-scrolling: touch;
-        
-    }
 
        .logo {
 
@@ -2906,8 +2906,8 @@ and (max-device-width: 767px)
 
        #videoContainer {
            position: absolute;
-           clip-path: circle(0% at 50% 50%);;
-           -webkit-clip-path: circle(0% at 50% 50%);
+           clip-path: circle(0%);
+           -webkit-clip-path: circle(0%);
        }
 
        #otherButton {
