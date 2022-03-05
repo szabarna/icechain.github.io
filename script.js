@@ -1240,9 +1240,9 @@ tl2Hamburger.to(".header-container", { height: "100vh", backgroundColor: "rgba(2
 tl2Hamburger.reversed(true);
 
 const tl3Hamburger = gsap.timeline({
-  defaults: { ease: "power4.inOut", duration: 0.6 }
+  defaults: { ease: "power4.inOut", duration: 0.2 }
 });
-tl3Hamburger.to('#hamburgerMenu', { transform: "rotateZ(-90deg)" });
+tl3Hamburger.to('#hamburgerMenu', { transform: "rotate(45deg)" });
 tl3Hamburger.reversed(true);
 
 

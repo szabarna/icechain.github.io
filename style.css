@@ -1345,7 +1345,6 @@ h2 {
     bottom: 12em;
     border: 5px solid white;
     border-radius: 2.5em;
-    overflow: hidden;
 }
 
 #mD4Sub {
@@ -1396,6 +1395,10 @@ h2 {
     background: linear-gradient(#000524, #000000)
 }
 
+.dropSlider {
+    display: none;
+}
+
 #dropH1 {
     position: absolute;
     font-size: 3em;
@@ -1415,6 +1418,10 @@ h2 {
     left: 7.5em;
 }
 
+#createSlider {
+    display: none;
+}
+
 #createImg2 {
     position: absolute;
     
@@ -1426,6 +1433,10 @@ h2 {
 .contact {
     background-color: transparent;
     display: flex;
+}
+
+#teamSlider {
+    display: none;
 }
 
 #teamImg {
@@ -1456,6 +1467,7 @@ h2 {
 #portfolioImg {
     position: absolute;
     top: 10em;
+    
 }
 
 #portfolioH1 {
@@ -2724,6 +2736,7 @@ and (max-device-width: 767px)
            border-radius: 1.5em;
            display: flex;
            align-self: center;
+           transform: rotate(0);
        }
 
 
@@ -2960,6 +2973,7 @@ and (max-device-width: 767px)
             position: relative;
             top: 0;
             display: inline-block;
+            border-radius: 1.5em !important;
            
         }
 
@@ -3206,7 +3220,7 @@ and (max-device-width: 767px)
         }
 
         #marketContainer {
-            height: 82.5vh;
+            height: 85.5vh;
             width: 42.75em;
             position: relative;
             display: grid;
@@ -3238,21 +3252,19 @@ and (max-device-width: 767px)
             display: none;
         }
         #marketDivContainer {
-            transform: scale(0.65);
+            transform: scale(0.75);
+            width: 65em;
             bottom: 3em;
-            left: -20.25em;
+            left: -10em;
             display: grid;
             grid-template-columns: auto auto auto auto;
             grid-template-rows: none ;
             justify-content: space-between;
             align-items: center;
             overflow-x: scroll;
-            overflow-y: hidden;
-            white-space: nowrap;
             position: relative;
             height: fit-content;
             scroll-behavior: smooth;
-            z-index: 2;
         }
 
         #mD1 {
@@ -3260,12 +3272,12 @@ and (max-device-width: 767px)
         }
 
         #mD2 {
-            left: 2em;
+            left: 3em;
             margin-right: 0;
         }
 
         #mD4 {
-            left: 1.5em;
+            left: 4em;
             border: none;
             bottom: 4.75em;
         }
@@ -3332,6 +3344,7 @@ and (max-device-width: 767px)
             transform: scale(0.85);
             left: calc(-18.5em + (100vw - 768px) * (15 - 200) / (768 -  1199));
             top: 7.5em;
+            display: none;
         }
 
         #createImg2 {
@@ -3339,6 +3352,34 @@ and (max-device-width: 767px)
             transform: scale(0.85);
             right: calc(-21.5em + (100vw - 768px) * (15 - 200) / (768 -  1199));
             top: 5em;
+            display: none;
+        }
+
+        #createSlider {
+            position: absolute;
+            display: grid;
+            grid-template-columns: auto auto;
+            justify-content: center;
+            width: 81em;
+            overflow: auto;
+            
+        }
+
+        #createSlide1 {
+            position: relative;
+            display: flex;
+            transform: scale(0.7);
+            right: calc(-23em + (100vw - 768px) * (15 - 200) / (768 -  1199));
+            top: 5em;
+            
+        }
+
+        #createSlide2 {
+            position: relative;
+            display: flex;
+            transform: scale(0.7);
+            right: calc(17.5em + (100vw - 768px) * (15 - 200) / (768 -  1199));
+            top: 3em;
         }
 
         .contact {
@@ -3346,44 +3387,92 @@ and (max-device-width: 767px)
             justify-content: center !important;
         }
 
+        #teamSlider {
+            position: absolute;
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            width: 50em;
+            overflow: auto;
+            grid-column-gap: -50px;
+
+            bottom: -10em;
+            justify-content: space-between;
+            overflow-y: hidden;
+        }
+        
+        #teamSlide1 {
+            margin-left: 12.5em;
+        }
+
+        #teamSlide2 {
+            left: -3em;
+        }
+
+        #teamSlide3 {
+            left: -6em;
+        }
+
+        #teamSlide4 {
+            left: -9em;
+        }
+
+        #teamSlide5 {
+            left: -12em;
+        }
+
+        .teamSlide {
+            position: relative;
+            display: flex;
+            transform: scale(0.5);
+           
+        }
+
         #teamImg {
             position: relative;
             display: flex;
-            transform: scale(0.65);
+            transform: scale(0.5);
             right: 0;
             bottom: 0;
+            top: -1em;
+            display: none;
         }
 
         #teamH1 {
-            font-size: 3em;
+            font-size: 2em;
             transform: rotate(0);
             left: auto;
             position: absolute;
             display: flex;
-            top: 2em;
+            top: 1.5em;
         }
 
         #portfolioImg {
-            transform: scale(0.7);
-            top: 7em;
+            transform: scale(0.425);
+            top: -2em;
         }
 
         #portfolioH1 {
-            font-size: 2.75em;
-            top: 3em;
-        }
-
-        #portfolioH1Sub {
-            font-size: 2.75em;
+            font-size: 2em;
             top: 4.25em;
         }
 
+        #portfolioH1Sub {
+            font-size: 2em;
+            top: 5.5em;
+        }
+
         #portfolioH2 {
-            top: 5em;
+            top: 9em;
+            white-space: nowrap;
+            font-size: 0.75em;
         }
 
         .bigRoad {
             display: none;
+        }
+
+        #footerImg {
+            bottom: 3em;
         }
        
 }
