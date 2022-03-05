@@ -41,6 +41,7 @@ function getDeviceHeight() {
 }
 
 var iOS = /^iP/.test(navigator.userAgentData.platform);
+  console.log(iOS)
 
   
   /*                       THREEJS                             */
