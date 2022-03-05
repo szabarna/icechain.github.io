@@ -3214,6 +3214,7 @@ and (max-device-width: 767px)
             align-items: center;
         }
 
+
         #marketH1 {
             font-size: 2.35em;
             top: 0.6em;
@@ -3245,12 +3246,13 @@ and (max-device-width: 767px)
             grid-template-rows: none ;
             justify-content: space-between;
             align-items: center;
-            overflow: auto;
+            overflow-x: scroll;
             overflow-y: hidden;
             white-space: nowrap;
             position: relative;
             height: fit-content;
             scroll-behavior: smooth;
+            z-index: 2;
         }
 
         #mD1 {
@@ -3258,7 +3260,7 @@ and (max-device-width: 767px)
         }
 
         #mD2 {
-            left: 3em;
+            left: 2em;
             margin-right: 0;
         }
 
@@ -3286,7 +3288,7 @@ and (max-device-width: 767px)
             font-size: 1.3em;
             white-space: nowrap;
             position: absolute;
-            top: calc(3.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
+            top: calc(1.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
         }
 
         #dropImg {
@@ -3294,15 +3296,29 @@ and (max-device-width: 767px)
             display: flex;
             position: absolute;
             bottom: calc(-12.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
+            display: none;
         }
 
         .dropSlider {
             position: absolute;
-            width: 100em;
-            height: fit-content;
+            width: 25em;
+            height: 15em;
             bottom: 0;
             display: grid;
+            grid-template-columns: auto auto auto auto auto auto auto;
+            justify-content: space-between;
+            white-space: nowrap;
+            overflow: auto;
+            overflow-y: hidden;
+        }
 
+        .dropSlide {
+            position: relative;
+            display: flex;
+        }
+
+        #dropSlide2 {
+            top: 1em;
         }
 
         .create {
