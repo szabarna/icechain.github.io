@@ -22,9 +22,7 @@
 ::-webkit-scrollbar-thumb {
     background: rgb(49, 131, 255);
     border-radius: 1ex;
-    box-shadow: 0px 1px 2px rgba(49, 131, 255, 0.5);
     -webkit-border-radius: 1ex;
-    -webkit-box-shadow: 0px 1px 2px rgba(49, 131, 255, 0.5);
 }
 
 ::-webkit-scrollbar-corner {
@@ -172,9 +170,6 @@ html, body {
     margin-right: 0.5em;
 }
 
-#logo:hover {
-    filter: drop-shadow(0 0 10px rgb(0, 255, 255));
-}
 
 #ice {
     color: var(--light-blue-color);
@@ -231,35 +226,14 @@ li {
     font-weight: 600;
 
 }
-/*
-.active {
-    color: var(--light-blue-color) !important;
-    opacity: 1;
 
-}
-
-.active:after {
-    content: '';
-    position: absolute;
-    border-bottom: 2px solid var(--light-blue-color);
-    box-shadow: 0 2px 25px 2.5px var(--light-blue-color);
-    top: 160%;
-    left: 0;
-    width: 100%;
-    opacity: 1 !important;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-*/
 .li:hover {
-    color: rgb(49, 197, 255);
-    text-shadow: 0px 0px 15px var(--light-blue-color);
+    color: rgb(49, 145, 255);
 }
 
 .li:after {
     content: '';
     position: absolute;
-    box-shadow: 0 2px 15px 1px var(--light-blue-color);
     top: 160%;
     left: 0;
     width: 100%;
@@ -269,7 +243,6 @@ li {
 .li:hover:after {
     content: '';
     position: absolute;
-    box-shadow: 0 2px 15px 1px var(--light-blue-color);
     top: 160%;
     left: 0;
     width: 100%;
@@ -317,7 +290,6 @@ section {
     height: 100vh;
     background-color: #000a31;
     z-index: 5;
-    box-shadow: 0 0 100px 10px rgb(31, 127, 165);
     clip-path: circle(0%);
     -webkit-clip-path: circle(0%);
     display: flex;
@@ -358,8 +330,6 @@ section {
     left: 0;
     background-color: rgb(1, 1, 73);
     opacity: 0.275;
-    box-shadow: 0 8px 12px 0 rgba( 31, 38, 135, 0.37 ),
-                0 -8px 12px 0 rgba( 31, 38, 135, 0.37 );
 
 }
 
@@ -376,9 +346,6 @@ section {
     top: 22em;
     background-color: transparent;
     color: white;
-    /*box-shadow: 0 0 0 100px var(--light-blue-color) inset,
-                0 0 0 0 var(--light-blue-color);
-                */
     transition: 0.1s;
     border: 2px solid white;
     border-radius: 2.5em;
@@ -398,8 +365,6 @@ section {
     left: 17.5em;
     background-color: transparent;
     color: white;
-    box-shadow: 0 0 0 100px rgb(0, 91, 177) inset,
-                0 0 0 0 var(--light-blue-color);
 
     transition: 0.1s;
     border: 2px solid white;
@@ -408,15 +373,6 @@ section {
 
 }
 
-#otherButton:hover {
-    box-shadow: 0 0 100px 7.5px rgb(0, 91, 177) inset,
-                0 0 100px 7.5px rgb(0, 91, 177);
-}
-
-#videoButton:hover {
-    box-shadow: 0 0 100px 7.5px rgb(0, 91, 177) inset,
-                0 0 100px 7.5px rgb(0, 91, 177);
-}
 
 #videoText {
     display: flex;
@@ -488,7 +444,6 @@ section {
     -webkit-text-fill-color: white;
     */
     user-select: none;
-    text-shadow: 0 0 50px rgb(31, 127, 165);
 }
 
 #yoursText {
@@ -515,12 +470,6 @@ section {
     opacity: 0.8;
     white-space: nowrap;
     user-select: none;
-    text-shadow: 0 0 50px rgb(31, 127, 165);
-
-      /*
-    -webkit-text-stroke: 3px black;
-    -webkit-text-fill-color: white;
-    */
 
 }
 
@@ -618,7 +567,6 @@ h2 {
 /* LOGO TOP LEFT FIRST */
 #globeLogo {
     margin-left: 1.5em;
-    filter: drop-shadow(0 0 0 rgb(49, 197, 255, 1));
 }
 
 #ecoContainer1:hover #globePath1 {
@@ -662,12 +610,9 @@ h2 {
 
 #exchangeLogo {
      margin-left: 1.5em;
-     filter: drop-shadow(0 0 0 rgb(49, 197, 255, 1));
      transition: all 0.6s;
 }
-#ecoContainer2:hover #exchangeLogo {
-    filter: drop-shadow(0 0 0 rgb(49, 197, 255, 1));
-}
+
 #ecoContainer2:hover #exchangePath3, #exchangePath4 {
     fill: rgb(36, 136, 255);
 }
@@ -695,70 +640,45 @@ h2 {
 /* LOGO TOP LEFT THIRD */
 #nftLogo {
     margin-left: 1.5em;
-    filter: drop-shadow(0 0 2px rgb(49, 197, 255, 1));
     transition: all 0.6s;
 }
 
-#ecoContainer3:hover #nftLogo {
-    filter: drop-shadow(0 0 0 rgb(49, 197, 255, 1));
-}
 
 /* LOGO TOP LEFT FOURTH */
 #connectLogo {
     margin-left: 1.5em;
-    filter: drop-shadow(0 0 2px rgb(49, 197, 255, 1));
     transition: all 0.6s;
-}
-
-#ecoContainer4:hover #connectLogo {
-    filter: drop-shadow(0 0 0 rgb(49, 197, 255, 1));
 }
 
 /* LOGO TOP RIGHT FIRST */
 
 #stakingLogo {
     margin-left: 1.5em;
-    filter: drop-shadow(0 0 5px rgb(49, 197, 255, 1));
     transition: all 0.6s;
-}
-#ecoContainer5:hover #stakingLogo {
-    filter: drop-shadow(0 0 0 rgb(49, 197, 255, 1));
 }
 
 /* LOGO TOP RIGHT SECOND */
 
 #launchLogo {
     margin-left: 1.5em;
-    filter: drop-shadow(0 0 5px rgb(49, 197, 255, 1));
     transition: all 0.6s;
 }
 
-#ecoContainer6:hover #launchLogo {
-    filter: drop-shadow(0 0 0 rgb(49, 197, 255, 1));
-}
 
 /* LOGO TOP RIGHT THIRD */
 
 #messengerLogo {
     margin-left: 1.5em;
-    filter: drop-shadow(0 0 5px rgb(49, 197, 255, 1));
     transition: all 0.6s;
-}
-#ecoContainer7:hover #messengerLogo {
-    filter: drop-shadow(0 0 0 rgb(49, 197, 255, 1));
 }
 
 /* LOGO TOP RIGHT FOURTH */
 
 #socialLogo {
     margin-left: 1.5em;
-    filter: drop-shadow(0 0 5px rgb(0, 247, 255));
     transition: all 0.6s;
 }
-#ecoContainer8:hover #socialLogo {
-    filter:
-            drop-shadow(0 0 0 rgb(0, 247, 255));
-}
+
 
 /* LEFT */
 
@@ -842,7 +762,6 @@ h2 {
     border-radius: 10px;
     clip-path: circle(0%);
     -webkit-clip-path: circle(0%);
-    box-shadow: 0 0 100px var(--light-blue-color);
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -1043,9 +962,6 @@ h2 {
     z-index: 2;
 }
 
-#icoButton:hover {
-    filter: drop-shadow(0 0 10px rgb(104, 61, 173) );
-}
 
 #graphButton { 
     display: none;
@@ -1070,7 +986,6 @@ h2 {
     background: linear-gradient(180deg, rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
     top: 2em;
     border-radius: 1em;
-    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.25));
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
@@ -1098,7 +1013,6 @@ h2 {
     z-index: 2;
     text-align: center;
     border-radius: 1.25em;
-    filter: drop-shadow(0 0 10px rgba(0, 81, 255, 0.5));
     font-family: 'Arimo', sans-serif;
     user-select: none;
 }
@@ -1112,13 +1026,8 @@ h2 {
     z-index: 2;
     text-align: center;
     border-radius: 1.25em;
-    filter: drop-shadow(0 0 10px rgba(0, 81, 255, 0.5));
     font-family: 'Arimo', sans-serif;
     user-select: none;
-}
-
-.tokens:hover {
-    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.25));
 }
 
 .whiteToken {
@@ -1131,7 +1040,6 @@ h2 {
 .blueToken {
     margin-left: 0.75em;
     color: var(--light-blue-color);
-    text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
     font-family: 'Arimo', sans-serif;
     user-select: none;
 }
@@ -1150,7 +1058,6 @@ h2 {
 #nodeImg {
     position: relative;
     top: -7.5em;
-    filter: drop-shadow(0 0 1em rgb(28, 102, 212));
 }
 
 /* ROADMAP */
@@ -1161,20 +1068,18 @@ h2 {
     height: 1.25em;
     border-radius: 50%;
     background-color: transparent;
-    border: 2px solid rgba(49, 131, 255, 1);
-    filter: drop-shadow(0 0 10px rgba(49, 131, 255, 1)); 
+    border: 2px solid rgba(49, 131, 255, 1); 
     /* rgba(49, 131, 255, 1) */
     position: sticky;
     top: 10em;
     right: 107.5em;
     cursor: pointer;
     z-index: 3;
-    box-shadow: 0 0 0px 0 rgba(49, 131, 255, 1) inset;
     transition: all 0.2s;
 }
 
 .sticky:hover {
-    box-shadow: 0 0 100px 0 rgba(49, 131, 255, 1) inset;
+    background-color: rgba(49, 131, 255, 1);
 }
 
 
@@ -1409,7 +1314,6 @@ h2 {
     background-repeat: no-repeat;
     background-position: center center;
     transition: all 0.2s;
-    filter: drop-shadow(0 0 0px rgb(98, 70, 197));
 }
 
 
@@ -1426,7 +1330,6 @@ h2 {
     background-repeat: no-repeat;
     background-position: center center;
     transition: all 0.2s;
-    filter: drop-shadow(0 0 0px rgb(55, 148, 224));
 }
 
 
@@ -1458,7 +1361,6 @@ h2 {
     background-repeat: no-repeat;
     background-position: center center;
     transition: all 0.2s;
-    box-shadow: 0 0 0px 0 white;
 }
 
 
@@ -1480,7 +1382,6 @@ h2 {
     background-repeat: no-repeat;
     background-position: center center;
     transition: all 0.2s;
-    filter: drop-shadow(0 0 0px rgb(55, 148, 224));
 }
 
 #nft5SubImg {
@@ -1502,9 +1403,6 @@ h2 {
     font-family: 'Arimo', sans-serif;
 }
 
-#dropImg {
-    filter: drop-shadow(0 0 3px rgb(98, 70, 197));
-}
 
 /* CREATE SECTION */
 
@@ -1534,7 +1432,6 @@ h2 {
     position: absolute;
     top: 6em;
     right: 17.5em;
-    filter: drop-shadow(0 0 10px rgb(70, 114, 197));
 }
 
 #teamH1 {
@@ -1604,7 +1501,6 @@ h2 {
     position: absolute;
     top: 3em;
     color: rgb(119, 36, 197);
-    text-shadow: 0 0 10px rgb(119, 36, 197);
 }
 
 #nodeH1 {
@@ -1622,7 +1518,6 @@ h2 {
     position: absolute;
     top: 7em;
     color:rgb(25, 138, 212);
-    text-shadow: 0 0 10px rgb(34, 140, 201);
 }
 
 
@@ -2145,7 +2040,6 @@ and (max-device-width: 1199px)
            height: 3em;
            text-align: center;
            background-color: rgba(36, 94, 180, 0.5);
-           filter: drop-shadow(0 0 10px rgba(34, 105, 211, 0.5));
            margin-bottom: 0.75em;
            justify-content: center;
            align-content: center;
@@ -2153,14 +2047,12 @@ and (max-device-width: 1199px)
 
         .li:hover {
             color: white;
-            text-shadow: 0px 0px 0px var(--light-blue-color);
             background-color: rgba(36, 94, 180, 0.95);
         }
         
         .li:after {
             content: '';
             position: absolute;
-            box-shadow: 0 2px 0px 0px var(--light-blue-color);
             top: 160%;
             left: 0;
             width: 100%;
@@ -2170,7 +2062,6 @@ and (max-device-width: 1199px)
         .li:hover:after {
             content: '';
             position: absolute;
-            box-shadow: 0 2px 0px 0px var(--light-blue-color);
             top: 160%;
             left: 0;
             width: 100%;
@@ -2207,7 +2098,6 @@ and (max-device-width: 1199px)
            border-bottom-right-radius: 1px;
            border-top-left-radius: 1px;
            border-top-right-radius: 1px;
-           filter: drop-shadow(0 0 5px rgb(45, 18, 196));
        }
 
        #hamburgerMenu:after {
@@ -2426,12 +2316,10 @@ and (max-device-width: 1199px)
             color: white;
             font-family: 'Teko', sans-serif;
             font-size: 3em;
-            box-shadow: 0 0 100px 0 #001D3B;
         }
 
         #utilityContainer {
             border: 2px solid #001D3B;
-            box-shadow: 0 0 30px 0 #001D3B;
             display: flex;
             left: auto;
             width: 45.25em;
@@ -2466,7 +2354,6 @@ and (max-device-width: 1199px)
         #graphButton {
             display: block;
             background-color: transparent;
-            box-shadow: 0 0 15px 0 rgb(34, 146, 211);
             position: absolute;
             width: 8.5em;
             height: 3.5em;
@@ -2548,7 +2435,6 @@ and (max-device-width: 1199px)
             border-radius: 3em;
             top: calc(41.5em + (100vh - 800px) * (15 - 200 ) / (800 -  1080));
             background-color: #000524;
-            filter: drop-shadow(0 0 20px rgb(79, 122, 179));
         }
 
   
@@ -2842,7 +2728,6 @@ and (max-device-width: 767px)
 
 
        .homeLayer {
-           box-shadow: 0 0 0 white;
            background-color: rgba(1, 1, 73, 0.15);
            opacity: 1;
            width: 100vw;
@@ -2899,7 +2784,6 @@ and (max-device-width: 767px)
         top: auto;
         bottom: -0.3em;
         border-radius: 2em;
-        box-shadow: 0 0 0 white;
         }
 
         #otherText {
@@ -2929,11 +2813,9 @@ and (max-device-width: 767px)
            overflow-y: scroll;
            overflow-x: hidden;
           background-color: rgb(0, 10, 49, 0.5);
+          scroll-behavior: smooth;
        }
 
-       .textHolder {
-           box-shadow: 0 0 0 0 white;
-       }
 
        .smallEco {
            display: flex !important;
@@ -3093,6 +2975,7 @@ and (max-device-width: 767px)
             overflow: auto;
             overflow-y: hidden;
             white-space: nowrap;
+            scroll-behavior: smooth;
             
         }
 
@@ -3106,12 +2989,10 @@ and (max-device-width: 767px)
             color: white;
             font-family: 'Teko', sans-serif;
             font-size: 1.5em;
-            box-shadow: 0 0 0px 0 #001D3B;
         }
 
         #utilityContainer {
             border: 2px solid #001D3B;
-            box-shadow: 0 0 0px 0 #001D3B;
             display: grid;
             left: auto;
             height: 5em;
@@ -3127,6 +3008,7 @@ and (max-device-width: 767px)
             overflow: auto;
             white-space: nowrap;
             position: absolute;
+            scroll-behavior: smooth;
         }
 
         .utilityContent {
@@ -3163,9 +3045,6 @@ and (max-device-width: 767px)
             left: calc(1em + (100vw - 360px) * (15 - 200) / (360 -  767));
         }
 
-        #icoButton:hover {
-            filter: drop-shadow(0 0 0px rgb(104, 61, 173) );
-        }
 
         #tokenContent {
             height: 102vh;
@@ -3174,7 +3053,6 @@ and (max-device-width: 767px)
         #graphButton {
             display: block;
             background-color: transparent;
-            box-shadow: 0 0 0px 0 rgb(34, 146, 211);
             position: absolute;
             width: 9em;
             height: 3.5em;
@@ -3195,13 +3073,13 @@ and (max-device-width: 767px)
             top: 0em;
             background: linear-gradient( rgba(95, 145, 255, 1), rgba(95, 145, 255, 1));
             border-radius: 0;
-            filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.25));
             display: grid;
             grid-template-columns: auto auto auto auto auto auto;
             grid-template-rows: none ;
             justify-content: space-between;
             align-content: center;
             overflow-x: scroll;
+            scroll-behavior: smooth;
             
         }
     
@@ -3337,21 +3215,22 @@ and (max-device-width: 767px)
         }
 
         #marketH1 {
-            font-size: 3em;
-            left: 0.25em;
-            top: 1.25em;
+            font-size: 2.35em;
+            top: 0.6em;
+            display: flex;
+            left: 0.4em;
         }
 
         #marketH2 {
-            font-size: 1.25em;
-            left: 0.65em;
-            top: -5em;
+            font-size: 1.1em;
+            top: -6em;
+            display: flex;
         }
 
         #marketH3 {
             font-size: 1.15em;
-            left: 1.25em;
-            top: -2.25em;
+            top: -3.75em;
+            display: flex;
         }
 
         #marketB1, #marketB2 {
@@ -3371,6 +3250,7 @@ and (max-device-width: 767px)
             white-space: nowrap;
             position: relative;
             height: fit-content;
+            scroll-behavior: smooth;
         }
 
         #mD1 {
@@ -3379,6 +3259,7 @@ and (max-device-width: 767px)
 
         #mD2 {
             left: 3em;
+            margin-right: 0;
         }
 
         #mD4 {
@@ -3388,8 +3269,12 @@ and (max-device-width: 767px)
         }
 
         #nft1SubImg {
-            right: 41.5em;
-            bottom: 8em;
+            right: auto;
+            bottom: -1em;
+        }
+
+        #nft3SubImg {
+            bottom: -1em;
         }
 
         #nft4SubImg {
@@ -3398,16 +3283,26 @@ and (max-device-width: 767px)
 
         #dropH1 {
             display: flex;
-            font-size: 2em;
+            font-size: 1.3em;
+            white-space: nowrap;
             position: absolute;
-            top: calc(2.5em + (100vh - 800px) * (15 - 100 ) / (800 -  1080));
+            top: calc(3.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
         }
 
         #dropImg {
             transform: scale(0.6);
             display: flex;
             position: absolute;
-            bottom: calc(-10em + (100vh - 800px) * (15 - 100 ) / (800 -  1080));
+            bottom: calc(-12.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
+        }
+
+        .dropSlider {
+            position: absolute;
+            width: 100em;
+            height: fit-content;
+            bottom: 0;
+            display: grid;
+
         }
 
         .create {
