@@ -40,7 +40,8 @@ function getDeviceHeight() {
   return 0;
 }
 
-  
+var iOS = /^iP/.test(navigator.userAgentData.platform);
+
   
   /*                       THREEJS                             */
 
@@ -1031,7 +1032,8 @@ video.volume = 0.05;
 
 videoButton.addEventListener('click', (e) => {
     e.preventDefault();
-      gsap.to(videoContainer, { 'clip-path': 'circle(100%)', '-webkit-clip-path': 'circle(100%)', duration: 0.75, ease: Sine});
+    if(!iOS) gsap.to(videoContainer, { 'clip-path': 'circle(100%)',  duration: 0.75, ease: Sine});
+    else gsap.to(videoContainer, { '-webkit-clip-path': 'circle(100%)', duration: 0.75, ease: Sine});
 
       if(getDeviceWidth() <= 786) {
       if (video.requestFullscreen) {
@@ -1052,7 +1054,8 @@ document.addEventListener('keydown', (e) => {
     e.preventDefault();
     if(e.key === "Escape" && videoContainer.style.clipPath != "circle(0% at center center)") {
         video.pause();
-        gsap.to(videoContainer, { 'clip-path': 'circle(0%)', '-webkit-clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
+       if(!iOS) gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
+       else gsap.to(videoContainer, { '-webkit-clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
          cubeRotation.play();
          particleRotation.play();
     }
@@ -1063,7 +1066,9 @@ $(videoContainer).on('click', function(e) {
   if (e.target !== this) return;
   
   video.pause();
-  gsap.to(videoContainer, { 'clip-path': 'circle(0%)', '-webkit-clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
+
+  if(!iOS) gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
+  else gsap.to(videoContainer, { '-webkit-clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
    cubeRotation.play();
    particleRotation.play();
 });
@@ -1156,8 +1161,15 @@ for(let i = 0; i < textHolders.length; i++) {
   let ecoCounter = 2;
     ecoContainers[i].addEventListener('click', (e)=> {
         e.preventDefault();
-        if(ecoCounter % 2 == 0) gsap.to(textHolders[i], { 'clip-path': 'circle(100%)', '-webkit-clip-path': 'circle(100%)', duration: 0.75, ease: Sine});
-        else gsap.to(textHolders[i], { 'clip-path': 'circle(0%)', '-webkit-clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
+        if(ecoCounter % 2 == 0) 
+        {
+          if(!iOS) gsap.to(textHolders[i], { 'clip-path': 'circle(100%)', duration: 0.75, ease: Sine});
+          else gsap.to(textHolders[i], {'-webkit-clip-path': 'circle(100%)', duration: 0.75, ease: Sine});
+        }
+        else {
+         if(!iOS) gsap.to(textHolders[i], { 'clip-path': 'circle(0%)',  duration: 0.75, ease: Sine});
+         else gsap.to(textHolders[i], {'-webkit-clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
+        }
         ecoCounter+=1;
         
     });
@@ -1194,7 +1206,8 @@ let icoButton = document.querySelector('#icoButton');
 const tl = gsap.timeline({
   defaults: { ease: "power4.inOut", duration: 0.75 }
 });
-tl.to("#tokenContent", { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" });
+if(!iOS) tl.to("#tokenContent", { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" });
+else tl.to("#tokenContent", { "-webkit-clip-path": "polygon(0 0, 100% 0, 100% 100%, 0 100%)" });
 tl.reversed(true);
 
 const tl2 = gsap.timeline({
@@ -1308,7 +1321,8 @@ let hamburger = document.querySelector('#hamburgerMenu');
 const tlHamburger = gsap.timeline({
   defaults: { ease: "power4.inOut", duration: 0.6, delay: 0.3 }
 });
-tlHamburger.to(".linkContainer", { clipPath: "polygon(0 0, 100% 0, 100% 120%, 0 120%)", "-webkit-clip-path": "polygon(0 0, 100% 0, 100% 120%, 0 120%)"  });
+if(!iOS) tlHamburger.to(".linkContainer", { clipPath: "polygon(0 0, 100% 0, 100% 120%, 0 120%)"  });
+else tlHamburger.to(".linkContainer", { "-webkit-clip-path": "polygon(0 0, 100% 0, 100% 120%, 0 120%)"  });
 tlHamburger.reversed(true);
 
 const tl2Hamburger = gsap.timeline({
