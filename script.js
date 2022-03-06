@@ -590,7 +590,7 @@ console.error( error );
           mainCube.rotation.set(Math.PI * 0.125, 0, 0);
       }
 
-      else if(getDeviceWidth() < 768 && getDeviceWidth() >= 360 && getDeviceHeight() <= 1080) {
+      else if(getDeviceWidth() < 768 && getDeviceWidth() >= 360 && getDeviceHeight() <= 1280) {
         mainCube.scale.set(.5, .5, .5);
         mainCube.position.set(0, 0, 0);
         mainCube.rotation.set(Math.PI * 0.0, 0, 0);
@@ -962,7 +962,7 @@ var video = document.querySelector('#video');
 document.querySelector('.container').addEventListener('scroll', leaveVideoContainerOnScroll);
 
 function leaveVideoContainerOnScroll() {
-    if(videoContainer.style.clipPath === 'circle(100% at 50% 50%)') {
+    if(videoContainer.style.clipPath === 'circle(100% at 50% 50%)' || videoContainer.style.clipPath === 'circle(100% at center center)') {
         video.pause();
         gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
         cubeRotation.play();

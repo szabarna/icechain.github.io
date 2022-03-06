@@ -1690,7 +1690,7 @@ and (max-device-width: 1600px)
    
 
     #tokenContent {
-        height: 102.5vh;
+        height: 100vh;
     }
 
     #tokenHolder {
@@ -2127,7 +2127,7 @@ and (max-device-width: 1199px)
        #leftEco {
         display: grid;
         margin-top: calc(8em + (100vh - 600px) * (15 - 125 ) / (600 -  1280));
-        position: sticky;
+        position: absolute;
         left: auto;
         height: calc(29em + (100vh - 600px) * (15 - 400 ) / (600 -  1280));
         width: calc(43em + (100vw - 768px) * (15 - 445) / (768 -  1199));;
@@ -2154,7 +2154,7 @@ and (max-device-width: 1199px)
 
      .ecoContainers {
          width: calc(22.5em + (100vw - 768px) * (15 - 30) / (768 -  1199));
-         position: sticky;
+         position: absolute;
          justify-self: center;
          top: 0em;
      }
@@ -2343,7 +2343,7 @@ and (max-device-width: 1199px)
 
 
         #tokenContent {
-            height: 102vh;
+            height: 100vh;
         }
 
         #graphButton {
@@ -2647,7 +2647,11 @@ and (max-device-width: 767px)
         display: none;
         -ms-overflow-style: none;
     }
-
+    #videoContainer {
+        position: absolute;
+        align-self: center;
+        height: 75vh;
+    }
 
        .logo {
 
@@ -2675,12 +2679,12 @@ and (max-device-width: 767px)
            display: grid;
            align-self: center;
            position: absolute;
-           font-size: calc(1em + (100vh - 600px) * (15 - 25 ) / (600 -  1080));
-           bottom: calc(5.5em + (100vh - 600px) * (15 - 100 ) / (600 -  1080));
+           font-size: calc(1em + (100vh - 600px) * (15 - 20 ) / (600 -  1080));
+           bottom: calc(0em + (100vh - 600px) * (15 - 275 ) / (600 -  1080));
            margin-right: 0;
            justify-content: center;
            width: 100%;
-           height: 25em;
+           height: fit-content;
            left: 1.25em;
            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
            -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
@@ -2830,7 +2834,7 @@ and (max-device-width: 767px)
        #leftEco {
            display: grid;
            margin-top: 8em;
-           position: sticky;
+           position: absolute;
            left: auto;
            height: calc(29em + (100vh - 600px) * (15 - 400 ) / (600 -  1080));
            width: calc(30em + (100vw - 360px) * (15 - 300) / (360 -  767));;
@@ -2855,7 +2859,7 @@ and (max-device-width: 767px)
 
         .ecoContainers {
             width: calc(22.5em + (100vw - 360px) * (15 - 30) / (360 -  767));
-            position: sticky;
+            position: absolute;
             justify-self: center;
             top: 0em;
         }
@@ -2912,7 +2916,7 @@ and (max-device-width: 767px)
             text-align: center;
             left: auto;
             font-size: 2.25em;
-            top: calc(2.5em + (100vh - 600px) * (15 - 100 ) / (600 -  1080));
+            top: calc(2.5em + (100vh - 600px) * (15 - 20 ) / (600 -  1080));
         }
 
         #icetoken {
@@ -2921,11 +2925,11 @@ and (max-device-width: 767px)
             text-align: center;
             left: auto;
             font-size: 1.5em;
-            top: calc(6.5em + (100vh - 600px) * (15 - 125 ) / (600 -  1080));
+            top: calc(6.5em + (100vh - 600px) * (15 - 20 ) / (600 -  1080));
         }
 
         #tokenText {
-            top: calc(13em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
+            top: calc(13em + (100vh - 600px) * (15 - 20 ) / (600 -  1080));
             font-size: 1em;
             width: 22em;
             height: fit-content;
@@ -2995,7 +2999,7 @@ and (max-device-width: 767px)
             height: 7.5em;
             position: absolute;
             left: auto;
-            top: calc(19.5em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
+            top: calc(19.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
             justify-content: space-between;
             align-items: center;
             background-color: rgba(0, 29, 59, 0.525);
@@ -3007,7 +3011,7 @@ and (max-device-width: 767px)
         }
 
         #utility {
-            top: calc(19em + (100vh - 600px) * (15 - 205 ) / (600 -  1080));;
+            top: calc(19em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));;
             height: fit-content;
             padding: 0.25em 5em;
             border: 2px solid #001D3B;
@@ -3025,7 +3029,7 @@ and (max-device-width: 767px)
             height: 5em;
             width: calc(22.5em + (100vw - 360px) * (15 - 425) / (360 -  767));
             top: auto !important;
-            bottom: calc(0em + (100vh - 600px) * (15 - 300 ) / (600 -  1080));;
+            bottom: calc(0em + (100vh - 600px) * (15 - 480 ) / (600 -  1080));;
             align-items: center;
             border-radius: 0;
             grid-template-columns: auto auto auto auto;
@@ -3074,7 +3078,7 @@ and (max-device-width: 767px)
 
 
         #tokenContent {
-            height: 102vh;
+            height: 100vh;
         }
 
         #graphButton {
@@ -3107,7 +3111,6 @@ and (max-device-width: 767px)
             align-content: center;
             overflow-x: scroll;
             scroll-behavior: smooth;
-            
         }
     
        #tokenT1 {
@@ -3135,11 +3138,11 @@ and (max-device-width: 767px)
        }
 
        .whiteToken {
-            font-size: 1em;
+            font-size: 0.75em;
        }
 
        .blueToken {
-           font-size: 1.35em;
+           font-size: 1.1em;
        }
 
 
@@ -3214,20 +3217,21 @@ and (max-device-width: 767px)
 
         #marketH1 {
             font-size: 2.35em;
-            top: 0.6em;
+            top: calc(0.6em + (100vh - 600px) * (15 - 20) / (600 -  1080));
             display: flex;
-            left: 0.4em;
+            left: 0.2em;
         }
 
         #marketH2 {
             font-size: 1.1em;
-            top: -6em;
+            top: calc(-6em + (100vh - 600px) * (15 - 20) / (600 -  1080));
             display: flex;
+            left: 0.4em;
         }
 
         #marketH3 {
             font-size: 1.15em;
-            top: -3.75em;
+            top: calc(-3.75em + (100vh - 600px) * (15 - 5) / (600 -  1080));
             display: flex;
         }
 
@@ -3237,7 +3241,7 @@ and (max-device-width: 767px)
         #marketDivContainer {
             transform: scale(0.75);
             width: calc(65em + (100vw - 360px) * (15 - 475) / (360 -  767));
-            bottom: calc(3em + (100vh - 600px) * (15 - 100) / (600 -  1080));
+            bottom: calc(3em + (100vh - 600px) * (15 - 225) / (600 -  1080));
             left: calc(-10em + (100vw - 360px) * (15 + 55) / (360 -  767));
             display: grid;
             grid-template-columns: auto auto auto auto;
@@ -3296,7 +3300,7 @@ and (max-device-width: 767px)
 
         .dropSlider {
             position: absolute;
-            width: calc(15em + (100vw - 360px) * (15 - 250) / (360 -  767));
+            width: 25em;
             height: 15em;
             bottom: calc(0em + (100vh - 600px) * (15 - 100) / (600 -  1080));
             display: grid;
