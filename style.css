@@ -3255,7 +3255,7 @@ and (max-device-width: 767px)
         }
         #marketDivContainer {
             transform: scale(0.75);
-            width: 60em;
+            width: 64em;
             bottom: calc(3em + (100vh - 600px) * (15 - 225) / (600 -  1080));
             left: calc(-10em + (100vw - 360px) * (15 + 10) / (360 -  767));
             display: grid;
