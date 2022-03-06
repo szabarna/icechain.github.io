@@ -2866,43 +2866,53 @@ and (max-device-width: 767px)
 
        .ecoContainer {
         
-            width: 20em;
-            height: 15em;
+            width: 100% !important;
+            height: 7.5em !important;
+            padding: 1.25em !important;
+            margin: 0 !important;
+            margin-top: 2em !important; 
             font-size: 1em;
-            justify-content: center;         
+            justify-content: center;
+            left: -1.2em !important;         
        }
 
        #ecoContainer1 {
-            top: 0.5em;
+            top: 0em;
+       }
+
+       .text {
+           width: 14em;
+           display: grid;
+           justify-self: center;
        }
 
        #ecoContainer2 {
-           margin-top: 2em;
+           margin-top: 0em;
        }
 
        #ecoContainer3 {
-        margin-top: -2em;
+        margin-top: 0em;
         }
 
         #ecoContainer4 {
-            margin-top: -2.25em;
+            margin-top: 0em;
         }
 
         #ecoContainer5 {
-            margin-top: -2em;
+            margin-top: 0em;
             font-size: 1em;
        }
 
        #ecoContainer6 {
-           margin-top: 2em;
+           margin-top: 0em;
        }
 
        #ecoContainer7 {
-        margin-top: -2em;
+        margin-top: 0em;
         }
 
         #ecoContainer8 {
-            margin-top: -2.75em;
+            margin-top: 0em;
         }
 
         .services {
@@ -3152,17 +3162,17 @@ and (max-device-width: 767px)
         }
 
         #nodeH2T1 {
-            font-size: 1.5em;
+            font-size: 1.25em;
             top: 2em;
         }
 
         #nodeH2T2 {
-            font-size: 1.5em;
+            font-size: 1.25em;
             top: 4.75em;
         }
 
         #nodeH1 {
-            font-size: 1.6em;
+            font-size: 1.35em;
             width: fit-content;
             white-space: nowrap;
             top: 3em;
@@ -3216,14 +3226,14 @@ and (max-device-width: 767px)
 
 
         #marketH1 {
-            font-size: 2.35em;
+            font-size: 2.25em;
             top: calc(0.6em + (100vh - 600px) * (15 - 20) / (600 -  1080));
             display: flex;
             left: 0.2em;
         }
 
         #marketH2 {
-            font-size: 1.1em;
+            font-size: 1em;
             top: calc(-6em + (100vh - 600px) * (15 - 20) / (600 -  1080));
             display: flex;
             left: 0.4em;
@@ -3240,12 +3250,11 @@ and (max-device-width: 767px)
         }
         #marketDivContainer {
             transform: scale(0.75);
-            width: calc(65em + (100vw - 360px) * (15 - 475) / (360 -  767));
+            width: 65em;
             bottom: calc(3em + (100vh - 600px) * (15 - 225) / (600 -  1080));
-            left: calc(-10em + (100vw - 360px) * (15 + 55) / (360 -  767));
+            left: calc(-10em + (100vw - 360px) * (15 + 10) / (360 -  767));
             display: grid;
             grid-template-columns: auto auto auto auto;
-            grid-template-rows: none ;
             justify-content: space-between;
             align-items: center;
             overflow-x: scroll;
@@ -3284,7 +3293,7 @@ and (max-device-width: 767px)
 
         #dropH1 {
             display: flex;
-            font-size: 1.3em;
+            font-size: 1.1em;
             white-space: nowrap;
             position: absolute;
             top: calc(1.5em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
@@ -3321,7 +3330,7 @@ and (max-device-width: 767px)
         }
 
         .create {
-            display: flex;
+            display: grid;
             align-items: center;
             justify-content: center;
         }
@@ -3329,7 +3338,7 @@ and (max-device-width: 767px)
         #createImg {
             display: flex;
             transform: scale(0.85);
-            left: calc(-18.5em + (100vw - 768px) * (15 - 200) / (768 -  1199));
+            left: calc(-18.5em + (100vw - 360px) * (15 - 200) / (360 -  767));
             top: 7.5em;
             display: none;
         }
@@ -3337,7 +3346,7 @@ and (max-device-width: 767px)
         #createImg2 {
             display: flex;
             transform: scale(0.85);
-            right: calc(-21.5em + (100vw - 768px) * (15 - 200) / (768 -  1199));
+            right: calc(-21.5em + (100vw - 360px) * (15 - 200) / (360 -  767));
             top: 5em;
             display: none;
         }
@@ -3346,18 +3355,21 @@ and (max-device-width: 767px)
             position: absolute;
             display: grid;
             grid-template-columns: auto auto;
-            justify-content: center;
-            width: 81em;
+            justify-content: space-between;
+            width: calc(100em + (100vw - 360px) * (15 - 300) / (360 -  767));
+            height: fit-content;
             overflow: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
             
         }
 
         #createSlide1 {
             position: relative;
             display: flex;
-            transform: scale(0.75);
-            right: calc(-34.5em + (100vw - 360px) * (15 - 200) / (360 -  767));
+            transform: scale(0.725);
             top: 5em;
+            right: 20.75em;
             
         }
 
@@ -3365,8 +3377,8 @@ and (max-device-width: 767px)
             position: relative;
             display: flex;
             transform: scale(0.725);
-            right: calc(7em + (100vw - 360px) * (15 - 200) / (360 -  767));
             top: 3em;
+            right: 55em;
         }
 
         .contact {
@@ -3378,17 +3390,15 @@ and (max-device-width: 767px)
             position: absolute;
             display: grid;
             grid-template-columns: auto auto auto auto auto;
-            width: calc(50em + (100vw - 360px) * (15 - 300) / (360 -  767));
+            width: 50em;
             overflow: auto;
-            grid-column-gap: -50px;
-
             bottom: calc(-10em + (100vh - 600px) * (15 - 250) / (600 -  1080));
             justify-content: space-between;
             overflow-y: hidden;
         }
         
         #teamSlide1 {
-            margin-left: calc(12.5em + (100vw - 360px) * (15 + 57.5) / (360 -  767));
+            margin-left: calc(12.5em + (100vw - 360px) * (15 + 200) / (360 -  767));
         }
 
         #teamSlide2 {
@@ -3439,19 +3449,19 @@ and (max-device-width: 767px)
         }
 
         #portfolioH1 {
-            font-size: 2em;
+            font-size: 1.75em;
             top: 4.25em;
         }
 
         #portfolioH1Sub {
-            font-size: 2em;
+            font-size: 1.75em;
             top: 5.5em;
         }
 
         #portfolioH2 {
             top: 9em;
             white-space: nowrap;
-            font-size: 0.75em;
+            font-size: 0.6em;
         }
 
         .bigRoad {
