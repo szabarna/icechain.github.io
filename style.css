@@ -3255,9 +3255,9 @@ and (max-device-width: 767px)
         }
         #marketDivContainer {
             transform: scale(0.75);
-            width: calc(65em + (100vw - 360px) * (15 - 30) / (360 -  767));
+            width: calc(65em + (100vw - 360px) * (15 - 475) / (360 -  767));
             bottom: calc(3em + (100vh - 600px) * (15 - 100) / (600 -  1080));
-            left: -10em;
+            left: calc(-10em + (100vw - 360px) * (15 + 55) / (360 -  767));
             display: grid;
             grid-template-columns: auto auto auto auto;
             grid-template-rows: none ;
@@ -3370,7 +3370,7 @@ and (max-device-width: 767px)
         #createSlide1 {
             position: relative;
             display: flex;
-            transform: scale(0.7);
+            transform: scale(0.75);
             right: calc(-34.5em + (100vw - 360px) * (15 - 200) / (360 -  767));
             top: 5em;
             
@@ -3379,8 +3379,8 @@ and (max-device-width: 767px)
         #createSlide2 {
             position: relative;
             display: flex;
-            transform: scale(0.7);
-            right: calc(7.5em + (100vw - 360px) * (15 - 200) / (360 -  767));
+            transform: scale(0.725);
+            right: calc(7em + (100vw - 360px) * (15 - 200) / (360 -  767));
             top: 3em;
         }
 
