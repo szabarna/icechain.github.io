@@ -1320,8 +1320,8 @@ h2 {
 
 #nft1SubImg {
     position: absolute;
-    right: 44em;
-    bottom: 9.25em;
+    right: auto;
+    bottom: -0.75em;
 }
 
 #mD2 {
@@ -2989,11 +2989,16 @@ and (max-device-width: 767px)
         }
 
         .blueText {
-            font-size: 2em;
+            font-size: 1.75em;
         }
 
         .whiteText {
-            font-size: 1.5em;
+            font-size: 0.75em;
+        }
+
+        #tooBig {
+            bottom: 1.75em;
+
         }
 
         .tokenContainer {
@@ -3280,7 +3285,7 @@ and (max-device-width: 767px)
 
         #nft1SubImg {
             right: auto;
-            bottom: -1em;
+            bottom: -0.75em;
         }
 
         #nft3SubImg {
@@ -3331,8 +3336,8 @@ and (max-device-width: 767px)
 
         .create {
             display: grid;
+            justify-items: center;
             align-items: center;
-            justify-content: center;
         }
 
         #createImg {
@@ -3355,30 +3360,29 @@ and (max-device-width: 767px)
             position: absolute;
             display: grid;
             grid-template-columns: auto auto;
-            justify-content: space-between;
-            width: calc(100em + (100vw - 360px) * (15 - 300) / (360 -  767));
+            width: calc(63.25em + (100vw - 340px) * (15 - 5) / (340 -  767));
             height: fit-content;
+            justify-content: space-between;
             overflow: auto;
             overflow-y: hidden;
-            white-space: nowrap;
             
         }
 
         #createSlide1 {
             position: relative;
-            display: flex;
-            transform: scale(0.725);
+            display: inline-block;
+            transform: scale(0.7);
             top: 5em;
-            right: 20.75em;
+            left: calc(0em + (100vw - 340px) * (15 + 150) / (340 -  767));
             
         }
 
         #createSlide2 {
             position: relative;
-            display: flex;
-            transform: scale(0.725);
+            display: inline-block;
+            transform: scale(0.7);
             top: 3em;
-            right: 55em;
+            left: calc(0em + (100vw - 340px) * (15 + 875) / (340 -  767));
         }
 
         .contact {
