@@ -105,6 +105,7 @@ function getDeviceHeight() {
  
   console.log(getDeviceWidth())
   console.log(getDeviceHeight())
+
   renderer.setSize( window.innerWidth, window.innerHeight );
   renderer.setPixelRatio( window.devicePixelRatio );
 
@@ -133,7 +134,7 @@ function getDeviceHeight() {
   const particlesGeometryLowerLower = new THREE.BufferGeometry();
   const particlesGeometryLowerLowerRight = new THREE.BufferGeometry();
   var particlesCnt;
-  if(smallDevice) particlesCnt = 100;
+  if(getDeviceWidth() < 1200 ) particlesCnt = 100;
   else particlesCnt = 300;
   
 
@@ -1012,7 +1013,6 @@ $(videoContainer).on('click', function(e) {
  ScrollTrigger.defaults({
   ease: "power1.inOut",
   scroller: ".container",
-  invalidateOnRefresh: true,
   immediateRender: false,
 });
 
