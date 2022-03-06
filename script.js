@@ -58,8 +58,7 @@ function getDeviceHeight() {
   var cubeRotation = gsap.timeline();
   var particleRotation = gsap.timeline();
   
-  var animHeight = window.innerHeight;
-  var animWidth = window.innerWidth;
+
   
   gsap.registerPlugin(ScrollTrigger, CSSPlugin, CSSRulePlugin );
 
@@ -206,8 +205,8 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -9.8, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: animHeight * 2,
-      end: animHeight * 3.25,
+      start: window.innerHeight * 2,
+      end: window.innerHeight * 3.25,
       scrub: 1,
       }});
     }
@@ -220,8 +219,8 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -10.2, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: animHeight * 2,
-      end: animHeight * 3.25,
+      start: window.innerHeight * 2,
+      end: window.innerHeight * 3.25,
       scrub: 1,
       }});
     }
@@ -281,8 +280,8 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -9.95, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: animHeight * 2,
-      end: animHeight * 3.25,
+      start: window.innerHeight * 2,
+      end: window.innerHeight * 3.25,
       scrub: 1,
       }});
 
@@ -342,8 +341,8 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -10.1, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: animHeight * 2,
-      end: animHeight * 3.25,
+      start: window.innerHeight * 2,
+      end: window.innerHeight * 3.25,
       scrub: 1,
       }});
     }
@@ -402,8 +401,8 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -10.1, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: animHeight * 2,
-      end: animHeight * 3.25,
+      start: window.innerHeight * 2,
+      end: window.innerHeight * 3.25,
       scrub: 1,
       }});
     }
@@ -414,8 +413,8 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -10.2, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: animHeight * 2,
-      end: animHeight * 3.25,
+      start: window.innerHeight * 2,
+      end: window.innerHeight * 3.25,
       scrub: 1,
       }});
     }
@@ -428,8 +427,8 @@ function getDeviceHeight() {
     scene_anim.to(tokenModel.position , { x: -10, scrollTrigger: {
 
       trigger: ".node",
-      start: animHeight * 3.15,
-      end: animHeight * 4,
+      start: window.innerHeight * 3.15,
+      end: window.innerHeight * 4,
       scrub: 1,
       }});
 
@@ -465,8 +464,8 @@ function getDeviceHeight() {
       scene_anim.to(nodeModel.position , { x: 0, scrollTrigger: {
 
         trigger: ".node",
-        start: animHeight * 3,
-        end: animHeight * 4,
+        start: window.innerHeight * 3,
+        end: window.innerHeight * 4,
         scrub: 1,
         }});
 
@@ -499,8 +498,8 @@ function getDeviceHeight() {
       scene_anim.to(modelCurve.rotation, { y: "+=" + Math.PI * 4, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".projects",
-      start: animHeight * 5,
-      end: animHeight * 8,
+      start: window.innerHeight * 5,
+      end: window.innerHeight * 8,
       scrub: 1,
       }});
 
@@ -509,8 +508,8 @@ function getDeviceHeight() {
           scene_anim.to(modelCurve.position, { z: -4.5, scrollTrigger: {
             //, gltf.scene.children[1].position, gltf.scene.children[2].position
           trigger: ".services",
-          start: animHeight * 4,
-        end: animHeight * 5,
+          start: window.innerHeight * 4,
+        end: window.innerHeight * 5,
         scrub: 1,
         }});
       }
@@ -519,8 +518,8 @@ function getDeviceHeight() {
         scene_anim.to(modelCurve.position, { z: -5, scrollTrigger: {
             //, gltf.scene.children[1].position, gltf.scene.children[2].position
           trigger: ".services",
-          start: animHeight * 4,
-        end: animHeight * 5,
+          start: window.innerHeight * 4,
+        end: window.innerHeight * 5,
         scrub: 1,
         }});
       }
@@ -529,8 +528,8 @@ function getDeviceHeight() {
         scene_anim.to(modelCurve.position, { z: -5.1, scrollTrigger: {
             //, gltf.scene.children[1].position, gltf.scene.children[2].position
           trigger: ".services",
-          start: animHeight * 4,
-        end: animHeight * 5,
+          start: window.innerHeight * 4,
+        end: window.innerHeight * 5,
         scrub: 1,
         }});
       }
@@ -539,8 +538,8 @@ function getDeviceHeight() {
           scene_anim.to(modelCurve.position, { z: -4.25, scrollTrigger: {
             //, gltf.scene.children[1].position, gltf.scene.children[2].position
           trigger: ".services",
-          start: animHeight * 4,
-        end: animHeight * 5,
+          start: window.innerHeight * 4,
+        end: window.innerHeight * 5,
         scrub: 1,
         }});
       }
@@ -548,8 +547,8 @@ function getDeviceHeight() {
       
       scene_anim.to(modelCurve.position, { y: "+=" + 3.5, scrollTrigger: {
       trigger: ".projects",
-      start: animHeight * 5,
-      end: animHeight * 8,
+      start: window.innerHeight * 5,
+      end: window.innerHeight * 8,
       scrub: 1,
       }});
       
@@ -622,7 +621,7 @@ console.error( error );
           // , gltf.scene.children[1].position, gltf.scene.children[2].position
         trigger: ".home",
         start: 0,
-        end: animHeight,
+        end: window.innerHeight,
         scrub: 1,
         }});
 
@@ -634,8 +633,8 @@ console.error( error );
           { opacity: 0, scrollTrigger: {
           // , gltf.scene.children[1].position, 
         trigger: ".services",
-        start: animHeight,
-        end: animHeight * 2,
+        start: window.innerHeight,
+        end: window.innerHeight * 2,
         scrub: 1,
         }});
         
@@ -646,7 +645,7 @@ console.error( error );
           // , gltf.scene.children[1].position, gltf.scene.children[2].position
         trigger: ".home",
         start: 0,
-        end: animHeight,
+        end: window.innerHeight,
         scrub: 1,
         }});
       
@@ -658,8 +657,8 @@ console.error( error );
         { opacity: 0, scrollTrigger: {
         // , gltf.scene.children[1].position, 
       trigger: ".home",
-      start: animHeight * 0.5,
-      end: animHeight,
+      start: window.innerHeight * 0.5,
+      end: window.innerHeight,
       scrub: 1,
       }});
       
@@ -670,7 +669,7 @@ console.error( error );
           // , gltf.scene.children[1].position, gltf.scene.children[2].position
         trigger: ".home",
         start: 0,
-        end: animHeight,
+        end: window.innerHeight,
         scrub: 1,
         }});
       
@@ -682,8 +681,8 @@ console.error( error );
         { opacity: 0, scrollTrigger: {
         // , gltf.scene.children[1].position, 
       trigger: ".home",
-      start: animHeight * 0.5,
-      end: animHeight,
+      start: window.innerHeight * 0.5,
+      end: window.innerHeight,
       scrub: 1,
       }});
     }
@@ -926,12 +925,6 @@ function onDocumentMouseMove(event) {
 
     container.style.width = window.innerWidth + "px";
     container.style.height = window.innerHeight + "px";
-
-    animHeight = window.innerHeight;
-    animWidth = window.innerWidth;
-
-    ScrollTrigger.refresh();
-
 }
   
   
@@ -1029,7 +1022,7 @@ scene_anim.to([camera.position, cameraCenter ], { y: "-=10.15", scrollTrigger: {
 
 trigger: ".about",
 start: 0,
-end: animHeight * 3,
+end: window.innerHeight * 3,
 scrub: 1,
 }});
 
@@ -1039,8 +1032,8 @@ scrub: 1,
     scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
 
       trigger: ".node",
-      start: animHeight * 4,
-      end: animHeight * 5,
+      start: window.innerHeight * 4,
+      end: window.innerHeight * 5,
       scrub: 1,
       }});
 
@@ -1048,8 +1041,8 @@ scrub: 1,
 scene_anim.to([camera.position, cameraCenter ], { x: "+=7.5", scrollTrigger: {
 
       trigger: ".marketSection",
-      start: animHeight * 8.15,
-      end: animHeight * 9,
+      start: window.innerHeight * 8.15,
+      end: window.innerHeight * 9,
       scrub: 1,
       }});   
 
@@ -1066,8 +1059,8 @@ const eco_anim = gsap.to([
 
 ], { count: 75, scrollTrigger: {
   trigger: ".about",
-  start: animHeight * 0.35,
-  end: animHeight * 1.5,
+  start: window.innerHeight * 0.35,
+  end: window.innerHeight * 1.5,
   scrub: 1,
   onLeave: function() { gsap.to([ 
     subLine1.geometry.drawRange,
