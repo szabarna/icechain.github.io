@@ -3358,11 +3358,11 @@ and (max-device-width: 767px)
 
         #createSlider {
             position: absolute;
+            width: 50em;
+            height: 32.5em;
+            bottom: calc(0em + (100vh - 600px) * (15 - 100) / (600 -  1080));
             display: grid;
-            grid-template-columns: auto auto;
-            width: calc(63.25em + (100vw - 340px) * (15 - 5) / (340 -  767));
-            height: fit-content;
-            justify-content: space-between;
+            grid-template-columns: 0.1em 0.1em;
             overflow: auto;
             overflow-y: hidden;
             
@@ -3370,19 +3370,20 @@ and (max-device-width: 767px)
 
         #createSlide1 {
             position: relative;
-            display: inline-block;
+            display: flex;
             transform: scale(0.7);
-            top: 5em;
-            left: calc(0em + (100vw - 340px) * (15 + 150) / (340 -  767));
+            top: -5em;
+            right: 7.5em;
             
         }
 
         #createSlide2 {
-            position: relative;
-            display: inline-block;
+            position: absolute;
+            display: flex;
             transform: scale(0.7);
-            top: 3em;
-            left: calc(0em + (100vw - 340px) * (15 + 875) / (340 -  767));
+            top: -6em;
+            left: 15em;
+
         }
 
         .contact {
