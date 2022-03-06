@@ -1502,9 +1502,46 @@ h2 {
     background: linear-gradient(rgb(10, 10, 10), rgb(0, 0, 0));
 }
 
-#footerImg {
-   position: absolute;
+
+#footerIce {
+    display: flex;
+    position: absolute;
 }
+
+.footer h2 {
+    display: flex;
+    position: absolute;
+}
+
+#footerLinkContainer {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 2em;
+    bottom: 5em;
+}
+
+#footerLinkContainer a {
+    display: flex;
+    padding: 0.3em;
+    background-color: rgba(255, 255, 255, 0.525);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s all;
+}
+
+#footerLinkContainer a:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+#footerLinkContainer a img {
+    display: flex;
+}
+
+
 
 #nodeH2T1 {
     font-size: 1.7em;
@@ -3475,14 +3512,13 @@ and (max-device-width: 767px)
 
         .footer {
             display: flex;
-            justify-content: center;
-            align-items: center;
+
         }
 
-        #footerImg {
-            bottom: auto;
-            position: relative;
-            display: flex;
-        }
+
+      
+
+
+
        
 }

@@ -692,6 +692,16 @@ console.error( error );
       }});
     }
         scene.add( mainCube );
+        /*
+        camera.lookAt(mainCube.position);
+        container.addEventListener('scroll', ()=> {
+          if(mainCube.material.opacity > 0.2){
+            camera.lookAt(mainCube.position);
+            camera.updateProjectionMatrix();
+          }
+          
+        })
+        */
 
   }, undefined, function ( error ) {
 
@@ -699,7 +709,7 @@ console.error( error );
 
     });
 
-
+    
     // LINES
   
 const pointsMaterial = new THREE.PointsMaterial({ color: 0x3477af, size: .05, map: texture, alphaMap: textureAlpha, alphaTest: 0.5 });
@@ -943,7 +953,6 @@ function onDocumentMouseMove(event) {
       // controls.update();
       composer.render();
       stats.update()
-    
     // render();
  
   }
@@ -1091,21 +1100,18 @@ let textHolders = document.querySelectorAll('.textHolder');
 let ecoContainers = document.querySelectorAll('.ecoContainer');
 
 for(let i = 0; i < textHolders.length; i++) {
+  const tlEco = gsap.timeline({
+    defaults: { ease: "power4.inOut", duration: 0.25 }
+  });
+   tlEco.to(textHolders[i], { 'clip-path': 'circle(100%)' });
+  tlEco.reversed(true);
   
-  let ecoCounter = 2;
     ecoContainers[i].addEventListener('click', (e)=> {
         e.preventDefault();
-        if(ecoCounter % 2 == 0) 
-        {
-           gsap.to(textHolders[i], { 'clip-path': 'circle(100%)', duration: 0.75, ease: Sine});
+
+
+        tlEco.reversed(!tlEco.reversed());
   
-        }
-        else {
-          gsap.to(textHolders[i], { 'clip-path': 'circle(0%)',  duration: 0.75, ease: Sine});
-  
-        }
-        ecoCounter+=1;
-        
     });
 }
 
@@ -1135,6 +1141,8 @@ function icoAnim(e) {
   tl2.reversed(!tl2.reversed());
 
 }
+
+
 
 
 /* MARKETPLACE SECTION */
@@ -1230,19 +1238,19 @@ function onTransitionEnd( event ) {
 let hamburger = document.querySelector('#hamburgerMenu');
 
 const tlHamburger = gsap.timeline({
-  defaults: { ease: "power4.inOut", duration: 0.6, delay: 0.3 }
+  defaults: { ease: "power4.inOut", duration: 0.6, delay: 0.2 }
 });
 tlHamburger.to(".linkContainer", { clipPath: "polygon(0 0, 100% 0, 100% 120%, 0 120%)"  });
 tlHamburger.reversed(true);
 
 const tl2Hamburger = gsap.timeline({
-  defaults: { ease: "power4.inOut", duration: 0.6 }
+  defaults: { ease: "power4.inOut", duration: 0.6, delay: 0.3 }
 });
 tl2Hamburger.to(".header-container", { height: "100vh", backgroundColor: "rgba(20, 18, 117, 0.95)" });
 tl2Hamburger.reversed(true);
 
 const tl3Hamburger = gsap.timeline({
-  defaults: { ease: "power4.inOut", duration: 0.2 }
+  defaults: { ease: "power4.inOut", duration: 0.2, delay: 0.1 }
 });
 tl3Hamburger.to('#hamburgerMenu', { transform: "rotate(45deg)" });
 tl3Hamburger.reversed(true);
@@ -1259,6 +1267,18 @@ function hamburgerAnim(e) {
 
 }
 
+let links = document.querySelectorAll('.li');
+console.log(tl.reversed())
+for(let i = 0; i < links.length; i++) {
+  
+      links[i].addEventListener('click', (e) => {
+
+        tlHamburger.reverse();
+        tl2Hamburger.reverse();
+        tl3Hamburger.reverse();
+       
+      });
+}
 
 
 }
