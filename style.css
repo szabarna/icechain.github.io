@@ -3296,7 +3296,7 @@ and (max-device-width: 767px)
 
         .dropSlider {
             position: absolute;
-            width: calc(25em + (100vw - 360px) * (15 - 200) / (360 -  767));
+            width: calc(15em + (100vw - 360px) * (15 - 250) / (360 -  767));
             height: 15em;
             bottom: calc(0em + (100vh - 600px) * (15 - 100) / (600 -  1080));
             display: grid;
@@ -3454,8 +3454,16 @@ and (max-device-width: 767px)
             display: none;
         }
 
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         #footerImg {
-            bottom: 3em;
+            bottom: auto;
+            position: relative;
+            display: flex;
         }
        
 }
