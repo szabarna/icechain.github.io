@@ -11,6 +11,8 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
 
 window.onload = function() {
+  window.location.href = "./index.html#home";
+  console.log(window.location.href)
 
   function getDeviceWidth() {
     if (typeof (window.innerWidth) == 'number') {
@@ -209,7 +211,7 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -9.8, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: maxScrollTop * 2,
+      start: maxScrollTop * 2.5,
       end: maxScrollTop * 3.25,
       scrub: 1,
       }});
@@ -223,7 +225,7 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -10.2, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: maxScrollTop * 2,
+      start: maxScrollTop * 2.5,
       end: maxScrollTop * 3.25,
       scrub: 1,
       }});
@@ -284,7 +286,7 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -9.95, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: maxScrollTop * 2,
+      start: maxScrollTop * 2.5,
       end: maxScrollTop * 3.25,
       scrub: 1,
       }});
@@ -345,7 +347,7 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -10.1, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: maxScrollTop * 2,
+      start: maxScrollTop * 2.5,
       end: maxScrollTop * 3.25,
       scrub: 1,
       }});
@@ -405,7 +407,7 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -10.1, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: maxScrollTop * 2,
+      start: maxScrollTop * 2.5,
       end: maxScrollTop * 3.25,
       scrub: 1,
       }});
@@ -417,7 +419,7 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -10.2, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: maxScrollTop * 2,
+      start: maxScrollTop * 2.5,
       end: maxScrollTop * 3.25,
       scrub: 1,
       }});
