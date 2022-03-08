@@ -26,3 +26,7 @@
 Mobile WIDTH 360 - 767 HEIGHT 600 - 1079
 
 ©
+
+
+hamburger menu home cut in half bc top
+team layout

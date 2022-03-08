@@ -146,6 +146,32 @@ li {
     user-select: none;
 }
 
+.whitePaperLi {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    top: 2.25em;
+}
+
+.whitepaper {
+    position: absolute;
+    display: flex;
+    text-decoration: none;
+    font-size: 1em;
+    border: 2px solid rgba(20, 126, 197, 1);
+    padding: 0.25em 1em;
+    border-radius: 1.25em !important;
+    color: white;
+    font-family: "Teko", sans-serif;
+    white-space: nowrap;
+    transition: all 0.4s;
+    right: 3em;
+}
+
+.whitepaper:hover {
+    transform: scaleX(1.1) scaleY(1.02);
+}
 
 
 section {
@@ -171,13 +197,6 @@ section {
 
 
         /*       HOME SECTION        */
-.home {
- background-color: transparent;
-}
-
-.projects {
-    height: 400vh;
-}
 
 
 #video {
@@ -222,56 +241,9 @@ h2 {
    display: none !important;
 }
 
-#rightEco {
-    position: absolute;
-    display: flex;
-    width: 15vw;
-    margin-top: 5%;
-    height: 100vh;
-    right: 2%;
-    background-color: transparent;
-
-}
-
-#leftEco {
-    position: absolute;
-    display: flex;
-    width: 15vw;
-    margin-top: 5%;
-    height: 100vh;
-    left: 2%;
-    background-color: transparent;
-
-}
-
-.ecoContainers {
-    position: relative;
-    width: 100%;
-    height: fit-content;
-    align-self: center;
-}
-.ecoContainer {
-    position: relative;
-    width: 100%;
-    height: 30%;
-    background-color: rgb(0, 10, 49);
-    cursor: pointer;
-    transition: all 0.1s;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    border-radius: 20px;
-}
 
 
 .aboutText {
-    font-family: 'Alegreya Sans SC', sans-serif;
-    font-family: 'Economica', sans-serif;
-    font-family: 'Inconsolata', monospace;
-    font-family: 'Lato', sans-serif;
-    font-family: 'Montagu Slab', serif;
-    font-family: 'Oxygen', sans-serif;
-    font-family: 'Roboto', sans-serif;
     font-family: 'Teko', sans-serif;
     display: flex;
     user-select: none;
@@ -281,13 +253,6 @@ h2 {
 /* LOGO TOP LEFT FIRST */
 #globeLogo {
     margin-left: 1.5em;
-}
-
-#ecoContainer1:hover #globePath1 {
-    fill: rgb(34, 202, 214);
-}
-#ecoContainer1:hover #globePath2 {
-    fill: white;
 }
 
 #globePath1 {
@@ -320,20 +285,12 @@ h2 {
     transition: all 0.6s;
 }
 
-/* LOGO TOP LEFT SECOND */
 
 #exchangeLogo {
      margin-left: 1.5em;
      transition: all 0.6s;
 }
 
-#ecoContainer2:hover #exchangePath3, #exchangePath4 {
-    fill: rgb(36, 136, 255);
-}
-
-#ecoContainer2:hover #exchangePath5, #exchangePath6 {
-    fill: rgb(0, 94, 206);
-}
 #exchangePath3 {
     fill: rgb(0, 94, 206);
     transition: all 0.6s;
@@ -377,7 +334,6 @@ h2 {
     margin-left: 1.5em;
     transition: all 0.6s;
 }
-
 
 /* LOGO TOP RIGHT THIRD */
 
@@ -484,14 +440,6 @@ h2 {
 .text {
     color: white;
     text-align: center;
-    text-justify: center;
-
-    font-family: 'Alegreya Sans SC', sans-serif;
-    font-family: 'Economica', sans-serif;
-    font-family: 'Inconsolata', monospace;
-    font-family: 'Lato', sans-serif;
-    font-family: 'Montagu Slab', serif;
-    font-family: 'Roboto', sans-serif;
     font-family: 'Teko', sans-serif;
     user-select: none;
 }
@@ -502,90 +450,13 @@ h2 {
 
 
 
-
 /* TOKEN DETAILS */
 
-.services {
-    position: relative;
-    height: 100vh;
-    scroll-snap-align: center;
-}
 
 .tokenDetails2 {
     position: relative;
     height: 100vh;
     scroll-snap-align: center;
-}
-
-#overview {
-    position: absolute;
-    top: 1.75em;
-    left: 4.75em;
-    font-size: 4em;
-    user-select: none;
-
-    font-family: 'Arimo', sans-serif;
-
-}
-
-
-#icetoken {
-    position: absolute;
-    top: 5em;
-    left: 7em;
-    font-size: 2.75em;
-    user-select: none;
-    color: rgb(0, 0, 255);
-    font-family: 'Arimo', sans-serif;
-
-}
-
-#tokenText {
-    position: absolute;
-    top: 15em;
-    left: 14.2em;
-    font-size: 1.35em;
-    user-select: none;
-
-    font-family: 'Arimo', sans-serif;
-
-}
-
-.tokenContainer {
-    position: absolute;
-    width: 15em;
-    height: 7em;
-    background-color: #001D3B;
-    top: 30em;
-    border-radius: 10em;
-    text-align: center;
-    border: 2px solid #2463BE;
-}
-
-
-#t1 {
-    left: 19.2em;
-}
-
-#t2 {
-    left: 41.2em;
-}
-
-#t3 {
-    left: 63em;
-}
-
-#t4 {
-    left: 85em;
-}
-
-.blueText {
-    position: relative;
-    color: rgb(0, 0, 255);
-    font-family: 'Teko', sans-serif;
-    font-size: 2em;
-    bottom: 0.5em;
-    user-select: none;
 }
 
 .normalText {
@@ -596,404 +467,12 @@ h2 {
     user-select: none;
 }
 
-#tooBig {
-    font-size: 1.6em;
-    bottom: 2em;
-    line-height: 1em;
-}
-
-#utilityContainer {
-    position: absolute;
-    width: 82em;
-    height: 5em;
-    background-color: #001D3B;
-    left: 19em;
-    top: 47.5em;
-    border-radius: 2.5em;
-    display: flex;
-    justify-content: space-between;
-}
-
-#utility {
-    position: relative;
-    top: 15em;
-    font-size: 2.5em;
-    color: rgb(0, 247, 255);
-    font-family: 'Arimo', sans-serif;
-    user-select: none;
-}
-
-.utilityContent {
-    position: relative;
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-}
-
-.img {
-    position: relative;
-    top: 1.1em;
-}
-
-.uT {
-    position: relative;
-    top: 0.3em;
-    margin-left: 1em;
-    user-select: none;
-    font-size: 1.25em;
-}
-
-#img1 {
-    left: 2.25em;
-}
-
-#uT1 {
-    left: 1.75em;
-}
-
-#img4 {
-    right: 2.25em;
-}
-
-#uT4 {
-    right: 2.25em;
-}
-
-/* TOKEN DETAILS 2 */
-
-#icoButton {
-    background: linear-gradient(#3772FF, #1C3980);
-    position: relative;
-    width: 8.5em;
-    height: 3.5em;
-    top: 32.5em;
-    border-radius: 4.5em;
-    cursor: pointer;
-    border: none;
-    color: white;
-    font-size: 1.5em;
-    font-family: 'Arimo', sans-serif;
-    z-index: 2;
-}
-
-
-#graphButton { 
-    display: none;
-}
-
-#tokenContent {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(28, 57, 128, 0.95);
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#tokenHolder {
-    width: 70%;
-    height: 85%;
-    position: relative;
-    background: linear-gradient(180deg, rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
-    top: 2em;
-    border-radius: 1em;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    justify-content: space-evenly;
-    align-content: space-evenly;
-}
-
-.tokens {
-    position: relative;
-    width: 20em;
-    height: 12.5em;
-    background-color: rgba(28, 57, 128, 0.95);
-    border-radius: 2.25em;
-    border: 10px solid rgba(95, 145, 255, 1);
-    top: 20em;
-
-}
-
-#tokenT1 {
-    position: absolute;
-    top: 4.75em;
-    background-color: rgb(95, 164, 255);
-    width: 47.5em;
-    height: 1.25em;
-    z-index: 2;
-    text-align: center;
-    border-radius: 1.25em;
-    font-family: 'Arimo', sans-serif;
-    user-select: none;
-}
-
-#tokenT2 {
-    position: absolute;
-    background-color: rgba(95, 145, 255, 1);
-    bottom: 18.25em;
-    width: 15em;
-    height: 1.25em;
-    z-index: 2;
-    text-align: center;
-    border-radius: 1.25em;
-    font-family: 'Arimo', sans-serif;
-    user-select: none;
-}
-
-.whiteToken {
-    margin: 0;
-    margin-left: 1em;
-    font-family: 'Arimo', sans-serif;
-    user-select: none;
-}
-
-.blueToken {
-    margin-left: 0.75em;
-    color: var(--light-blue-color);
-    font-family: 'Arimo', sans-serif;
-    user-select: none;
-}
-
-
-
-
-
-/* NODE  SECTION*/
-
-.node {
-    height: 100vh;
-    background-color: transparent;
-}
 
 #nodeImg {
     position: relative;
     top: -7.5em;
 }
 
-/* ROADMAP */
-
-.sticky {
-    display: flex;
-    width: 1.25em;
-    height: 1.25em;
-    border-radius: 50%;
-    background-color: transparent;
-    border: 2px solid rgba(49, 131, 255, 1); 
-    /* rgba(49, 131, 255, 1) */
-    position: sticky;
-    top: 10em;
-    right: 107.5em;
-    cursor: pointer;
-    z-index: 3;
-    transition: all 0.2s;
-}
-
-.sticky:hover {
-    background-color: rgba(49, 131, 255, 1);
-}
-
-
-#s2 {
-    top: 15em;
-}
-
-#s3 {
-    top: 20em;
-}
-
-
-#s4 {
-    top: 25em;
-}
-
-
-#s5 {
-    top: 30em;
-}
-
-
-#s6 {
-    top: 35em;
-}
-
-
-#s7 {
-    top: 40em;
-}
-
-
-#s8 {
-    top: 45em;
-}
-
-
-#s9 {
-    top: 50em;
-}
-
-.sText {
-    width: 2.5em;
-    height: 2.5em;
-    position: sticky;
-    top: 3.925em;
-    user-select: none;
-    font-family: 'Teko', sans-serif;
-    font-size: 2.35em;
-}
-
-#s1t {
-    right: 47em;
-}
-
-#s2t {
-    right: 47em;
-    top: 6.1em;
-}
-
-#s3t {
-    right: 47em;
-    top: 8.2em;
-}
-
-#s4t {
-    right: 47em;
-    top: 10.3em;
-}
-
-#s5t {
-    right: 47em;
-    top: 12.4em;
-}
-
-#s6t {
-    right: 47em;
-    top: 14.5em;
-}
-
-#s7t {
-    right: 47em;
-    top: 16.7em;
-}
-
-#s8t {
-    right: 42.5em;
-    top: 18.815em;
-}
-
-#s9t {
-    right: 42.5em;
-    top: 20.95em;
-}
-
-#roadLayer {
-    display: flex;
-    width: 18.75em;
-    height: 44.5em;
-    background-color: rgb(0, 0, 255, 0.1);
-    border-top-right-radius: 1.5em;
-    border-bottom-right-radius: 1.5em;
-    /* rgba(49, 131, 255, 1) */
-    position: sticky;
-    top: 8.75em;
-    right: 125em;
-}
-
-.lilRoad {
-    display: none;
-}
-/* NFT Marketplace */
-
-.marketSection {
-   background: transparent;
-   /*transparent linear-gradient(180deg, #000524 0%, #000524 100%) 0% 0% no-repeat padding-box; */
-}
-
-
-
-#marketContainer {
-    position: absolute;
-    width: 84em;
-    height: 90vh;
-    background: rgb(0, 10, 49, 0.25);
-    border-radius: 0.75em;
-    overflow: hidden;
-    bottom: 0;
-}
-
-#marketH1 {
-    font-size: 4.25em;
-    font-family: 'Roboto', sans-serif;
-    position: relative;
-    top: 0.5em;
-    left: 0.3575em;
-    user-select: none;
-}
-
-#marketH2 {
-    font-size: 1.75em;
-    font-family: 'Arimo', sans-serif;
-    position: relative;
-    top: -6em;
-    left: 1em;
-    color: rgb(31, 110, 214);
-    user-select: none;
-}
-
-#marketH3 {
-    font-size: 1.75em;
-    font-family: 'Arimo', sans-serif;
-    position: relative;
-    top: -3em;
-    left: 1.25em;
-}
-
-#marketB1 {
-    padding: 1.25em 1.75em;
-    border-radius: 2.5em;
-    background-color: rgb(1, 1, 182);
-    border: none;
-    position: relative;
-    top: -5em;
-    left: 1.525em;
-    font-size: 1.02em;
-    font-family: 'Arimo', sans-serif;
-    cursor: pointer;
-}
-
-#marketB1A1 {
-    color: white;
-    text-decoration: none;
-}
-
-#marketB2 {
-    padding: 1.25em 1.75em;
-    border-radius: 2.5em;
-    background-color: rgb(30, 30, 31);
-    border: none;
-    position: relative;
-    top: -5em;
-    left: 3.55em;
-    font-size: 1em;
-    font-family: 'Arimo', sans-serif;
-    cursor: pointer;
-}
-
-#marketB1A2 {
-    color: white;
-    text-decoration: none;
-}
-
-#marketDivContainer {
-        position: relative;
-        width: 100em;
-        height: 37.5em;
-        bottom: 2.5em;
-        display: flex;
-}
 
 .marketDivs {
     position: relative;
@@ -1021,31 +500,6 @@ h2 {
 }
 
 
-#mD1 {
-
-    background-image: url('./src/img/nft1_2x.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    transition: all 0.2s;
-}
-
-
-
-#nft1SubImg {
-    position: absolute;
-    right: auto;
-    bottom: -0.75em;
-}
-
-#mD2 {
-    background-image: url('./src/img/nft2.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    transition: all 0.2s;
-}
-
 
 #nft2SubImg {
     position: absolute;
@@ -1053,120 +507,12 @@ h2 {
 }
 
 
-#mD4 {
-    height: 42.5em;
-    width: 21.5em;
-    bottom: 12em;
-    border: 5px solid white;
-    border-radius: 2.5em;
-}
-
-#mD4Sub {
-    display: flex;
-    position: relative;
-    height: 27.5em;
-    width: 20em;
-    border-radius: 1.75em;
-    top: 12em;
-    justify-content: center;
-    background-image: url('./src/img/nft3.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    transition: all 0.2s;
-}
-
-
-#nft3SubImg {
-    position: absolute;
-    bottom: -0.5em;
-}
-
-#nft4SubImg {
-    position: absolute;
-    left: 0em;
-    bottom: 10.5em;
-}
-
-
-#mD5 {
-    background-image: url('./src/img/nft4.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    transition: all 0.2s;
-}
 
 #nft5SubImg {
     position: absolute;
     bottom: -0.75em;
 }
 
-/* DROP */
-
-.drop {
-    height: 60vh;
-    background: linear-gradient(#000524, #000000)
-}
-
-.dropSlider {
-    display: none;
-}
-
-#dropH1 {
-    position: absolute;
-    font-size: 3em;
-    top: 0.75em;
-    font-family: 'Arimo', sans-serif;
-}
-
-
-/* CREATE SECTION */
-
-.create {
-    display: flex;
-    align-items: center;
-}
-#createImg {
-    position: absolute;
-    left: 7.5em;
-}
-
-#createSlider {
-    display: none;
-}
-
-#createImg2 {
-    position: absolute;
-    
-    right: 7.5em;
-}
-
-/* TEAM SECTION */
-
-.contact {
-    background-color: transparent;
-    display: flex;
-}
-
-#teamSlider {
-    display: none;
-}
-
-#teamImg {
-    position: absolute;
-    top: 6em;
-    right: 17.5em;
-}
-
-#teamH1 {
-    position: absolute;
-    top: 8em;
-    left: 0.75em;
-    font-size: 3.75em;
-    font-family: 'Arimo', sans-serif;
-    transform: rotateZ(-90deg);
-}
 
 
 
@@ -1178,115 +524,9 @@ h2 {
     display: flex;
 }
 
-#portfolioImg {
-    position: absolute;
-    top: 10em;
-    
-}
-
-#portfolioH1 {
-    position: absolute;
-    font-size: 4em;
-    top: 1.25em;
-    font-family: 'Arimo', sans-serif;
-    user-select: none;
-}
-
-#portfolioH1Sub {
-    position: absolute;
-    font-size: 4em;
-    top: 2.25em;
-    font-family: 'Arimo', sans-serif;
-    user-select: none;
-}
-
-#portfolioH2 {
-    position: absolute;
-    font-size: 1.25em;
-    top: 4em;
-    font-family: 'Arimo', sans-serif;
-    color: rgb(0, 102, 255);
-    user-select: none;
-}
-
-/* FOOTER SECTION */
-
-.footer {
-    height: 25vh;
-    background: linear-gradient(rgb(10, 10, 10), rgb(0, 0, 0));
-}
-
-
-#footerIce {
-    display: flex;
-    position: absolute;
-    top: -5em;
-}
-
-.footer h2 {
-    display: flex;
-    position: absolute;
-}
-
-#footerLinkContainer {
-    position: absolute;
-    width: fit-content;
-    height: fit-content;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-column-gap: 2em;
-    bottom: 5em;
-}
-
-#footerLinkContainer a {
-    display: flex;
-    padding: 0.5em;
-    background-color: rgba(255, 255, 255, 0.525);
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    transition: 0.2s all;
-}
-
-#footerLinkContainer a:hover {
-    background-color: rgba(255, 255, 255, 1);
-}
-
-#footerLinkContainer a img {
-    position: relative;
-    display: flex;
-    width: 32px;
-    height: 32px;
-}
 
 
 
-
-#nodeH2T1 {
-    font-size: 1.7em;
-    font-family: 'Teko', sans-serif;
-    text-transform: uppercase;
-    position: absolute;
-    top: 3em;
-    color: rgb(119, 36, 197);
-}
-
-#nodeH1 {
-    font-size: 2.25em;
-    font-family: 'Teko', sans-serif;
-    text-transform: uppercase;
-    position: absolute;
-    top: 3.5em;
-}
-
-#nodeH2T2 {
-    font-size: 1.7em;
-    font-family: 'Teko', sans-serif;
-    text-transform: uppercase;
-    position: absolute;
-    top: 7em;
-    color:rgb(25, 138, 212);
-}
 
 
     /*          MERGE POINT         */
@@ -1516,8 +756,8 @@ h2 {
 
        #videoButton {
         display: flex;
-        padding: 0px 25px;
-        left: 1em;
+        padding: 0.5em 1.1em;
+        left: 0.5em;
         top: auto;
         bottom: calc(0.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
         border-radius: 2em;
@@ -1532,16 +772,17 @@ h2 {
         color: white;
         transition: 0.1s;
         border: 2px solid white;
+        font-family: "Teko", sans-serif;
+        font-size: 1.4em;
     }
+
        #otherButton {
         display: flex;
-        padding: 0px 34.5px;
-        left: auto;
-        right: 1em;
+        padding: 0.5em 1.6em;
+        right: 0.5em;
         top: auto;
         bottom: calc(0.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
         border-radius: 2em;
-
         position: absolute;
         height: fit-content;
         width: fit-content;
@@ -1552,53 +793,24 @@ h2 {
         color: white;
         transition: 0.1s;
         border: 2px solid white;
+        text-decoration: none;
+        text-align: center;
+        font-size: 1.4em;
+        font-family: "Teko", sans-serif;
         }
-
-        #otherText {
-            left: 0;
-            font-size: 1.72em;
-
-            display: flex;
-            position: relative;
-            align-self: center;
-            justify-self: center;
-            width: 100%;
-
-            font-family: 'Teko', sans-serif;
-
-            text-transform: uppercase;
-            line-height: 0.4em;
-        }
-
-
-       #videoText {
-           font-size: 1.65em;
-           display: flex;
-           width: fit-content;
-           height: fit-content;
-           justify-self: center;
-           left: 0;
-
-           position: relative;
-           align-self: center;
-           font-family: 'Teko', sans-serif;
-           text-transform: uppercase;
-           line-height: 0.56em;
-       }
 
 
        #leftEco {
            display: grid;
            margin-top: 8em;
-           position: absolute;
+           position: absolute !important;
            left: auto;
            height: calc(29em + (100vh - 600px) * (15 - 400 ) / (600 -  1080));
            width: calc(30em + (100vw - 360px) * (15 - 300) / (360 -  767));;
            align-content: space-between;
-           overflow-y: scroll;
-           overflow-x: hidden;
-           scroll-behavior: smooth;
-          background-color: rgb(0, 10, 49, 0.5);
+           overflow: auto;
+            background-color: rgb(0, 10, 49, 0.5);
+
        }
 
 
@@ -1610,7 +822,10 @@ h2 {
         }
         
         #rightEco {
-            display: none;
+            display: none !important;
+            position: absolute;
+            display: flex;
+            background-color: transparent;
         }
 
         .ecoContainers {
@@ -1618,6 +833,11 @@ h2 {
             position: absolute;
             justify-self: center;
             top: 0em;
+
+            position: relative;
+            height: fit-content;
+            align-self: center;
+
         }
 
        .ecoContainer {
@@ -1629,7 +849,14 @@ h2 {
             margin-top: 2em !important; 
             font-size: 1em;
             justify-content: center;
-            left: -1.2em !important;         
+            left: -1.2em !important;
+            
+            position: relative;
+            background-color: rgb(0, 10, 49);
+            cursor: pointer;
+            align-items: center;
+            z-index: 2;
+            border-radius: 20px;
        }
 
        #ecoContainer1 {
@@ -1674,6 +901,10 @@ h2 {
         .services {
             display: grid;
             justify-items: center;
+
+            position: relative;
+            height: 100vh;
+            scroll-snap-align: none;
         }
 
         #overview {
@@ -1683,6 +914,10 @@ h2 {
             left: auto;
             font-size: 2.25em;
             top: calc(2.5em + (100vh - 600px) * (15 - 20 ) / (600 -  1080));
+
+            position: absolute;
+            user-select: none;
+            font-family: 'Arimo', sans-serif;
         }
 
         #icetoken {
@@ -1692,6 +927,11 @@ h2 {
             left: auto;
             font-size: 1.5em;
             top: calc(6.5em + (100vh - 600px) * (15 - 20 ) / (600 -  1080));
+
+            position: absolute;
+            user-select: none;
+            color: rgb(0, 0, 255);
+            font-family: 'Arimo', sans-serif;
         }
 
         #tokenText {
@@ -1702,6 +942,10 @@ h2 {
             display: flex;
             text-align: center;
             left: auto;
+
+            position: absolute;
+            user-select: none;
+            font-family: 'Arimo', sans-serif;
         }
 
         #t1 {
@@ -1746,6 +990,12 @@ h2 {
 
         .blueText {
             font-size: 1.75em;
+
+            position: relative;
+            color: rgb(0, 0, 255);
+            font-family: 'Teko', sans-serif;
+            bottom: 0.5em;
+            user-select: none;
         }
 
         .whiteText {
@@ -1755,6 +1005,8 @@ h2 {
         #tooBig {
             bottom: 1.75em;
 
+            font-size: 1.6em;
+            line-height: 1em;
         }
 
         .tokenContainer {
@@ -1762,6 +1014,12 @@ h2 {
             top: 0;
             display: inline-block;
             border-radius: 1.5em !important;
+
+            width: 15em;
+            height: 7em;
+            background-color: #001D3B;
+            text-align: center;
+            border: 2px solid #2463BE;
            
         }
 
@@ -1791,6 +1049,9 @@ h2 {
             color: white;
             font-family: 'Teko', sans-serif;
             font-size: 1.5em;
+
+            position: relative;
+            user-select: none;
         }
 
         #utilityContainer {
@@ -1811,6 +1072,8 @@ h2 {
             white-space: nowrap;
             position: absolute;
             scroll-behavior: smooth;
+
+            background-color: #001D3B;
         }
 
         .utilityContent {
@@ -1820,22 +1083,35 @@ h2 {
             display: grid;
             width: 12.5em;
             left: auto;
+
+            height: fit-content;
+  
         }
 
         .img {
             top: 0;
+            position: relative;
+            left: 2.25em;
         }
 
         .uT {
             font-family: 'Teko', sans-serif;
             font-size: 1.25em;
             top: 0;
-            left: -2em;
+            left: auto;
             margin-left: 0;
+
+            position: relative;
+            user-select: none;
+        }
+
+
+        #img4 {
+            left: auto;
         }
 
         #uT1 {
-            left: auto !important;
+            left: auto;
         }
 
         #icoButton {
@@ -1845,11 +1121,28 @@ h2 {
             font-size: 1em;
             top: calc(32.5em + (100vh - 600px) * (15 - 300) / (600 -  1080));
             left: calc(1em + (100vw - 360px) * (15 - 200) / (360 -  767));
+
+            background: linear-gradient(#3772FF, #1C3980);
+            border-radius: 4.5em;
+            cursor: pointer;
+            border: none;
+            color: white;
+            font-family: 'Arimo', sans-serif;
+            z-index: 2;
         }
 
 
         #tokenContent {
             height: 100vh;
+
+            position: absolute;
+            width: 100vw;
+            background-color: rgba(28, 57, 128, 0.95);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         #graphButton {
@@ -1882,6 +1175,8 @@ h2 {
             align-content: center;
             overflow-x: scroll;
             scroll-behavior: smooth;
+
+            position: relative;
         }
     
        #tokenT1 {
@@ -1892,6 +1187,13 @@ h2 {
            background-color: rgba(49, 131, 255, 0.5);
            border: 2px solid rgba(49, 131, 255, 0.75);
            padding: 0.5em 0;
+
+            position: absolute;
+            z-index: 2;
+            text-align: center;
+            border-radius: 1.25em;
+            font-family: 'Arimo', sans-serif;
+            user-select: none;
        }
     
        #tokenT2 {
@@ -1899,6 +1201,15 @@ h2 {
            font-size: 1.3em;
            background-color: rgba(49, 131, 255, 0.5);
            border: 2px solid rgba(49, 131, 255, 0.75);
+
+           position: absolute;
+           width: 15em;
+           height: 1.25em;
+           z-index: 2;
+           text-align: center;
+           border-radius: 1.25em;
+           font-family: 'Arimo', sans-serif;
+           user-select: none;
        }
     
        .tokens {
@@ -1906,14 +1217,29 @@ h2 {
            font-size: 1em;
            display: grid;
            border-radius: 1.5em;
+
+            position: relative;
+            height: 12.5em;
+            background-color: rgba(28, 57, 128, 0.95);
+            border: 10px solid rgba(95, 145, 255, 1);
        }
 
        .whiteToken {
             font-size: 0.75em;
+
+            margin: 0;
+            margin-left: 1em;
+            font-family: 'Arimo', sans-serif;
+            user-select: none;
        }
 
        .blueToken {
            font-size: 1.1em;
+
+           margin-left: 0.75em;
+           color: var(--light-blue-color);
+           font-family: 'Arimo', sans-serif;
+           user-select: none;
        }
 
 
@@ -1925,11 +1251,21 @@ h2 {
         #nodeH2T1 {
             font-size: 1.25em;
             top: 2em;
+
+            font-family: 'Teko', sans-serif;
+            text-transform: uppercase;
+            position: absolute;
+            color: rgb(119, 36, 197);
         }
 
         #nodeH2T2 {
             font-size: 1.25em;
             top: 4.75em;
+
+            position: absolute;
+            font-family: 'Teko', sans-serif;
+            text-transform: uppercase;
+            color:rgb(25, 138, 212);
         }
 
         #nodeH1 {
@@ -1937,17 +1273,27 @@ h2 {
             width: fit-content;
             white-space: nowrap;
             top: 3em;
+
+            font-family: 'Teko', sans-serif;
+            text-transform: uppercase;
+            position: absolute;
         }
+
+
 
         .node {
             display: grid;
             justify-items: center;
             align-items: center;
+            height: 100vh;
+            background-color: transparent;
         }
         
         .projects {
             display: flex;
             justify-content: center;
+            height: 400vh;
+            scroll-snap-align: none;
         }
 
         #roadLayer {
@@ -1962,10 +1308,21 @@ h2 {
             top: calc(27.5em + (100vh - 600px) * (15 - 300 ) / (600 -  1080));
             background-color: #000524;
             display: none;
+
+            border-top-right-radius: 1.5em;
+            border-bottom-right-radius: 1.5em;
         }      
         
         .sText {
             display: none;
+
+            width: 2.5em;
+            height: 2.5em;
+            position: sticky;
+            top: 3.925em;
+            user-select: none;
+            font-family: 'Teko', sans-serif;
+            font-size: 2.35em;
         }
 
         .sticky {
@@ -1973,7 +1330,20 @@ h2 {
             right: 0;
             top: 0 !important;
             display: grid;
-        }  
+
+            width: 1.25em;
+            height: 1.25em;
+            border-radius: 50%;
+            background-color: transparent;
+            border: 2px solid rgba(49, 131, 255, 1); 
+            cursor: pointer;
+            z-index: 3;
+            transition: all 0.2s;
+        }
+        
+        .sticky:hover {
+            background-color: rgba(49, 131, 255, 1);
+        }
         
 
         #marketContainer {
@@ -1983,6 +1353,11 @@ h2 {
             display: grid;
             align-self: flex-end;
             align-items: center;
+
+            background: rgb(0, 10, 49, 0.25);
+            border-radius: 0.75em;
+            overflow: hidden;
+            bottom: 0;
         }
 
 
@@ -1991,6 +1366,10 @@ h2 {
             top: calc(0.6em + (100vh - 600px) * (15 - 20) / (600 -  1080));
             display: flex;
             left: 0.2em;
+
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+            user-select: none;
         }
 
         #marketH2 {
@@ -1998,17 +1377,24 @@ h2 {
             top: calc(-6em + (100vh - 600px) * (15 - 20) / (600 -  1080));
             display: flex;
             left: 0.4em;
+
+            font-family: 'Arimo', sans-serif;
+            position: relative;
+            color: rgb(31, 110, 214);
+            user-select: none;
         }
 
         #marketH3 {
             font-size: 1.15em;
             top: calc(-3.75em + (100vh - 600px) * (15 - 5) / (600 -  1080));
             display: flex;
+
+            font-family: 'Arimo', sans-serif;
+            position: relative;
+            left: 1.25em;
         }
 
-        #marketB1, #marketB2 {
-            display: none;
-        }
+
         #marketDivContainer {
             transform: scale(0.75);
             width: 64em;
@@ -2022,31 +1408,88 @@ h2 {
             position: relative;
             height: fit-content;
             scroll-behavior: smooth;
+  
         }
 
         #mD1 {
             left: 4.5em;
+            background-image: url('./src/img/nft1_2x.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            transition: all 0.2s;
         }
 
         #mD2 {
             left: 3em;
             margin-right: 0;
+            background-image: url('./src/img/nft2.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            transition: all 0.2s;
         }
 
         #mD4 {
             left: 4em;
             border: none;
             bottom: 4.75em;
+
+            height: 42.5em;
+            width: 21.5em;
+            border: 0px solid white;
+            border-radius: 2.5em;
+        }
+
+        #mD4Sub {
+            display: flex;
+            position: relative;
+            height: 27.5em;
+            width: 20em;
+            border-radius: 1.75em;
+            top: 12em;
+            justify-content: center;
+            background-image: url('./src/img/nft3.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            transition: all 0.2s;
         }
 
 
+        #mD5 {
+            background-image: url('./src/img/nft4.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            transition: all 0.2s;
+        }
+
+        #nft1SubImg {
+            position: absolute;
+            right: auto;
+            bottom: -0.75em;
+        }
+
         #nft3SubImg {
             bottom: -1em;
+
+            position: absolute;
         }
 
         #nft4SubImg {
             display: none;
+
+            position: absolute;
+            left: 0em;
+            bottom: 10.5em;
         }
+
+        .drop {
+            height: 60vh;
+            background: linear-gradient(#000524, #000000);  
+        }
+       
 
         #dropH1 {
             display: flex;
@@ -2054,6 +1497,8 @@ h2 {
             white-space: nowrap;
             position: absolute;
             top: calc(1.5em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
+
+            font-family: 'Arimo', sans-serif;
         }
 
         #dropImg {
@@ -2090,6 +1535,7 @@ h2 {
             display: grid;
             justify-items: center;
             align-items: center;
+
         }
 
         #createImg {
@@ -2098,6 +1544,8 @@ h2 {
             left: calc(-18.5em + (100vw - 360px) * (15 - 200) / (360 -  767));
             top: 7.5em;
             display: none;
+
+            position: absolute;
         }
 
         #createImg2 {
@@ -2106,6 +1554,9 @@ h2 {
             right: calc(-21.5em + (100vw - 360px) * (15 - 200) / (360 -  767));
             top: 5em;
             display: none;
+
+            position: absolute;
+    
         }
 
         #createSlider {
@@ -2141,43 +1592,28 @@ h2 {
         .contact {
             display: flex;
             justify-content: center !important;
+
         }
 
         #teamSlider {
             position: absolute;
             display: grid;
-            grid-template-columns: auto auto auto auto auto;
-            width: 50em;
-            overflow: auto;
-            bottom: calc(-10em + (100vh - 600px) * (15 - 250) / (600 -  1080));
+            grid-template-rows: auto auto auto auto auto;
+            height: calc(25em + (100vh - 600px) * (15 - 300) / (600 -  1080));
+            overflow-y: scroll;
+            overflow-x: hidden;
             justify-content: space-between;
-            overflow-y: hidden;
+            top: 8.5em;
+            background-color: rgba(0, 29, 59, 0.525);
+            border-radius: 1em;
+            z-index: 2;
         }
         
-        #teamSlide1 {
-            margin-left: calc(12.5em + (100vw - 360px) * (15 + 200) / (360 -  767));
-        }
-
-        #teamSlide2 {
-            left: calc(-3em + (100vw - 360px) * (15 + 7.5) / (360 -  767));
-        }
-
-        #teamSlide3 {
-            left: calc(-6em + (100vw - 360px) * (15 + 30) / (360 -  767));
-        }
-
-        #teamSlide4 {
-            left: calc(-9em + (100vw - 360px) * (15 + 57.5) / (360 -  767));
-        }
-
-        #teamSlide5 {
-            left: calc(-12em + (100vw - 360px) * (15 + 85) / (360 -  767));
-        }
 
         .teamSlide {
             position: relative;
             display: flex;
-            transform: scale(0.5);
+            transform: scale(0.475);
            
         }
 
@@ -2190,15 +1626,19 @@ h2 {
             bottom: 0;
             top: calc(-3.5em + (100vh - 600px) * (15 - 100) / (600 -  1080)) !important;
             display: none;
+ 
         }
 
         #teamH1 {
-            font-size: 1.75em !important;
-            transform: rotate(0);
+            font-size: 2.25em !important;
+
             left: auto !important;
             position: absolute;
             display: flex;
-            top: calc(1em + (100vh - 600px) * (15 - 10) / (600 -  1080)) !important;
+            top: calc(2.25em + (100vh - 600px) * (15 - 10) / (600 -  1080)) !important;
+            
+            font-family: 'Arimo', sans-serif;
+
         }
 
         #teamH1Span {
@@ -2210,55 +1650,132 @@ h2 {
         #portfolioImg {
             transform: scale(0.425);
             top: -2em;
+
+            position: absolute;
         }
 
         #portfolioH1 {
             font-size: 1.75em;
             top: 4.25em;
+
+            position: absolute;
+            font-family: 'Arimo', sans-serif;
+            user-select: none;
         }
 
         #portfolioH1Sub {
             font-size: 1.75em;
             top: 5.5em;
+
+            position: absolute;
+            font-family: 'Arimo', sans-serif;
+            user-select: none;
         }
 
         #portfolioH2 {
             top: 9em;
             white-space: nowrap;
             font-size: 0.6em;
+
+            position: absolute;
+            font-family: 'Arimo', sans-serif;
+            color: rgb(0, 102, 255);
+            user-select: none;
         }
 
         .bigRoad {
             display: none;
         }
 
-        .footer {
-            display: flex;
+        /* FOOTER SECTION */
 
-        }
+.footer {
+    height: 40vh !important;
+    background: linear-gradient(rgb(10, 10, 10), rgb(0, 0, 0));
+}
 
-        #footerButtonContainer {
-            width: 25em;
+
+#footerIce {
+    display: flex;
+    position: absolute;
+    top: 0em;
+    width: 64px;
+    height: 64px;
+}
+
+.footer h2 {
+    display: flex;
+    position: absolute;
+}
+
+#footerLinkContainer {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 2em;
+    bottom: 1em;
+    transform: scale(0.75);
+
+}
+
+#footerLinkContainer a {
+    display: flex;
+    padding: 0.75em;
+    background-color: rgba(20, 126, 197, 0.525);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s all;
+
+}
+
+#footerLinkContainer a:hover {
+    background-color: rgba(20, 126, 197, 1);
+}
+
+#footerLinkContainer a img {
+    position: relative;
+    display: flex;
+    width: 32px;
+    height: 32px;
+}
+
+.footerL {
+    position: relative;
+    display: flex;
+    text-decoration: none;
+    font-size: 1.6em;
+    border: 2px solid white;
+    padding: 0.5em 3em !important;
+    border-radius: 2em;
+    color: white;
+    font-family: "Teko", sans-serif;
+    white-space: nowrap;
+    transition: all 0.4s;
+  }
+
+      
+
+#footerButtonContainer {
+            width: auto;
             position: absolute;
             display: grid;
             grid-template-columns: auto auto;
             justify-content: space-between;
-            top: 16em;
+            top: 5em;
             justify-self: center;
-        }
+            transform: scale(0.75);
+    }
 
-        .footerL {
-            position: relative;
-            display: flex;
-            text-decoration: none;
-            font-size: 1.6em;
-            border: 2px solid white;
-            padding: 0.5em 1.5em;
-            border-radius: 2em;
-            color: white;
-            font-family: "Teko", sans-serif;
-            white-space: nowrap;
-        }
+
+
+#footerButtonContainer:hover #footerL1 {
+        transform: scaleX(1.05) scaleY(1.025);
+ }
+
+    
 
 
 @media screen
@@ -2709,10 +2226,6 @@ and (min-width: 768px)
                 align-items: center;
             }
                 
-                .projects {
-                    display: flex;
-                    justify-content: center;
-                }
         
                 #roadLayer {
                     position: sticky;
@@ -2922,15 +2435,13 @@ and (min-width: 1200px)
         min-height: -webkit-fill-avaliable;
     }
 
-    .projects {
-        scroll-snap-align: none;
-    }
+ 
 
     
 .header-container {
     position: fixed;
     width: 100vw;
-    height: 6.5em;
+    height: 5.5em;
     background-color: transparent;
     align-items: center;
     display: flex;
@@ -2983,6 +2494,16 @@ and (min-width: 1200px)
     font-size: 1.35em;
     
     
+}
+
+.whitePaperLi {
+    top: -1.25em;
+}   
+
+.whitepaper {
+    font-size: 1.25em;
+    right: 1.5em;
+
 }
 
 .hamburgerLi {
@@ -3076,57 +2597,39 @@ li {
 
 #videoButton {
     display: flex;
-    padding: 0px 25px;
+    padding: 0.25em 1em;
     left: 0em;
     top: auto;
-    bottom: calc(-6.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
+    bottom: calc(-3.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
     border-radius: 2em;
+    font-size: 1.4em;
+    white-space: nowrap;
+    transition: all 0.4s;
 
+}
 
+#videoButton:hover {
+    transform: scaleX(1.1) scaleY(1.025);
 }
    #otherButton {
     display: flex;
-    padding: 0px 34.5px;
+    padding: 0.25em 1.45em;
     left: auto;
-    right: 6em;
+    right: 5em;
     top: auto;
-    bottom: calc(-6.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
+    bottom: calc(-3.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
     border-radius: 2em;
 
     border: 2px solid white;
-    }
+    font-size: 1.4em;
+    white-space: nowrap;
+    transition: all 0.4s;
+}
 
-    #otherText {
-        left: 0;
-        font-size: 1.72em;
+#otherButton:hover {
+    transform: scaleX(1.1) scaleY(1.025);
+}
 
-        display: flex;
-        position: relative;
-        align-self: center;
-        justify-self: center;
-        width: 100%;
-
-        font-family: 'Teko', sans-serif;
-
-        text-transform: uppercase;
-        line-height: 0.4em;
-    }
-
-
-   #videoText {
-       font-size: 1.65em;
-       display: flex;
-       width: fit-content;
-       height: fit-content;
-       justify-self: center;
-       left: 0;
-
-       position: relative;
-       align-self: center;
-       font-family: 'Teko', sans-serif;
-       text-transform: uppercase;
-       line-height: 0.56em;
-   }
 
 #dataText {
   
@@ -3152,7 +2655,7 @@ li {
  
  #rightEco {
      position: absolute;
-     display: flex;
+     display: flex !important;
      width: 15vw;
      margin-top: calc(1.25em + (100vh - 600px) * (15 + 25) / (600 - 1080)) !important;
      height: 100vh;
@@ -3591,38 +3094,74 @@ li {
         transform: scale(0.75);
         left: calc(0em + (100vw - 1200px) * (15 - 200) / (1200 -  1600));
         top: calc(-3em + (100vh - 600px) * (15 - 150) / (600 -  1080)) !important;
-    }
-
-    #teamSlider {
         display: none;
     }
 
+    #teamSlider {
+        position: absolute;
+        display: grid !important;
+        grid-template-rows: auto auto auto auto auto;
+        width: 54em;
+        height: calc(30em + (100vh - 600px) * (15 - 300) / (600 -  1080));
+        overflow-y: scroll;
+        overflow-x: hidden;
+        justify-content: center;
+        top: 8.5em;
+        background-color: rgba(0, 29, 59, 0.525);
+        border-radius: 1em;
+        z-index: 2;
+        box-shadow: 0 0 25px 0 rgba(15, 84, 156, 0.1);
+        
+    }
+
+    .teamSlide {
+        transform: scale(0.7);
+        z-index: 2;
+        pointer-events: all !important;
+        transition: 0.4s all;
+    }
+
+    .teamSlide:hover {
+        transform: scale(0.75);
+    }
+
+
     #teamH1 {
         transform: none;
-        font-size: 3em;
-        left: calc(9em + (100vw - 1200px) * (15 - 200) / (1200 -  1600));;
-        top: calc(1.5em + (100vh - 600px) * (15 - 50) / (600 -  1080)) !important;
+        font-size: calc(3em + (100vh - 600px) * (15 - 20) / (600 -  1080)) !important;
+        left: calc(9em + (100vw - 1200px) * (15 - 200) / (1200 -  1600));
+        top: calc(1.35em + (100vh - 600px) * (10 + 5) / (600 -  1080)) !important;
     }
 
     #portfolioH1 {
         font-size: 1.75em;
-        top: 3.25em;
+        top: calc(3.25em + (100vh - 600px) * (15 - 200) / (600 -  1080)) !important;
     }
 
     #portfolioH2 {
-        top: 5em;
+        top: calc(5em + (100vh - 600px) * (15 - 175) / (600 -  1080)) !important;
     }
 
     #portfolioH1Sub {
         font-size: 1.75em;
-        top: 4.5em;
+        top: calc(4.5em + (100vh - 600px) * (15 - 200) / (600 -  1080)) !important;
     }
 
     #portfolioImg {
         transform: scale(0.65) !important;
-        top: -3.75em !important;
+        top: calc(-3.75em + (100vh - 600px) * (15 - 300) / (600 -  1080)) !important;
+    }
+    .footer {
+        height: calc(22.25em + (100vh - 600px) * (15 - 100) / (600 -  1080)) !important;
+        overflow: hidden;
     }
 
+    #footerIce {
+        top: calc(6.25em + (100vh - 600px) * (15 - 75) / (600 -  1080)) !important;
+    }
+    #footerButtonContainer {
+        top: calc(12.5em + (100vh - 600px) * (15 - 75) / (600 -  1080)) !important;
+    }
 
 }
 
@@ -3746,12 +3285,7 @@ and (min-width: 1600px) {
 
 .header-container {
     position: fixed;
-    width: 100vw;
-    height: 6.5em;
     background-color: transparent;
-    align-items: center;
-    display: flex;
-    z-index: 5;
     right: 15px;
 
 }
@@ -3772,10 +3306,14 @@ and (min-width: 1600px) {
     font-size: 2em;
     color: white;
     font-family: 'Teko', sans-serif;
-    margin-left: 10em;
+    margin-left: 0;
     align-items: center;
     margin-top: 0;
 
+}
+
+#logo {
+    margin-left: 9.75em;
 }
 
 #logo img {
@@ -3794,7 +3332,7 @@ and (min-width: 1600px) {
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    margin-right: 9.5em;
+    right: -17.5em;
     clip-path: none;
     top: 0;
     
@@ -3810,6 +3348,14 @@ li {
     user-select: none;
 }
 
+.whitePaperLi {
+    top: -1.2em ;
+}
+
+.whitepaper {
+    font-size: 1.4em;
+    right: 0.5em;
+}
 
 .li {
 
@@ -3891,37 +3437,40 @@ li {
 }
 
 #videoButton {
-    padding: 5px 85px 0 0;
-    left: 0;
-    top: 22em;
+    padding:  0.5em 1.5em;
+    top: 12.5em; 
+    left: 0em;
     border: 2px solid white;
     border-radius: 2.5em;
+    text-decoration: none;
+    font-size: 1.5em;
+    width: fit-content;
+    white-space: nowrap;
 
 }
 
 #otherButton {
-    padding:  7px 85px 0 0;
-    top: 22em;
-    left: 17.5em;
+    padding:  0.5em 1.85em;
+    top: 12.5em; 
+    left: 8.5em;
     border: 2px solid white;
     border-radius: 2.5em;
+    text-decoration: none;
+    font-size: 1.5em;
+    width: fit-content;
+    white-space: nowrap;
+
+}
+
+#otherButton:hover {
+    background-color: rgba(23, 120, 199, 0.75);
 }
 
 
-#videoText {
- 
-    left: 40%;
-    font-size: 1.75em;
-    line-height: 0.56em;
+#videoButton:hover {
+    background-color: rgba(23, 120, 199, 0.75);
 }
 
-#otherText {
-
-    left: 45%;
-    font-size: 1.75em;
-    line-height: 0.4em;
-
-}
 
 #dataText {
   
@@ -3956,7 +3505,7 @@ li {
 
 #rightEco {
     position: absolute;
-    display: flex;
+    display: flex !important;
     width: 15vw;
     margin-top: 1em !important;
     height: 100vh;
@@ -4096,14 +3645,7 @@ li {
 .text {
     color: white;
     text-align: center;
-    text-justify: center;
 
-    font-family: 'Alegreya Sans SC', sans-serif;
-    font-family: 'Economica', sans-serif;
-    font-family: 'Inconsolata', monospace;
-    font-family: 'Lato', sans-serif;
-    font-family: 'Montagu Slab', serif;
-    font-family: 'Roboto', sans-serif;
     font-family: 'Teko', sans-serif;
     user-select: none;
     font-size: 1.5em;
@@ -4271,6 +3813,7 @@ li {
     left: auto;
 }
 
+
 #img1 {
     left: 2.25em;
 }
@@ -4285,6 +3828,14 @@ li {
 
 #uT4 {
     right: 2.25em;
+}
+
+#uT2 {
+    left: 2.25em;
+}
+
+#uT3 {
+    left: 2.25em;
 }
 
 /* TOKEN DETAILS 2 */
@@ -4578,20 +4129,6 @@ li {
     top: auto !important; 
 }
 
-.purchaseNow {
-    width: fit-content;
-    height: fit-content;
-    padding: 0.5em 1em;
-    border-radius: 2em;
-    font-size: 1.175em;
-    position: relative;
-    top: 19.25em;
-    cursor: pointer;
-    background-color: black;
-    color: white;
-    border: none;
-}
-
 
 
 #nft1SubImg {
@@ -4629,10 +4166,6 @@ li {
 }
 
 
-#nft5SubImg {
-    position: absolute;
-    bottom: -0.75em;
-}
 
 /* DROP */
 
@@ -4691,20 +4224,36 @@ li {
 }
 
 #teamSlider {
-    display: none;
+    width: 82.5em;
+    row-gap: 2.5em;
+    box-shadow: 0 0 3px 0 rgba(15, 128, 156, 0.4) inset;
 }
 
 #teamImg {
     position: absolute;
     top: 7.25em !important;
-    transform: scale(0.85) !important;
-
+    transform: scale(1) !important;
+    display: none;
 }
+
+.teamSlide {
+    transform: scale(1);
+}
+
+.teamSlide:hover {
+    transform: scale(1.025);
+    filter: drop-shadow(7.5px 7.5px 0.5px rgb(66, 99, 207));
+}
+
+#teamSlide1 {
+    margin-top: 2.5em;
+}
+
 
 #teamH1 {
     position: absolute;
-    top: 1em !important;
-    font-size: 3em !important;
+    top: 0.6em !important;
+    font-size: 4em !important;
     font-family: 'Arimo', sans-serif;
     transform: rotateZ(0deg);
 }
@@ -4715,10 +4264,6 @@ li {
 
 /* PORTFOLIO SECTION */
 
-.portfolio {
-    background: transparent linear-gradient(180deg, #000524 0%, #000000 100%) 0% 0% no-repeat padding-box;
-    display: flex;
-}
 
 #portfolioImg {
     position: absolute;
@@ -4729,24 +4274,24 @@ li {
 
 #portfolioH1 {
     position: absolute;
-    font-size: 4em;
-    top: 1.25em;
+    font-size: 4em !important;
+    top: 1.25em !important ;
     font-family: 'Arimo', sans-serif;
     user-select: none;
 }
 
 #portfolioH1Sub {
     position: absolute;
-    font-size: 4em;
-    top: 2.25em;
+    font-size: 4em !important;
+    top: 2.25em !important;
     font-family: 'Arimo', sans-serif;
     user-select: none;
 }
 
 #portfolioH2 {
     position: absolute;
-    font-size: 1.25em;
-    top: 4em;
+    font-size: 1.25em !important;
+    top: 4em !important;
     font-family: 'Arimo', sans-serif;
     color: rgb(0, 102, 255);
     user-select: none;
@@ -4761,11 +4306,20 @@ li {
 #footerIce {
     display: flex;
     position: absolute;
-    top: 7.5em;
+    top: 3em !important;
+    width: 86px !important;
+    height: 86px !important;
 }
 
 #footerLinkContainer {
-    bottom: 2.5em;
+    bottom: 2.5em !important;
+    transform: scale(1);
+}
+
+#footerButtonContainer {
+    transform: scale(1) ;
+    top: 11em !important;
+    padding: 0.5em 2em !important;
 }
 
 
