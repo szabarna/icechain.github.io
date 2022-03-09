@@ -33,6 +33,7 @@ img {
     pointer-events: none;
     user-select: none;
 }
+
 body {
     box-sizing: border-box;
     padding: 0;
@@ -40,8 +41,6 @@ body {
 }
 
 html, body {
-    height: 100%;
-    max-width: 100vw;
     overflow: hidden;
 }
 
@@ -186,13 +185,11 @@ section {
 }
 
 .container {
-
     scroll-snap-type: none;
     overflow-x: hidden;
     height: 100vh;
     overflow-y: scroll;
     scroll-behavior: smooth;
-
 }
 
 
@@ -205,7 +202,6 @@ section {
     object-fit: contain;
     cursor: default;
 }
-
 
 
 h1 {
@@ -717,7 +713,7 @@ h2 {
 
        #videoButton {
         display: flex;
-        padding: 0.5em 1.1em;
+        padding: 0.5em 1.1em !important;
         left: 0.5em;
         top: auto;
         bottom: calc(0.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
@@ -735,11 +731,12 @@ h2 {
         border: 2px solid white;
         font-family: "Teko", sans-serif;
         font-size: 1.4em;
+        white-space: nowrap;
     }
 
        #otherButton {
         display: flex;
-        padding: 0.5em 1.6em;
+        padding: 0.5em 1.6em !important;
         right: 0.5em;
         top: auto;
         bottom: calc(0.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
@@ -758,6 +755,7 @@ h2 {
         text-align: center;
         font-size: 1.4em;
         font-family: "Teko", sans-serif;
+        white-space: nowrap;
         }
 
 
@@ -766,13 +764,18 @@ h2 {
            margin-top: 8em;
            position: absolute !important;
            left: auto;
-           height: calc(29em + (100vh - 600px) * (15 - 400 ) / (600 -  1080));
-           width: calc(30em + (100vw - 360px) * (15 - 300) / (360 -  767));;
+           height: calc(23.5em + (100vh - 600px) * (15 - 400 ) / (600 -  1080));
+           width: calc(20em + (100vw - 360px) * (15 - 300) / (360 -  767));;
            align-content: space-between;
-           overflow: auto;
+           justify-content: center;
+           overflow-x: hidden;
+           overflow-y: auto;
             background-color: rgb(0, 10, 49, 0.5);
+            border-radius: 0.75em;
 
        }
+
+       
 
 
        .smallEco {
@@ -798,19 +801,21 @@ h2 {
             position: relative;
             height: fit-content;
             align-self: center;
+            justify-content: center !important;
+            display: grid;
 
         }
 
        .ecoContainer {
         
-            width: 100% !important;
+            width: 19em !important;
             height: 7.5em !important;
             padding: 1.25em !important;
             margin: 0 !important;
             margin-top: 2em !important; 
             font-size: 1em;
             justify-content: center;
-            left: -1.2em !important;
+            left: auto !important;
             
             position: relative;
             background-color: rgb(0, 10, 49);
@@ -825,9 +830,15 @@ h2 {
        }
 
        .text {
-           width: 14em;
+           width: 15em;
+           font-size: 1.2em;
            display: grid;
            justify-self: center;
+       }
+
+       #littleText {
+            width: 14em;
+            font-size: 1.3em;
        }
 
        #ecoContainer2 {
@@ -1741,7 +1752,7 @@ h2 {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-column-gap: 2em;
-    bottom: 1em;
+    top: 10.5em;
     transform: scale(0.75);
 
 }
@@ -4297,7 +4308,7 @@ li {
 
 #teamSlider {
     width: 82.5em;
-    row-gap: 2.5em;
+    row-gap: 5em;
     box-shadow: 0 0 0 0 white;
 
 }
