@@ -474,45 +474,6 @@ h2 {
 }
 
 
-.marketDivs {
-    position: relative;
-    height: 27.5em;
-    width: 20em;
-    display: flex;
-    border-radius: 1.75em;
-    left: 1.75em;
-    margin-right: 3em;
-    justify-content: center;
-}
-
-.purchaseNow {
-    width: fit-content;
-    height: fit-content;
-    padding: 0.5em 1em;
-    border-radius: 2em;
-    font-size: 1.175em;
-    position: relative;
-    top: 19.25em;
-    cursor: pointer;
-    background-color: black;
-    color: white;
-    border: none;
-}
-
-
-
-#nft2SubImg {
-    position: absolute;
-    bottom: 9.75em;
-}
-
-
-
-#nft5SubImg {
-    position: absolute;
-    bottom: -0.75em;
-}
-
 
 
 
@@ -661,7 +622,7 @@ h2 {
             align-items: center;
             width: fit-content;
             height: fit-content;
-            right: -0.5em;
+            right: -0.75em;
             margin-top: 1em;
             cursor: pointer;
 
@@ -1353,6 +1314,7 @@ h2 {
             display: grid;
             align-self: flex-end;
             align-items: center;
+            justify-content: center;
 
             background: rgb(0, 10, 49, 0.25);
             border-radius: 0.75em;
@@ -1363,9 +1325,9 @@ h2 {
 
         #marketH1 {
             font-size: 2.25em;
-            top: calc(0.6em + (100vh - 600px) * (15 - 20) / (600 -  1080));
+            top: calc(0.6em + (100vh - 600px) * (15 - 50) / (600 -  1080));
             display: flex;
-            left: 0.2em;
+            left: 1.5em;
 
             font-family: 'Roboto', sans-serif;
             position: relative;
@@ -1374,9 +1336,9 @@ h2 {
 
         #marketH2 {
             font-size: 1em;
-            top: calc(-6em + (100vh - 600px) * (15 - 20) / (600 -  1080));
+            top: calc(-6em + (100vh - 600px) * (15 - 25) / (600 -  1080));
             display: flex;
-            left: 0.4em;
+            left: 3.4em;
 
             font-family: 'Arimo', sans-serif;
             position: relative;
@@ -1386,33 +1348,36 @@ h2 {
 
         #marketH3 {
             font-size: 1.15em;
-            top: calc(-3.75em + (100vh - 600px) * (15 - 5) / (600 -  1080));
+            top: calc(-3.75em + (100vh - 600px) * (15 + 2.5) / (600 -  1080));
             display: flex;
 
             font-family: 'Arimo', sans-serif;
             position: relative;
-            left: 1.25em;
+            left: 4.25em;
         }
 
 
         #marketDivContainer {
             transform: scale(0.75);
-            width: 64em;
-            bottom: calc(3em + (100vh - 600px) * (15 - 225) / (600 -  1080));
-            left: calc(-10em + (100vw - 360px) * (15 + 10) / (360 -  767));
+            width: 27.5em;
+            bottom: calc(8em + (100vh - 600px) * (15 - 30) / (600 -  1080));
+            left: 0;
             display: grid;
             grid-template-columns: auto auto auto auto;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             overflow-x: scroll;
+            overflow-y: hidden;
             position: relative;
-            height: fit-content;
+            height: 30em;
             scroll-behavior: smooth;
-  
+            background-color: rgba(15, 84, 156, 0.225);
+            border-radius: 1.5em;
         }
 
+
         #mD1 {
-            left: 4.5em;
+            left: 3.75em;
             background-image: url('./src/img/nft1_2x.jpg');
             background-size: cover;
             background-repeat: no-repeat;
@@ -1447,7 +1412,7 @@ h2 {
             height: 27.5em;
             width: 20em;
             border-radius: 1.75em;
-            top: 12em;
+            top: 0em;
             justify-content: center;
             background-image: url('./src/img/nft3.jpg');
             background-size: cover;
@@ -1465,14 +1430,48 @@ h2 {
             transition: all 0.2s;
         }
 
+        .marketDivs {
+            position: relative;
+            height: 27.5em;
+            width: 20em;
+            display: flex;
+            border-radius: 1.75em;
+            left: 1.75em;
+            margin-right: 3em;
+            justify-content: center;
+            top: 1.25em;
+        }
+        
+        .purchaseNow {
+            width: fit-content;
+            height: fit-content;
+            padding: 0.5em 1em;
+            border-radius: 2em;
+            font-size: 1.175em;
+            position: relative;
+            top: 19.25em;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            border: none;
+        }
+        
+        
+        
+        #nft2SubImg {
+            position: absolute;
+            top: 0.5em;
+        }
+        
+
         #nft1SubImg {
             position: absolute;
             right: auto;
-            bottom: -0.75em;
+            top: 0.5em;
         }
 
         #nft3SubImg {
-            bottom: -1em;
+            top: 0.5em;
 
             position: absolute;
         }
@@ -1482,7 +1481,12 @@ h2 {
 
             position: absolute;
             left: 0em;
-            bottom: 10.5em;
+            top: 0.5em;
+        }
+
+        #nft5SubImg {
+            position: absolute;
+            top: 0.5em;
         }
 
         .drop {
@@ -1598,22 +1602,44 @@ h2 {
         #teamSlider {
             position: absolute;
             display: grid;
-            grid-template-rows: auto auto auto auto auto;
+            grid-template-rows: 8.5em 8.5em 8.5em 8.5em 8.5em;
+            row-gap: 0em;
+            width: 20em;
             height: calc(25em + (100vh - 600px) * (15 - 300) / (600 -  1080));
             overflow-y: scroll;
             overflow-x: hidden;
-            justify-content: space-between;
-            top: 8.5em;
+            justify-content: center;
+             
             background-color: rgba(0, 29, 59, 0.525);
+            top: 8.5em;
+            /* */
             border-radius: 1em;
             z-index: 2;
+            box-shadow: 0 0 0 0 white !important;
         }
+
+        #teamSlider:before {
+        content: "";
+        position: absolute;
+        width: 100% !important;
+        height: calc(50em + (100vh - 600px) * (15 - 300) / (600 -  1080));;
+        z-index: 1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: url('./src/img/filter.png');
+        background-size: cover;
+        opacity: .2;
+        }
+
         
 
         .teamSlide {
             position: relative;
             display: flex;
-            transform: scale(0.475);
+            transform: scale(0.425);
+            z-index: 2;
            
         }
 
@@ -2431,11 +2457,7 @@ and (min-width: 1200px)
 
     section {
         scroll-snap-align: center;
-        scroll-snap-stop: always;
-        min-height: -webkit-fill-avaliable;
     }
-
- 
 
     
 .header-container {
@@ -2466,7 +2488,7 @@ and (min-width: 1200px)
     font-size: 1.95em;
     color: white;
     font-family: 'Teko', sans-serif;
-    margin-left: 6em;
+    margin-left: calc(5.75em + (100vw - 1200px) * (15 - 140 ) / (1200 -  1599));
     align-items: center;
     margin-top: 0;
 
@@ -2488,7 +2510,7 @@ and (min-width: 1200px)
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    margin-right: 6em;
+    margin-right: -2em;
     clip-path: none;
     top: 0;
     font-size: 1.35em;
@@ -2502,8 +2524,12 @@ and (min-width: 1200px)
 
 .whitepaper {
     font-size: 1.25em;
-    right: 1.5em;
+    right: calc(-1em + (100vw - 1200px) * (15 - 50 ) / (1200 -  1599));
 
+}
+
+.whitepaper:hover {
+    background-color: rgba(20, 126, 197, 1);
 }
 
 .hamburgerLi {
@@ -2600,7 +2626,7 @@ li {
     padding: 0.25em 1em;
     left: 0em;
     top: auto;
-    bottom: calc(-3.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
+    bottom: calc(-3em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
     border-radius: 2em;
     font-size: 1.4em;
     white-space: nowrap;
@@ -2610,14 +2636,15 @@ li {
 
 #videoButton:hover {
     transform: scaleX(1.1) scaleY(1.025);
+    background-color: rgba(15, 84, 156, 1);
 }
    #otherButton {
     display: flex;
     padding: 0.25em 1.45em;
     left: auto;
-    right: 5em;
+    right: 6.25em;
     top: auto;
-    bottom: calc(-3.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
+    bottom: calc(-3em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
     border-radius: 2em;
 
     border: 2px solid white;
@@ -2628,20 +2655,21 @@ li {
 
 #otherButton:hover {
     transform: scaleX(1.1) scaleY(1.025);
+    background-color: rgba(15, 84, 156, 1);
 }
 
 
 #dataText {
   
-    font-size: 3.4em;
+    font-size: 3.75em;
     left: 0;
-    top: 0.5em;
+    top: 0.35em;
 }
 
 #yoursText {
  
     font-size: 1.6em;
-    top: 72.5%;
+    top: 5em;
     left: 0;
     opacity: 0.8;
     white-space: nowrap;
@@ -3026,48 +3054,73 @@ li {
 
 
     #mD1 {
-        left: calc(4em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+        left: calc(2em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+        top: 7.5em;
 
     }
 
     #mD2 {
-        left: calc(4em + (100vw - 1200px) * (15 - 20) / (1200 -  1600));
+        left: calc(3em + (100vw - 1200px) * (15 - 20) / (1200 -  1600));
+        top: 7.5em;
     }
 
     #mD4 {
-        left: calc(4em + (100vw - 1200px) * (15 - 20) / (1200 -  1600));
-        bottom: 15em;
+        left: calc(7em + (100vw - 1200px) * (15 - 20) / (1200 -  1600));
+        height: 45em;
+        top: auto !important;
+        bottom: -4em !important;
+        border: 5px solid white;
+        
     }
 
     #mD5 {
         left: calc(6em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
+        transform: scale(0.925);
+        top: 7.5em;
     }
 
     #marketContainer {
-        width: calc(70em + (100vw - 1200px) * (15 - 125) / (1200 -  1600));
-        top: calc(1em + (100vh - 600px) * (15 - 30) / (600 -  1080));
+        width: calc(54.5em + (100vw - 1200px) * (15 - 125) / (1200 -  1600));
+        top: calc(1em + (100vh - 600px) * (15 + 30) / (600 -  1080));
     }
 
     #marketDivContainer {
-        bottom: calc(3em + (100vh - 600px) * (15 - 150) / (600 -  1080)) !important;
+        width: calc(80em + (100vw - 1200px) * (15 - 125) / (1200 - 1600)) !important;
+        bottom: calc(25em + (100vh - 600px) * (15 - 20) / (600 -  1080)) !important;
+        background-color: transparent;
+        height: calc(50.9em + (100vh - 600px) * (15 - 100) / (600 -  1080)) !important;
+        left: auto;
         transform: scale(0.7) !important;
         overflow: hidden;
-        left: calc(-13.75em + (100vw - 1200px) * (15 - 30) / (1200 - 1600)) !important;
     }
 
     #marketH2 {
-        left: 1em;
+        left: calc(12.5em + (100vh - 600px) * (15 + 75) / (600 -  1080)) !important;
+    }
+
+    #marketH1 {
+        left: calc(5.8em + (100vh - 600px) * (15 + 75) / (600 -  1080)) !important;
+    }
+
+    #marketH3 {
+        left: calc(12.5em + (100vh - 600px) * (15 + 75) / (600 -  1080)) !important;
     }
 
     #mD4Sub {
-        top: calc(24em + (100vh - 600px) * (15 + 20) / (600 -  1080)) !important;
-        left: calc(3em + (100vw - 1200px) * (15 - 20) / (1200 -  1600));
+        top: calc(12.5em + (100vh - 600px) * (15 - 10) / (600 -  1080)) !important;
+        left: calc(0em + (100vw - 1200px) * (15 - 20) / (1200 -  1600));
     }
 
     #nft1SubImg {
         position: absolute;
         right: auto;
         bottom: -0.75em;
+    }
+
+    #nft4SubImg {
+        display: block;
+        top: -25em;
+        left: -1em;
     }
 
     .dropSlider  {
@@ -3154,6 +3207,7 @@ li {
     .footer {
         height: calc(22.25em + (100vh - 600px) * (15 - 100) / (600 -  1080)) !important;
         overflow: hidden;
+        scroll-snap-align: bottom;
     }
 
     #footerIce {
@@ -3332,7 +3386,7 @@ and (min-width: 1600px) {
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    right: -17.5em;
+    right: -10.5em;
     clip-path: none;
     top: 0;
     
@@ -3355,6 +3409,11 @@ li {
 .whitepaper {
     font-size: 1.4em;
     right: 0.5em;
+    box-shadow: 0 0 7.5px 0 rgba(20, 126, 197, 0.5);
+}
+
+.whitepaper:hover {
+    background-color: rgba(20, 126, 197, 1);
 }
 
 .li {
@@ -3544,6 +3603,7 @@ li {
     z-index: 2;
     border-radius: 20px;
 }
+
 
 
 .aboutText {
@@ -3841,12 +3901,13 @@ li {
 /* TOKEN DETAILS 2 */
 
 #icoButton {
-    background: linear-gradient(#3772FF, #1C3980);
+    background: transparent;
+    border: 3px solid rgb(20, 91, 197) !important;
     position: relative;
-    width: 8.5em;
+    width: 8em;
     height: 3.5em;
     top: 32.5em;
-    border-radius: 4.5em;
+    border-radius: 1.75em;
     cursor: pointer;
     border: none;
     color: white;
@@ -3854,6 +3915,13 @@ li {
     font-family: 'Arimo', sans-serif;
     z-index: 2;
     left: auto;
+    box-shadow: 0 0 7.5px 0 rgb(20, 91, 197, 0.25);
+    transition: all 0.4s;
+}
+
+#icoButton:hover {
+    transform: scaleX(1.05) scaleY(1.025);
+    background-color: rgb(20, 91, 197);
 }
 
 
@@ -4080,7 +4148,7 @@ li {
     font-family: 'Roboto', sans-serif;
     position: relative;
     top: 0.5em;
-    left: 0.3575em;
+    left: 2.1em !important;
     user-select: none;
 }
 
@@ -4089,7 +4157,7 @@ li {
     font-family: 'Arimo', sans-serif;
     position: relative;
     top: -6em;
-    left: 1em;
+    left: 5.2em !important;
     color: rgb(31, 110, 214);
     user-select: none;
 }
@@ -4098,8 +4166,8 @@ li {
     font-size: 1.75em;
     font-family: 'Arimo', sans-serif;
     position: relative;
-    top: -3em;
-    left: 1.25em;
+    top: -4em;
+    left: 6em !important;
 }
 
 
@@ -4112,7 +4180,7 @@ li {
         display: flex;
         overflow: hidden;
         transform: scale(1) !important;
-        left: 0 !important;
+        left: 7.5em !important;
         align-items: flex-end;
 }
 
@@ -4160,9 +4228,13 @@ li {
 
 #nft4SubImg {
     position: absolute;
-    left: 0em !important;
+    left: -0.75em !important;
     bottom: 10.5em !important;
     display: block;
+}
+
+#mD5 {
+    transform: scale(1) !important;
 }
 
 
@@ -4226,8 +4298,14 @@ li {
 #teamSlider {
     width: 82.5em;
     row-gap: 2.5em;
-    box-shadow: 0 0 3px 0 rgba(15, 128, 156, 0.4) inset;
+    box-shadow: 0 0 0 0 white;
+
 }
+
+#teamSlider:before {
+    height: 100em;
+}
+
 
 #teamImg {
     position: absolute;
@@ -4244,6 +4322,8 @@ li {
     transform: scale(1.025);
     filter: drop-shadow(7.5px 7.5px 0.5px rgb(66, 99, 207));
 }
+
+
 
 #teamSlide1 {
     margin-top: 2.5em;
@@ -4320,6 +4400,16 @@ li {
     transform: scale(1) ;
     top: 11em !important;
     padding: 0.5em 2em !important;
+}
+
+#footerL1 {
+    border: 2px solid rgba(15, 84, 156, 0.925);
+    box-shadow: 0 0 10px 0 rgba(15, 84, 156, 0.925);
+}
+
+#footerL1:hover {
+    background-color: rgba(15, 84, 156, 0.925);
+    
 }
 
 

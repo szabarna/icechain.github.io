@@ -1103,7 +1103,7 @@ let ecoContainers = document.querySelectorAll('.ecoContainer');
 
 for(let i = 0; i < textHolders.length; i++) {
   const tlEco = gsap.timeline({
-    defaults: { ease: "power4.inOut", duration: 0.25 }
+    defaults: { ease:  "power1.easeInOut", duration: 0.4 }
   });
    tlEco.to(textHolders[i], { 'clip-path': 'circle(100%)' });
   tlEco.reversed(true);

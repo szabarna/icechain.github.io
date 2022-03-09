@@ -30,3 +30,9 @@ Mobile WIDTH 360 - 767 HEIGHT 600 - 1079
 
 hamburger menu home cut in half bc top
 team layout
+
+Laptop:
+
+Fix nftMarket 
+adjust size based on height (font_size, image scaling)
+
