@@ -938,10 +938,9 @@ function onDocumentMouseMove(event) {
     camera.aspect = aspectRatio;
     camera.updateProjectionMatrix();
 
-    $(".container").css("min-height", `${window.innerHeight}px`);
-
+    $(".container").css("max-height", `${window.innerHeight}px`);
+    
     maxScrollTop = container.clientHeight;
-
     
     ScrollTrigger.refresh();
    

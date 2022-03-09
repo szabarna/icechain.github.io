@@ -764,7 +764,7 @@ h2 {
            margin-top: 8em;
            position: absolute !important;
            left: auto;
-           height: calc(23.5em + (100vh - 600px) * (15 - 400 ) / (600 -  1080));
+           height: calc(23.5em + (100vh - 600px) * (15 - 135 ) / (600 -  1080));
            width: calc(20em + (100vw - 360px) * (15 - 300) / (360 -  767));;
            align-content: space-between;
            justify-content: center;
@@ -1320,14 +1320,14 @@ h2 {
 
         #marketContainer {
             height: 85.5vh;
-            width: 42.75em;
+            width: calc(20.75em + (100vw - 360px) * (15 - 420) / (360 -  767)) !important;
             position: relative;
             display: grid;
             align-self: flex-end;
             align-items: center;
             justify-content: center;
 
-            background: rgb(0, 10, 49, 0.25);
+            background: rgb(0, 10, 49, 1);
             border-radius: 0.75em;
             overflow: hidden;
             bottom: 0;
@@ -1335,10 +1335,10 @@ h2 {
 
 
         #marketH1 {
-            font-size: 2.25em;
+            font-size: 2.1em;
             top: calc(0.6em + (100vh - 600px) * (15 - 50) / (600 -  1080));
             display: flex;
-            left: 1.5em;
+            left: calc(1.5em + (100vw - 360px) * (15 - 90) / (360 -  767)) !important;
 
             font-family: 'Roboto', sans-serif;
             position: relative;
@@ -1349,7 +1349,7 @@ h2 {
             font-size: 1em;
             top: calc(-6em + (100vh - 600px) * (15 - 25) / (600 -  1080));
             display: flex;
-            left: 3.4em;
+            left: calc(3.1em + (100vw - 360px) * (15 - 90) / (360 -  767)) !important;
 
             font-family: 'Arimo', sans-serif;
             position: relative;
@@ -1359,19 +1359,19 @@ h2 {
 
         #marketH3 {
             font-size: 1.15em;
-            top: calc(-3.75em + (100vh - 600px) * (15 + 2.5) / (600 -  1080));
+            top: calc(-3.5em + (100vh - 600px) * (15  - 30) / (600 -  1080));
             display: flex;
 
             font-family: 'Arimo', sans-serif;
             position: relative;
-            left: 4.25em;
+            left: calc(4.25em + (100vw - 360px) * (15 - 75) / (360 -  767)) !important;
         }
 
 
         #marketDivContainer {
             transform: scale(0.75);
-            width: 27.5em;
-            bottom: calc(8em + (100vh - 600px) * (15 - 30) / (600 -  1080));
+            width: calc(25em + (100vw - 360px) * (15 - 420) / (360 -  767)) !important;
+            bottom: calc(8em + (100vh - 600px) * (15 - 5) / (600 -  1080));
             left: 0;
             display: grid;
             grid-template-columns: auto auto auto auto;
@@ -1388,7 +1388,7 @@ h2 {
 
 
         #mD1 {
-            left: 3.75em;
+            left: 2.5em;
             background-image: url('./src/img/nft1_2x.jpg');
             background-size: cover;
             background-repeat: no-repeat;
@@ -1613,7 +1613,7 @@ h2 {
         #teamSlider {
             position: absolute;
             display: grid;
-            grid-template-rows: 8.5em 8.5em 8.5em 8.5em 8.5em;
+            grid-template-rows: 9.5em 9.5em 9.5em 9.5em 9.5em;
             row-gap: 0em;
             width: 20em;
             height: calc(25em + (100vh - 600px) * (15 - 300) / (600 -  1080));
@@ -1652,18 +1652,6 @@ h2 {
             transform: scale(0.425);
             z-index: 2;
            
-        }
-
-        #teamImg {
-            position: relative;
-            display: flex;
-            transform: scale(0.6) !important;
-            right: auto !important;
-            left: auto !important;
-            bottom: 0;
-            top: calc(-3.5em + (100vh - 600px) * (15 - 100) / (600 -  1080)) !important;
-            display: none;
- 
         }
 
         #teamH1 {
@@ -1728,7 +1716,7 @@ h2 {
 
 .footer {
     height: 40vh !important;
-    background: linear-gradient(rgb(10, 10, 10), rgb(0, 0, 0));
+    background: black;
 }
 
 
