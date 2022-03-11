@@ -577,7 +577,7 @@ h2 {
            height: 3em;
            text-align: center;
            background-color: rgba(36, 94, 180, 0.5);
-           margin-bottom: calc(0.75em - (100vh - 600px) * (15 - 10 ) / (600 -  1080))  !important;
+           margin-bottom: calc(0.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080))  !important;
            justify-content: center;
            align-content: center;
 
