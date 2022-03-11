@@ -151,7 +151,7 @@ li {
     display: flex;
     width: fit-content;
     height: fit-content;
-    top: 2.25em;
+    top: 1.25em;
 }
 
 .whitepaper {
@@ -166,7 +166,7 @@ li {
     font-family: "Teko", sans-serif;
     white-space: nowrap;
     transition: all 0.4s;
-    right: 3em;
+    right: calc(2.1em + (100vw - 300px) * (15 - 15 ) / (300 -  767));
 }
 
 .whitepaper:hover {
@@ -513,8 +513,8 @@ h2 {
 
     .logo {
 
-            margin-left: 0.5em;
-            margin-top: 0.925em;
+            margin-left: 0.4em;
+            margin-top: 0.6em;
             width: fit-content;
             height: fit-content;
             font-size: 1.5em;
@@ -524,6 +524,8 @@ h2 {
             font-family: 'Teko', sans-serif;
             align-items: center;
        }
+
+      
 
        #logo {
         font-family: sans-serif;
@@ -535,8 +537,8 @@ h2 {
        #logo img {
            position: relative;
            display: flex;
-           width: 58px;
-           height: 58px;
+           width: 48px;
+           height: 48px;
            top: 0;
 
        }
@@ -558,7 +560,7 @@ h2 {
            align-self: center;
            position: absolute;
            font-size: calc(1em + (100vh - 600px) * (15 - 20 ) / (600 -  1080));
-           bottom: calc(0em + (100vh - 600px) * (15 - 275 ) / (600 -  1080));
+           bottom: calc(0em + (100vh - 600px) * (15 - 135 ) / (600 -  1080));
            margin-right: 0;
            justify-content: center;
            width: 100%;
@@ -621,7 +623,7 @@ h2 {
             width: fit-content;
             height: fit-content;
             right: -0.75em;
-            margin-top: 1em;
+            margin-top: 0.5em;
             cursor: pointer;
 
        }
@@ -655,10 +657,11 @@ h2 {
            background-color: rgba(1, 1, 73, 0.15);
            opacity: 1;
            width: 100vw;
-           height: calc(24em + (100vh - 600px) * (15 - 250 ) / (600 -  1080));
+           height: calc(25em + (100vh - 600px) * (15 - 250 ) / (600 -  1080));
            display: flex;
            left: auto;
             align-self: center;
+            justify-content: center;
             top: calc(8.5em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
            border-radius: 0.25em;
 
@@ -670,7 +673,7 @@ h2 {
             right: auto;
             width: 30em;
             height: calc(24em + (100vh - 600px) * (15 - 250 ) / (600 -  1080));
-            top: calc(1.75em + (100vh - 600px) * (15 - 27.5 ) / (600 -  1080));
+            top: 0;
             justify-content: center;
 
             z-index: 3;
@@ -681,7 +684,7 @@ h2 {
 
        #dataText {
            font-size: calc(2em + (100vh - 600px) * (15 - 25 ) / (600 -  1080));
-           top: calc(-0.25em + (100vh - 600px) * (15 - 25 ) / (600 -  1080));
+           top: calc(-0.5em + (100vh - 600px) * (15 - 25 ) / (600 -  1080));
 
            display: flex;
            position: relative;
@@ -732,7 +735,7 @@ h2 {
         transition: 0.1s;
         border: 2px solid white;
         font-family: "Teko", sans-serif;
-        font-size: 1.4em;
+        font-size: 1.3em;
         white-space: nowrap;
     }
 
@@ -755,7 +758,7 @@ h2 {
         border: 2px solid white;
         text-decoration: none;
         text-align: center;
-        font-size: 1.4em;
+        font-size: 1.3em;
         font-family: "Teko", sans-serif;
         white-space: nowrap;
         }
@@ -763,10 +766,10 @@ h2 {
 
        #leftEco {
            display: grid;
-           margin-top: 8em;
+           margin-top: calc(6em + (100vh - 600px) * (15 - 135 ) / (600 -  1080));
            position: absolute !important;
            left: auto;
-           height: calc(23.5em + (100vh - 600px) * (15 - 135 ) / (600 -  1080));
+           height: calc(25.5em + (100vh - 600px) * (15 - 200 ) / (600 -  1080));
            width: calc(20em + (100vw - 360px) * (15 - 300) / (360 -  767));;
            align-content: space-between;
            justify-content: center;
@@ -834,14 +837,14 @@ h2 {
 
        .text {
            width: 15em;
-           font-size: 1.2em;
+           font-size: 1.15em;
            display: grid;
            justify-self: center;
        }
 
        #littleText {
             width: 14em;
-            font-size: 1.3em;
+            font-size: 1.2em;
        }
 
        #ecoContainer2 {
@@ -887,9 +890,9 @@ h2 {
             display: flex;
             text-align: center;
             left: auto;
-            font-size: 2.25em;
-            top: calc(2.5em + (100vh - 600px) * (15 - 20 ) / (600 -  1080));
-
+            font-size: 2em;
+            top: calc(2.5em + (100vh - 600px) * (15 - 75 ) / (600 -  1080));
+            white-space: nowrap;
             position: absolute;
             user-select: none;
             font-family: 'Arimo', sans-serif;
@@ -901,8 +904,8 @@ h2 {
             text-align: center;
             left: auto;
             font-size: 1.5em;
-            top: calc(6.5em + (100vh - 600px) * (15 - 20 ) / (600 -  1080));
-
+            top: calc(6.5em + (100vh - 600px) * (15 - 60 ) / (600 -  1080));
+            white-space: nowrap;
             position: absolute;
             user-select: none;
             color: rgb(0, 0, 255);
@@ -910,9 +913,9 @@ h2 {
         }
 
         #tokenText {
-            top: calc(13em + (100vh - 600px) * (15 - 20 ) / (600 -  1080));
+            top: calc(13em + (100vh - 600px) * (15 - 75 ) / (600 -  1080));
             font-size: 1em;
-            width: 22em;
+            width: calc(17.5em + (100vw - 300px) * (15 - 150 ) / (300 -  767));
             height: fit-content;
             display: flex;
             text-align: center;
@@ -935,6 +938,7 @@ h2 {
 
         #t2 {
             left: auto;
+            right: 0.75em;
             width: 12em;
             height: 7em;
             text-align: center;
@@ -945,6 +949,7 @@ h2 {
 
         #t3 {
             left: auto;
+            right: 0.75em;
             width: 12em;
             height: 7em;
             text-align: center;
@@ -955,6 +960,7 @@ h2 {
 
         #t4 {
             left: auto;
+            right: calc(0em + (100vw - 300px) * (15 - 37.5) / (360 -  767));
             width: 12em;
             height: 7em;
             text-align: center;
@@ -1003,7 +1009,7 @@ h2 {
             height: 7.5em;
             position: absolute;
             left: auto;
-            top: calc(19.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
+            top: calc(19.5em + (100vh - 600px) * (15 - 100 ) / (600 -  1080));
             justify-content: space-between;
             align-items: center;
             background-color: rgba(0, 29, 59, 0.525);
@@ -1016,11 +1022,11 @@ h2 {
         }
 
         #utility {
-            top: calc(19em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));;
+            top: calc(19em + (100vh - 600px) * (15 - 100 ) / (600 -  1080));
             height: fit-content;
-            padding: 0.25em 5em;
+            padding: 0.25em 4em;
             border: 2px solid #001D3B;
-            border-radius: 0.5em;
+            border-radius: 1em;
             left: auto;
             color: white;
             font-family: 'Teko', sans-serif;
@@ -1028,6 +1034,7 @@ h2 {
 
             position: relative;
             user-select: none;
+            white-space: nowrap;
         }
 
         #utilityContainer {
@@ -1037,7 +1044,7 @@ h2 {
             height: 5em;
             width: calc(22.5em + (100vw - 360px) * (15 - 425) / (360 -  767));
             top: auto !important;
-            bottom: calc(0em + (100vh - 600px) * (15 - 480 ) / (600 -  1080));;
+            bottom: calc(0em + (100vh - 600px) * (15 - 400 ) / (600 -  1080));;
             align-items: center;
             border-radius: 0;
             grid-template-columns: auto auto auto auto;
@@ -1061,6 +1068,7 @@ h2 {
             display: grid;
             width: 12.5em;
             left: auto;
+            right: calc(0.5em + (100vw - 300px) * (15 - 27.5) / (360 -  767));
 
             height: fit-content;
   
@@ -1097,7 +1105,7 @@ h2 {
             width: 9em;
             height: 3.5em;
             font-size: 1em;
-            top: calc(32.5em + (100vh - 600px) * (15 - 300) / (600 -  1080));
+            top: calc(32.5em + (100vh - 600px) * (15 - 350) / (600 -  1080));
             left: calc(1em + (100vw - 360px) * (15 - 200) / (360 -  767));
 
             background: linear-gradient(#3772FF, #1C3980);
@@ -1129,7 +1137,7 @@ h2 {
             position: absolute;
             width: 9em;
             height: 3.5em;
-            top: calc(32.5em + (100vh - 600px) * (15 - 300) / (600 -  1080));
+            top: calc(32.5em + (100vh - 600px) * (15 - 350) / (600 -  1080));
             right: calc(1em + (100vw - 360px) * (15 - 200) / (360 -  767));
             border: 2px solid white;
             border-radius: 4.5em;
@@ -1160,10 +1168,10 @@ h2 {
         }
     
        #tokenT1 {
-           top: calc(4.5em + (100vh - 600px) * (15 - 75) / (600 -  1080));
-           width: 19em;
+           top: calc(5.5em + (100vh - 600px) * (15 - 75) / (600 -  1080));
+           width: calc(17.5em + (100vw - 300px) * (15 - 300) / (300 -  767));
            height: fit-content;
-           font-size: 1.15em;
+           font-size: 1em;
            background-color: rgba(49, 131, 255, 0.5);
            border: 2px solid rgba(49, 131, 255, 0.75);
            padding: 0.5em 0;
@@ -1230,7 +1238,7 @@ h2 {
 
         #nodeH2T1 {
             font-size: 1.25em;
-            top: 2em;
+            top: 4em;
 
             font-family: 'Teko', sans-serif;
             text-transform: uppercase;
@@ -1240,7 +1248,7 @@ h2 {
 
         #nodeH2T2 {
             font-size: 1.25em;
-            top: 4.75em;
+            top: 6.75em;
 
             position: absolute;
             font-family: 'Teko', sans-serif;
@@ -1252,7 +1260,7 @@ h2 {
             font-size: 1.35em;
             width: fit-content;
             white-space: nowrap;
-            top: 3em;
+            top: 5em;
 
             font-family: 'Teko', sans-serif;
             text-transform: uppercase;
@@ -1343,36 +1351,37 @@ h2 {
 
 
         #marketH1 {
-            font-size: 2.1em;
+            font-size: 1.9em;
             top: calc(0.6em + (100vh - 600px) * (15 - 50) / (600 -  1080));
             display: flex;
-            left: calc(1.5em + (100vw - 360px) * (15 - 90) / (360 -  767)) !important;
-
+            left: calc(1.6em + (100vw - 360px) * (15 - 67.5) / (360 -  767)) !important;
+            white-space: nowrap;
             font-family: 'Roboto', sans-serif;
             position: relative;
             user-select: none;
         }
 
         #marketH2 {
-            font-size: 1em;
+            font-size: 0.9em;
             top: calc(-6em + (100vh - 600px) * (15 - 25) / (600 -  1080));
             display: flex;
-            left: calc(3.1em + (100vw - 360px) * (15 - 90) / (360 -  767)) !important;
+            left: calc(3.4em + (100vw - 360px) * (15 - 67.5) / (360 -  767)) !important;
 
             font-family: 'Arimo', sans-serif;
             position: relative;
             color: rgb(31, 110, 214);
             user-select: none;
+            white-space: nowrap;
         }
 
         #marketH3 {
-            font-size: 1.15em;
+            font-size: 1.1em;
             top: calc(-3.5em + (100vh - 600px) * (15  - 30) / (600 -  1080));
             display: flex;
 
             font-family: 'Arimo', sans-serif;
             position: relative;
-            left: calc(4.25em + (100vw - 360px) * (15 - 75) / (360 -  767)) !important;
+            left: calc(3em + (100vw - 360px) * (15 - 75) / (360 -  767)) !important;
         }
 
 
@@ -1397,26 +1406,24 @@ h2 {
 
 
         #mD1 {
-            left: 2.5em;
+            left: 0.75em;
             background-image: url('./src/img/nft1_2x.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
-            transition: all 0.2s;
         }
 
         #mD2 {
-            left: 3em;
+            left: 1em;
             margin-right: 0;
             background-image: url('./src/img/nft2.jpg');
             background-size: cover;
-            background-repeat: no-repeat;
             background-position: center center;
-            transition: all 0.2s;
+            background-repeat: no-repeat;
         }
 
         #mD4 {
-            left: 4em;
+            left: 3em;
             border: none;
             bottom: 4.75em;
 
@@ -1438,16 +1445,15 @@ h2 {
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
-            transition: all 0.2s;
         }
 
 
         #mD5 {
+            left: 2.25em;
             background-image: url('./src/img/nft4.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
-            transition: all 0.2s;
         }
 
         .marketDivs {
@@ -1698,6 +1704,7 @@ h2 {
             position: absolute;
             font-family: 'Arimo', sans-serif;
             user-select: none;
+            white-space: nowrap;
         }
 
         #portfolioH1Sub {
@@ -1707,6 +1714,7 @@ h2 {
             position: absolute;
             font-family: 'Arimo', sans-serif;
             user-select: none;
+            white-space: nowrap;
         }
 
         #portfolioH2 {
@@ -1718,6 +1726,7 @@ h2 {
             font-family: 'Arimo', sans-serif;
             color: rgb(0, 102, 255);
             user-select: none;
+            white-space: nowrap;
         }
 
         .bigRoad {
@@ -2472,6 +2481,7 @@ and (min-width: 1200px)
 
     section {
         scroll-snap-align: center;
+        scroll-snap-stop: always;
     }
 
     
@@ -2525,7 +2535,7 @@ and (min-width: 1200px)
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    margin-right: -2em;
+    margin-right: calc(-9em + (100vw - 1200px) * (15 + 15 ) / (1200 -  1599));
     clip-path: none;
     top: 0;
     font-size: 1.35em;
@@ -2620,7 +2630,7 @@ li {
     z-index: 3;
     position: relative;
     display: flex;
-    right: -17em;
+    right: calc(-10.25em + (100vw - 1200px) * (15 + 115) / (1200 - 1600) );
     top: -5em;
     align-self: center;
 }
@@ -3228,7 +3238,7 @@ li {
     .footer {
         height: calc(22.25em + (100vh - 600px) * (15 - 100) / (600 -  1080)) !important;
         overflow: hidden;
-        scroll-snap-align: bottom;
+        scroll-snap-align: end;
     }
 
     #footerIce {
