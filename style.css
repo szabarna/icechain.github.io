@@ -190,7 +190,7 @@ section {
     overflow-x: hidden;
     height: 100vh;
     overflow-y: scroll;
-    -webkit-overflow-y-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
 }
 
@@ -775,11 +775,11 @@ h2 {
            width: calc(20em + (100vw - 360px) * (15 - 300) / (360 -  767));;
            align-content: space-between;
            justify-content: center;
-           overflow-x: hidden;
-           overflow-y: scroll;
-           -webkit-overflow-y-scrolling: touch;
             background-color: rgb(0, 10, 49, 0.5);
             border-radius: 0.75em;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
 
        }
 
@@ -811,6 +811,8 @@ h2 {
             align-self: center;
             justify-content: center !important;
             display: grid;
+            grid-template-rows: auto auto auto auto auto auto auto auto;
+            
 
         }
 
@@ -1016,7 +1018,7 @@ h2 {
             align-items: center;
             background-color: rgba(0, 29, 59, 0.525);
             overflow-x: scroll;
-            -webkit-overflow-x-scrolling: touch;
+            -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             white-space: nowrap;
             scroll-behavior: smooth;
@@ -1055,7 +1057,7 @@ h2 {
             align-content: center;
             overflow-x: scroll;
             overflow-y: hidden;
-            -webkit-overflow-x-scrolling: touch;
+            -webkit-overflow-scrolling: touch;
             white-space: nowrap;
             position: absolute;
             scroll-behavior: smooth;
@@ -1163,7 +1165,7 @@ h2 {
             align-content: center;
             overflow-x: scroll;
             overflow-y: hidden;
-            -webkit-overflow-x-scrolling: touch;
+            -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
 
             position: relative;
@@ -1397,7 +1399,7 @@ h2 {
             justify-content: space-between;
             align-items: flex-start;
             overflow-x: scroll;
-            -webkit-overflow-x-scrolling: touch;
+            -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             position: relative;
             height: 30em;
@@ -1551,7 +1553,7 @@ h2 {
             justify-content: space-between;
             white-space: nowrap;
             overflow-x: scroll;
-            -webkit-overflow-x-scrolling: touch;
+            -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
         }
 
@@ -1600,7 +1602,7 @@ h2 {
             display: grid;
             grid-template-columns: 0.1em 0.1em;
             overflow-x: scroll;
-            -webkit-overflow-x-scrolling: touch;
+            -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             
         }
@@ -1638,7 +1640,7 @@ h2 {
             height: calc(25em + (100vh - 600px) * (15 - 300) / (600 -  1080));
             overflow-y: scroll;
             overflow-x: hidden;
-            -webkit-overflow-y-scrolling: touch;
+            -webkit-overflow-scrolling: touch;
             justify-content: center;
              
             background-color: rgba(0, 29, 59, 0.525);
