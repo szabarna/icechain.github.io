@@ -722,7 +722,8 @@ h2 {
         left: 0.5em;
         top: auto;
         bottom: calc(0.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
-        border-radius: 2em;
+        border-radius: 1.25em;
+        -webkit-border-radius: 1.25em;
 
         position: absolute;
         height: fit-content;
@@ -745,7 +746,8 @@ h2 {
         right: 0.5em;
         top: auto;
         bottom: calc(0.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
-        border-radius: 2em;
+        border-radius: 1.25em;
+        -webkit-border-radius: 1.25em;
         position: absolute;
         height: fit-content;
         width: fit-content;
