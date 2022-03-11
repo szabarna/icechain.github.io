@@ -559,7 +559,7 @@ h2 {
            display: grid;
            align-self: center;
            position: absolute;
-           font-size: calc(1em + (100vh - 600px) * (15 - 20 ) / (600 -  1080));
+           font-size: 1em;
            bottom: calc(0em + (100vh - 600px) * (15 - 135 ) / (600 -  1080));
            margin-right: 0;
            justify-content: center;
@@ -577,7 +577,8 @@ h2 {
            height: 3em;
            text-align: center;
            background-color: rgba(36, 94, 180, 0.5);
-           margin-bottom: calc(0.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080))  !important;
+           margin-bottom: calc(0.5em + (100vh - 600px) * (15 - 25 ) / (600 -  1080))  !important;
+
            justify-content: center;
            align-content: center;
 
