@@ -557,6 +557,7 @@ h2 {
 
        .linkContainer {
            display: grid;
+           grid-template-rows: auto auto auto auto auto;
            align-self: center;
            position: absolute;
            font-size: 1em;
@@ -564,7 +565,7 @@ h2 {
            margin-right: 0;
            justify-content: center;
            width: 100%;
-           height: fit-content;
+           height: 30em;
            left: 1.25em;
            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
            -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
@@ -577,8 +578,7 @@ h2 {
            height: 3em;
            text-align: center;
            background-color: rgba(36, 94, 180, 0.5);
-           margin-bottom: 0.5em;
-
+           
            justify-content: center;
            align-content: center;
 
@@ -722,12 +722,12 @@ h2 {
         left: 0.5em;
         top: auto;
         bottom: calc(0.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
-        border-radius: 1.25em;
-        -webkit-border-radius: 1.25em;
+        border-radius: 1.5em;
+        -webkit-border-radius: 1.5em;
 
         position: absolute;
-        height: fit-content;
-        width: fit-content;
+        height: 2.5em;
+        width: 6em;
         align-content: center;
         justify-content: center;
         cursor: pointer;
@@ -749,8 +749,8 @@ h2 {
         border-radius: 1.25em;
         -webkit-border-radius: 1.25em;
         position: absolute;
-        height: fit-content;
-        width: fit-content;
+        height: 1.25em;
+        width: 3em;
         align-content: center;
         justify-content: center;
         cursor: pointer;
