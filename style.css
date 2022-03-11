@@ -1738,11 +1738,12 @@ h2 {
         /* FOOTER SECTION */
 
 .footer {
-    height: fit-content;
+    height: 20em;
     background: black;
     display: grid;
     grid-template-rows: 5em 5em 5em;
     justify-items: center;
+
 }
 
 
