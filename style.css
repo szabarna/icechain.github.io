@@ -1738,14 +1738,17 @@ h2 {
         /* FOOTER SECTION */
 
 .footer {
-    height: 40vh !important;
+    height: fit-content;
     background: black;
+    display: grid;
+    grid-template-rows: 5em 5em 5em;
+    justify-items: center;
 }
 
 
 #footerIce {
     display: flex;
-    position: absolute;
+    position: relative;
     top: 0em;
     width: 64px;
     height: 64px;
@@ -1757,13 +1760,13 @@ h2 {
 }
 
 #footerLinkContainer {
-    position: absolute;
+    position: relative;
     width: fit-content;
     height: fit-content;
     display: grid;
     grid-template-columns: auto auto auto;
     grid-column-gap: 2em;
-    top: 10.5em;
+    top: 0em;
     transform: scale(0.75);
 
 }
@@ -1772,13 +1775,17 @@ h2 {
     display: flex;
     width: auto;
     height: auto;
-    padding: 0.75em;
+    padding: 0.75em 0.75em;
     background-color: rgba(20, 126, 197, 0.525);
     border-radius: 50%;
     justify-content: center;
     align-items: center;
     transition: 0.2s all;
 
+}
+
+#telegramIcon {
+    left: -0.1em;
 }
 
 #footerLinkContainer a:hover {
@@ -1796,7 +1803,7 @@ h2 {
     position: relative;
     display: flex;
     text-decoration: none;
-    font-size: 1.6em;
+    font-size: 1.75em;
     border: 2px solid white;
     padding: 0.5em 3em !important;
     border-radius: 2em;
@@ -1810,14 +1817,17 @@ h2 {
 
 #footerButtonContainer {
             width: auto;
-            position: absolute;
+            position: relative;
             display: grid;
             grid-template-columns: auto auto;
             justify-content: space-between;
-            top: 5em;
+            top: 0em;
             justify-self: center;
-            transform: scale(0.75);
+            transform: scale(0.7);
+            text-align: center;
     }
+
+
 
 
 
