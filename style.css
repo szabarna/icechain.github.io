@@ -38,12 +38,11 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    overflow: hidden;
+
 }
 
-html, body {
-    overflow: hidden;
-    -webkit-overflow-scrolling: hidden;
-}
+
 
 /*  TEST */
 #loading-screen {
@@ -192,6 +191,7 @@ section {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
+
 }
 
 
@@ -590,6 +590,8 @@ h2 {
             padding: 5px 15px;
             transition: all 100ms ease-in;
             font-weight: 600;
+
+           
        }
 
         
@@ -769,7 +771,7 @@ h2 {
        #leftEco {
            display: grid;
            margin-top: calc(6em + (100vh - 600px) * (15 - 135 ) / (600 -  1080));
-           position: absolute !important;
+           position: absolute;
            left: auto;
            height: calc(25.5em + (100vh - 600px) * (15 - 200 ) / (600 -  1080));
            width: calc(20em + (100vw - 360px) * (15 - 300) / (360 -  767));;
@@ -779,9 +781,8 @@ h2 {
             border-radius: 0.75em;
             overflow-x: hidden;
             overflow-y: scroll;
-            -webkit-overflow-scrolling: touch;
-
        }
+
 
        
 
@@ -802,6 +803,7 @@ h2 {
 
         .ecoContainers {
             width: calc(22.5em + (100vw - 360px) * (15 - 30) / (360 -  767));
+            height: 100%;
             position: absolute;
             justify-self: center;
             top: 0em;
@@ -812,6 +814,7 @@ h2 {
             justify-content: center !important;
             display: grid;
             grid-template-rows: auto auto auto auto auto auto auto auto;
+
             
 
         }
@@ -831,8 +834,10 @@ h2 {
             background-color: rgb(0, 10, 49);
             cursor: pointer;
             align-items: center;
-            z-index: 2;
             border-radius: 20px;
+
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0,0,0);
        }
 
        #ecoContainer1 {
@@ -1986,8 +1991,8 @@ and (min-width: 768px)
                 overflow-y: scroll;
                 overflow-x: hidden;
                 scroll-behavior: smooth;
-               background-color: rgb(0, 10, 49, 0.5);
-               border-radius: 0.5em;
+                background-color: rgb(0, 10, 49, 0.5);
+                border-radius: 0.5em;
         
             }
         
