@@ -577,7 +577,7 @@ h2 {
            height: 3em;
            text-align: center;
            background-color: rgba(36, 94, 180, 0.5);
-           margin-bottom: calc(0.5em + (100vh - 600px) * (15 - 25 ) / (600 -  1080))  !important;
+           margin-bottom: 0.5em;
 
            justify-content: center;
            align-content: center;
@@ -718,7 +718,7 @@ h2 {
 
        #videoButton {
         display: flex;
-        padding: 0.5em 1.1em !important;
+        padding: 0.5em 1.1em 0.5em 1.1em;
         left: 0.5em;
         top: auto;
         bottom: calc(0.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
