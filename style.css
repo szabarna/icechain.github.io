@@ -561,7 +561,7 @@ h2 {
            align-self: center;
            position: absolute;
            font-size: 1em;
-           bottom: calc(0em + (100vh - 600px) * (15 - 135 ) / (600 -  1080));
+           bottom: calc(0em + (100vh - 600px) * (15 - 400 ) / (600 -  1080));
            margin-right: 0;
            justify-content: center;
            width: 100%;
@@ -1115,7 +1115,7 @@ h2 {
             height: 3.5em;
             font-size: 1em;
             top: calc(32.5em + (100vh - 600px) * (15 - 350) / (600 -  1080));
-            left: calc(1em + (100vw - 360px) * (15 - 200) / (360 -  767));
+            left: calc(1em + (100vw - 300px) * (15 - 200) / (300 -  767));
 
             background: linear-gradient(#3772FF, #1C3980);
             border-radius: 4.5em;
@@ -1124,6 +1124,7 @@ h2 {
             color: white;
             font-family: 'Arimo', sans-serif;
             z-index: 2;
+            white-space: nowrap;
         }
 
 
@@ -1147,7 +1148,7 @@ h2 {
             width: 9em;
             height: 3.5em;
             top: calc(32.5em + (100vh - 600px) * (15 - 350) / (600 -  1080));
-            right: calc(1em + (100vw - 360px) * (15 - 200) / (360 -  767));
+            right: calc(1em + (100vw - 300px) * (15 - 200) / (300 -  767));
             border: 2px solid white;
             border-radius: 4.5em;
             cursor: pointer;
@@ -1155,6 +1156,7 @@ h2 {
             font-size: 1em;
             font-family: 'Arimo', sans-serif;
             z-index: 2;
+            white-space: nowrap;
         }
 
         #tokenHolder {
@@ -1750,6 +1752,7 @@ h2 {
     display: grid;
     grid-template-rows: 5em 5em 5em;
     justify-items: center;
+    align-content: flex-end;
 
 }
 
@@ -1811,14 +1814,18 @@ h2 {
     position: relative;
     display: flex;
     text-decoration: none;
-    font-size: 1.75em;
-    border: 2px solid white;
-    padding: 0.5em 3em !important;
+    font-size: 2em;
+    border: 2px solid rgba(15, 84, 156, 0.925);
+    padding: 0.5em 2.5em !important;
     border-radius: 2em;
     color: white;
     font-family: "Teko", sans-serif;
     white-space: nowrap;
     transition: all 0.4s;
+  }
+
+  .footerL:hover {
+      background-color: rgba(15, 84, 156, 0.925);
   }
 
       
