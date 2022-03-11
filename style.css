@@ -70,11 +70,11 @@ html, body {
     width: 150px;
     height: 150px;
     margin: -75px 0 0 -75px;
-    border-radius: 50%;
+    border-radius: 0.25em;
     border: 3px solid transparent;
-    border-top-color: #70d4db;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
+    border-color: #70d4db;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
 }
 #loader:before {
     content: "";
@@ -83,11 +83,11 @@ html, body {
     left: 5px;
     right: 5px;
     bottom: 5px;
-    border-radius: 50%;
+    border-radius: 0.25em;
     border: 3px solid transparent;
-    border-top-color: #0b24b4;
-    -webkit-animation: spin 3s linear infinite;
-    animation: spin 3s linear infinite;
+    border-color: #0b24b4;
+    -webkit-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
 }
 #loader:after {
     content: "";
@@ -96,11 +96,11 @@ html, body {
     left: 15px;
     right: 15px;
     bottom: 15px;
-    border-radius: 50%;
+    border-radius: 0.25em;
     border: 3px solid transparent;
-    border-top-color: #0084ff;
-    -webkit-animation: spin 1.5s linear infinite;
-    animation: spin 1.5s linear infinite;
+    border-color: #0084ff;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
 }
 @-webkit-keyframes spin {
     0%   {
@@ -1768,6 +1768,8 @@ h2 {
 
 #footerLinkContainer a {
     display: flex;
+    width: auto;
+    height: auto;
     padding: 0.75em;
     background-color: rgba(20, 126, 197, 0.525);
     border-radius: 50%;
@@ -1830,8 +1832,8 @@ and (min-width: 768px)
         
                .logo {
         
-                    margin-left: 1.25em;
-                    margin-top: 1.25em;
+                    margin-left: 1.6em;
+                    margin-top: 1.35em;
                     width: fit-content;
                     height: fit-content;
                }
@@ -1840,7 +1842,11 @@ and (min-width: 768px)
                    align-items: flex-start;
                    right: 2.5em;
                }
-        
+               
+               .whitePaperLi {
+                   top: 2.7em;
+                   right: 2em;
+               }
                .linkContainer {
                    display: grid;
                    align-self: center;
@@ -1883,7 +1889,7 @@ and (min-width: 768px)
                     width: fit-content;
                     height: fit-content;
                     right: 0;
-                    margin-top: 1.75em;
+                    margin-top: 1.25em;
                     cursor: pointer;
         
                }
@@ -1910,22 +1916,35 @@ and (min-width: 768px)
                    display: flex;
                    align-self: center;
                }
+
+               .landingText {
+                   top: calc(0em + (100vh - 600px) * (15 - 150 ) / (600 - 1080));
+                   right: 7.5em;
+               }   
+
+               .homeLayer {
+                top: calc(10em + (100vh - 600px) * (15 - 250 ) / (600 - 1080));
+                height: calc(20em + (100vh - 600px) * (15 - 30 ) / (600 - 1080));
+               }
         
         
                #dataText {
                    font-size: 3.25em;
                    left: -0.9em;
+                   top: 0.25em;
                }
         
                #yoursText {
-                   font-size: 1.5em;
-                   left: -1.9em;
+                   font-size: 1.4em;
+                   width: fit-content;
+                   top: 5em;
+                   left: 0.425em;
                }
         
                #videoButton {
                    display: flex;
-                   top: 15em;
-                   left: -3.25em;
+                   top: 10em;
+                   left: 0em;
                    padding: 0px 25px;
                    justify-content: center;
         
@@ -1933,27 +1952,13 @@ and (min-width: 768px)
         
                #otherButton {
                 display: flex;
-                top: 15em;
-                left: 9.5em;
+                top: 10em;
+                left: 7.5em;
                 padding: 0px 25px;
                 justify-content: center;
         
                 }
         
-                #otherText {
-                    left: 0;
-                    font-size: 1.72em;
-                }
-        
-        
-               #videoText {
-                   font-size: 1.65em;
-                   display: flex;
-                   width: fit-content;
-                   height: fit-content;
-                   justify-self: center;
-                   left: 0;
-               }
         
                #leftEco {
                 display: grid;
@@ -2079,6 +2084,7 @@ and (min-width: 768px)
                     text-align: center;
                     border-radius: 0;
                     transform: scale(0.825);
+                    top: auto;
                 }
         
                 #t3 {
@@ -2088,6 +2094,7 @@ and (min-width: 768px)
                     text-align: center;
                     border-radius: 0;
                     transform: scale(0.825);
+                    top: auto;
                 }
         
                 #t4 {
@@ -2097,6 +2104,11 @@ and (min-width: 768px)
                     text-align: center;
                     border-radius: 0;
                     transform: scale(0.825);
+                    top: auto;
+                }
+
+                #tooBig {
+                    bottom: 2em;
                 }
         
                 .blueText {
@@ -2142,15 +2154,17 @@ and (min-width: 768px)
         
                 #utilityContainer {
                     border: 2px solid #001D3B;
+                    border-radius: 2em;
                     display: flex;
                     left: auto;
                     width: 45.25em;
-                    top: calc(32.5em + (100vh - 600px) * (15 - 445 ) / (600 -  1280));
+                    top: calc(32.5em + (100vh - 600px) * (15 - 430 ) / (600 -  1280)) !important;
                     align-items: center;
                 }
         
                 .utilityContent {
                     align-items: center;
+                    left: -0.75em;
                 }
         
                 .img {
@@ -2302,12 +2316,12 @@ and (min-width: 768px)
         
                 #marketContainer {
                     height: 85.5vh;
-                    width: calc(42.75em + (100vw - 768px) * (15 - 445 ) / (768 -  1199));
+                    width: calc(42.75em + (100vw - 768px) * (15 - 445 ) / (768 -  1199)) !important;
                     position: relative;
                     display: grid;
                     align-self: flex-end;
                     align-items: center;
-                    top: 2em;
+                    bottom: 0;
                 }
         
         
@@ -2334,10 +2348,11 @@ and (min-width: 768px)
                     display: none;
                 }
                 #marketDivContainer {
-                    transform: scale(0.75);
+                    transform: scale(0.6);
                     width: fit-content !important;
-                    bottom: calc(3em + (100vh - 600px) * (15 - 100) / (600 -  1080));
-                    left: calc(-12.5em + (100vw - 768px) * (15 - 30) / (768 -  1199));
+                    bottom: calc(5em + (100vh - 600px) * (15 - 100) / (600 -  1080));
+                    left: calc(-20em + (100vw - 768px) * (15 - 30) / (768 -  1199));
+                    background-color: transparent;
                     display: grid;
                     grid-template-columns: auto auto auto auto;
                     grid-template-rows: none ;
@@ -2359,9 +2374,15 @@ and (min-width: 768px)
                 }
         
                 #mD4 {
+                    height: 45em;
                     left: 4em;
-                    border: none;
-                    bottom: 4.75em;
+                    border: 5px solid white;
+                    bottom: 0;
+                    top: auto;
+                }
+
+                #mD4Sub {
+                    top: 10em;
                 }
         
                 #nft1SubImg {
@@ -2630,7 +2651,7 @@ li {
     z-index: 3;
     position: relative;
     display: flex;
-    right: calc(-10.25em + (100vw - 1200px) * (15 + 115) / (1200 - 1600) );
+    right: calc(13.75em + (100vw - 1200px) * (15 - 90) / (1200 - 1600) );
     top: -5em;
     align-self: center;
 }
@@ -2846,6 +2867,8 @@ li {
      overflow: hidden;
  }
 
+
+
  #tooBig {
      bottom: 2em;
  }
@@ -2854,6 +2877,10 @@ li {
      border-radius: 1.25em;
      overflow: hidden;
      bottom: calc(0em + (100vh - 600px) * (15 - 200 ) / (600 - 1080));
+ }
+
+ .utilityContent {
+     left: -0.75em;
  }
 
 
