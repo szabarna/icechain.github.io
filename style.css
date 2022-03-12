@@ -35,11 +35,10 @@ img {
 }
 
 body {
-    position: absolute;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 
@@ -775,7 +774,7 @@ h2 {
        #leftEco {
            display: grid;
            margin-top: calc(6em + (100vh - 600px) * (15 - 135 ) / (600 -  1080));
-           position: absolute;
+           position: relative;
            
            left: auto;
            height: calc(25.5em + (100vh - 600px) * (15 - 200 ) / (600 -  1080));
@@ -1030,7 +1029,7 @@ h2 {
             align-items: center;
             background-color: rgba(0, 29, 59, 0.525);
             overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             overflow-y: hidden;
             white-space: nowrap;
             scroll-behavior: smooth;
@@ -1069,7 +1068,7 @@ h2 {
             align-content: center;
             overflow-x: scroll;
             overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             white-space: nowrap;
             position: absolute;
             scroll-behavior: smooth;
@@ -1179,7 +1178,7 @@ h2 {
             align-content: center;
             overflow-x: scroll;
             overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             scroll-behavior: smooth;
 
             position: relative;
@@ -1413,7 +1412,7 @@ h2 {
             justify-content: space-between;
             align-items: flex-start;
             overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             overflow-y: hidden;
             position: relative;
             height: 30em;
@@ -1567,7 +1566,7 @@ h2 {
             justify-content: space-between;
             white-space: nowrap;
             overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             overflow-y: hidden;
         }
 
@@ -1616,7 +1615,7 @@ h2 {
             display: grid;
             grid-template-columns: 0.1em 0.1em;
             overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             overflow-y: hidden;
             
         }
