@@ -677,7 +677,7 @@ h2 {
             justify-content: center;
 
             z-index: 3;
-            position: relative;
+            position: absolute;
             display: flex;
             align-self: center;
         }
