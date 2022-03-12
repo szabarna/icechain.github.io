@@ -781,7 +781,7 @@ h2 {
             border-radius: 0.75em;
             overflow-x: hidden;
             overflow-y: scroll;
-            -webkit-overflow-scrolling: auto;
+            -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
 
        }
@@ -1027,7 +1027,7 @@ h2 {
             align-items: center;
             background-color: rgba(0, 29, 59, 0.525);
             overflow-x: scroll;
-            -webkit-overflow-scrolling: auto;
+            -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             white-space: nowrap;
             scroll-behavior: smooth;
@@ -1066,7 +1066,7 @@ h2 {
             align-content: center;
             overflow-x: scroll;
             overflow-y: hidden;
-            -webkit-overflow-scrolling: auto;
+            -webkit-overflow-scrolling: touch;
             white-space: nowrap;
             position: absolute;
             scroll-behavior: smooth;
@@ -1176,7 +1176,7 @@ h2 {
             align-content: center;
             overflow-x: scroll;
             overflow-y: hidden;
-            -webkit-overflow-scrolling: auto;
+            -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
 
             position: relative;
@@ -1410,7 +1410,7 @@ h2 {
             justify-content: space-between;
             align-items: flex-start;
             overflow-x: scroll;
-            -webkit-overflow-scrolling: auto;
+            -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             position: relative;
             height: 30em;
@@ -1564,7 +1564,7 @@ h2 {
             justify-content: space-between;
             white-space: nowrap;
             overflow-x: scroll;
-            -webkit-overflow-scrolling: auto;
+            -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             scroll-behavior: smooth;
         }
@@ -1614,7 +1614,7 @@ h2 {
             display: grid;
             grid-template-columns: 0.1em 0.1em;
             overflow-x: scroll;
-            -webkit-overflow-scrolling: auto;
+            -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             scroll-behavior: smooth;
             
@@ -1659,7 +1659,7 @@ h2 {
             overflow-x: hidden;
             justify-content: center;
             scroll-behavior: smooth;
-            -webkit-overflow-scrolling: auto;
+            -webkit-overflow-scrolling: touch;
              
             background-color: rgba(0, 29, 59, 0.525);
             top: 8.5em;
