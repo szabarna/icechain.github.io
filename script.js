@@ -582,7 +582,7 @@ console.error( error );
         }
         else if(getDeviceWidth() < 1199 && getDeviceWidth() >= 768 && getDeviceHeight() < 950) {
             mainCube.scale.set(.6, .6, .6);
-            mainCube.position.set(1, 0, 0);
+            mainCube.position.set(1.4, 0, 0);
             mainCube.rotation.set(Math.PI * 0.125, 0, 0);
         }
 

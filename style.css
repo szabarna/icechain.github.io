@@ -564,15 +564,14 @@ h2 {
            align-self: center;
            position: fixed;
            font-size: 1em;
-           bottom: calc(0em + (100vh - 600px) * (15 - 400 ) / (600 -  1080));
+           bottom: calc(1em + (100vh - 600px) * (15 - 400 ) / (600 -  1080));
            margin-right: 0;
            justify-content: center;
            width: 100%;
            height: 30em;
-           left: -0.6em;
+           left: auto;
            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
            -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-           padding: 10px;
        }
 
        .li {
@@ -590,11 +589,7 @@ h2 {
             text-decoration: none;
             color: white;
             font-size: 1.45em;
-            padding: 5px 15px;
-            transition: all 100ms ease-in;
-            font-weight: 600;
-
-           
+            transition: all 100ms ease-in;   
        }
 
         
@@ -846,6 +841,7 @@ h2 {
 
             transform: translate3d(0, 0, 0);
             -webkit-transform: translate3d(0,0,0);
+            border: 2px solid rgba(15, 84, 156, 1); 
        }
 
        #ecoContainer1 {
@@ -1123,7 +1119,7 @@ h2 {
             height: 3.5em;
             font-size: 1em;
             top: calc(32.5em + (100vh - 600px) * (15 - 350) / (600 -  1080));
-            left: calc(1em + (100vw - 300px) * (15 - 200) / (300 -  767));
+            left: calc(0em + (100vw - 300px) * (15 - 200) / (300 -  767));
 
             background: linear-gradient(#3772FF, #1C3980);
             border-radius: 4.5em;
@@ -1156,7 +1152,7 @@ h2 {
             width: 9em;
             height: 3.5em;
             top: calc(32.5em + (100vh - 600px) * (15 - 350) / (600 -  1080));
-            right: calc(1em + (100vw - 300px) * (15 - 200) / (300 -  767));
+            right: calc(0em + (100vw - 300px) * (15 - 200) / (300 -  767));
             border: 2px solid white;
             border-radius: 4.5em;
             cursor: pointer;
@@ -1373,7 +1369,7 @@ h2 {
             font-size: 1.9em;
             top: calc(0.6em + (100vh - 600px) * (15 - 50) / (600 -  1080));
             display: flex;
-            left: calc(1.6em + (100vw - 360px) * (15 - 67.5) / (360 -  767)) !important;
+            left: calc(1.6em + (100vw - 300px) * (15 - 67.5) / (360 -  767)) !important;
             white-space: nowrap;
             font-family: 'Roboto', sans-serif;
             position: relative;
@@ -1384,7 +1380,7 @@ h2 {
             font-size: 0.9em;
             top: calc(-6em + (100vh - 600px) * (15 - 25) / (600 -  1080));
             display: flex;
-            left: calc(3.4em + (100vw - 360px) * (15 - 67.5) / (360 -  767)) !important;
+            left: calc(3.4em + (100vw - 300px) * (15 - 67.5) / (360 -  767)) !important;
 
             font-family: 'Arimo', sans-serif;
             position: relative;
@@ -1400,7 +1396,7 @@ h2 {
 
             font-family: 'Arimo', sans-serif;
             position: relative;
-            left: calc(3em + (100vw - 360px) * (15 - 75) / (360 -  767)) !important;
+            left: calc(3em + (100vw - 300px) * (15 - 75) / (360 -  767)) !important;
         }
 
 
@@ -1419,7 +1415,7 @@ h2 {
             position: relative;
             height: 30em;
             scroll-behavior: smooth;
-            background-color: rgba(15, 84, 156, 0.225);
+            background-color: rgba(15, 84, 156, 0);
             border-radius: 1.5em;
         }
 
@@ -1895,7 +1891,8 @@ and (min-width: 768px)
                    width: 100%;
                    height: 25em;
                    left: auto;
-                   top: calc(7em + (100vh - 600px) * (15 - 30) / (600 -  1280));
+                   bottom: auto;
+                   top: calc(7.5em + (100vh - 600px) * (15 - 30) / (600 -  1280));
                    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
                    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
                }
@@ -1909,6 +1906,7 @@ and (min-width: 768px)
                    margin-bottom: 0.75em;
                    justify-content: center;
                    align-content: center;
+                   
                }
         
         
@@ -1956,8 +1954,8 @@ and (min-width: 768px)
                }
 
                .landingText {
-                   top: calc(0em + (100vh - 600px) * (15 - 150 ) / (600 - 1080));
-                   right: 7.5em;
+                   top: calc(1.5em + (100vh - 600px) * (15 - 150 ) / (600 - 1080));
+                   right: 7em;
                }   
 
                .homeLayer {
@@ -1981,16 +1979,16 @@ and (min-width: 768px)
         
                #videoButton {
                    display: flex;
-                   top: 10em;
-                   left: 0em;
+                   top: 9em;
+                   left: 0.5em;
                    justify-content: center;
         
                }
         
                #otherButton {
                 display: flex;
-                top: 10em;
-                left: 7.5em;
+                top: 9em;
+                left: 8em;
                 justify-content: center;
         
                 }
@@ -2036,7 +2034,8 @@ and (min-width: 768px)
                  width: 20em;
                  height: 15em;
                  font-size: 1em;
-                 justify-content: center;         
+                 justify-content: center;
+                        
             }
         
             #ecoContainer1 {
@@ -2351,32 +2350,34 @@ and (min-width: 768px)
         
         
                 #marketContainer {
-                    height: 85.5vh;
-                    width: calc(42.75em + (100vw - 768px) * (15 - 445 ) / (768 -  1199)) !important;
+                    height: calc(82.5vh + (100vh - 600px) * (15 + 325 ) / (600 -  1280));
+                    width: calc(42.75em + (100vw - 768px) * (15 - 75 ) / (768 -  1199)) !important;
                     position: relative;
                     display: grid;
                     align-self: flex-end;
                     align-items: center;
-                    bottom: 0;
+                    bottom: calc(0em + (100vh - 600px) * (15 - 350 ) / (600 -  1280));
                 }
         
         
                 #marketH1 {
-                    font-size: calc(2.35em + (100vh - 600px) * (15 - 40 ) / (600 -  1280));
-                    top: calc(0.6em + (100vh - 600px) * (15 - 30 ) / (600 -  1280));
+                    font-size: calc(2.35em + (100vh - 600px) * (15 - 22.5 ) / (600 -  1280));
+                    top: calc(0.6em + (100vh - 600px) * (15 - 45 ) / (600 -  1280));
+                    left: calc(0.35em + (100vw - 768px) * (15 - 67.5) / (768 - 1199)) !important;
                     display: flex;
-                    left: 0.4em;
                 }
         
                 #marketH2 {
-                    font-size: calc(1.1em + (100vh - 600px) * (15 - 25 ) / (600 -  1280));
-                    top: calc(-6em + (100vh - 600px) * (15 + 10 ) / (600 -  1280));
+                    font-size: calc(1.1em + (100vh - 600px) * (15 - 20 ) / (600 -  1280));
+                    top: calc(-6em + (100vh - 600px) * (15 - 30 ) / (600 -  1280));
+                    left: calc(0.85em + (100vw - 768px) * (15 - 67.5) / (768 - 1199)) !important;
                     display: flex;
                 }
         
                 #marketH3 {
-                    font-size: calc(1.15em + (100vh - 600px) * (15 - 30 ) / (600 -  1280));
-                    top: -3.75em;
+                    font-size: calc(1.15em + (100vh - 600px) * (15 - 20 ) / (600 -  1280));
+                    left: calc(1.55em + (100vw - 768px) * (15 - 67.5) / (768 - 1199)) !important;
+                    top: calc(-3.75em + (100vh - 600px) * (15 - 50 ) / (600 -  1280));
                     display: flex;
                 }
         
@@ -2386,39 +2387,48 @@ and (min-width: 768px)
                 #marketDivContainer {
                     transform: scale(0.6);
                     width: fit-content !important;
-                    bottom: calc(5em + (100vh - 600px) * (15 - 100) / (600 -  1080));
-                    left: calc(-20em + (100vw - 768px) * (15 - 30) / (768 -  1199));
+                    height: calc(53em + (100vh - 600px) * (15 - 300) / (600 - 1280));
+                    bottom: calc(24em + (100vh - 600px) * (15 - 250) / (600 - 1280));
+                    left: calc(-20em + (100vw - 768px) * (15 - 65) / (768 -  1199));
                     background-color: transparent;
                     display: grid;
                     grid-template-columns: auto auto auto auto;
                     grid-template-rows: none ;
                     justify-content: space-between;
-                    align-items: center;
+                    align-items: flex-end;
                     overflow-x: scroll;
                     position: relative;
-                    height: fit-content;
                     scroll-behavior: smooth;
                 }
         
                 #mD1 {
                     left: 4.5em;
+                    bottom: 7.75em;
+                    top: auto;
                 }
         
                 #mD2 {
                     left: 3em;
                     margin-right: 0;
+                    bottom: 7.75em;
+                    top: auto;
                 }
         
                 #mD4 {
                     height: 45em;
                     left: 4em;
                     border: 5px solid white;
-                    bottom: 0;
+                    bottom: 2em;
                     top: auto;
                 }
 
                 #mD4Sub {
-                    top: 10em;
+                    top: 12em;
+                }
+
+                #mD5 {
+                    bottom: 7.75em;
+                    top: auto;
                 }
         
                 #nft1SubImg {
@@ -2431,7 +2441,10 @@ and (min-width: 768px)
                 }
         
                 #nft4SubImg {
-                    display: none;
+                    display: block;
+                    top: -25em;
+                    left: -1.25em;
+                    transform: scale(0.925)
                 }
         
                 #dropH1 {
@@ -2439,6 +2452,11 @@ and (min-width: 768px)
                     font-size: 2em;
                     position: absolute;
                     top: calc(2.5em + (100vh - 800px) * (15 - 100 ) / (800 -  1080));
+                }
+
+                .dropSlider {
+                    display: none;
+                    -webkit-display: none;
                 }
         
                 #dropImg {
@@ -2456,39 +2474,45 @@ and (min-width: 768px)
         
                 #createImg {
                     display: flex;
-                    transform: scale(0.75);
+                    transform: scale(0.65);
                     left: calc(-18.5em + (100vw - 768px) * (15 - 200) / (768 -  1199));
-                    top: calc(5.5em + (100vh - 800px) * (15 - 100 ) / (800 -  1080));
+                    top: auto;
                 }
         
                 #createImg2 {
                     display: flex;
-                    transform: scale(0.75);
+                    transform: scale(0.6);
                     right: calc(-21.5em + (100vw - 768px) * (15 - 200) / (768 -  1199));
-                    top: calc(3em + (100vh - 800px) * (15 - 100 ) / (800 -  1080));
+                    top: auto;
+                }
+
+                #createSlider {
+                    display: none;
+                    -webkit-display: none;
                 }
         
                 .contact {
                     display: flex;
                     justify-content: center !important;
                 }
-        
-                #teamImg {
-                    position: relative;
-                    display: flex;
-                    transform: scale(0.575);
-                    right: 0;
-                    bottom: 0;
-                    top: -3em;
+
+                #teamSlider {
+                    width: 42.5em;
+                    grid-template-rows: 13.5em 13.5em 13.5em 13.5em 13.5em;
+                    top: calc(8.5em + (100vh - 600px) * (15 - 100) / (600 - 1280));
+                }
+
+                .teamSlide {
+                    transform: scale(0.75);
                 }
         
                 #teamH1 {
-                    font-size: 2.5em;
+                    font-size: 3em !important; 
                     transform: rotate(0);
                     left: auto;
                     position: absolute;
                     display: flex;
-                    top: 0.5em;
+                    top: calc(1.25em + (100vh - 600px) * (15 - 100) / (600 - 1280)) !important;
                 }
         
                 #portfolioImg {
@@ -2634,7 +2658,6 @@ li {
     font-size: 1.1em;
     padding: 5px 15px;
     transition: all 100ms ease-in;
-    font-weight: 600;
     width: auto;
     white-space: nowrap;
     background-color: transparent;
@@ -3299,21 +3322,11 @@ li {
         top: calc(-3.75em + (100vh - 600px) * (15 - 300) / (600 -  1080)) !important;
     }
     .footer {
-        height: calc(22.25em + (100vh - 600px) * (15 - 100) / (600 -  1080)) !important;
         overflow: hidden;
         scroll-snap-align: end;
     }
 
-    #footerIce {
-        top: calc(6.25em + (100vh - 600px) * (15 - 75) / (600 -  1080)) !important;
-    }
-    #footerButtonContainer {
-        top: calc(12em + (100vh - 600px) * (15 - 75) / (600 -  1080)) !important;
-    }
-
-    #footerLinkContainer {
-        top: calc(17.5em + (100vh - 600px) * (15 - 75) / (600 -  1080)) !important;
-    }
+ 
 
 }
 
@@ -3524,7 +3537,6 @@ li {
     font-size: 1.1em;
     padding: 5px 15px;
     transition: all 100ms ease-in;
-    font-weight: 600;
     width: auto;
     white-space: nowrap;
     background-color: transparent;
@@ -4476,29 +4488,9 @@ li {
 }
 
 /* FOOTER SECTION */
-.footer {
-    height: 50vh;
-}
 
 
-#footerIce {
-    display: flex;
-    position: absolute;
-    top: 3em !important;
-    width: 86px !important;
-    height: 86px !important;
-}
 
-#footerLinkContainer {
-    bottom: 2.5em !important;
-    transform: scale(1);
-}
-
-#footerButtonContainer {
-    transform: scale(1) ;
-    top: 11em !important;
-    padding: 0.5em 2em !important;
-}
 
 #footerL1 {
     border: 2px solid rgba(15, 84, 156, 0.925);
