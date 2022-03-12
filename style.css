@@ -38,8 +38,8 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    overflow: hidden;
-
+    overflow-y: hidden;
+    position: fixed;
 }
 
 
@@ -185,6 +185,7 @@ section {
 }
 
 .container {
+    
     scroll-snap-type: none;
     overflow-x: hidden;
     height: 100vh;
@@ -735,11 +736,12 @@ h2 {
         cursor: pointer;
         background-color: transparent;
         color: white;
-        transition: 0.1s;
+        transition: all 0.1s;
         border: 2px solid white;
         font-family: "Teko", sans-serif;
         font-size: 1.3em;
         white-space: nowrap;
+        text-align: center !important;
     }
 
        #otherButton {
@@ -758,7 +760,7 @@ h2 {
         cursor: pointer;
         background-color: transparent;
         color: white;
-        transition: 0.1s;
+        transition: all 0.1s;
         border: 2px solid white;
         text-decoration: none;
         text-align: center;
@@ -772,6 +774,7 @@ h2 {
            display: grid;
            margin-top: calc(6em + (100vh - 600px) * (15 - 135 ) / (600 -  1080));
            position: absolute;
+           
            left: auto;
            height: calc(25.5em + (100vh - 600px) * (15 - 200 ) / (600 -  1080));
            width: calc(20em + (100vw - 360px) * (15 - 300) / (360 -  767));;
@@ -781,6 +784,8 @@ h2 {
             border-radius: 0.75em;
             overflow-x: hidden;
             overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            zoom: 1;
        }
 
 
@@ -803,8 +808,8 @@ h2 {
 
         .ecoContainers {
             width: calc(22.5em + (100vw - 360px) * (15 - 30) / (360 -  767));
-            height: 100%;
-            position: absolute;
+            height: inherit;
+            position: relative;
             justify-self: center;
             top: 0em;
 
@@ -1747,12 +1752,12 @@ h2 {
         /* FOOTER SECTION */
 
 .footer {
-    height: 20em;
+    height: 22.5em;
     background: black;
     display: grid;
     grid-template-rows: 5em 5em 5em;
     justify-items: center;
-    align-content: flex-end;
+    align-content: center;
 
 }
 
@@ -1972,7 +1977,6 @@ and (min-width: 768px)
                    display: flex;
                    top: 10em;
                    left: 0em;
-                   padding: 0px 25px;
                    justify-content: center;
         
                }
@@ -1981,7 +1985,6 @@ and (min-width: 768px)
                 display: flex;
                 top: 10em;
                 left: 7.5em;
-                padding: 0px 25px;
                 justify-content: center;
         
                 }
