@@ -1758,7 +1758,8 @@ h2 {
         /* FOOTER SECTION */
 
 .footer {
-    height: 22.5em;
+    width: 100vw;
+    height: 30em !important;
     background: black;
     display: grid;
     grid-template-rows: 5em 5em 5em;
