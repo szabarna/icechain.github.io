@@ -665,7 +665,6 @@ h2 {
             top: calc(8.5em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
            border-radius: 0.25em;
 
-           z-index: 3;
            position: absolute;
        }
 
@@ -677,7 +676,7 @@ h2 {
             justify-content: center;
 
             z-index: 3;
-            position: absolute;
+            position: relative;
             display: flex;
             align-self: center;
         }
@@ -721,7 +720,7 @@ h2 {
        #videoButton {
         display: flex;
         padding: 0.5em 1.1em 0.5em 1.1em;
-        left: 0.5em;
+        left: auto;
         top: auto;
         bottom: calc(0.5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
         border-radius: 1.5em;
@@ -729,7 +728,7 @@ h2 {
 
         position: absolute;
         height: 2.5em;
-        width: 6em;
+        width: 12.5em;
         align-content: center;
         justify-content: center;
         cursor: pointer;
@@ -766,6 +765,8 @@ h2 {
         font-size: 1.3em;
         font-family: "Teko", sans-serif;
         white-space: nowrap;
+
+        display: none;
         }
 
 
@@ -790,7 +791,21 @@ h2 {
 
 
        
-
+       #privateSaleLink {
+           position: absolute;
+           white-space: nowrap;
+           font-size: 1.5em;
+           text-decoration: none;
+           width: 3em;
+           height: 1.5em;
+           font-family: "Teko", sans-serif;
+           padding: 0.5em 2em;
+           border: 2px solid white;
+           text-align: center;
+           border-radius: 1.5em;
+           top: 3.5em;
+           color: white;
+       }
 
        .smallEco {
            display: flex !important;
@@ -1986,9 +2001,14 @@ and (min-width: 768px)
                #videoButton {
                    display: flex;
                    top: 9em;
-                   left: 0.5em;
+                   left: 0em;
                    justify-content: center;
+                   width: 6em;
         
+               }
+
+               #privateSaleLink {
+                   display: none;
                }
         
                #otherButton {
