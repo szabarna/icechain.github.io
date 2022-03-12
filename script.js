@@ -605,6 +605,7 @@ console.error( error );
         
         // y -1.8
 
+
         if(getDeviceWidth() >= 1200) mainCube.rotation.set(Math.PI * 0.125, 0, 0);
        
         mainCube.material.transparent = true;
@@ -694,16 +695,16 @@ console.error( error );
       }});
     }
         scene.add( mainCube );
-        /*
-        camera.lookAt(mainCube.position);
-        container.addEventListener('scroll', ()=> {
-          if(mainCube.material.opacity > 0.2){
-            camera.lookAt(mainCube.position);
-            camera.updateProjectionMatrix();
-          }
+        
+        // camera.lookAt(mainCube.position);
+        // container.addEventListener('scroll', ()=> {
           
-        })
-        */
+        //     camera.lookAt(mainCube.position);
+        //     camera.updateProjectionMatrix();
+          
+          
+        // })
+        
 
   }, undefined, function ( error ) {
 
@@ -955,6 +956,7 @@ function onDocumentMouseMove(event) {
       composer.render();
      // stats.update()
     // render();
+
  
   }
 

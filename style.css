@@ -562,7 +562,7 @@ h2 {
            display: grid;
            grid-template-rows: auto auto auto auto auto;
            align-self: center;
-           position: fixed;
+           position: absolute;
            font-size: 1em;
            bottom: calc(1em + (100vh - 600px) * (15 - 400 ) / (600 -  1080));
            margin-right: 0;
@@ -1625,16 +1625,20 @@ h2 {
             display: flex;
             transform: scale(0.7);
             top: -5em;
-            right: 7.5em;
+            right: calc(7.5em + (100vw - 300px) * (15 - 30) / (300 -  767));
+            width: auto;
+            height: auto;
             
         }
 
         #createSlide2 {
             position: absolute;
             display: flex;
+            width: auto;
+            height: auto;
             transform: scale(0.7);
             top: -6em;
-            left: 15em;
+            left: calc(15em + (100vw - 300px) * (15 - 30) / (300 -  767));
 
         }
 
