@@ -1367,7 +1367,7 @@ h2 {
 
         #marketH1 {
             font-size: 1.85em;
-            top: calc(0.5em + (100vh - 600px) * (15 - 50) / (600 -  1080));
+            top: calc(0.5em + (100vh - 600px) * (15 - 15) / (600 -  1080));
             display: flex;
             left: calc(1.4em + (100vw - 300px) * (15 - 72.5) / (360 -  767)) !important;
             white-space: nowrap;
@@ -1378,7 +1378,7 @@ h2 {
 
         #marketH2 {
             font-size: 0.9em;
-            top: calc(-6em + (100vh - 600px) * (15 + 35) / (600 -  1080));
+            top: calc(-6em + (100vh - 600px) * (15 + 15) / (600 -  1080));
             display: flex;
             left: calc(3em + (100vw - 300px) * (15 - 72.5) / (360 -  767)) !important;
             font-size: 0.85em;
@@ -1391,7 +1391,7 @@ h2 {
 
         #marketH3 {
             font-size: 1.1em;
-            top: calc(-3.5em + (100vh - 600px) * (15  + 60) / (600 -  1080));
+            top: calc(-3.5em + (100vh - 600px) * (15 - 20) / (600 -  1080));
             display: flex;
 
             font-family: 'Arimo', sans-serif;
@@ -1403,7 +1403,7 @@ h2 {
         #marketDivContainer {
             transform: scale(0.75);
             width: calc(25em + (100vw - 360px) * (15 - 420) / (360 -  767)) !important;
-            bottom: calc(8em + (100vh - 600px) * (15 - 75) / (600 -  1080));
+            bottom: calc(8em + (100vh - 600px) * (15 - 5) / (600 -  1080));
             left: 0;
             display: grid;
             grid-template-columns: auto auto auto auto;
