@@ -775,7 +775,7 @@ h2 {
        #leftEco {
            display: grid;
            margin-top: calc(6em + (100vh - 600px) * (15 - 135 ) / (600 -  1080));
-           position: relative;
+           position: absolute;
            
            left: auto;
            height: calc(25.5em + (100vh - 600px) * (15 - 200 ) / (600 -  1080));
@@ -786,7 +786,7 @@ h2 {
             border-radius: 0.75em;
             overflow-x: hidden;
             overflow-y: scroll;
-            -webkit-overflow-scrolling: auto;
+            -webkit-overflow-scrolling: touch;
 
        }
 
@@ -1654,8 +1654,9 @@ h2 {
             height: calc(25em + (100vh - 600px) * (15 - 300) / (600 -  1080));
             overflow-y: scroll;
             overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
             justify-content: center;
+
+            -webkit-overflow-scrolling: auto;
              
             background-color: rgba(0, 29, 59, 0.525);
             top: 8.5em;
