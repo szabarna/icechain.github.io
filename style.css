@@ -38,9 +38,10 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    height: 100vh;
+}
+
+html, body {
     overflow: hidden;
-    position: fixed;
 }
 
 
@@ -193,9 +194,6 @@ section {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
-    position: fixed;
-
-
 
 }
 
