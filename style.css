@@ -1366,10 +1366,10 @@ h2 {
 
 
         #marketH1 {
-            font-size: 1.9em;
-            top: calc(0.6em + (100vh - 600px) * (15 - 50) / (600 -  1080));
+            font-size: 1.85em;
+            top: calc(0.5em + (100vh - 600px) * (15 - 50) / (600 -  1080));
             display: flex;
-            left: calc(1.6em + (100vw - 300px) * (15 - 67.5) / (360 -  767)) !important;
+            left: calc(1.4em + (100vw - 300px) * (15 - 72.5) / (360 -  767)) !important;
             white-space: nowrap;
             font-family: 'Roboto', sans-serif;
             position: relative;
@@ -1378,10 +1378,10 @@ h2 {
 
         #marketH2 {
             font-size: 0.9em;
-            top: calc(-6em + (100vh - 600px) * (15 - 25) / (600 -  1080));
+            top: calc(-6em + (100vh - 600px) * (15 + 35) / (600 -  1080));
             display: flex;
-            left: calc(3.4em + (100vw - 300px) * (15 - 67.5) / (360 -  767)) !important;
-
+            left: calc(3em + (100vw - 300px) * (15 - 72.5) / (360 -  767)) !important;
+            font-size: 0.85em;
             font-family: 'Arimo', sans-serif;
             position: relative;
             color: rgb(31, 110, 214);
@@ -1391,19 +1391,19 @@ h2 {
 
         #marketH3 {
             font-size: 1.1em;
-            top: calc(-3.5em + (100vh - 600px) * (15  - 30) / (600 -  1080));
+            top: calc(-3.5em + (100vh - 600px) * (15  + 60) / (600 -  1080));
             display: flex;
 
             font-family: 'Arimo', sans-serif;
             position: relative;
-            left: calc(3em + (100vw - 300px) * (15 - 75) / (360 -  767)) !important;
+            left: calc(2.7em + (100vw - 300px) * (15 - 75) / (360 -  767)) !important;
         }
 
 
         #marketDivContainer {
             transform: scale(0.75);
             width: calc(25em + (100vw - 360px) * (15 - 420) / (360 -  767)) !important;
-            bottom: calc(8em + (100vh - 600px) * (15 - 5) / (600 -  1080));
+            bottom: calc(8em + (100vh - 600px) * (15 - 75) / (600 -  1080));
             left: 0;
             display: grid;
             grid-template-columns: auto auto auto auto;
@@ -1608,7 +1608,7 @@ h2 {
 
         #createSlider {
             position: absolute;
-            width: 50em;
+            width: calc(18em + (100vw - 300px) * (15 - 400) / (300 -  767));
             height: 32.5em;
             bottom: calc(0em + (100vh - 600px) * (15 - 100) / (600 -  1080));
             display: grid;
@@ -1623,9 +1623,9 @@ h2 {
         #createSlide1 {
             position: relative;
             display: flex;
-            transform: scale(0.7);
+            transform: scale(0.6);
             top: -5em;
-            right: calc(7.5em + (100vw - 300px) * (15 - 30) / (300 -  767));
+            right: calc(7em + (100vw - 300px) * (15 - 10) / (300 -  767));
             width: auto;
             height: auto;
             
@@ -1637,8 +1637,8 @@ h2 {
             width: auto;
             height: auto;
             transform: scale(0.7);
-            top: -6em;
-            left: calc(15em + (100vw - 300px) * (15 - 30) / (300 -  767));
+            top: -5em;
+            left: calc(19em + (100vw - 300px) * (15 - 30) / (300 -  767));
 
         }
 
@@ -2480,14 +2480,14 @@ and (min-width: 768px)
                 #createImg {
                     display: flex;
                     transform: scale(0.65);
-                    left: calc(-18.5em + (100vw - 768px) * (15 - 200) / (768 -  1199));
+                    left: calc(-1em + (100vw - 768px) * (15 - 200) / (768 -  1199));
                     top: auto;
                 }
         
                 #createImg2 {
                     display: flex;
                     transform: scale(0.6);
-                    right: calc(-21.5em + (100vw - 768px) * (15 - 200) / (768 -  1199));
+                    right: calc(-1em + (100vw - 768px) * (15 - 200) / (768 -  1199));
                     top: auto;
                 }
 
@@ -2635,7 +2635,7 @@ and (min-width: 1200px)
 
 .whitepaper {
     font-size: 1.25em;
-    right: calc(-1em + (100vw - 1200px) * (15 - 50 ) / (1200 -  1599));
+    right: calc(-2.5em + (100vw - 1200px) * (15 - 110 ) / (1200 -  1599));
 
 }
 
@@ -3174,39 +3174,42 @@ li {
 
     #mD1 {
         left: calc(2em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
-        top: 7.5em;
+        top: -2.5em !important;
+        bottom: auto;
 
     }
 
     #mD2 {
         left: calc(3em + (100vw - 1200px) * (15 - 20) / (1200 -  1600));
-        top: 7.5em;
+        top: -2.5em !important;
+        bottom: auto;
     }
 
     #mD4 {
         left: calc(7em + (100vw - 1200px) * (15 - 20) / (1200 -  1600));
         height: 45em;
         top: auto !important;
-        bottom: -4em !important;
+        bottom: calc(-1.25em + (100vh - 600px) * (15 - 50) / (600 -  1080)) !important;
         border: 5px solid white;
         
     }
 
     #mD5 {
         left: calc(6em + (100vw - 1200px) * (15 - 30) / (1200 -  1600));
-        transform: scale(0.925);
-        top: 7.5em;
+        transform: scale(0.925) !important;
+        top: -2.5em !important;
+        bottom: auto;
     }
 
     #marketContainer {
         width: calc(54em + (100vw - 1200px) * (15 - 167.5) / (1200 -  1600)) !important;
         height: calc(31.75em + (100vh - 600px) * (15 - 200) / (600 -  1080)) !important;
-        top: calc(0em + (100vh - 600px) * (15 + 135) / (600 -  1080));
+        top: calc(0em + (100vh - 600px) * (15 + 175) / (600 -  1080));
     }
 
     #marketDivContainer {
         width: calc(80em + (100vw - 1200px) * (15 - 175) / (1200 - 1600)) !important;
-        bottom: calc(25em + (100vh - 600px) * (15 - 65) / (600 -  1080)) !important;
+        bottom: calc(25em + (100vh - 600px) * (15 - 30) / (600 -  1080)) !important;
         background-color: transparent;
         height: calc(50.9em + (100vh - 600px) * (15 - 75) / (600 -  1080)) !important;
         left: 1em;
@@ -3215,20 +3218,20 @@ li {
     }
     /* VH BC BUG */
     #marketH2 {
-        left: calc(13.5em + (100vh - 600px) * (15 + 85) / (600 -  1080)) !important;
+        left: calc(13.5em + (100vh - 600px) * (15 + 40) / (600 -  1080)) !important;
     }
 
     #marketH1 {
-        left: calc(6.3em + (100vh - 600px) * (15 + 100) / (600 -  1080)) !important;
+        left: calc(6.3em + (100vh - 600px) * (15 + 25) / (600 -  1080)) !important;
     }
 
     #marketH3 {
         top: calc(-3.5em + (100vh - 600px) * (15 - 30) / (600 -  1080)) !important;
-        left: calc(13.5em + (100vh - 600px) * (15 + 100) / (600 -  1080)) !important;
+        left: calc(13.5em + (100vh - 600px) * (15 + 30) / (600 -  1080)) !important;
     }
 
     #mD4Sub {
-        top: calc(12.5em + (100vh - 600px) * (15 - 10) / (600 -  1080)) !important;
+        top: calc(14em + (100vh - 600px) * (15 - 10) / (600 -  1080)) !important;
         left: calc(0em + (100vw - 1200px) * (15 - 20) / (1200 -  1600));
     }
 
@@ -3241,7 +3244,7 @@ li {
     #nft4SubImg {
         display: block;
         top: -25em;
-        left: -1em;
+        left: -1.75em;
     }
 
     .dropSlider  {
@@ -3254,11 +3257,13 @@ li {
     }
 
     #createImg{
-        left: calc(-10em + (100vw - 1200px) * (15 - 150) / (1200 -  1600));
+        left: calc(7.5em + (100vw - 1200px) * (15 - 75) / (1200 -  1600));
     }
 
     #createImg2{
-        right: calc(-10em + (100vw - 1200px) * (15 - 150) / (1200 -  1600));
+        right: calc(7.5em + (100vw - 1200px) * (15 - 225) / (1200 -  1600));
+        transform: scale(0.7);
+        top: auto;
     }
 
     #createSlider {
@@ -3276,7 +3281,7 @@ li {
         position: absolute;
         display: grid !important;
         grid-template-rows: auto auto auto auto auto;
-        width: 54em;
+        width: calc(54em + (100vw - 1200px) * (15 - 175) / (1200 -  1600));
         height: calc(30em + (100vh - 600px) * (15 - 300) / (600 -  1080));
         overflow-y: scroll;
         overflow-x: hidden;

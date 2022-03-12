@@ -11,8 +11,9 @@ import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
 
 window.onload = function() {
+ 
+
   window.location.href = "./#home";
-  console.log(window.location.href)
 
   function getDeviceWidth() {
     if (typeof (window.innerWidth) == 'number') {
