@@ -3239,7 +3239,7 @@ li {
     #marketContainer {
         width: calc(54em + (100vw - 1200px) * (15 - 167.5) / (1200 -  1600)) !important;
         height: calc(31.75em + (100vh - 600px) * (15 - 200) / (600 -  1080)) !important;
-        top: calc(0em + (100vh - 600px) * (15 + 175) / (600 -  1080));
+        top: calc(3em + (100vh - 600px) * (15 - 10) / (600 -  1080));
     }
 
     #marketDivContainer {
@@ -3247,7 +3247,7 @@ li {
         bottom: calc(25em + (100vh - 600px) * (15 - 30) / (600 -  1080)) !important;
         background-color: transparent;
         height: calc(50.9em + (100vh - 600px) * (15 - 75) / (600 -  1080)) !important;
-        left: 1em;
+        left: calc(2em + (100vw - 1200px) * (15 - 40) / (1200 -  1600));
         transform: scale(0.7) !important;
         overflow: hidden;
     }
