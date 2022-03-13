@@ -772,7 +772,7 @@ h2 {
 
        #leftEco {
            display: grid;
-           margin-top: calc(6em + (100vh - 600px) * (15 - 135 ) / (600 -  1080));
+           margin-top: calc(10em + (100vh - 600px) * (15 - 70 ) / (600 -  1080));
            position: relative;
            
            left: auto;
@@ -796,14 +796,14 @@ h2 {
            white-space: nowrap;
            font-size: 1.5em;
            text-decoration: none;
-           width: 3em;
-           height: 1.5em;
+           width: 3.5em;
+           height: 1.25em;
            font-family: "Teko", sans-serif;
            padding: 0.5em 2em;
            border: 2px solid white;
            text-align: center;
            border-radius: 1.5em;
-           top: 3.5em;
+           top: calc(4em + (100vh - 600px) * (15 - 75) / (600 -  1080));
            color: white;
        }
 
@@ -1366,18 +1366,19 @@ h2 {
         
 
         #marketContainer {
-            height: 85.5vh;
+            height: 30em;
             width: calc(20.75em + (100vw - 360px) * (15 - 420) / (360 -  767)) !important;
             position: relative;
             display: grid;
-            align-self: flex-end;
+            align-self: center !important;
             align-items: center;
             justify-content: center;
 
-            background: rgb(0, 10, 49, 1);
+            background: rgb(0, 51, 255, 0.15);
             border-radius: 0.75em;
             overflow: hidden;
-            bottom: 0;
+            bottom: auto;
+            top: 1.5em;
         }
 
 
@@ -1394,7 +1395,7 @@ h2 {
 
         #marketH2 {
             font-size: 0.9em;
-            top: calc(-6em + (100vh - 600px) * (15 + 15) / (600 -  1080));
+            top: calc(-6em + (100vh - 600px) * (15  - 10) / (600 -  1080));
             display: flex;
             left: calc(3em + (100vw - 300px) * (15 - 72.5) / (360 -  767)) !important;
             font-size: 0.85em;
@@ -1667,9 +1668,15 @@ h2 {
         #teamSlider {
             position: absolute;
             display: grid;
-            grid-template-rows: 9.5em 9.5em 9.5em 9.5em 9.5em;
+            grid-template-rows:
+            calc(9.5em + (100vh - 600px) * (15 - 75) / (600 -  1080))
+            calc(9.5em + (100vh - 600px) * (15 - 75) / (600 -  1080))
+            calc(9.5em + (100vh - 600px) * (15 - 75) / (600 -  1080))
+            calc(9.5em + (100vh - 600px) * (15 - 75) / (600 -  1080))
+            calc(9.5em + (100vh - 600px) * (15 - 75) / (600 -  1080))
+                ;
             row-gap: 0em;
-            width: 20em;
+            width: calc(20em + (100vw - 300px) * (15 - 300) / (300 -  767));
             height: calc(25em + (100vh - 600px) * (15 - 300) / (600 -  1080));
             overflow-y: scroll;
             overflow-x: hidden;
@@ -1677,7 +1684,7 @@ h2 {
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
              
-            background-color: rgba(0, 29, 59, 0.525);
+            background-color: rgb(0, 51, 255, 0.15);
             top: 8.5em;
             /* */
             border-radius: 1em;
@@ -2755,7 +2762,7 @@ li {
 
 #videoButton {
     display: flex;
-
+    width: 6.5em;
     left: 0em;
     top: auto;
     bottom: -3.75em;
@@ -2774,7 +2781,7 @@ li {
    #otherButton {
     display: flex;
     left: auto;
-    right: 5em;
+    right: 6em;
     top: auto;
     bottom: -3.75em;
     border-radius: 1.5em;
@@ -2847,12 +2854,18 @@ li {
      height: calc(4em + (100vh - 600px) * (15 - 80) / (600 - 1080)) !important;
      background-color: rgb(0, 10, 49);
      cursor: pointer;
-     transition: all 0.1s;
+     transition: all 0.25s;
      align-items: center;
      justify-content: center;
      z-index: 2;
      border-radius: 20px;
  }
+
+ .ecoContainer:hover {
+     transform: scaleX(1.05);
+ }
+
+
  
  
  .aboutText {
@@ -3309,22 +3322,25 @@ li {
         overflow-x: hidden;
         justify-content: center;
         top: 8.5em;
-        background-color: rgba(0, 29, 59, 0.525);
+        background-color: rgba(30, 82, 224, 0.125);
         border-radius: 1em;
         z-index: 2;
-        box-shadow: 0 0 25px 0 rgba(15, 84, 156, 0.1);
         
     }
 
     .teamSlide {
-        transform: scale(0.7);
+        transform: scale(0.8);
         z-index: 2;
         pointer-events: all !important;
         transition: 0.4s all;
     }
 
+    #teamSlide1 {
+        margin-top: 1.5em
+    }
+
     .teamSlide:hover {
-        transform: scale(0.75);
+        transform: scale(0.85);
     }
 
 
@@ -3356,6 +3372,10 @@ li {
     .footer {
         overflow: hidden;
         scroll-snap-align: end;
+    }
+
+    #footerLinkContainer {
+        top: 0.75em;
     }
 
  

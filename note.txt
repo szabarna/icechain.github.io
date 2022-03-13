@@ -36,3 +36,12 @@ Laptop:
 Fix nftMarket 
 adjust size based on height (font_size, image scaling)
 
+
+create_section {
+
+    1 container, switching via gsap opacity 0-1 for phone on big screen show both in container
+
+}
+
+use containers wherever you can
+
