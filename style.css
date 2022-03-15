@@ -3372,6 +3372,7 @@ li {
     .footer {
         overflow: hidden;
         scroll-snap-align: end;
+        align-content: flex-end;
     }
 
     #footerLinkContainer {
@@ -3549,7 +3550,7 @@ and (min-width: 1600px) {
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    right: -10.5em;
+    right: -7em;
     clip-path: none;
     top: 0;
     
@@ -3642,9 +3643,11 @@ li {
     position: relative;
     display: flex;
     right: 17.5%;
-    top: -10%;
+    top: -7.5em;
     align-self: center;
 }
+
+
 
 
 .homeLayer {
@@ -3888,6 +3891,20 @@ li {
     scroll-snap-align: center;
 }
 
+.tokenSectionContainer {
+    width: 82.5em !important;
+    height: 52.5em;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: rgba(20, 126, 197, 0.25);
+    border-radius: 1.25em;
+    top: 5.5em;
+
+
+}
+
 .tokenDetails2 {
     position: relative;
     height: 100vh;
@@ -3896,7 +3913,7 @@ li {
 
 #overview {
     position: absolute;
-    top: 1.75em;
+    top: -0.25em;
     left: auto;
     font-size: 4em;
     user-select: none;
@@ -3908,7 +3925,7 @@ li {
 
 #icetoken {
     position: absolute;
-    top: 5em;
+    top: 2.25em;
     left: auto;
     font-size: 2.75em;
     user-select: none;
@@ -3919,9 +3936,9 @@ li {
 
 #tokenText {
     position: absolute;
-    top: 15em;
+    top: 9.75em;
     left: auto;
-    font-size: 1.45em;
+    font-size: 1.3em;
     user-select: none;
     white-space: nowrap;
     width: auto;
@@ -3934,7 +3951,7 @@ li {
     position: relative;
     height: 7em;
     background-color: #001D3B;
-    top: 0 !important;
+    top: 0;
     border-radius: 10em;
     text-align: center;
     border: 2px solid #2463BE;
@@ -3942,11 +3959,13 @@ li {
 }
 
 #tokenMainContainer {
+    top: 20em;
     width: 82.5em;
     overflow: hidden;
     display: grid;
     grid-template-columns: auto auto auto auto;
     justify-content: space-between;
+    border: none;
 }
 
 
@@ -3964,6 +3983,7 @@ li {
 
 #t4 {
     left: inherit;
+    right: auto;
 }
 
 .blueText {
@@ -3994,8 +4014,7 @@ li {
     width: 82.5em;
     height: 5em;
     background-color: #001D3B;
-    top: auto;
-    bottom: 7.5em;
+    top: 40em !important;
     border-radius: 1.75em;
     display: flex;
     justify-content: space-between;
@@ -4004,11 +4023,14 @@ li {
 
 #utility {
     position: relative;
-    top: 14.1em;
+    top: 12em;
     font-size: 2.75em;
     color: rgba(15, 84, 156, 1);
     font-family: 'Arimo', sans-serif;
     user-select: none;
+    color: white;
+    background-color: rgba(20, 61, 197, 0.125);
+    border: none;
 }
 
 .utilityContent {
@@ -4309,7 +4331,7 @@ li {
     font-size: 4.25em;
     font-family: 'Roboto', sans-serif;
     position: relative;
-    top: 0.5em;
+    top: 0.5em !important;
     left: 2.1em !important;
     user-select: none;
 }
@@ -4318,7 +4340,7 @@ li {
     font-size: 1.75em;
     font-family: 'Arimo', sans-serif;
     position: relative;
-    top: -6em;
+    top: -6em !important;
     left: 5.2em !important;
     color: rgb(31, 110, 214);
     user-select: none;
@@ -4328,7 +4350,7 @@ li {
     font-size: 1.75em;
     font-family: 'Arimo', sans-serif;
     position: relative;
-    top: -4em;
+    top: -4em !important;
     left: 6em !important;
 }
 
@@ -4367,6 +4389,17 @@ li {
     bottom: -0.75em;
 }
 
+#mD2 {
+    top: -3.3em !important;
+}
+
+#mD1 {
+    top: -3.3em !important;
+}
+
+#mD5 {
+    top: -3.3em !important;
+}
 
 
 
@@ -4390,10 +4423,12 @@ li {
 
 #nft4SubImg {
     position: absolute;
-    left: -0.75em !important;
+    left: -1.5em !important;
     bottom: 10.5em !important;
     display: block;
 }
+
+
 
 #mD5 {
     transform: scale(1) !important;
@@ -4432,7 +4467,7 @@ li {
 }
 #createImg {
     position: relative;
-    left: 12.5em;
+    left: -2em;
     transform: scale(1);
     display: flex;
     top: auto;
@@ -4445,7 +4480,7 @@ li {
 #createImg2 {
     position: relative;
     transform: scale(1);
-    right: 12.5em;
+    right: -2em;
     display: flex;
     top: auto;
 }

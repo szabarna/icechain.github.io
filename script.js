@@ -697,15 +697,11 @@ console.error( error );
     }
         scene.add( mainCube );
         
-        // camera.lookAt(mainCube.position);
-        // container.addEventListener('scroll', ()=> {
-          
-        //     camera.lookAt(mainCube.position);
-        //     camera.updateProjectionMatrix();
-          
-          
-        // })
-        
+        /*
+       setInterval( (e) => {
+        camera.lookAt(mainCube.position);
+       }, 0.1);
+        */
 
   }, undefined, function ( error ) {
 
@@ -947,7 +943,7 @@ function onDocumentMouseMove(event) {
     ScrollTrigger.refresh();
    
 }
-  
+ 
   
   function animate() {
     
