@@ -922,7 +922,7 @@ h2 {
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            background-color: rgba(20, 126, 197, 0.25);
+            background-color: rgba(1, 1, 73, 0.15);
             border-radius: 0.75em;
             top: calc(5.5em + (100vh - 600px) * (15 - 125) / (600 -  1080));
         
@@ -1070,7 +1070,7 @@ h2 {
             border: 2px solid white;
             background-color: #001D3B;
             border-bottom: none;
-            border-radius: 1em;
+            border-radius: 0.5em;
             left: auto;
             color: white;
             font-family: 'Teko', sans-serif;
@@ -1600,7 +1600,7 @@ h2 {
             -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             scroll-behavior: smooth;
-            background-color: rgba(20, 126, 197, 0.125);
+            background-color: rgba(1, 1, 73, 0.15);
             border-radius: 0.75em;
             align-items: center;
         }
