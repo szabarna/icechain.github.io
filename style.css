@@ -563,8 +563,8 @@ h2 {
            grid-template-rows: auto auto auto auto auto;
            align-self: center;
            position: absolute;
-           font-size: 1em;
-           bottom: calc(1em + (100vh - 600px) * (15 - 400 ) / (600 -  1080));
+           font-size: calc(1em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
+           bottom: calc(1em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
            margin-right: 0;
            justify-content: center;
            width: 100%;
@@ -656,14 +656,14 @@ h2 {
        .homeLayer {
            background-color: rgba(1, 1, 73, 0.15);
            opacity: 1;
-           width: 100vw;
+           width: calc(19em + (100vw - 300px) * (15 - 250 ) / (300 -  767));
            height: calc(25em + (100vh - 600px) * (15 - 250 ) / (600 -  1080));
            display: flex;
            left: auto;
             align-self: center;
             justify-content: center;
             top: calc(8.5em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
-           border-radius: 0.25em;
+           border-radius: 0.75em;
 
            position: absolute;
        }
@@ -803,7 +803,7 @@ h2 {
            border: 2px solid white;
            text-align: center;
            border-radius: 1.5em;
-           top: calc(4em + (100vh - 600px) * (15 - 75) / (600 -  1080));
+           top: calc(4.25em + (100vh - 600px) * (15 - 70) / (600 -  1080));
            color: white;
        }
 
@@ -857,7 +857,8 @@ h2 {
 
             transform: translate3d(0, 0, 0);
             -webkit-transform: translate3d(0,0,0);
-            border: 2px solid rgba(15, 84, 156, 1); 
+            border: 2px solid rgba(15, 84, 156, 1);
+            transform: scale(0.8); 
        }
 
        #ecoContainer1 {
@@ -866,14 +867,14 @@ h2 {
 
        .text {
            width: 15em;
-           font-size: 1.15em;
+           font-size: 1.4em;
            display: grid;
            justify-self: center;
        }
 
        #littleText {
             width: 14em;
-            font-size: 1.2em;
+            font-size: 1.4em;
        }
 
        #ecoContainer2 {
@@ -902,7 +903,7 @@ h2 {
         }
 
         #ecoContainer8 {
-            margin-top: 0em;
+            margin-bottom: 2em !important;
         }
 
         .services {
@@ -916,7 +917,7 @@ h2 {
 
         .tokenSectionContainer {
             width: 97.5vw;
-            height: 32.5em;
+            height: calc(32.5em + (100vh - 600px) * (15 - 125) / (600 -  1080));
             position: absolute;
             display: flex;
             justify-content: center;
@@ -1064,23 +1065,24 @@ h2 {
         }
 
         #utility {
-            top: 14.75em;
             height: 1.25em;
-            padding: 0.25em 4em;
-            border: 2px solid #187aca;
+            padding: 0.0em 2em;
+            border: 2px solid white;
+            background-color: #001D3B;
+            border-bottom: none;
             border-radius: 1em;
             left: auto;
             color: white;
             font-family: 'Teko', sans-serif;
-            font-size: 1.5em;
-
+            font-size: calc(2em + (100vh - 600px) * (15 - 25) / (600 -  1080));
+            top: calc(11em + (100vh - 600px) * (15 + 10) / (600 -  1080));
             position: relative;
             user-select: none;
             white-space: nowrap;
         }
 
         #utilityContainer {
-            border: 2px solid #001D3B;
+            border: 1px solid #001D3B;
             display: grid;
             left: auto;
             height: 5em;
@@ -1214,7 +1216,7 @@ h2 {
     
        #tokenT1 {
            top: calc(5.5em + (100vh - 600px) * (15 - 75) / (600 -  1080));
-           width: calc(17.5em + (100vw - 300px) * (15 - 300) / (300 -  767));
+           width: calc(19em + (100vw - 300px) * (15 - 115) / (300 -  767));
            height: 2.5em;
            font-size: 1em;
            background-color: rgba(49, 131, 255, 0.5);
@@ -1380,7 +1382,7 @@ h2 {
         
 
         #marketContainer {
-            height: 30em;
+            height: calc(30em + (100vh - 600px) * (15 - 125) / (600 -  1080));
             width: calc(20.75em + (100vw - 360px) * (15 - 420) / (360 -  767)) !important;
             position: relative;
             display: grid;
@@ -1598,6 +1600,9 @@ h2 {
             -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             scroll-behavior: smooth;
+            background-color: rgba(20, 126, 197, 0.125);
+            border-radius: 0.75em;
+            align-items: center;
         }
 
         .dropSlide {
@@ -2994,6 +2999,7 @@ li {
 
  .utilityContent {
      left: -0.75em;
+     transform: scale(1);
  }
 
 
@@ -3776,13 +3782,13 @@ li {
     height: 7em !important;
     background-color: rgb(0, 10, 49);
     cursor: pointer;
-    transition: all 0.1s;
+    transition: all 0.25s;
     align-items: center;
     justify-content: center;
     z-index: 2;
     border-radius: 20px;
+    transform: scale(1);
 }
-
 
 
 .aboutText {
