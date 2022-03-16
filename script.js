@@ -106,6 +106,7 @@ function getDeviceHeight() {
       renderer = new THREE.WebGLRenderer({
       powerPreference: "high-performance",
       canvas: canvReference,
+      antialias: false
       
   });
  
@@ -897,7 +898,7 @@ geometrySub8.drawRange.count = 0;
   const renderPass = new RenderPass( scene, camera );
   composer.addPass( renderPass );
 
-  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.5, 0.25, 0.1);
+  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.4, 0, 0.1);
 
   var glitchPass = new GlitchPass();
     composer.addPass( renderPass );

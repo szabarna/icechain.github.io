@@ -563,8 +563,8 @@ h2 {
            grid-template-rows: auto auto auto auto auto;
            align-self: center;
            position: absolute;
-           font-size: calc(1em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
-           bottom: calc(1em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
+           font-size: calc(1em + (100vh - 600px) * (5 - 12 ) / (600 -  1080));
+           top: calc(5.75em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
            margin-right: 0;
            justify-content: center;
            width: 100%;
@@ -572,6 +572,7 @@ h2 {
            left: auto;
            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
            -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+           
        }
 
        .li {
