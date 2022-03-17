@@ -1042,7 +1042,6 @@ h2 {
 
             width: 12.5em;
             height: 7em;
-            background-color: #001D3B;
             text-align: center;
             border: 2px solid #2463BE;
            
@@ -1056,7 +1055,7 @@ h2 {
             top: 14.25em;
             justify-content: space-between;
             align-items: center;
-            background-color: rgba(0, 29, 59, 0.525);
+            background-color: rgba(0, 29, 59, 0.225);
             overflow-x: scroll;
             -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
@@ -1068,22 +1067,20 @@ h2 {
         #utility {
             height: 1.25em;
             padding: 0.0em 2em;
-            border: 2px solid white;
-            background-color: #001D3B;
-            border-bottom: none;
-            border-radius: 0.5em;
+            border: 2px solid rgba(0, 29, 59, 0.225);;
+            border-radius: 1em;
             left: auto;
             color: white;
             font-family: 'Teko', sans-serif;
             font-size: calc(2em + (100vh - 600px) * (15 - 25) / (600 -  1080));
-            top: calc(11em + (100vh - 600px) * (15 + 10) / (600 -  1080));
+            top: calc(10.9em + (100vh - 600px) * (15 + 10) / (600 -  1080));
             position: relative;
             user-select: none;
             white-space: nowrap;
+            background-color: rgba(0, 29, 59, 0.225);
         }
 
         #utilityContainer {
-            border: 1px solid #001D3B;
             display: grid;
             left: auto;
             height: 5em;
@@ -1102,8 +1099,8 @@ h2 {
             white-space: nowrap;
             position: absolute;
             scroll-behavior: smooth;
+            background-color: rgba(0, 29, 59, 0.225);
 
-            background-color: rgba(0, 29, 59, 1);
         }
 
         .utilityContent {
@@ -1114,7 +1111,6 @@ h2 {
             width: 12.5em;
             left: auto;
             right: calc(0.5em + (100vw - 300px) * (15 - 27.5) / (360 -  767));
-
             height: 100%;
             transform: scale(0.85);
   
