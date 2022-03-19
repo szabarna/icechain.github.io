@@ -10,6 +10,7 @@ import { CSSRulePlugin } from "./gsap-public/esm/CSSRulePlugin.js";
 import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
 
+
 window.onload = function() {
  
 
@@ -201,6 +202,7 @@ function getDeviceHeight() {
   
   loader.load('./src/tokenModel.glb', (gltf) => {
 
+
     tokenModel = gltf.scene.clone();
     // tokenModel.frustumCulled = false;
     
@@ -236,9 +238,9 @@ function getDeviceHeight() {
     else if(getDeviceWidth() <= 1199 && getDeviceWidth() >= 768 && getDeviceHeight() >= 950) {
 
       tokenModel.scale.set( 0.95, 0.95, 0.95);
-      tokenModel.position.set(0, -15, 0 );
+      tokenModel.position.set(0, -15, -1 );
       tokenModel.children[0].position.x = 0;
-      tokenModel.children[1].position.x = -10;
+      tokenModel.children[1].position.x = 0;
       tokenModel.children[1].visible = false;
 
       let graphButton = document.querySelector('#graphButton');
@@ -246,13 +248,13 @@ function getDeviceHeight() {
     const tlToken = gsap.timeline({
       defaults: { ease: "power4.inOut", duration: 0.75 }
     });
-    tlToken.to(tokenModel.children[1].position, { x: 0 });
+    tlToken.to(tokenModel.children[1].rotation, { y: Math.PI * 2 });
     tlToken.reversed(true);
 
     const tlToken2 = gsap.timeline({
       defaults: { ease: "power4.inOut", duration: 0.75 }
     });
-    tlToken2.to(tokenModel.children[0].position, { x: -10 });
+    tlToken2.to(tokenModel.children[0].rotation, { y: Math.PI * 2 });
     tlToken2.reversed(true);
 
     const tlToken3 = gsap.timeline({
@@ -269,23 +271,27 @@ function getDeviceHeight() {
       tlToken.reversed(!tlToken.reversed());
       tlToken2.reversed(!tlToken2.reversed());
       tlToken3.reversed(!tlToken3.reversed());
-      if(tokenModel.children[0].visible) {
 
-        tokenModel.children[0].visible = false;
-        tokenModel.children[1].visible = true;
-      }
-      
-      else {
-        tokenModel.children[0].visible = true;
-        tokenModel.children[1].visible = false;
-      }
+      setTimeout((e)=> {
+        if(tokenModel.children[0].visible) {
+
+          tokenModel.children[0].visible = false;
+          tokenModel.children[1].visible = true;
+        }
+        
+        else {
+          tokenModel.children[0].visible = true;
+          tokenModel.children[1].visible = false;
+        }
+      }, 375)
+     
 
     }
 
       tokenModel.children[0].position.z = 0;
       tokenModel.children[1].position.z = 0;
 
-      scene_anim.to(tokenModel.position, { y: -9.95, scrollTrigger: {
+      scene_anim.to(tokenModel.position, { y: -9.75, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
       start: maxScrollTop * 2.5,
@@ -295,11 +301,11 @@ function getDeviceHeight() {
 
     }
 
-    else if(getDeviceWidth() >= 768 && getDeviceWidth() < 1200 && getDeviceHeight() < 950) {
+    else if(getDeviceWidth() >= 768 && getDeviceWidth() < 1200) {
       tokenModel.scale.set( 1, 1, 1);
       tokenModel.position.set(0, -15, 0 );
       tokenModel.children[0].position.x = 0;
-      tokenModel.children[1].position.x = -10;
+      tokenModel.children[1].position.x = 0;
       tokenModel.children[1].visible = false;
 
       let graphButton = document.querySelector('#graphButton');
@@ -307,13 +313,13 @@ function getDeviceHeight() {
     const tlToken = gsap.timeline({
       defaults: { ease: "power4.inOut", duration: 0.75 }
     });
-    tlToken.to(tokenModel.children[1].position, { x: 0 });
+    tlToken.to(tokenModel.children[1].rotation, { y: Math.PI * 2 });
     tlToken.reversed(true);
 
     const tlToken2 = gsap.timeline({
       defaults: { ease: "power4.inOut", duration: 0.75 }
     });
-    tlToken2.to(tokenModel.children[0].position, { x: -10 });
+    tlToken2.to(tokenModel.children[0].rotation, { y: Math.PI * 2 });
     tlToken2.reversed(true);
 
     const tlToken3 = gsap.timeline({
@@ -330,16 +336,20 @@ function getDeviceHeight() {
       tlToken.reversed(!tlToken.reversed());
       tlToken2.reversed(!tlToken2.reversed());
       tlToken3.reversed(!tlToken3.reversed());
-      if(tokenModel.children[0].visible) {
 
-        tokenModel.children[0].visible = false;
-        tokenModel.children[1].visible = true;
-      }
-      
-      else {
-        tokenModel.children[0].visible = true;
-        tokenModel.children[1].visible = false;
-      }
+      setTimeout((e)=> {
+        if(tokenModel.children[0].visible) {
+
+          tokenModel.children[0].visible = false;
+          tokenModel.children[1].visible = true;
+        }
+        
+        else {
+          tokenModel.children[0].visible = true;
+          tokenModel.children[1].visible = false;
+        }
+      }, 375);
+     
 
     }
 
@@ -355,11 +365,9 @@ function getDeviceHeight() {
       }});
     }
 
-    else if(getDeviceWidth() >= 300 && getDeviceWidth() < 768 && getDeviceHeight() <= 1080) {
+    else if(getDeviceWidth() >= 300 && getDeviceWidth() < 768) {
       tokenModel.scale.set( 1, 1, 1);
-      tokenModel.position.set(0, -15, 0 );
-      tokenModel.children[0].position.x = -2.5;
-      tokenModel.children[1].position.x = -10;
+      tokenModel.position.set(0, -15, -2.5 );
       tokenModel.children[1].visible = false;
 
       let graphButton = document.querySelector('#graphButton');
@@ -367,13 +375,13 @@ function getDeviceHeight() {
     const tlToken = gsap.timeline({
       defaults: { ease: "power4.inOut", duration: 0.75 }
     });
-    tlToken.to(tokenModel.children[1].position, { x: -1.5 });
+    tlToken.to(tokenModel.children[1].rotation, { y: Math.PI * 2 });
     tlToken.reversed(true);
 
     const tlToken2 = gsap.timeline({
       defaults: { ease: "power4.inOut", duration: 0.75 }
     });
-    tlToken2.to(tokenModel.children[0].position, { x: -10 });
+    tlToken2.to(tokenModel.children[0].rotation, { y: Math.PI * 2 });
     tlToken2.reversed(true);
 
     const tlToken3 = gsap.timeline({
@@ -390,23 +398,27 @@ function getDeviceHeight() {
       tlToken.reversed(!tlToken.reversed());
       tlToken2.reversed(!tlToken2.reversed());
       tlToken3.reversed(!tlToken3.reversed());
-      if(tokenModel.children[0].visible) {
 
-        tokenModel.children[0].visible = false;
-        tokenModel.children[1].visible = true;
-      }
+      setTimeout((e)=> {
+        if(tokenModel.children[0].visible) {
+
+          tokenModel.children[0].visible = false;
+          tokenModel.children[1].visible = true;
+        }
+        
+        else {
+          tokenModel.children[0].visible = true;
+          tokenModel.children[1].visible = false;
+        }
+      }, 375);
       
-      else {
-        tokenModel.children[0].visible = true;
-        tokenModel.children[1].visible = false;
-      }
 
     }
 
       tokenModel.children[0].position.z = 0;
       tokenModel.children[1].position.z = 0;
 
-      scene_anim.to(tokenModel.position, { y: -10.1, scrollTrigger: {
+      scene_anim.to(tokenModel.position, { y: -9.5, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
       start: maxScrollTop * 2.5,
@@ -442,7 +454,6 @@ function getDeviceHeight() {
 
 
     scene.add( tokenModel );
-
 
 
   } , undefined, function ( error ) {
@@ -572,6 +583,8 @@ console.error( error );
 
 
 
+
+
   
 
   loader.load("./src/mainCube.glb", (gltf) => {
@@ -581,18 +594,13 @@ console.error( error );
         if(getDeviceWidth() < 1600 && getDeviceWidth() >= 1200) {
           offsetX = 1.5;
           mainCube.position.set(1.5, 0, 0);
-        }
-        else if(getDeviceWidth() < 1199 && getDeviceWidth() >= 768 && getDeviceHeight() < 950) {
-            mainCube.scale.set(.6, .6, .6);
-            mainCube.position.set(1.4, 0, 0);
-            mainCube.rotation.set(Math.PI * 0.125, 0, 0);
-        }
 
-        else if(getDeviceWidth() < 1200 && getDeviceWidth() >= 768 && getDeviceHeight() >= 950) {
-          mainCube.scale.set(.5, .5, .5);
-          mainCube.position.set(0.85, 0, 0);
-          mainCube.rotation.set(Math.PI * 0.125, 0, 0);
-      }
+        }
+        else if(getDeviceWidth() < 1199 && getDeviceWidth() >= 768) {
+            mainCube.scale.set(.5, .5, .5);
+            mainCube.position.set(0, 0, 0);
+            mainCube.rotation.set(Math.PI * 0, 0, 0);
+        }
 
       else if(getDeviceWidth() < 768 && getDeviceWidth() >= 300 && getDeviceHeight() <= 1280) {
         mainCube.scale.set(.5, .5, .5);
@@ -697,6 +705,7 @@ console.error( error );
       }});
     }
         scene.add( mainCube );
+
         
         /*
        setInterval( (e) => {
@@ -1280,6 +1289,9 @@ for(let i = 0; i < links.length; i++) {
        
       });
 }
+
+
+
 
 
 

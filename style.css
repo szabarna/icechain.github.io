@@ -5,28 +5,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&family=Economica:wght@700&family=Inconsolata:wght@500&family=Lato:wght@300&family=Montagu+Slab:wght@600&family=Oxygen:wght@700&family=Roboto:wght@300;400&family=Teko:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&family=Arimo&family=Economica:wght@700&family=Inconsolata:wght@500&family=Lato:wght@300&family=Montagu+Slab:wght@600&family=Oxygen:wght@700&family=Roboto:wght@300;400&family=Teko:wght@300&display=swap');
 :root {
-    scrollbar-color: rgb(49, 145, 255) rgb(46, 46, 46);
+    scrollbar-color: rgb(49, 145, 255) rgba(49, 145, 255, 0.3);
     --dark-blue-nonTransparent-color: rgb(0, 10, 49, 1);
     --dark-blue-color: rgb(0, 10, 49, 0.8);
     --light-blue-color: rgb(49, 197, 255);
     --header-color: rgb(0, 10, 49, 1);
 
+    --hamburger-color: rgba(20, 18, 117, 0.95);
+
   }
 
   ::-webkit-scrollbar {
-    height: 12px;
-    width: 12px;
-    background: rgb(0, 10, 49, 1);
+    height: 5px;
+    width: 6px;
+    background-color: rgb(0, 51, 255, 0.1);
 }
 
+
 ::-webkit-scrollbar-thumb {
-    background: rgb(49, 131, 255);
+    background-color: rgb(49, 131, 255, 0.75);
     border-radius: 1ex;
     -webkit-border-radius: 1ex;
 }
 
 ::-webkit-scrollbar-corner {
-    background: rgb(0, 10, 49, 1);
+    background: rgb(0, 0, 0);
 }
 
 img {
@@ -492,7 +495,7 @@ h2 {
 
 
     /*          MERGE POINT         */
-    ::-webkit-scrollbar {
+    ::-webkit-scrollbar:vertical {
         display: none;
         -ms-overflow-style: none;
     }
@@ -1073,7 +1076,8 @@ h2 {
             color: white;
             font-family: 'Teko', sans-serif;
             font-size: calc(2em + (100vh - 600px) * (15 - 25) / (600 -  1080));
-            top: calc(10.9em + (100vh - 600px) * (15 + 10) / (600 -  1080));
+            top: calc(10.95em + (100vh - 600px) * (30 - 10) / (600 -  1080));
+            border-bottom: none;
             position: relative;
             user-select: none;
             white-space: nowrap;
@@ -1150,7 +1154,7 @@ h2 {
             top: calc(32.5em + (100vh - 600px) * (15 - 350) / (600 -  1080));
             left: calc(0em + (100vw - 300px) * (15 - 200) / (300 -  767));
 
-            background: linear-gradient(#3772FF, #1C3980);
+            background: linear-gradient(#3772FF, var(--hamburger-color));
             border-radius: 4.5em;
             cursor: pointer;
             border: none;
@@ -1158,6 +1162,7 @@ h2 {
             font-family: 'Arimo', sans-serif;
             z-index: 2;
             white-space: nowrap;
+            transform: scale(0.9);
         }
 
 
@@ -1166,7 +1171,7 @@ h2 {
 
             position: absolute;
             width: 100vw;
-            background-color: rgba(28, 57, 128, 0.95);
+            background-color: var(--hamburger-color);
             clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
             -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
             display: flex;
@@ -1190,13 +1195,14 @@ h2 {
             font-family: 'Arimo', sans-serif;
             z-index: 2;
             white-space: nowrap;
+            transform: scale(0.9);
         }
 
         #tokenHolder {
             height: calc(15em + (100vh - 600px) * (15 - 100) / (600 -  1080));
             width: calc(45em + (100vw - 360px) * (15 - 425) / (360 -  767));
             top: calc(0em + (100vh - 600px) * (15 + 75) / (600 -  1080));
-            background: linear-gradient( rgba(95, 145, 255, 1), rgba(95, 145, 255, 1));
+            background-color: var(--hamburger-color);
             border-radius: 0;
             display: grid;
             grid-template-columns: auto auto auto auto auto auto;
@@ -1214,9 +1220,9 @@ h2 {
        #tokenT1 {
            top: calc(5.5em + (100vh - 600px) * (15 - 75) / (600 -  1080));
            width: calc(19em + (100vw - 300px) * (15 - 115) / (300 -  767));
-           height: 2.5em;
+           height: 2.25em;
            font-size: 1em;
-           background-color: rgba(49, 131, 255, 0.5);
+           background-color: rgba(12, 70, 231, 0.25);
            border: 2px solid rgba(49, 131, 255, 0.75);
            padding: 0.5em 0;
 
@@ -1231,7 +1237,7 @@ h2 {
        #tokenT2 {
            top: calc(21.3em + (100vh - 600px) * (15 - 250 ) / (600 -  1080));
            font-size: 1.3em;
-           background-color: rgba(49, 131, 255, 0.5);
+           background-color: rgba(12, 70, 231, 0.25);
            border: 2px solid rgba(49, 131, 255, 0.75);
 
            position: absolute;
@@ -1248,12 +1254,12 @@ h2 {
            width: 12.5em;
            font-size: 1em;
            display: grid;
-           border-radius: 1.5em;
-
+           border-radius: 1.25em;
+            margin-left: 1em;
             position: relative;
             height: 12.5em;
-            background-color: rgba(28, 57, 128, 0.95);
-            border: 10px solid rgba(95, 145, 255, 1);
+            background-color: rgba(12, 70, 231, 0.25);
+            border: 0px dotted rgba(253, 253, 253, 0.75);
        }
 
        .whiteToken {
@@ -1998,35 +2004,48 @@ and (min-width: 768px)
                }
 
                .landingText {
-                   top: calc(1.5em + (100vh - 600px) * (15 - 150 ) / (600 - 1080));
-                   right: 7em;
+                   top: auto;
+                   right: auto;
+                   height: 100%;
+                   width: 100%;
+                   justify-items: center;
+                   display: grid;
                }   
 
                .homeLayer {
-                top: calc(10em + (100vh - 600px) * (15 - 250 ) / (600 - 1080));
-                height: calc(20em + (100vh - 600px) * (15 - 30 ) / (600 - 1080));
+                top: calc(7em + (100vh - 600px) * (15 - 30 ) / (600 - 1080));
+                height: calc(27.5em + (100vh - 600px) * (15 - 400 ) / (600 - 1080));
+                justify-items: center;
+                display: grid;
+                width: calc(43em + (100vw - 768px) * (15 - 445 ) / (768 - 1199));;
                }
         
         
                #dataText {
-                   font-size: 3.25em;
-                   left: -0.9em;
-                   top: 0.25em;
+                   font-size: calc(3em + (100vh - 600px) * (15 - 30 ) / (600 - 1080));
+                   left: auto;
+                   top: calc(-0.5em + (100vh - 600px) * (15 - 75 ) / (600 - 1080));
+                   width: 7.1em;
+                   position: relative;
+                   
                }
         
                #yoursText {
-                   font-size: 1.4em;
+                   font-size: calc(1.4em + (100vh - 600px) * (15 - 25 ) / (600 - 1080));
                    width: fit-content;
-                   top: 5em;
-                   left: 0.425em;
+                   top: calc(5.5em + (100vh - 600px) * (15 - 175 ) / (600 - 1080));
+                   left: auto;
+                   position: relative;
                }
         
                #videoButton {
+                    font-size: calc(1.3em + (100vh - 600px) * (15 - 20 ) / (600 - 1080));
                    display: flex;
-                   top: 9em;
-                   left: 0em;
-                   justify-content: center;
-                   width: 6em;
+                   top: calc(3.1em + (100vh - 600px) * (15 - 135 ) / (600 - 1080));
+                   left: -5em;
+                   width: 6.5em;
+                   position: relative;
+                   
         
                }
 
@@ -2035,17 +2054,19 @@ and (min-width: 768px)
                }
         
                #otherButton {
+                font-size: calc(1.3em + (100vh - 600px) * (15 - 20 ) / (600 - 1080));
                 display: flex;
-                top: 9em;
-                left: 8em;
-                justify-content: center;
+                top:  calc(-0.5em + (100vh - 600px) * (15 - 72.5 ) / (600 - 1080));;
+                left: auto;
+                position: relative;
+                right: -5em;
         
                 }
         
         
                #leftEco {
                 display: grid;
-                margin-top: calc(8em + (100vh - 600px) * (15 - 125 ) / (600 -  1280));
+                margin-top: calc(7em + (100vh - 600px) * (15 - 125 ) / (600 -  1280));
                 position: absolute;
                 left: auto;
                 height: calc(29em + (100vh - 600px) * (15 - 400 ) / (600 -  1280));
@@ -2130,8 +2151,8 @@ and (min-width: 768px)
                     display: flex;
                     text-align: center;
                     left: auto;
-                    font-size: calc(3em + (100vh - 600px) * (15 - 40 ) / (600 -  1280));
-                    top: calc(1.25em + (100vh - 600px) * (15 - 100 ) / (600 -  1280));
+                    font-size: calc(2.25em + (100vh - 600px) * (15 - 40 ) / (600 -  1280));
+                    top: calc(-0.5em + (100vh - 600px) * (15 - 100 ) / (600 -  1280));
                 }
         
                 #icetoken {
@@ -2139,30 +2160,34 @@ and (min-width: 768px)
                     display: flex;
                     text-align: center;
                     left: auto;
-                    font-size: calc(2em + (100vh - 600px) * (15 - 40 ) / (600 -  1280));
-                    top: calc(4.25em + (100vh - 600px) * (15 - 75 ) / (600 -  1280));
+                    font-size: calc(1.75em + (100vh - 600px) * (15 - 40 ) / (600 -  1280));
+                    top: calc(1.75em + (100vh - 600px) * (15 - 75 ) / (600 -  1280));
                 }
         
                 #tokenText {
-                    top: calc(10.25em + (100vh - 600px) * (15 - 100 ) / (600 -  1280));
-                    font-size: calc(1.2em + (100vh - 600px) * (15 - 30 ) / (600 -  1280));
-                    height: fit-content;
+                    top: calc(7em + (100vh - 600px) * (15 - 100 ) / (600 -  1280));
+                    font-size: calc(1em + (100vh - 600px) * (15 - 30 ) / (600 -  1280));
+                    height: 2em;
                     display: flex;
                     text-align: center;
                     left: auto;
+                    width: calc(20em + (100vw - 300px) * (15 - 150 ) / (300 - 767));
                 }
         
                 #t1 {
-                    left: 0;
+                    left: auto;
                     width: 12em;
                     height: 7em;
                     text-align: center;
                     border-radius: 0;
                     transform: scale(0.825);
+                    right: auto;
+                    
                 }
         
                 #t2 {
-                    left: -0.75em;
+                    left: auto;
+                    right: auto;
                     width: 12em;
                     height: 7em;
                     text-align: center;
@@ -2172,34 +2197,41 @@ and (min-width: 768px)
                 }
         
                 #t3 {
-                    left: 0;
+                    left: auto;
                     width: 12em;
                     height: 7em;
                     text-align: center;
                     border-radius: 0;
                     transform: scale(0.825);
                     top: auto;
+                    right: auto;
                 }
         
                 #t4 {
-                    left: -0.75em;
+                    left: auto;
                     width: 12em;
                     height: 7em;
                     text-align: center;
                     border-radius: 0;
                     transform: scale(0.825);
                     top: auto;
+                    right: auto;
                 }
 
                 #tooBig {
                     bottom: 2em;
+                    font-size: 1.35em;
                 }
         
                 .blueText {
-                    font-size: 2em;
+                    font-size: 1.75em;
                 }
         
                 .whiteText {
+                    font-size: 1.25em;
+                }
+
+                .normalText {
                     font-size: 1.5em;
                 }
         
@@ -2209,27 +2241,33 @@ and (min-width: 768px)
                     border-radius: 1em !important;
                    
                 }
+
+                .tokenSectionContainer {
+                    width: calc(43em + (100vw - 768px) * (15 - 440) / (768 -  1199));
+                    top: calc(7em + (100vh - 600px) * (15 - 30) / (600 - 1280));
+                    height: calc(30em + (100vh - 600px) * (15 - 525) / (600 - 1280));
+                }
         
                 #tokenMainContainer {
                     display: flex;
-                    width: calc(49em + (100vw - 768px) * (15 - 345) / (768 -  1199));
+                    width: 100%;
                     height: 7.5em;
                     position: absolute;
                     left: auto;
-                    top: calc(18.25em + (100vh - 600px) * (15 - 400 ) / (600 -  1280));
+                    top: calc(11.25em + (100vh - 600px) * (15 - 400 ) / (600 -  1280));
                     justify-content: space-between;
                     align-items: center;
-                    background-color: rgba(0, 29, 59, 0.925);
-                    border-top: 1px solid rgba(8, 63, 145, 0.925);;
-                    border-bottom: 1px solid rgba(15, 84, 156, 0.925);;
+                    overflow: hidden;
+                    
                 }
         
                 #utility {
-                    top: calc(13.75em + (100vh - 600px) * (15 - 200 ) / (600 -  1280));
+                    top: calc(9em + (100vh - 600px) * (15 - 275 ) / (600 -  1280));
                     height: fit-content;
-                    padding: 0.25em 5em;
+                    padding: 0.25em 4em;
                     border: 2px solid #001D3B;
                     border-radius: 1.25em;
+                    border-bottom: none;
                     left: auto;
                     color: white;
                     font-family: 'Teko', sans-serif;
@@ -2241,9 +2279,10 @@ and (min-width: 768px)
                     border-radius: 2em;
                     display: flex;
                     left: auto;
-                    width: 45.25em;
-                    top: calc(32.5em + (100vh - 600px) * (15 - 430 ) / (600 -  1280)) !important;
+                    width: 97%;
+                    top: calc(23.5em + (100vh - 600px) * (15 - 450 ) / (600 -  1280)) !important;
                     align-items: center;
+                    overflow: hidden;
                 }
         
                 .utilityContent {
@@ -2266,8 +2305,8 @@ and (min-width: 768px)
                     width: 9em;
                     height: 3.5em;
                     font-size: 1em;
-                    top: calc(32.5em + (100vh - 600px) * (15 - 300) / (600 -  1080));
-                    left: calc(1em + (100vw - 360px) * (15 - 200) / (360 -  767));
+                    top: calc(32.5em + (100vh - 600px) * (15 - 650) / (600 -  1280));
+                    left: calc(1em + (100vw - 768px) * (15 - 200) / (768 -  1199));
                 }
         
         
@@ -2281,8 +2320,8 @@ and (min-width: 768px)
                     position: absolute;
                     width: 9em;
                     height: 3.5em;
-                    top: calc(32.5em + (100vh - 600px) * (15 - 300) / (600 -  1080));
-                    right: calc(1em + (100vw - 360px) * (15 - 200) / (360 -  767));
+                    top: calc(32.5em + (100vh - 600px) * (15 - 650) / (600 -  1280));
+                    right: calc(1em + (100vw - 768px) * (15 - 200) / (768 -  1199));
                     border: 2px solid white;
                     border-radius: 4.5em;
                     cursor: pointer;
@@ -2296,7 +2335,6 @@ and (min-width: 768px)
                     height: calc(15em + (100vh - 600px) * (15 - 100) / (600 -  1080));
                     width: calc(45em + (100vw - 360px) * (15 - 425) / (360 -  767));
                     top: calc(0em + (100vh - 600px) * (15 + 75) / (600 -  1080));
-                    background: linear-gradient( rgba(95, 145, 255, 1), rgba(95, 145, 255, 1));
                     border-radius: 0;
                     display: grid;
                     grid-template-columns: auto auto auto auto auto auto;
@@ -2406,6 +2444,7 @@ and (min-width: 768px)
                     align-self: flex-end;
                     align-items: center;
                     bottom: calc(0em + (100vh - 600px) * (15 - 350 ) / (600 -  1280));
+                    
                 }
         
         
@@ -2448,6 +2487,7 @@ and (min-width: 768px)
                     overflow-x: scroll;
                     position: relative;
                     scroll-behavior: smooth;
+                    overflow: hidden;
                 }
         
                 #mD1 {
@@ -2599,7 +2639,7 @@ and (min-width: 768px)
 @media screen
 and (min-width: 1200px)
 {
-    ::-webkit-scrollbar {
+    ::-webkit-scrollbar:vertical {
         display: block;
         -ms-overflow-style: auto;
     }
@@ -2680,7 +2720,7 @@ and (min-width: 1200px)
 
 .whitepaper {
     font-size: 1.25em;
-    right: calc(-4em + (100vw - 1200px) * (15 - 110 ) / (1200 -  1599));
+    right: calc(-2.75em + (100vw - 1200px) * (15 - 30 ) / (1200 -  1599));
 
 }
 
@@ -2755,13 +2795,13 @@ li {
 }
 
 .landingText {
-    width: fit-content;
-    height: auto;
+    width: 100%;
+    height: 100%;
     z-index: 3;
-    position: relative;
+    position: absolute;
     display: flex;
-    right: calc(13em + (100vw - 1200px) * (15 - 90) / (1200 - 1600) );
-    top: -5em;
+    right: auto;
+    top: auto;
     align-self: center;
 }
 
@@ -2777,16 +2817,17 @@ li {
 }
 
 #videoButton {
-    display: flex;
+    display: grid;
     width: 6.5em;
-    left: 0em;
+    left: calc(-31.2em + (100vw - 1200px) * (15 + 60) / (1200 - 1600) );
     top: auto;
-    bottom: -3.75em;
+    bottom: -8.5em;
     -webkit-border-radius: 2em;
     border-radius: 1.5em;
     font-size: 1.4em;
     white-space: nowrap;
     transition: all 0.4s;
+
 
 }
 
@@ -2795,11 +2836,11 @@ li {
     background-color: rgba(15, 84, 156, 1);
 }
    #otherButton {
-    display: flex;
-    left: auto;
-    right: 6em;
+    display: grid;
+    left: calc(-30em + (100vw - 1200px) * (15 + 60) / (1200 - 1600) );
+    right: auto;
     top: auto;
-    bottom: -3.75em;
+    bottom: -8.5em;
     border-radius: 1.5em;
     border: 2px solid white;
     font-size: 1.4em;
@@ -2816,15 +2857,15 @@ li {
 #dataText {
   
     font-size: 3.75em;
-    left: 0;
-    top: 0.35em;
+    left: calc(2.1em + (100vw - 1200px) * (15 + 60) / (1200 - 1600) );
+    top: 0em;
 }
 
 #yoursText {
  
     font-size: 1.6em;
-    top: 5em;
-    left: 0;
+    top: 4.25em;
+    left: calc(-11.7em + (100vw - 1200px) * (15 + 60) / (1200 - 1600) );
     opacity: 0.8;
     white-space: nowrap;
 }
@@ -2870,7 +2911,7 @@ li {
      height: calc(4em + (100vh - 600px) * (15 - 80) / (600 - 1080)) !important;
      background-color: rgb(0, 10, 49);
      cursor: pointer;
-     transition: all 0.25s;
+     transition: all 250ms;
      align-items: center;
      justify-content: center;
      z-index: 2;
@@ -2879,7 +2920,7 @@ li {
  }
 
  .ecoContainer:hover {
-     transform: scaleX(0.975);
+     transform: scaleY(0.925);
  }
 
 
@@ -2976,6 +3017,7 @@ li {
 
  .tokenContainer {
      top: 0 !important;
+     border-radius: 0.75em !important;
  }
  
  .tokenSectionContainer {
@@ -2996,6 +3038,7 @@ li {
      background-color: rgba(1, 1, 73, 0.25);
      border: none;
      top: calc(14em + (100vh - 600px) * (15 - 200) / (600 - 1080));
+     border-radius: 0.75em;
  }
 
  #overview {
@@ -3076,8 +3119,8 @@ li {
         width: 15em;
         height: 10em;
         background-color: rgba(28, 57, 128, 0.95);
-        border-radius: 2.25em;
-        border: 10px solid rgba(95, 145, 255, 1);
+        border-radius: 1.5em;
+        border: 7.5px solid rgba(95, 145, 255, 0.75);
         top: 20em;
     
     }
@@ -3101,7 +3144,7 @@ li {
     #tokenT2 {
         position: absolute;
         background-color: rgba(95, 145, 255, 0);
-        top: calc(14.5em + (100vh - 600px) * (15 - 200) / (600 -  1080));
+        top: calc(14.3em + (100vh - 600px) * (15 - 200) / (600 -  1080));
         width: 15em;
         height: 1.25em;
         z-index: 2;
@@ -3110,6 +3153,12 @@ li {
         border-radius: 1.25em;
         font-family: 'Arimo', sans-serif;
         user-select: none;
+    }
+
+    .whiteToken {
+        margin-left: 1.1em;
+        position: relative;
+        bottom: 0.5em;
     }
     
 
