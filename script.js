@@ -596,7 +596,7 @@ console.error( error );
           mainCube.position.set(1.5, 0, 0);
 
         }
-        else if(getDeviceWidth() < 1199 && getDeviceWidth() >= 768) {
+        else if(getDeviceWidth() <= 1199 && getDeviceWidth() >= 768) {
             mainCube.scale.set(.5, .5, .5);
             mainCube.position.set(0, 0, 0);
             mainCube.rotation.set(Math.PI * 0, 0, 0);
@@ -983,7 +983,7 @@ document.querySelector('.container').addEventListener('scroll', leaveVideoContai
 function leaveVideoContainerOnScroll() {
     if(videoContainer.style.clipPath === 'circle(100% at 50% 50%)' || videoContainer.style.clipPath === 'circle(100% at center center)') {
         video.pause();
-        gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
+        gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.4, ease: Sine});
         cubeRotation.play();
         particleRotation.play();
     }
@@ -992,7 +992,7 @@ video.volume = 0.05;
 
 videoButton.addEventListener('click', (e) => {
     e.preventDefault();
-    gsap.to(videoContainer, { 'clip-path': 'circle(100%)',  duration: 0.75, ease: Sine});
+    gsap.to(videoContainer, { 'clip-path': 'circle(100%)',  duration: 0.4, ease: Sine});
   /*
     if(getDeviceWidth() <= 786) {
       if (video.requestFullscreen) {
@@ -1015,7 +1015,7 @@ document.addEventListener('keydown', (e) => {
     e.preventDefault();
     if(e.key === "Escape" && videoContainer.style.clipPath != "circle(0% at center center)") {
         video.pause();
-       gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
+       gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.4, ease: Sine});
          cubeRotation.play();
          particleRotation.play();
     }
@@ -1027,7 +1027,7 @@ $(videoContainer).on('click', function(e) {
   
   video.pause();
 
-  gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.75, ease: Sine});
+  gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.4, ease: Sine});
  
    cubeRotation.play();
    particleRotation.play();

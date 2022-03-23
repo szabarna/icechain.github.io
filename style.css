@@ -2449,22 +2449,22 @@ and (min-width: 768px)
         
         
                 #marketH1 {
-                    font-size: calc(2.35em + (100vh - 600px) * (15 - 22.5 ) / (600 -  1280));
+                    font-size: 2.35em;
                     top: calc(0.6em + (100vh - 600px) * (15 - 45 ) / (600 -  1280));
-                    left: calc(0.35em + (100vw - 768px) * (15 - 67.5) / (768 - 1199)) !important;
+                    left: calc(11.025em + (100vw - 768px) * (15 - 30) / (768 - 1199)) !important;
                     display: flex;
                 }
         
                 #marketH2 {
-                    font-size: calc(1.1em + (100vh - 600px) * (15 - 20 ) / (600 -  1280));
+                    font-size: 1.1em;
                     top: calc(-6em + (100vh - 600px) * (15 - 30 ) / (600 -  1280));
-                    left: calc(0.85em + (100vw - 768px) * (15 - 67.5) / (768 - 1199)) !important;
+                    left: calc(23.5em + (100vw - 768px) * (15 - 30) / (768 - 1199)) !important;
                     display: flex;
                 }
         
                 #marketH3 {
-                    font-size: calc(1.15em + (100vh - 600px) * (15 - 20 ) / (600 -  1280));
-                    left: calc(1.55em + (100vw - 768px) * (15 - 67.5) / (768 - 1199)) !important;
+                    font-size: 1.15em;
+                    left: calc(23.5em + (100vw - 768px) * (15 - 30) / (768 - 1199)) !important;
                     top: calc(-3.75em + (100vh - 600px) * (15 - 50 ) / (600 -  1280));
                     display: flex;
                 }
@@ -2476,8 +2476,8 @@ and (min-width: 768px)
                     transform: scale(0.6);
                     width: fit-content !important;
                     height: calc(53em + (100vh - 600px) * (15 - 300) / (600 - 1280));
-                    bottom: calc(24em + (100vh - 600px) * (15 - 250) / (600 - 1280));
-                    left: calc(-20em + (100vw - 768px) * (15 - 65) / (768 -  1199));
+                    bottom: calc(24em + (100vh - 600px) * (15 - 150) / (600 - 1280));
+                    left: calc(5em + (100vw - 768px) * (15 - 30) / (768 -  1199));
                     background-color: transparent;
                     display: grid;
                     grid-template-columns: auto auto auto auto;
@@ -2564,14 +2564,14 @@ and (min-width: 768px)
                 #createImg {
                     display: flex;
                     transform: scale(0.65);
-                    left: calc(-1em + (100vw - 768px) * (15 - 200) / (768 -  1199));
+                    left: calc(-3.75em + (100vw - 768px) * (15 - 200) / (768 -  1199));
                     top: auto;
                 }
         
                 #createImg2 {
                     display: flex;
                     transform: scale(0.6);
-                    right: calc(-1em + (100vw - 768px) * (15 - 200) / (768 -  1199));
+                    right: calc(-2.25em + (100vw - 768px) * (15 - 200) / (768 -  1199));
                     top: auto;
                 }
 
@@ -2683,9 +2683,10 @@ and (min-width: 1200px)
     font-size: 1.95em;
     color: white;
     font-family: 'Teko', sans-serif;
-    margin-left: calc(5.75em + (100vw - 1200px) * (15 - 140 ) / (1200 -  1599));
+    margin-left: calc(5.55em + (100vw - 1200px) * (15 - 140 ) / (1200 -  1599));
     align-items: center;
     margin-top: 0;
+    transform: scale(0.9);
 
 }
 
@@ -2705,7 +2706,7 @@ and (min-width: 1200px)
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    margin-right: calc(-10.25em + (100vw - 1200px) * (15 + 15 ) / (1200 -  1599));
+    margin-right: calc(-10.75em + (100vw - 1200px) * (15 + 15 ) / (1200 -  1599));
     clip-path: none;
     top: 0;
     font-size: 1.35em;
@@ -2819,7 +2820,7 @@ li {
 #videoButton {
     display: grid;
     width: 6.5em;
-    left: calc(-31.2em + (100vw - 1200px) * (15 + 60) / (1200 - 1600) );
+    left: calc(-32.35em + (100vw - 1200px) * (15 + 60) / (1200 - 1600) );
     top: auto;
     bottom: -8.5em;
     -webkit-border-radius: 2em;
@@ -2837,7 +2838,7 @@ li {
 }
    #otherButton {
     display: grid;
-    left: calc(-30em + (100vw - 1200px) * (15 + 60) / (1200 - 1600) );
+    left: calc(-31em + (100vw - 1200px) * (15 + 60) / (1200 - 1600) );
     right: auto;
     top: auto;
     bottom: -8.5em;
@@ -2846,6 +2847,7 @@ li {
     font-size: 1.4em;
     white-space: nowrap;
     transition: all 0.4s;
+    padding: 0.535em 1.66em !important;
 }
 
 #otherButton:hover {
@@ -3178,7 +3180,7 @@ li {
     border: 2px solid rgba(49, 131, 255, 1); 
     /* rgba(49, 131, 255, 1) */
     position: sticky;
-    right: calc(68.25em + (100vw - 1200px) * (15 - 405) / (1200 -  1600));
+    right: calc(68.25em + (100vw - 1200px) * (15 - 415) / (1200 -  1600));
     cursor: pointer;
     z-index: 3;
     transition: all 0.2s;
@@ -3236,7 +3238,7 @@ li {
     user-select: none;
     font-family: 'Teko', sans-serif;
     font-size: 1.75em;
-    right: calc(39.75em + (100vw - 1200px) * (15 - 405) / (1200 -  1600)) !important;
+    right: calc(40em + (100vw - 1200px) * (15 - 415) / (1200 -  1600)) !important;
 }
 
 #s1t {
@@ -3274,18 +3276,18 @@ li {
 }
 
 #s8t {
-    right: calc(36em + (100vw - 1200px) * (15 - 405) / (1200 -  1600)) !important;
+    right: calc(36em + (100vw - 1200px) * (15 - 415) / (1200 -  1600)) !important;
     top: 16.6em;
 }
 
 #s9t {
-    right: calc(36em + (100vw - 1200px) * (15 - 405) / (1200 -  1600)) !important;
+    right: calc(36em + (100vw - 1200px) * (15 - 415) / (1200 -  1600)) !important;
     top: 18.4em;
 }
 
 #roadLayer {
     display: flex;
-    width: 11.25em;
+    width: 10.5em;
     height: 29.25em;
     background-color: rgb(0, 0, 255, 0.1);
     border-top-left-radius: 0;
@@ -3344,7 +3346,7 @@ li {
 
     #marketDivContainer {
         width: calc(80em + (100vw - 1200px) * (15 - 175) / (1200 - 1600)) !important;
-        bottom: calc(25em + (100vh - 600px) * (15 - 30) / (600 -  1080)) !important;
+        bottom: calc(25em + (100vh - 600px) * (15 + 40) / (600 -  1080)) !important;
         background-color: transparent;
         height: calc(50.9em + (100vh - 600px) * (15 - 75) / (600 -  1080)) !important;
         left: calc(2em + (100vw - 1200px) * (15 - 40) / (1200 -  1600));
@@ -3353,16 +3355,16 @@ li {
     }
     /* VH BC BUG */
     #marketH2 {
-        left: calc(13.5em + (100vh - 600px) * (15 + 40) / (600 -  1080)) !important;
+        left: calc(13.5em + (100vh - 600px) * (15 - 30) / (600 -  1080)) !important;
     }
 
     #marketH1 {
-        left: calc(6.3em + (100vh - 600px) * (15 + 25) / (600 -  1080)) !important;
+        left: calc(6.3em + (100vh - 600px) * (15 - 25) / (600 -  1080)) !important;
     }
 
     #marketH3 {
         top: calc(-3.5em + (100vh - 600px) * (15 - 30) / (600 -  1080)) !important;
-        left: calc(13.5em + (100vh - 600px) * (15 + 30) / (600 -  1080)) !important;
+        left: calc(13.5em + (100vh - 600px) * (15 - 30) / (600 -  1080)) !important;
     }
 
     #mD4Sub {
@@ -3392,11 +3394,11 @@ li {
     }
 
     #createImg{
-        left: calc(7.5em + (100vw - 1200px) * (15 - 75) / (1200 -  1600));
+        left: calc(4.5em + (100vw - 1200px) * (15 - 140) / (1200 -  1600));
     }
 
     #createImg2{
-        right: calc(7.5em + (100vw - 1200px) * (15 - 225) / (1200 -  1600));
+        right: calc(7.25em + (100vw - 1200px) * (15 - 137.5) / (1200 -  1600));
         transform: scale(0.7);
         top: auto;
     }
@@ -3631,7 +3633,7 @@ and (min-width: 1600px) {
 }
 
 #logo {
-    margin-left: 9.75em;
+    margin-left: 9.65em;
 }
 
 #logo img {
@@ -3650,7 +3652,7 @@ and (min-width: 1600px) {
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    right: -7em;
+    right: -6.75em;
     clip-path: none;
     top: 0;
     
@@ -3742,8 +3744,8 @@ li {
     z-index: 3;
     position: relative;
     display: flex;
-    right: 17.5%;
-    top: -7.5em;
+    right: auto;
+    top: auto;
     align-self: center;
 }
 
@@ -3762,8 +3764,8 @@ li {
 
 #videoButton {
     padding:  0.5em 1.5em;
-    top: 12.5em; 
-    left: 0em;
+    top: 7em; 
+    left: -44.25em;
     border: 2px solid white;
     border-radius: 2.5em;
     text-decoration: none;
@@ -3775,8 +3777,8 @@ li {
 
 #otherButton {
     padding:  0.5em 1.85em;
-    top: 12.5em; 
-    left: 8.5em;
+    top: 7em; 
+    left: -42.5em;
     border: 2px solid white;
     border-radius: 2.5em;
     text-decoration: none;
@@ -3798,16 +3800,16 @@ li {
 
 #dataText {
   
-    font-size: 5.25em;
-    left: 0%;
-    top: 0.5em;
+    font-size: 5em;
+    left: 1.1em;
+    top: -1em;
 }
 
 #yoursText {
  
-    font-size: 2.25em;
-    top: 72.5%;
-    left: 0%;
+    font-size: 2.2em;
+    top: 1.5em;
+    left: -13.55em;
     opacity: 0.8;
     white-space: nowrap;
 }
@@ -4592,7 +4594,7 @@ li {
 }
 
 #teamSlider {
-    width: 82.5em;
+    width: 84em;
     row-gap: 5em;
     box-shadow: 0 0 0 0 white;
 
