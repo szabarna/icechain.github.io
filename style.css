@@ -790,11 +790,11 @@ h2 {
            justify-content: center;
             background-color: rgb(0, 10, 49, 0.5);
             border-radius: 0.75em;
-            overflow-x: hidden;
+            
             scroll-behavior: smooth;
-
-            overflow-y: scroll;
-
+            
+            overflow: auto;
+            overflow-x: hidden;
        }
 
 
@@ -1063,11 +1063,14 @@ h2 {
             justify-content: space-between;
             align-items: center;
             background-color: rgba(0, 29, 59, 0.225);
-            overflow-y: hidden;
+           
             scroll-behavior: smooth;
 
-            overflow-x: auto;
-            
+            white-space: nowrap;
+            overflow: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+
         }
 
         #utility {
@@ -1100,13 +1103,14 @@ h2 {
             grid-template-rows: none ;
             justify-content: space-between;
             align-content: center;
-            overflow-y: hidden;
+            
             position: absolute;
             scroll-behavior: smooth;
             background-color: rgba(0, 29, 59, 0.225);
 
+            overflow-y: hidden;
             overflow-x: scroll;
-            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
 
         }
 
