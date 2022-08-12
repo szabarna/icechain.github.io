@@ -1,5 +1,9 @@
 import * as THREE from "./three.js-r134-min/build/three.module.js";
 import { GLTFLoader } from './three.js-r134-min/examples/jsm/loaders/GLTFLoader.js';
+import { RGBELoader } from './three.js-r134-min/examples/jsm/loaders/RGBELoader.js';
+import { RGBMLoader } from './three.js-r134-min/examples/jsm/loaders/RGBMLoader.js';
+import { HDRCubeTextureLoader  } from './three.js-r134-min/examples/jsm/loaders/HDRCubeTextureLoader.js';
+import { DRACOLoader  } from './three.js-r134-min/examples/jsm/loaders/DRACOLoader.js';
 import { EffectComposer } from './three.js-r134-min/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from './three.js-r134-min/examples/jsm/postprocessing/RenderPass.js';
 import { GlitchPass } from './three.js-r134-min/examples/jsm/postprocessing/GlitchPass.js';
@@ -91,6 +95,9 @@ function getDeviceHeight() {
   function init() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x000524)
+
+    
+    
     //00061f
     camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 20 );
     camera.position.z = 4;
@@ -117,6 +124,7 @@ function getDeviceHeight() {
   renderer.setSize( window.innerWidth, window.innerHeight );
   renderer.setPixelRatio( window.devicePixelRatio );
 
+
   
   
  // document.body.appendChild( renderer.domElement );
@@ -128,11 +136,23 @@ function getDeviceHeight() {
 	
 		const loadingScreen = document.getElementById( 'loading-screen' );
 		loadingScreen.classList.add( 'fade-out' );
+
 		
 		// optional: remove loader from DOM via event listener
 		loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
+
 		
 	} );
+
+  loadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+
+    const loadingScreen = document.getElementById( 'loading-screen' );
+
+    loadingScreen.innerText = (itemsLoaded / itemsTotal * 100).toFixed() + '%';
+  
+  };
+
+
 
   // Objects
   
@@ -182,6 +202,8 @@ function getDeviceHeight() {
   renderer.initTexture(texture);
   renderer.initTexture(textureAlpha);
 
+
+
   // Mesh
  // const cube = new THREE.Points( geometry, tmaterial );
  
@@ -205,6 +227,7 @@ function getDeviceHeight() {
 
     tokenModel = gltf.scene.clone();
     // tokenModel.frustumCulled = false;
+
     
     if(getDeviceWidth() >= 1280 && getDeviceWidth() < 1440) {
       tokenModel.scale.set( 0.815, 0.815, 0.815 );
@@ -501,6 +524,11 @@ function getDeviceHeight() {
 
   var modelCurve;
   
+  const draco = new DRACOLoader();
+
+  draco.setDecoderPath( './three.js-r134-min/examples/js/libs/draco/');
+  
+  loader.setDRACOLoader(draco);
 
   loader.load("./src/roadMapModel.glb", (gltf) => {
 
