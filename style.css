@@ -792,8 +792,8 @@ h2 {
             background-color: rgb(0, 10, 49, 0.5);
             border-radius: 0.75em;
             overflow-x: hidden;
-            overflow-y: scroll;
-            -webkit-overflow-scrolling: auto;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
 
        }
@@ -1064,8 +1064,8 @@ h2 {
             justify-content: space-between;
             align-items: center;
             background-color: rgba(0, 29, 59, 0.225);
-            overflow-x: scroll;
-            -webkit-overflow-scrolling: auto;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             white-space: nowrap;
             scroll-behavior: smooth;
@@ -1102,9 +1102,9 @@ h2 {
             grid-template-rows: none ;
             justify-content: space-between;
             align-content: center;
-            overflow-x: scroll;
+            overflow-x: auto;
             overflow-y: hidden;
-            -webkit-overflow-scrolling: auto;
+            -webkit-overflow-scrolling: touch;
             white-space: nowrap;
             position: absolute;
             scroll-behavior: smooth;
@@ -1214,7 +1214,7 @@ h2 {
             grid-template-rows: none ;
             justify-content: space-between;
             align-content: center;
-            overflow-x: scroll;
+            overflow-x: auto;
             overflow-y: hidden;
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
@@ -1313,10 +1313,8 @@ h2 {
 
         #nodeH1 {
             font-size: 1.35em;
-            width: 12.5em;
             white-space: nowrap;
             top: 5em;
-
             font-family: 'Teko', sans-serif;
             text-transform: uppercase;
             position: absolute;
@@ -1450,7 +1448,7 @@ h2 {
             grid-template-columns: auto auto auto auto;
             justify-content: space-between;
             align-items: flex-start;
-            overflow-x: scroll;
+            overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             position: relative;
@@ -1604,7 +1602,7 @@ h2 {
             grid-template-columns: auto auto auto auto auto auto auto;
             justify-content: space-between;
             white-space: nowrap;
-            overflow-x: scroll;
+            overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             scroll-behavior: smooth;
@@ -1657,7 +1655,7 @@ h2 {
             bottom: calc(0em + (100vh - 600px) * (15 - 100) / (600 -  1080));
             display: grid;
             grid-template-columns: 0.1em 0.1em;
-            overflow-x: scroll;
+            overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             scroll-behavior: smooth;
@@ -1705,7 +1703,7 @@ h2 {
             row-gap: 0em;
             width: calc(20em + (100vw - 300px) * (15 - 300) / (300 -  767));
             height: calc(25em + (100vh - 600px) * (15 - 300) / (600 -  1080));
-            overflow-y: scroll;
+            overflow-y: auto;
             overflow-x: hidden;
             justify-content: center;
             scroll-behavior: smooth;
