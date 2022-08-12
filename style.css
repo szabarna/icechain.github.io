@@ -580,7 +580,7 @@ h2 {
            left: auto;
            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
            -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-           
+           display: none;
        }
 
        .li {

@@ -1296,9 +1296,13 @@ tl3Hamburger.reversed(true);
 
 
 hamburger.addEventListener('click', hamburgerAnim);
+const linkContainer = document.querySelector(".linkContainer");
 
 function hamburgerAnim(e) {
   e.preventDefault();
+
+  if(linkContainer.style.display != "grid") linkContainer.style.display = "grid";
+  else linkContainer.style.display = 'none';
   tlHamburger.reversed(!tlHamburger.reversed());
   tl2Hamburger.reversed(!tl2Hamburger.reversed());
   tl3Hamburger.reversed(!tl3Hamburger.reversed());
