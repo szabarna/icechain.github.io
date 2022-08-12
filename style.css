@@ -201,7 +201,6 @@ section {
     overflow-x: hidden;
     height: 100vh;
     overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
 
 }
@@ -794,8 +793,7 @@ h2 {
             overflow-x: hidden;
             scroll-behavior: smooth;
 
-            overflow-y: auto;
-            white-space: nowrap;
+            overflow-y: scroll;
 
        }
 
@@ -1069,8 +1067,6 @@ h2 {
             scroll-behavior: smooth;
 
             overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            white-space: nowrap;
             
         }
 
@@ -1110,7 +1106,6 @@ h2 {
             background-color: rgba(0, 29, 59, 0.225);
 
             overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
             white-space: nowrap;
 
         }
@@ -1221,8 +1216,7 @@ h2 {
             scroll-behavior: smooth;
             position: relative;
 
-            overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
+            overflow-x: auto;
             white-space: nowrap;
         }
     
@@ -1460,7 +1454,6 @@ h2 {
             border-radius: 1.5em;
 
             overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
             white-space: nowrap;
         }
 
@@ -1614,7 +1607,6 @@ h2 {
             align-items: center;
 
             overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
             white-space: nowrap;
         }
 
@@ -1666,7 +1658,6 @@ h2 {
             scroll-behavior: smooth;
 
             overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
             white-space: nowrap;
             
         }
@@ -1724,7 +1715,6 @@ h2 {
             box-shadow: 0 0 0 0 white !important;
 
             overflow-y: scroll;
-            -webkit-overflow-scrolling: touch;
             white-space: nowrap;
         }
 
