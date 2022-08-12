@@ -792,9 +792,11 @@ h2 {
             background-color: rgb(0, 10, 49, 0.5);
             border-radius: 0.75em;
             overflow-x: hidden;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
+
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
 
        }
 
@@ -1064,11 +1066,12 @@ h2 {
             justify-content: space-between;
             align-items: center;
             background-color: rgba(0, 29, 59, 0.225);
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
-            white-space: nowrap;
             scroll-behavior: smooth;
+
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
             
         }
 
@@ -1102,13 +1105,14 @@ h2 {
             grid-template-rows: none ;
             justify-content: space-between;
             align-content: center;
-            overflow-x: auto;
             overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
-            white-space: nowrap;
             position: absolute;
             scroll-behavior: smooth;
             background-color: rgba(0, 29, 59, 0.225);
+
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
 
         }
 
@@ -1214,12 +1218,13 @@ h2 {
             grid-template-rows: none ;
             justify-content: space-between;
             align-content: center;
-            overflow-x: auto;
             overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
-
             position: relative;
+
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
         }
     
        #tokenT1 {
@@ -1448,14 +1453,16 @@ h2 {
             grid-template-columns: auto auto auto auto;
             justify-content: space-between;
             align-items: flex-start;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             position: relative;
             height: 30em;
             scroll-behavior: smooth;
             background-color: rgba(15, 84, 156, 0);
             border-radius: 1.5em;
+
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
         }
 
 
@@ -1601,14 +1608,15 @@ h2 {
             display: grid;
             grid-template-columns: auto auto auto auto auto auto auto;
             justify-content: space-between;
-            white-space: nowrap;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             scroll-behavior: smooth;
             background-color: rgba(1, 1, 73, 0.15);
             border-radius: 0.75em;
             align-items: center;
+
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
         }
 
         .dropSlide {
@@ -1655,10 +1663,12 @@ h2 {
             bottom: calc(0em + (100vh - 600px) * (15 - 100) / (600 -  1080));
             display: grid;
             grid-template-columns: 0.1em 0.1em;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
             overflow-y: hidden;
             scroll-behavior: smooth;
+
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
             
         }
 
@@ -1703,18 +1713,20 @@ h2 {
             row-gap: 0em;
             width: calc(20em + (100vw - 300px) * (15 - 300) / (300 -  767));
             height: calc(25em + (100vh - 600px) * (15 - 300) / (600 -  1080));
-            overflow-y: auto;
             overflow-x: hidden;
             justify-content: center;
             scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-             
+            
             background-color: rgb(0, 51, 255, 0.15);
             top: 8.5em;
             /* */
             border-radius: 1em;
             z-index: 2;
             box-shadow: 0 0 0 0 white !important;
+
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
         }
 
         #teamSlider:before {
