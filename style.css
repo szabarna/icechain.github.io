@@ -10,8 +10,8 @@
     --dark-blue-color: rgb(0, 10, 49, 0.8);
     --light-blue-color: rgb(49, 197, 255);
     --header-color: rgb(0, 10, 49, 1);
-
     --hamburger-color: rgba(20, 18, 117, 0.95);
+    --cool-blue-color: rgba(7, 77, 134, 1.0);
 
   }
 
@@ -60,6 +60,12 @@ html, body {
 	background-color: #000524;
 	opacity: 1;
  	transition: 1s opacity;
+    color: white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.75rem;
+    font-family: 'Teko', sans-serif;
 }
 
 #loading-screen.fade-out {
@@ -195,7 +201,7 @@ section {
     overflow-x: hidden;
     height: 100vh;
     overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: auto;
     scroll-behavior: smooth;
 
 }
@@ -611,7 +617,6 @@ h2 {
            height: 6.5em;
            background-color: rgba(20, 18, 117, 0);
            right: 0;
-
            position: fixed;
            width: 100vw;
            align-items: center;
@@ -788,7 +793,7 @@ h2 {
             border-radius: 0.75em;
             overflow-x: hidden;
             overflow-y: scroll;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             scroll-behavior: smooth;
 
        }
@@ -1060,7 +1065,7 @@ h2 {
             align-items: center;
             background-color: rgba(0, 29, 59, 0.225);
             overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             overflow-y: hidden;
             white-space: nowrap;
             scroll-behavior: smooth;
@@ -1099,7 +1104,7 @@ h2 {
             align-content: center;
             overflow-x: scroll;
             overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             white-space: nowrap;
             position: absolute;
             scroll-behavior: smooth;
@@ -1211,7 +1216,7 @@ h2 {
             align-content: center;
             overflow-x: scroll;
             overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             scroll-behavior: smooth;
 
             position: relative;
@@ -1446,7 +1451,7 @@ h2 {
             justify-content: space-between;
             align-items: flex-start;
             overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             overflow-y: hidden;
             position: relative;
             height: 30em;
@@ -1600,7 +1605,7 @@ h2 {
             justify-content: space-between;
             white-space: nowrap;
             overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             overflow-y: hidden;
             scroll-behavior: smooth;
             background-color: rgba(1, 1, 73, 0.15);
@@ -1653,7 +1658,7 @@ h2 {
             display: grid;
             grid-template-columns: 0.1em 0.1em;
             overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             overflow-y: hidden;
             scroll-behavior: smooth;
             
@@ -1704,7 +1709,7 @@ h2 {
             overflow-x: hidden;
             justify-content: center;
             scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
              
             background-color: rgb(0, 51, 255, 0.15);
             top: 8.5em;
@@ -2658,7 +2663,7 @@ and (min-width: 1200px)
 .header-container {
     position: fixed;
     width: 100vw;
-    height: 5.5em;
+    height: 7.5rem;
     background-color: transparent;
     align-items: center;
     display: flex;
@@ -3727,7 +3732,7 @@ li {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background-color: #000a31;
+    background-color: #074d86;
     z-index: 5;
     clip-path: circle(0%);
     -webkit-clip-path: circle(0%);
@@ -3757,7 +3762,7 @@ li {
     height: 40%;
     top: 31.5%;
     left: 0;
-    background-color: rgba(15, 84, 156, 0.125);
+    
     opacity: 0.9;
 
 }
