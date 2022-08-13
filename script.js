@@ -73,10 +73,16 @@ function getDeviceHeight() {
 
   gsap.registerPlugin(ScrollTrigger, CSSPlugin, CSSRulePlugin );
 
+    const raycaster =  new THREE.Raycaster()
+    let currentIntersect = null;
+    let targetIntersect = null;
 
+    
     init();
+
+    
     animate();
- 
+  
     
 
   function addStatsObject() {
@@ -149,7 +155,24 @@ function getDeviceHeight() {
     const loadingScreen = document.getElementById( 'loading-screen' );
 
     loadingScreen.innerText = (itemsLoaded / itemsTotal * 100).toFixed() + '%';
-  
+    
+    console.log((itemsLoaded / itemsTotal * 100).toFixed())
+    if((itemsLoaded / itemsTotal * 100).toFixed() > 92) {
+
+      scene.traverse((obj) => {
+        if(obj.isMesh && obj.name === "Curve") {
+          targetIntersect = obj.children[9].children;
+
+          obj.traverse((obj) => {
+            if(obj.isMesh && obj.material.map != null) {
+              renderer.initTexture(obj.material.map)
+            }
+          })
+        } 
+      })
+
+    }
+    
   };
 
 
@@ -538,7 +561,11 @@ function getDeviceHeight() {
       modelCurve.position.set(0, -11.5, -30);
       modelCurve.scale.set(2, 2, 2);
 
+      // if(modelCurve.children[9].children[2] != null)
+      //  renderer.initTexture(modelCurve.children[9].children[2].material.map)
+
       //scene.add( cubeModel );
+
       scene.add( modelCurve );
       
       
@@ -926,6 +953,9 @@ geometrySub8.drawRange.count = 0;
   { duration: 75, y: Math.PI * 2, repeat: -1, ease: "none" });
 
   }
+
+
+ 
   
   
 
@@ -935,7 +965,7 @@ geometrySub8.drawRange.count = 0;
   const renderPass = new RenderPass( scene, camera );
   composer.addPass( renderPass );
 
-  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.4, 0, 0.1);
+  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.35, 0, 0.1);
 
   var glitchPass = new GlitchPass();
     composer.addPass( renderPass );
@@ -943,6 +973,7 @@ geometrySub8.drawRange.count = 0;
     
     // composer.addPass( glitchPass );
   if(getDeviceWidth() >= 1200 ) document.addEventListener('mousemove', onDocumentMouseMove, false);
+  if(getDeviceWidth() >= 1200 ) document.addEventListener('click', onLinkClick, false);
   window.addEventListener( 'resize', handleWindowResize, false );
 
   
@@ -963,6 +994,12 @@ function onDocumentMouseMove(event) {
   
 }
 
+function onLinkClick(event) {
+    if(currentIntersect) {
+      window.open("https://t.me/+MwG8fmzoEbJjOTZk");
+    }
+}
+
   function handleWindowResize(e) {
     // Az ablak átméretezése esetén a kamera vetítési paraméterek újraszámolása
     HEIGHT = window.innerHeight;
@@ -981,7 +1018,8 @@ function onDocumentMouseMove(event) {
     ScrollTrigger.refresh();
    
 }
- 
+
+  
   
   function animate() {
     
@@ -992,6 +1030,25 @@ function onDocumentMouseMove(event) {
      // stats.update()
     // render();
 
+    raycaster.setFromCamera(mouse, camera);
+
+    if(targetIntersect != null) {
+      const intersects = raycaster.intersectObjects( targetIntersect );
+
+     
+      for ( let i = 0; i < intersects.length; i ++ ) {
+
+          if(intersects[ i ].object.name === "Névtelen_terv" && intersects.length == 2) {
+            container.style.cursor = 'pointer'
+            currentIntersect = intersects[ i ].object;
+          }
+          else if(intersects.length < 2) {
+            container.style.cursor = 'default'
+            currentIntersect = null
+          }
+      }
+    }  
+      
  
   }
 
@@ -1095,11 +1152,22 @@ scrub: 1,
 
 scene_anim.to([camera.position, cameraCenter ], { x: "+=7.5", scrollTrigger: {
 
-      trigger: ".marketSection",
+      trigger: ".projects",
       start: maxScrollTop * 8.15,
       end: maxScrollTop * 9,
       scrub: 1,
-      }});   
+      }});
+
+let roadLayer = document.querySelector("#roadLayer");
+let bigRoads = document.querySelectorAll(".bigRoad")
+
+scene_anim.to([roadLayer, bigRoads], { yPercent: -1000, scrollTrigger: {
+
+  trigger: ".projects",
+  start: maxScrollTop * 8.15,
+  end: maxScrollTop * 9,
+  scrub: 0,
+  }});
 
 
 const eco_anim = gsap.to([ 
@@ -1310,7 +1378,7 @@ function hamburgerAnim(e) {
 }
 
 let links = document.querySelectorAll('.li');
-console.log(tl.reversed())
+
 for(let i = 0; i < links.length; i++) {
   
       links[i].addEventListener('click', (e) => {
@@ -1321,10 +1389,6 @@ for(let i = 0; i < links.length; i++) {
        
       });
 }
-
-
-
-
 
 
 
