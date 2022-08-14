@@ -157,19 +157,25 @@ function getDeviceHeight() {
     loadingScreen.innerText = (itemsLoaded / itemsTotal * 100).toFixed() + '%';
     
     console.log((itemsLoaded / itemsTotal * 100).toFixed())
-    if((itemsLoaded / itemsTotal * 100).toFixed() > 92) {
+    if((itemsLoaded / itemsTotal * 100).toFixed() > 90) {
 
-      scene.traverse((obj) => {
-        if(obj.isMesh && obj.name === "Curve") {
-          targetIntersect = obj.children[9].children;
+      setTimeout(() => {
 
-          obj.traverse((obj) => {
-            if(obj.isMesh && obj.material.map != null) {
-              renderer.initTexture(obj.material.map)
-            }
-          })
-        } 
-      })
+        scene.traverse((obj) => {
+          if(obj.isMesh && obj.name === "Curve") {
+            targetIntersect = obj.children[9].children;
+  
+            obj.traverse((obj) => {
+              if(obj.isMesh && obj.material.map != null) {
+                renderer.initTexture(obj.material.map)
+              }
+            })
+          } 
+        })
+
+      }, 1500)
+
+      
 
     }
     
