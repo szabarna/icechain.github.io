@@ -972,8 +972,16 @@ geometrySub8.drawRange.count = 0;
     composer.addPass( unRealBloomPass );
     
     // composer.addPass( glitchPass );
-  if(getDeviceWidth() >= 1200 ) document.addEventListener('mousemove', onDocumentMouseMove, false);
-  if(getDeviceWidth() >= 1200 ) document.addEventListener('click', onLinkClick, false);
+    if(getDeviceWidth() >= 1200 ) {
+      document.addEventListener('pointermove', onDocumentMouseMove, false);
+      document.addEventListener('click', onLinkClick, false);
+    }
+
+    else {
+      document.addEventListener('touchstart', onDocumentMouseMove, false);
+      document.addEventListener('click', onLinkClick, false);
+    }
+     
   window.addEventListener( 'resize', handleWindowResize, false );
 
   
@@ -987,17 +995,38 @@ geometrySub8.drawRange.count = 0;
   
 }
 
+let checker = false;
+
 function onDocumentMouseMove(event) {
   event.preventDefault();
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  if(getDeviceWidth() >= 1200) {
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  }
+  else {
+    mouse.x = (event.touches[0].pageX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.touches[0].pageY / window.innerHeight) * 2 + 1;
+  }
+
+
+  if(checker) {
+    container.style.cursor = 'default'
+    currentIntersect = null
+    checker = false
+  }
   
 }
 
+
+
 function onLinkClick(event) {
+
     if(currentIntersect) {
-      window.open("https://t.me/+MwG8fmzoEbJjOTZk");
+      window.open("https://t.me/+MwG8fmzoEbJjOTZk", "_blank");
+      checker = true
     }
+
+   
 }
 
   function handleWindowResize(e) {
@@ -1022,8 +1051,8 @@ function onLinkClick(event) {
   
   
   function animate() {
-    
-      updateCamera();
+    if(getDeviceWidth() >= 1200 ) updateCamera();
+      
       requestAnimationFrame( animate );
       // controls.update();
       composer.render();
@@ -1038,14 +1067,18 @@ function onLinkClick(event) {
      
       for ( let i = 0; i < intersects.length; i ++ ) {
 
+          
           if(intersects[ i ].object.name === "Névtelen_terv" && intersects.length == 2) {
             container.style.cursor = 'pointer'
             currentIntersect = intersects[ i ].object;
+            
           }
-          else if(intersects.length < 2) {
+          else if(intersects.length < 2 || (intersects[ 0 ].object.name != "Névtelen_terv" && intersects.length == 2)) {
             container.style.cursor = 'default'
             currentIntersect = null
           }
+
+         
       }
     }  
       
@@ -1068,9 +1101,12 @@ document.querySelector('.container').addEventListener('scroll', leaveVideoContai
 function leaveVideoContainerOnScroll() {
     if(videoContainer.style.clipPath === 'circle(100% at 50% 50%)' || videoContainer.style.clipPath === 'circle(100% at center center)') {
         video.pause();
+        video.pause();
+        
         gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.4, ease: Sine});
         cubeRotation.play();
         particleRotation.play();
+        
     }
 }
 video.volume = 0.05;
@@ -1370,7 +1406,7 @@ function hamburgerAnim(e) {
   e.preventDefault();
 
   if(linkContainer.style.display != "grid") linkContainer.style.display = "grid";
-  else linkContainer.style.display = 'none';
+  else linkContainer.style.display = "none";
   tlHamburger.reversed(!tlHamburger.reversed());
   tl2Hamburger.reversed(!tl2Hamburger.reversed());
   tl3Hamburger.reversed(!tl3Hamburger.reversed());
@@ -1383,6 +1419,8 @@ for(let i = 0; i < links.length; i++) {
   
       links[i].addEventListener('click', (e) => {
 
+        if(getDeviceWidth() < 1200) linkContainer.style.display = "none"
+        
         tlHamburger.reverse();
         tl2Hamburger.reverse();
         tl3Hamburger.reverse();
