@@ -159,21 +159,25 @@ function getDeviceHeight() {
     console.log((itemsLoaded / itemsTotal * 100).toFixed())
     if((itemsLoaded / itemsTotal * 100).toFixed() > 90) {
 
-      setTimeout(() => {
+      if(getDeviceWidth() >= 1200) {
+        setTimeout(() => {
 
-        scene.traverse((obj) => {
-          if(obj.isMesh && obj.name === "Curve") {
-            targetIntersect = obj.children[9].children;
+          scene.traverse((obj) => {
+            if(obj.isMesh && obj.name === "Curve") {
+              targetIntersect = obj.children[9].children;
+    
+              obj.traverse((obj) => {
+                if(obj.isMesh && obj.material.map != null) {
+                  renderer.initTexture(obj.material.map)
+                }
+              })
+            } 
+          })
   
-            obj.traverse((obj) => {
-              if(obj.isMesh && obj.material.map != null) {
-                renderer.initTexture(obj.material.map)
-              }
-            })
-          } 
-        })
+        }, 3000)
+      }
 
-      }, 1500)
+      
 
       
 
@@ -941,10 +945,14 @@ geometrySub8.drawRange.count = 0;
       scene.add( ambientLight );
 
   // scene.add
-   scene.add( particlesMesh );
-   scene.add( particlesMeshLower );
-   scene.add( particlesMeshLowerLower );
-   scene.add( particlesMeshLowerLowerRight );
+
+  if(!smallDevice) {
+    scene.add( particlesMesh );
+    scene.add( particlesMeshLower );
+    scene.add( particlesMeshLowerLower );
+    scene.add( particlesMeshLowerLowerRight );
+  }
+  
    
   if(!smallDevice) {
 
@@ -1015,6 +1023,7 @@ function onDocumentMouseMove(event) {
   }
 
 
+
   if(checker) {
     container.style.cursor = 'default'
     currentIntersect = null
@@ -1067,13 +1076,12 @@ function onLinkClick(event) {
 
     raycaster.setFromCamera(mouse, camera);
 
-    if(targetIntersect != null) {
+    if(targetIntersect != null && getDeviceWidth() >= 1200) {
+
       const intersects = raycaster.intersectObjects( targetIntersect );
 
-     
       for ( let i = 0; i < intersects.length; i ++ ) {
 
-          
           if(intersects[ i ].object.name === "Névtelen_terv" && intersects.length == 2) {
             container.style.cursor = 'pointer'
             currentIntersect = intersects[ i ].object;
@@ -1083,11 +1091,27 @@ function onLinkClick(event) {
             container.style.cursor = 'default'
             currentIntersect = null
           }
-
-         
       }
+    }
+
+    if(getDeviceWidth() < 1200) {
+
+      const intersects = raycaster.intersectObjects( scene.children );
+
+      for ( let i = 0; i < intersects.length; i ++ ) {
+
+        if(intersects[ i ].object.name === "Névtelen_terv" && intersects.length >= 50) {
+          container.style.cursor = 'pointer'
+          currentIntersect = intersects[ i ].object;
+          
+        }
+        else if(intersects.length < 2 || (intersects[ 0 ].object.name != "Névtelen_terv" && intersects.length < 50)) {
+          container.style.cursor = 'default'
+          currentIntersect = null
+        }
+      }
+
     }  
-      
  
   }
 

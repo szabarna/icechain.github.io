@@ -3818,7 +3818,7 @@ and (min-width: 1600px) {
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    right: -6.75em;
+    right: -4.35em;
     clip-path: none;
     top: 0;
     
@@ -3840,7 +3840,7 @@ li {
 
 .whitepaper {
     font-size: 1.4em;
-    right: 0.5em;
+    right: 0.7em;
     box-shadow: 0 0 7.5px 0 rgba(20, 126, 197, 0.5);
 }
 
@@ -4390,7 +4390,8 @@ li {
 /* TOKEN DETAILS 2 */
 
 #icoButton {
-    background: transparent;
+    background-image: url('./src/img/mesh-178.png');
+    background-size: cover;
     border: 3px solid rgb(20, 91, 197) !important;
     position: relative;
     width: 8em;
@@ -4406,11 +4407,12 @@ li {
     left: auto;
     box-shadow: 0 0 7.5px 0 rgb(20, 91, 197, 0.25);
     transition: all 0.4s;
+    transform: scale(1);
 }
 
 #icoButton:hover {
-    transform: scaleX(1.05) scaleY(1.025);
-    background-color: rgb(20, 91, 197);
+    background-position: 100%;
+    transform: scaleX(1.05);
 }
 
 
@@ -4431,7 +4433,7 @@ li {
 }
 
 #tokenHolder {
-    width: 70%;
+    width: 66.75%;
     height: 85%;
     position: relative;
     background: linear-gradient(180deg, rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
@@ -4449,35 +4451,40 @@ li {
     position: relative;
     width: 20em;
     height: 12.5em;
-    background-color: rgba(28, 57, 128, 0.95);
-    border-radius: 2.25em;
-    border: 10px solid rgba(95, 145, 255, 1);
+    background-color: rgba(0,159,255,0.35);
+    border-radius: 1em;
+    border: 0px solid rgba(95, 145, 255, 0.1);
+    box-shadow: 0 0 5px 0 rgba(95, 145, 255, 0.1);
     top: 20em;
+    transition: border-radius 0.4s ease-in-out;
+}
 
+.tokens:hover {
+    background-color: rgba(0, 102, 255, 0.15);
 }
 
 #tokenT1 {
     position: absolute;
     top: 7em;
-    background-color: rgb(95, 164, 255);
+    background-color: rgba(0,159,255,0.15);
     width: 47.5em;
     height: 1.25em;
     z-index: 2;
     text-align: center;
-    border-radius: 1.25em;
+    border-radius: 1em;
     font-family: 'Arimo', sans-serif;
     user-select: none;
 }
 
 #tokenT2 {
     position: absolute;
-    background-color: rgba(95, 145, 255, 1);
+    background-color: rgba(0,159,255,0.25);
     top: 21em;
     width: 15em;
     height: 1.25em;
     z-index: 2;
     text-align: center;
-    border-radius: 1.25em;
+    border-radius: 1em;
     font-family: 'Arimo', sans-serif;
     user-select: none;
 }
@@ -4612,7 +4619,7 @@ li {
     display: flex;
     width: 18.75em;
     height: 44.5em;
-    background-color: rgb(0, 0, 255, 0.1);
+    background-color: rgba(0,159,255,0.075);
     border-top-right-radius: 1.5em;
     border-bottom-right-radius: 1.5em;
     align-content: space-between;
