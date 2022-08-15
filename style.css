@@ -3555,6 +3555,7 @@ li {
     #dropImg {
         transform: scale(0.9);
         bottom: calc(-6em + (100vh - 600px) * (15 - 75 ) / (600 - 1080));
+        bottom: auto !important;
         align-self: center;
         justify-self: center;
     }
@@ -4743,7 +4744,7 @@ li {
 #nft4SubImg {
     position: absolute;
     left: -1.5em !important;
-    bottom: 10.5em !important;
+    bottom: auto !important;
     display: block;
 }
 
@@ -4774,6 +4775,7 @@ li {
 
 #dropImg {
     transform: scale(1) !important;
+    bottom: auto !important;
 }
 
 
