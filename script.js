@@ -1,10 +1,9 @@
 import * as THREE from "./three.js-r134-min/build/three.module.js";
 import { GLTFLoader } from './three.js-r134-min/examples/jsm/loaders/GLTFLoader.js';
-import { RGBELoader } from './three.js-r134-min/examples/jsm/loaders/RGBELoader.js';
-import { RGBMLoader } from './three.js-r134-min/examples/jsm/loaders/RGBMLoader.js';
-import { HDRCubeTextureLoader  } from './three.js-r134-min/examples/jsm/loaders/HDRCubeTextureLoader.js';
 import { DRACOLoader  } from './three.js-r134-min/examples/jsm/loaders/DRACOLoader.js';
 import { EffectComposer } from './three.js-r134-min/examples/jsm/postprocessing/EffectComposer.js';
+import { FXAAShader  } from './three.js-r134-min/examples/jsm/shaders/FXAAShader.js';
+import { ShaderPass } from './three.js-r134-min/examples/jsm/postprocessing/ShaderPass.js';
 import { RenderPass } from './three.js-r134-min/examples/jsm/postprocessing/RenderPass.js';
 import { GlitchPass } from './three.js-r134-min/examples/jsm/postprocessing/GlitchPass.js';
 import { UnrealBloomPass } from './three.js-r134-min/examples/jsm/postprocessing/UnrealBloomPass.js';
@@ -131,6 +130,7 @@ function getDeviceHeight() {
   renderer.setPixelRatio( window.devicePixelRatio );
 
 
+
   
   
  // document.body.appendChild( renderer.domElement );
@@ -156,32 +156,6 @@ function getDeviceHeight() {
 
     loadingScreen.innerText = (itemsLoaded / itemsTotal * 100).toFixed() + '%';
     
-    console.log((itemsLoaded / itemsTotal * 100).toFixed())
-    if((itemsLoaded / itemsTotal * 100).toFixed() > 90) {
-
-      if(getDeviceWidth() >= 1200) {
-        setTimeout(() => {
-
-          scene.traverse((obj) => {
-            if(obj.isMesh && obj.name === "Curve") {
-              targetIntersect = obj.children[9].children;
-    
-              obj.traverse((obj) => {
-                if(obj.isMesh && obj.material.map != null) {
-                  renderer.initTexture(obj.material.map)
-                }
-              })
-            } 
-          })
-  
-        }, 3000)
-      }
-
-      
-
-      
-
-    }
     
   };
 
@@ -979,11 +953,16 @@ geometrySub8.drawRange.count = 0;
   const renderPass = new RenderPass( scene, camera );
   composer.addPass( renderPass );
 
-  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.35, 0, 0.1);
+  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.35, 0.25, 0.1);
 
   var glitchPass = new GlitchPass();
     composer.addPass( renderPass );
     composer.addPass( unRealBloomPass );
+
+  var effectFXAA = new ShaderPass( FXAAShader );
+    effectFXAA.uniforms[ 'resolution' ].value.x = 1 / ( window.innerWidth * window.devicePixelRatio );
+    effectFXAA.uniforms[ 'resolution' ].value.y = 1 / ( window.innerHeight * window.devicePixelRatio );
+    composer.addPass( effectFXAA ); 
     
     // composer.addPass( glitchPass );
     if(getDeviceWidth() >= 1200 ) {
@@ -1401,7 +1380,24 @@ stickys[8].addEventListener('click', (e)=> {
 function onTransitionEnd( event ) {
 
 	event.target.remove();
-	
+
+	if(getDeviceWidth() >= 1200) {
+    setTimeout(() => {
+
+      scene.traverse((obj) => {
+        if(obj.isMesh && obj.name === "Curve") {
+          targetIntersect = obj.children[9].children;
+
+          obj.traverse((obj) => {
+            if(obj.isMesh && obj.material.map != null) {
+              renderer.initTexture(obj.material.map)
+            }
+          })
+        } 
+      })
+
+    }, 3000)
+  }
 }
 
 
@@ -1457,7 +1453,4 @@ for(let i = 0; i < links.length; i++) {
        
       });
 }
-
-
-
 }

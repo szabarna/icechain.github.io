@@ -181,9 +181,6 @@ li {
     right: calc(2.1em + (100vw - 300px) * (15 - 15 ) / (300 -  767));
 }
 
-.whitepaper:hover {
-    transform: scaleX(1.1) scaleY(1.02);
-}
 
 
 section {
@@ -694,12 +691,12 @@ h2 {
        #dataText {
            font-size: calc(2em + (100vh - 600px) * (15 - 25 ) / (600 -  1080));
            top: calc(-0.5em + (100vh - 600px) * (15 - 25 ) / (600 -  1080));
-            width: 7.5em;
+            width: fit-content;
             height: 1.25em;
            display: flex;
            position: relative;
            font-family: 'Teko', sans-serif;
-           left: 0%;
+           left: auto;
            user-select: none;
            white-space: nowrap;
        }
@@ -964,7 +961,6 @@ h2 {
             font-family: 'Arimo', sans-serif;
         
             border: 0px solid rgba(0,159,255,0.2);
-            box-shadow: 0 0 50px 0 rgba(0,159,255,0.2);
             border-radius: 1.15rem;
             padding: 1rem;
             user-select: none;
@@ -978,11 +974,6 @@ h2 {
             transition: all 0.2s ease-in-out;
         }
         
-        .utilityText:hover {
-            background-color: rgba(0,159,255,0.35);
-            box-shadow: 0 0 50px 0 rgba(0,159,255,0.35);
-        
-        }
 
         #icetoken {
             height: 1em;
@@ -990,7 +981,7 @@ h2 {
             text-align: center;
             left: auto;
             font-size: 1.5em;
-            top: 1em;
+            top: 1.75em;
             white-space: nowrap;
             position: absolute;
             user-select: none;
@@ -999,7 +990,7 @@ h2 {
         }
 
         #tokenText {
-            top: 5.5em;
+            top: 7.25em;
             font-size: 1em;
             width: calc(18em + (100vw - 300px) * (15 - 150 ) / (300 -  767));
             height: 5em;
@@ -1047,6 +1038,14 @@ h2 {
             top: -0.65em;
         }
 
+        #t5 {
+            top: -0.65em;
+        }
+
+        #t6 {
+            top: -0.65em;
+        }
+
         .blueText {
             font-size: 2em;
 
@@ -1083,8 +1082,8 @@ h2 {
             height: 12.5em;
             text-align: center;
             border: 0px solid #2463BE;
-            background-color: #001D3B;
-            box-shadow: 0 0 0px 0 rgba(0,159,255,0.1);
+            background-color: rgba(0, 32, 59, 0.35);
+            transform: scale(0.825);
         }
 
         #tokenMainContainer {
@@ -1092,7 +1091,7 @@ h2 {
             height: fit-content;
             position: absolute;
             left: auto;
-            top: 12.25em;
+            top: 15em;
             justify-content: space-between;
             align-items: center;
             background-color: rgba(0, 29, 59, 0.225);
@@ -1422,10 +1421,6 @@ h2 {
             cursor: pointer;
             z-index: 3;
             transition: all 0.2s;
-        }
-        
-        .sticky:hover {
-            background-color: rgba(49, 131, 255, 1);
         }
         
 
@@ -1760,7 +1755,6 @@ h2 {
             top: 8.5em;
             border-radius: 1em;
             z-index: 2;
-            box-shadow: 0 0 0 0 white !important;
 
             overflow-y: scroll;
             overflow-x: hidden;
@@ -1909,10 +1903,6 @@ h2 {
     left: -0.1em;
 }
 
-#footerLinkContainer a:hover {
-    background-color: rgba(20, 126, 197, 1);
-}
-
 #footerLinkContainer a img {
     position: relative;
     display: flex;
@@ -1933,11 +1923,6 @@ h2 {
     white-space: nowrap;
     transition: all 0.4s;
   }
-
-  .footerL:hover {
-      background-color: rgba(15, 84, 156, 0.925);
-  }
-
       
 
 #footerButtonContainer {
@@ -1951,16 +1936,6 @@ h2 {
             transform: scale(0.7);
             text-align: center;
     }
-
-
-
-
-
-#footerButtonContainer:hover #footerL1 {
-        transform: scaleX(1.05) scaleY(1.025);
- }
-
-    
 
 
 @media screen
@@ -2238,7 +2213,6 @@ and (min-width: 768px)
                     font-family: 'Arimo', sans-serif;
                 
                     border: 0px solid rgba(0,159,255,0.2);
-                    box-shadow: 0 0 50px 0 rgba(0,159,255,0.2);
                     border-radius: 1.15rem;
                     padding: 1rem;
                     user-select: none;
@@ -2252,11 +2226,6 @@ and (min-width: 768px)
                     transition: all 0.2s ease-in-out;
                 }
                 
-                .utilityText:hover {
-                    background-color: rgba(0,159,255,0.35);
-                    box-shadow: 0 0 50px 0 rgba(0,159,255,0.35);
-                
-                }
         
                 #t1 {
                     left: auto;
@@ -2264,8 +2233,8 @@ and (min-width: 768px)
                     height: 7em;
                     text-align: center;
                     border-radius: 0;
-                    transform: scale(0.825);
                     right: auto;
+                    top: 0;
                     
                 }
         
@@ -2276,7 +2245,6 @@ and (min-width: 768px)
                     height: 7em;
                     text-align: center;
                     border-radius: 0;
-                    transform: scale(0.825);
                     top: auto;
                 }
         
@@ -2286,7 +2254,6 @@ and (min-width: 768px)
                     height: 7em;
                     text-align: center;
                     border-radius: 0;
-                    transform: scale(0.825);
                     top: auto;
                     right: auto;
                 }
@@ -2297,7 +2264,6 @@ and (min-width: 768px)
                     height: 7em;
                     text-align: center;
                     border-radius: 0;
-                    transform: scale(0.825);
                     top: auto;
                     right: auto;
                 }
@@ -2329,13 +2295,10 @@ and (min-width: 768px)
                     height: 11em !important;
                     border: 0px solid white;
                     background-color: #001D3B;
-                    box-shadow: 0 0 0px 0 rgba(0,159,255,0.1);
                     transition: all 0.25s ease-in-out;
+                    transform: scale(0.825) !important;
                 }
 
-                .tokenContainer:hover {
-                    box-shadow: 0 0 30px 0 rgba(0,159,255,0.35);
-                }
 
                 .tokenSectionContainer {
                     width: calc(43em + (100vw - 768px) * (15 - 440) / (768 -  1199));
@@ -3127,6 +3090,7 @@ li {
      height: 10em !important;
      width: 15em !important;
      transition: all 0.25s ease-in-out;
+     transform: scale(0.925) !important;
  }
 
  .tokenContainer:hover {
@@ -3153,6 +3117,7 @@ li {
      border: none;
      top: calc(10em + (100vh - 600px) * (15 - 200) / (600 - 1080));
      border-radius: 0.75em;
+     grid-template-columns: auto auto auto;
  }
 
  #overview {
@@ -3351,45 +3316,45 @@ li {
 }
 
 #s1 {
-    top: 14.525em !important;
+    top: calc(9em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 #s2 {
-    top: 17.525em !important;
+    top: calc(12em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 #s3 {
-    top: 20.525em !important;
+    top: calc(15em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 
 #s4 {
-    top: 23.525em !important;
+    top: calc(18em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 
 #s5 {
-    top: 26.7em !important; 
+    top: calc(21em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 
 #s6 {
-    top: 29.915em !important;
+    top: calc(24em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 
 #s7 {
-    top: 32.925em !important;
+    top: calc(27em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 
 #s8 {
-    top: 35.78em !important;
+    top: calc(30em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 
 #s9 {
-    top: 38.595em !important;
+    top: calc(33em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 .sText {
@@ -3406,47 +3371,47 @@ li {
 
 #s1t {
     right: 40em;
-    top: 7.95em;
+    top: calc(4.85em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 #s2t {
     right: 40em;
-    top: 9.7em;
+    top: calc(6.575em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 #s3t {
     right: 40em;
-    top: 11.375em;
+    top: calc(8.275em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 #s4t {
     right: 40em;
-    top: 13.15em;
+    top: calc(10em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 #s5t {
     right: 40em;
-    top: 14.925em;
+    top: calc(11.725em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 #s6t {
     right: 40em;
-    top: 16.75em;
+    top: calc(13.425em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 #s7t {
     right: 40em;
-    top: 18.5em;
+    top: calc(15.16em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 #s8t {
     right: calc(36em + (100vw - 1200px) * (15 - 415) / (1200 -  1600)) !important;
-    top: 20.15em;
+    top: calc(16.814em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 #s9t {
     right: calc(36em + (100vw - 1200px) * (15 - 415) / (1200 -  1600)) !important;
-    top: 21.75em;
+    top: calc(18.55em + (100vh - 600px) * (15 - 150 ) / (600 -  1280)) !important;
 }
 
 #roadLayer {
@@ -3461,7 +3426,7 @@ li {
     align-content: space-between;
     /* rgba(49, 131, 255, 1) */
     position: sticky;
-    top: 12.5em;
+    top: calc(7em + (100vh - 600px) * (15 - 150 ) / (600 -  1280));
     right: 130em;
 }
 
@@ -4230,6 +4195,8 @@ li {
     align-items: center;
     box-shadow: 0 0 0px 0 rgba(0,159,255,0.1);
     transition: all 0.25s ease-in-out;
+    transform: scale(1) !important;
+    margin: 1em; 
 }
 
 .tokenContainer:hover {
@@ -4243,8 +4210,9 @@ li {
     overflow: hidden;
     display: grid;
     background-color: transparent;
-    grid-template-columns: auto auto auto auto;
-    justify-content: space-between;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+    row-gap: 30px;
     border: none;
 }
 
@@ -4573,7 +4541,7 @@ li {
 
 #s1t {
     right: 47em !important;
-    top: 4.25em;
+    top: 4.25em !important;
 }
 
 #s2t {
