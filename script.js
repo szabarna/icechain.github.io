@@ -1,6 +1,7 @@
 import * as THREE from "./three.js-r134-min/build/three.module.js";
 import { GLTFLoader } from './three.js-r134-min/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader  } from './three.js-r134-min/examples/jsm/loaders/DRACOLoader.js';
+import { RGBELoader  } from './three.js-r134-min/examples/jsm/loaders/RGBELoader.js';
 import { EffectComposer } from './three.js-r134-min/examples/jsm/postprocessing/EffectComposer.js';
 import { FXAAShader  } from './three.js-r134-min/examples/jsm/shaders/FXAAShader.js';
 import { ShaderPass } from './three.js-r134-min/examples/jsm/postprocessing/ShaderPass.js';
@@ -8,11 +9,15 @@ import { RenderPass } from './three.js-r134-min/examples/jsm/postprocessing/Rend
 import { GlitchPass } from './three.js-r134-min/examples/jsm/postprocessing/GlitchPass.js';
 import { UnrealBloomPass } from './three.js-r134-min/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
+import { Draggable } from "./gsap-public/esm/Draggable.js";
 import { CSSPlugin } from "./gsap-public/esm/CSSPlugin.js";
 import { CSSRulePlugin } from "./gsap-public/esm/CSSRulePlugin.js";
+import { CustomEase } from "./gsap-public/src/CustomEase.js";
 import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
 
 
+var pointers = [];
+var icLogo;
 
 window.onload = function() {
  
@@ -61,16 +66,18 @@ function getDeviceHeight() {
   var mouse = new THREE.Vector2();
   var scene_anim = gsap.timeline();
   var subLine1, subLine2, subLine3, subLine4, subLine5, subLine6, subLine7, subLine8;
-  var mainCube;
+  var template;
   var stats;
   var cubeRotation = gsap.timeline();
   var particleRotation = gsap.timeline();
   var container = document.querySelector('.container');
   var maxScrollTop = container.clientHeight;
   
-  
+  let bigDevice = getDeviceWidth() >= 1600;
+  let mediumDevice = getDeviceWidth() <= 1600 && getDeviceWidth() >= 1200;
+  let smallDevice = getDeviceWidth() < 1200;
 
-  gsap.registerPlugin(ScrollTrigger, CSSPlugin, CSSRulePlugin );
+  gsap.registerPlugin(ScrollTrigger, CSSPlugin, CSSRulePlugin, CustomEase );
 
     const raycaster =  new THREE.Raycaster()
     let currentIntersect = null;
@@ -101,17 +108,18 @@ function getDeviceHeight() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x000524)
 
-    
-    
+    const hdrTextureURL = new URL('./src/img/env.hdr', import.meta.url);
+
+   
+
+
     //00061f
     camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 20 );
     camera.position.z = 4;
     cameraCenter.x = camera.position.x;
     cameraCenter.y = camera.position.y;
     
-    let bigDevice = getDeviceWidth() >= 1600;
-    let mediumDevice = getDeviceWidth() <= 1600 && getDeviceWidth() >= 1200;
-    let smallDevice = getDeviceWidth() < 1200;
+    
     // Select the canvas from the document
     canvReference = document.getElementById("webgl");
   
@@ -128,15 +136,11 @@ function getDeviceHeight() {
 
   renderer.setSize( window.innerWidth, window.innerHeight );
   renderer.setPixelRatio( window.devicePixelRatio );
+  renderer.outputEncoding = THREE.sRGBEncoding
+  renderer.toneMapping = THREE.ACESFilmicToneMapping
+  renderer.toneMappingExposure = 1.5
 
-
-
-  
-  
- // document.body.appendChild( renderer.domElement );
-
-  // addStatsObject();
-
+ 
   /* LOADING MANAGER */
   const loadingManager = new THREE.LoadingManager( () => {
 	
@@ -159,6 +163,15 @@ function getDeviceHeight() {
     
   };
 
+  const rgbeLoader = new RGBELoader(loadingManager);
+  
+    rgbeLoader.load(hdrTextureURL, (texture) => {
+    texture.mapping = THREE.EquirectangularReflectionMapping
+    renderer.initTexture(texture)
+    scene.environment = texture;
+    
+})
+
 
 
   // Objects
@@ -170,7 +183,7 @@ function getDeviceHeight() {
   const particlesGeometryLowerLowerRight = new THREE.BufferGeometry();
   var particlesCnt;
   if(getDeviceWidth() < 1200 ) particlesCnt = 100;
-  else particlesCnt = 300;
+  else particlesCnt = 100;
   
 
   const posArray = new Float32Array(particlesCnt * 3);
@@ -210,12 +223,7 @@ function getDeviceHeight() {
   renderer.initTexture(textureAlpha);
 
 
-
-  // Mesh
- // const cube = new THREE.Points( geometry, tmaterial );
- 
   const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-  
   const particlesMeshLower = new THREE.Points(particlesGeometryLower, particlesMaterial);
   const particlesMeshLowerLower = new THREE.Points(particlesGeometryLowerLower, particlesMaterial);
   const particlesMeshLowerLowerRight = new THREE.Points(particlesGeometryLowerLowerRight, particlesMaterial);
@@ -226,7 +234,6 @@ function getDeviceHeight() {
   /* BLENDER IMPORTS */
   const loader = new GLTFLoader(loadingManager);
 
-
   var tokenModel;
   
   loader.load('./src/tokenModel.glb', (gltf) => {
@@ -234,6 +241,14 @@ function getDeviceHeight() {
 
     tokenModel = gltf.scene.clone();
     // tokenModel.frustumCulled = false;
+
+    tokenModel.traverse((obj) => {
+      if(obj.isMesh) {
+        obj.material.rougness = 1;
+        obj.material.metalness = 0.75;
+        if(obj.material.map != null) renderer.initTexture(obj.material.map)
+      }
+    })
 
     
     if(getDeviceWidth() >= 1280 && getDeviceWidth() < 1440) {
@@ -315,7 +330,6 @@ function getDeviceHeight() {
         }
       }, 375)
      
-
     }
 
       tokenModel.children[0].position.z = 0;
@@ -357,7 +371,6 @@ function getDeviceHeight() {
     });
     tlToken3.to('#graphButton', { innerText: "Token Distribution" });
     tlToken3.reversed(true);
-
 
     graphButton.addEventListener('click', tokenAnim);
 
@@ -494,11 +507,19 @@ function getDeviceHeight() {
 
     var nodeModel;
 
-  
 
     loader.load('./src/node.glb', (gltf) => {
 
       nodeModel = gltf.scene.clone();
+
+      nodeModel.traverse((obj) => {
+        if(obj.isMesh) {
+          obj.material.rougness = 0.75;
+          obj.material.metalness = 1;
+          if(obj.material.map != null) renderer.initTexture(obj.material.map)
+        }
+      })
+
       nodeModel.scale.set(.2, .2, .2)
       nodeModel.position.set(5, -11.3, 1.25);
 
@@ -541,6 +562,14 @@ function getDeviceHeight() {
 
       modelCurve = gltf.scene.children[0].clone();
       // modelCurve.frustumCulled = false;
+
+      modelCurve.traverse((obj) => {
+        if(obj.isMesh) {
+          obj.material.rougness = 0.75;
+          obj.material.metalness = 1;
+          if(obj.material.map != null) renderer.initTexture(obj.material.map)
+        }
+      })
       
       modelCurve.position.set(0, -11.5, -30);
       modelCurve.scale.set(2, 2, 2);
@@ -620,137 +649,69 @@ console.error( error );
 });
 
 
+  loader.load("./src/template.glb", (gltf) => {
+    const txt = new THREE.TextureLoader(loadingManager).load('./src/img/bg.jpg');
+    renderer.initTexture(txt)
 
+    template = gltf.scene
 
-
-
-  
-
-  loader.load("./src/mainCube.glb", (gltf) => {
-        let offsetX = null;
-        mainCube = gltf.scene.children[0].clone();
-   
-        if(getDeviceWidth() < 1600 && getDeviceWidth() >= 1200) {
-          offsetX = 1.5;
-          mainCube.position.set(1.5, 0, 0);
-
+    template.traverse((obj) => {
+        if(obj.isMesh && obj.name === "backPlain") {
+          obj.material.roughness = 0.25
+          obj.material.metalness = 0.25
+          obj.material.map = txt
         }
-        else if(getDeviceWidth() <= 1199 && getDeviceWidth() >= 768) {
-            mainCube.scale.set(.5, .5, .5);
-            mainCube.position.set(0, 0, 0);
-            mainCube.rotation.set(Math.PI * 0, 0, 0);
+        if(obj.isMesh && obj.name != "backPlain" && obj.name != "Sphere003" && obj.material.name != "textMaterial") {
+          obj.material.roughness = 0.25
+          obj.material.metalness = 0.25
         }
 
-      else if(getDeviceWidth() < 768 && getDeviceWidth() >= 300 && getDeviceHeight() <= 1280) {
-        mainCube.scale.set(.5, .5, .5);
-        mainCube.position.set(0, 0, 0);
-        mainCube.rotation.set(Math.PI * 0.0, 0, 0);
-      }
-
-        else {
-          offsetX = 1.25;
-          mainCube.position.set(1.25, 0, 0);
+        if(obj.isMesh && obj.name === "icLogo") {
+          obj.material.roughness = 0.25
+          obj.material.metalness = 1
+          icLogo = obj;
         }
+
+        if(obj.isMesh && obj.material.name === "textMaterial") {
+            obj.material.metalness = 0.5
+            obj.material.roughness = 0.2
+        }
+
+        if(obj.isMesh && obj.name === "frontPlain") {
+          obj.position.y -= 0.075
+        }
+
+        if(obj.isMesh && obj.name === "Sphere003") {
+          obj.material.roughness = 0
+          obj.material.metalness = 0.5
+        }
+
+        if(obj.isMesh && (obj.name === "WatchCubeOne" || obj.name === "WatchCubeSecond")) {
+          pointers.push(obj)
+        }
+    })
         
-        // y -1.8
+    console.log(template)
 
-
-        if(getDeviceWidth() >= 1200) mainCube.rotation.set(Math.PI * 0.125, 0, 0);
-       
-        mainCube.material.transparent = true;
-        mainCube.children[0].material.transparent = true;
-        mainCube.children[1].material.transparent = true;
-        mainCube.children[0].material.alphaTest = 0.10;
-       
     
-          if(mainCube.children[0].material.opacity != 0 && cubeRotation ) {
 
-        cubeRotation.to([
-              
-              mainCube.rotation,
-            ],
-            { duration: 30, y: Math.PI * 2, repeat: -1, ease: "none", });
-            }
-        
-            if(getDeviceWidth() >= 1200) {
+    if(!smallDevice) {
+      template.rotateY(-Math.PI / 1.55)
+      template.position.set(0.5, -0.05, 2.5)
+ 
+    } 
+    else {
+      template.rotateY(-Math.PI / 2)
+      template.position.set(0, 0.15, 2)
+    } 
+    template.scale.set(1.25, 1.25, 1.25)
 
-        scene_anim.to(mainCube.position, { y: -4.8, x: "-=" + offsetX, z: "-=12", scrollTrigger: {
-          // , gltf.scene.children[1].position, gltf.scene.children[2].position
-        trigger: ".home",
-        start: 0,
-        end: maxScrollTop,
-        scrub: 1,
-        }});
+   // camera.lookAt(template.position)
+    scene.add(template)
 
-        
-        scene_anim.to([
-          mainCube.material,
-          mainCube.children[0].material,
-          mainCube.children[1].material],
-          { opacity: 0, scrollTrigger: {
-          // , gltf.scene.children[1].position, 
-        trigger: ".services",
-        start: maxScrollTop,
-        end: maxScrollTop * 2,
-        scrub: 1,
-        }});
-        
-      }
+    gsap.to(template.rotation, {y: "+=" + Math.PI * 2, duration: 7.5, repeat: -1, repeatDelay: 12.5 ,ease: CustomEase.create("custom", "M0,0,C0,0,0.108,0.255,0.17,0.34,0.242,0.44,0.363,0.474,0.448,0.53,0.636,0.654,0.617,0.731,0.708,0.84,0.816,0.97,1,1,1,1")})
 
-      else if(getDeviceWidth() < 768 && getDeviceHeight() < 1000){
-        scene_anim.to(mainCube.position, { y: -5, x: 0, z: "-=5", scrollTrigger: {
-          // , gltf.scene.children[1].position, gltf.scene.children[2].position
-        trigger: ".home",
-        start: 0,
-        end: maxScrollTop,
-        scrub: 1,
-        }});
-      
-
-      scene_anim.to([
-        mainCube.material,
-        mainCube.children[0].material,
-        mainCube.children[1].material],
-        { opacity: 0, scrollTrigger: {
-        // , gltf.scene.children[1].position, 
-      trigger: ".home",
-      start: maxScrollTop * 0.5,
-      end: maxScrollTop,
-      scrub: 1,
-      }});
-      
-    }
-
-      else {
-        scene_anim.to(mainCube.position, { y: -3, x: 0, z: "-=8", scrollTrigger: {
-          // , gltf.scene.children[1].position, gltf.scene.children[2].position
-        trigger: ".home",
-        start: 0,
-        end: maxScrollTop,
-        scrub: 1,
-        }});
-      
-
-      scene_anim.to([
-        mainCube.material,
-        mainCube.children[0].material,
-        mainCube.children[1].material],
-        { opacity: 0, scrollTrigger: {
-        // , gltf.scene.children[1].position, 
-      trigger: ".home",
-      start: maxScrollTop * 0.5,
-      end: maxScrollTop,
-      scrub: 1,
-      }});
-    }
-        scene.add( mainCube );
-
-        
-        /*
-       setInterval( (e) => {
-        camera.lookAt(mainCube.position);
-       }, 0.1);
-        */
+   
 
   }, undefined, function ( error ) {
 
@@ -758,161 +719,11 @@ console.error( error );
 
     });
 
-    
-    // LINES
-  
-const pointsMaterial = new THREE.PointsMaterial({ color: 0x3477af, size: .05, map: texture, alphaMap: textureAlpha, alphaTest: 0.5 });
-    // LEFT
-// sub curve left, first from top
-
-const curveSub1 = new THREE.SplineCurve( [
-  new THREE.Vector2( -0.3, -5.1 ),
-  new THREE.Vector2( -1.5, -4.3 ),
-  new THREE.Vector2( -2.5, -4.4),
-  new THREE.Vector2( -3.5, -4.2 )
-] );
-
-const pointsSub1 = curveSub1.getPoints( 50 );
-const geometrySub1 = new THREE.BufferGeometry().setFromPoints( pointsSub1 );
-geometrySub1.drawRange.start = 0;
-geometrySub1.drawRange.count = 0;
- subLine1 = new THREE.Points( geometrySub1, pointsMaterial );
- if(getDeviceWidth() >= 1200)  scene.add(subLine1);
-
-
-// sub curve left, second from top
-
-const curveSub2 = new THREE.SplineCurve( [
-  new THREE.Vector2( -0.4, -5.25 ),
-  new THREE.Vector2( -1, -5.25 ),
-  new THREE.Vector2( -2, -4.95 ),
-  new THREE.Vector2( -3.5, -5.15 )
-] );
-
-const pointsSub2 = curveSub2.getPoints( 50 );
-const geometrySub2 = new THREE.BufferGeometry().setFromPoints( pointsSub2 );
-geometrySub2.drawRange.start = 0;
-geometrySub2.drawRange.count = 0;
-
-subLine2 = new THREE.Points( geometrySub2, pointsMaterial );
-
-subLine1.add(subLine2);
-
-
-// sub curve left, third from top
-
-const curveSub3 = new THREE.SplineCurve( [
-  new THREE.Vector2( -0.4, -5.45 ),
-  new THREE.Vector2( -1, -5.6 ),
-  new THREE.Vector2( -2, -6.25 ),
-  new THREE.Vector2( -3.5, -6.2 )
-] );
-
-const pointsSub3 = curveSub3.getPoints( 50 );
-const geometrySub3 = new THREE.BufferGeometry().setFromPoints( pointsSub3 );
-geometrySub3.drawRange.start = 0;
-geometrySub3.drawRange.count = 0;
- subLine3 = new THREE.Points( geometrySub3, pointsMaterial );
-
- subLine1.add(subLine3);
-
-// sub curve left, fourth from top
-
-const curveSub4 = new THREE.SplineCurve( [
-  new THREE.Vector2( -0.3, -5.8 ),
-  new THREE.Vector2( -1.25, -6.6 ),
-  new THREE.Vector2( -2.5, -6.8 ),
-  new THREE.Vector2( -3.5, -7.4 )
-] );
-
-const pointsSub4 = curveSub4.getPoints( 50 );
-const geometrySub4 = new THREE.BufferGeometry().setFromPoints( pointsSub4 );
-geometrySub4.drawRange.start = 0;
-geometrySub4.drawRange.count = 0;
-subLine4 = new THREE.Points( geometrySub4, pointsMaterial );
-
-subLine1.add(subLine4);
-
-
-  // RIGHT
-
-  // sub curve rightLayer, first from top
-
-const curveSub5 = new THREE.SplineCurve( [
-  new THREE.Vector2( 0.3, -5.1 ),
-  new THREE.Vector2( 1.5, -4.3 ),
-  new THREE.Vector2( 2.5, -4.4),
-  new THREE.Vector2( 3.5, -4.2 )
-] );
-
-const pointsSub5 = curveSub5.getPoints( 50 );
-const geometrySub5 = new THREE.BufferGeometry().setFromPoints( pointsSub5 );
-geometrySub5.drawRange.start = 0;
-geometrySub5.drawRange.count = 0;
-subLine5 = new THREE.Points( geometrySub5, pointsMaterial );
-
-
-subLine1.add(subLine5);
-
-// sub curve rightLayer, second from top
-
-const curveSub6 = new THREE.SplineCurve( [
-  new THREE.Vector2( 0.4, -5.25 ),
-  new THREE.Vector2( 1, -5.25 ),
-  new THREE.Vector2( 2, -4.95 ),
-  new THREE.Vector2( 3.5, -5.15 )
-] );
-
-const pointsSub6 = curveSub6.getPoints( 50 );
-const geometrySub6 = new THREE.BufferGeometry().setFromPoints( pointsSub6 );
-geometrySub6.drawRange.start = 0;
-geometrySub6.drawRange.count = 0;
- subLine6 = new THREE.Points( geometrySub6, pointsMaterial );
-
- subLine1.add(subLine6);
-
-
-// sub curve rightLayer, third from top
-
-const curveSub7 = new THREE.SplineCurve( [
-  new THREE.Vector2( 0.4, -5.45 ),
-  new THREE.Vector2( 1, -5.6 ),
-  new THREE.Vector2( 2, -6.25 ),
-  new THREE.Vector2( 3.5, -6.2 )
-] );
-
-const pointsSub7 = curveSub7.getPoints( 50 );
-const geometrySub7 = new THREE.BufferGeometry().setFromPoints( pointsSub7 );
-geometrySub7.drawRange.start = 0;
-geometrySub7.drawRange.count = 0;
- subLine7 = new THREE.Points( geometrySub7, pointsMaterial );
-
- subLine1.add(subLine7);
-
-
-// sub curve rightLayer, fourth from top
-
-const curveSub8 = new THREE.SplineCurve( [
-  new THREE.Vector2( 0.3, -5.8 ),
-  new THREE.Vector2( 1.25, -6.6 ),
-  new THREE.Vector2( 2.5, -6.8 ),
-  new THREE.Vector2( 3.5, -7.4 )
-] );
-
-const pointsSub8 = curveSub8.getPoints( 50 );
-const geometrySub8 = new THREE.BufferGeometry().setFromPoints( pointsSub8 );
-geometrySub8.drawRange.start = 0;
-geometrySub8.drawRange.count = 0;
- subLine8 = new THREE.Points( geometrySub8, pointsMaterial );
-
-
- subLine1.add(subLine8);
-
-
+    renderer.compile(scene, camera)
 
   // LIGHTS
     
-    ambientLight = new THREE.AmbientLight(0xFFFFFF, 50);
+    ambientLight = new THREE.AmbientLight(0xFFFFFF, 1);
     
    // gsap.to(ambientLight , { intensity: 2.25, duration: 2, ease: "none" });
 
@@ -921,16 +732,15 @@ geometrySub8.drawRange.count = 0;
   // scene.add
 
   if(!smallDevice) {
-    scene.add( particlesMesh );
-    scene.add( particlesMeshLower );
-    scene.add( particlesMeshLowerLower );
-    scene.add( particlesMeshLowerLowerRight );
+     scene.add( particlesMesh );
+     scene.add( particlesMeshLower );
+     scene.add( particlesMeshLowerLower );
+     scene.add( particlesMeshLowerLowerRight );
   }
   
    
   if(!smallDevice) {
 
-  
   particleRotation.to([
               
     particlesMesh.rotation,
@@ -943,17 +753,13 @@ geometrySub8.drawRange.count = 0;
   }
 
 
- 
-  
-  
-
   gsap.to([particlesMesh.material, particlesMeshLower.material,particlesMeshLowerLower.material,], {size: 0.015, duration: 5, ease: Sine});
   // EFFECT COMPOSER + BLOOM EFFECT
   composer = new EffectComposer( renderer );
   const renderPass = new RenderPass( scene, camera );
   composer.addPass( renderPass );
 
-  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.35, 0.25, 0.1);
+  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.35, 0, 0.1);
 
   var glitchPass = new GlitchPass();
     composer.addPass( renderPass );
@@ -977,7 +783,6 @@ geometrySub8.drawRange.count = 0;
      
   window.addEventListener( 'resize', handleWindowResize, false );
 
-  
  }
 
 
@@ -992,11 +797,16 @@ let checker = false;
 
 function onDocumentMouseMove(event) {
   event.preventDefault();
-  if(getDeviceWidth() >= 1200) {
+  if(getDeviceWidth() >= 1200 && event.clientX != undefined) {
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
   }
-  else {
+  else if(getDeviceWidth() >= 1200 && event.clientX === undefined){
+    mouse.x = (event.touches[0].pageX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.touches[0].pageY / window.innerHeight) * 2 + 1;
+  }
+
+  else if(getDeviceWidth() < 1200 && event.clientX === undefined && event.touches[0] != undefined) {
     mouse.x = (event.touches[0].pageX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.touches[0].pageY / window.innerHeight) * 2 + 1;
   }
@@ -1008,10 +818,7 @@ function onDocumentMouseMove(event) {
     currentIntersect = null
     checker = false
   }
-  
 }
-
-
 
 function onLinkClick(event) {
 
@@ -1019,11 +826,9 @@ function onLinkClick(event) {
       window.open("https://t.me/+MwG8fmzoEbJjOTZk", "_blank");
       checker = true
     }
-
-   
 }
 
-  function handleWindowResize(e) {
+function handleWindowResize(e) {
     // Az ablak átméretezése esetén a kamera vetítési paraméterek újraszámolása
     HEIGHT = window.innerHeight;
     WIDTH = window.innerWidth;
@@ -1053,115 +858,35 @@ function onLinkClick(event) {
      // stats.update()
     // render();
 
-    raycaster.setFromCamera(mouse, camera);
-
-    if(targetIntersect != null && getDeviceWidth() >= 1200) {
-
-      const intersects = raycaster.intersectObjects( targetIntersect );
-
-      for ( let i = 0; i < intersects.length; i ++ ) {
-
-          if(intersects[ i ].object.name === "Névtelen_terv" && intersects.length == 2) {
-            container.style.cursor = 'pointer'
-            currentIntersect = intersects[ i ].object;
-            
-          }
-          else if(intersects.length < 2 || (intersects[ 0 ].object.name != "Névtelen_terv" && intersects.length == 2)) {
-            container.style.cursor = 'default'
-            currentIntersect = null
-          }
-      }
+    if(pointers[0] != null) {
+      pointers[0].rotation.x -= 0.01;
+      pointers[1].rotation.x -= 0.005;
+      
     }
 
-    if(getDeviceWidth() < 1200) {
+    if(icLogo != null) {
+      icLogo.rotation.y += 0.005;
+    }
+
+
+    raycaster.setFromCamera(mouse, camera);
+
 
       const intersects = raycaster.intersectObjects( scene.children );
 
       for ( let i = 0; i < intersects.length; i ++ ) {
 
-        if(intersects[ i ].object.name === "Névtelen_terv" && intersects.length >= 50) {
-          container.style.cursor = 'pointer'
-          currentIntersect = intersects[ i ].object;
-          
-        }
-        else if(intersects.length < 2 || (intersects[ 0 ].object.name != "Névtelen_terv" && intersects.length < 50)) {
-          container.style.cursor = 'default'
-          currentIntersect = null
-        }
-      }
-
-    }  
- 
-  }
-
-  function render() {
-    renderer.render( scene, camera );
-}
-
-
-  // VIDEO JS
-
-var videoButton = document.querySelector('#videoButton');
-var videoContainer = document.querySelector('#videoContainer');
-var video = document.querySelector('#video');
-
-document.querySelector('.container').addEventListener('scroll', leaveVideoContainerOnScroll);
-
-function leaveVideoContainerOnScroll() {
-    if(videoContainer.style.clipPath === 'circle(100% at 50% 50%)' || videoContainer.style.clipPath === 'circle(100% at center center)') {
-        video.pause();
-        video.pause();
-        
-        gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.4, ease: Sine});
-        cubeRotation.play();
-        particleRotation.play();
-        
-    }
-}
-video.volume = 0.05;
-
-videoButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    gsap.to(videoContainer, { 'clip-path': 'circle(100%)',  duration: 0.4, ease: Sine});
-  /*
-    if(getDeviceWidth() <= 786) {
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      } else if (video.webkitRequestFullscreen) { 
-        video.webkitRequestFullscreen();
-      } else if (video.msRequestFullscreen) { 
-        video.msRequestFullscreen();
+          if(intersects[ i ].object.name === "Névtelen_terv" && intersects.length >= 50) {
+            container.style.cursor = 'pointer'
+            currentIntersect = intersects[ i ].object;
+            
+          }
+          else if(intersects.length < 2 || (intersects[ 0 ].object.name != "Névtelen_terv" && intersects.length < 50)) {
+            container.style.cursor = 'default'
+            currentIntersect = null
+          }
       }
     }
-    */
-
-      video.play();
-      cubeRotation.pause();
-      particleRotation.pause();
-      
-});
-
-document.addEventListener('keydown', (e) => {
-    e.preventDefault();
-    if(e.key === "Escape" && videoContainer.style.clipPath != "circle(0% at center center)") {
-        video.pause();
-       gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.4, ease: Sine});
-         cubeRotation.play();
-         particleRotation.play();
-    }
-});
-
-$(videoContainer).on('click', function(e) {
-  e.preventDefault();
-  if (e.target !== this) return;
-  
-  video.pause();
-
-  gsap.to(videoContainer, { 'clip-path': 'circle(0%)', duration: 0.4, ease: Sine});
- 
-   cubeRotation.play();
-   particleRotation.play();
-});
 
 
  // ScrollTrigger animations
@@ -1215,58 +940,6 @@ scene_anim.to([roadLayer, bigRoads], { yPercent: -1000, scrollTrigger: {
   }});
 
 
-const eco_anim = gsap.to([ 
-  subLine1.geometry.drawRange,
-  subLine2.geometry.drawRange,
-  subLine3.geometry.drawRange,
-  subLine4.geometry.drawRange,
-  subLine5.geometry.drawRange,
-  subLine6.geometry.drawRange,
-  subLine7.geometry.drawRange,
-  subLine8.geometry.drawRange,
-
-], { count: 75, scrollTrigger: {
-  trigger: ".about",
-  start: maxScrollTop * 0.35,
-  end: maxScrollTop * 1.5,
-  scrub: 1,
-  onLeave: function() { gsap.to([ 
-    subLine1.geometry.drawRange,
-    subLine2.geometry.drawRange,
-    subLine3.geometry.drawRange,
-    subLine4.geometry.drawRange,
-    subLine5.geometry.drawRange,
-    subLine6.geometry.drawRange,
-    subLine7.geometry.drawRange,
-    subLine8.geometry.drawRange,
-  
-  ], { count: 0, duration: 1, ease: "none"})
-  },
-
-  }});
-  
-
-
-let textHolders = document.querySelectorAll('.textHolder');
-let ecoContainers = document.querySelectorAll('.ecoContainer');
-
-for(let i = 0; i < textHolders.length; i++) {
-  const tlEco = gsap.timeline({
-    defaults: { ease:  "power1.easeInOut", duration: 0.4 }
-  });
-   tlEco.to(textHolders[i], { 'clip-path': 'circle(100%)' });
-  tlEco.reversed(true);
-  
-    ecoContainers[i].addEventListener('click', (e)=> {
-        e.preventDefault();
-
-
-        tlEco.reversed(!tlEco.reversed());
-  
-    });
-}
-
-
 /* TOKEN2 ANIMATION */
 
 let icoButton = document.querySelector('#icoButton');
@@ -1292,8 +965,6 @@ function icoAnim(e) {
   tl2.reversed(!tl2.reversed());
 
 }
-
-
 
 
 /* MARKETPLACE SECTION */
@@ -1439,6 +1110,72 @@ function hamburgerAnim(e) {
 
 }
 
+let eventButton = document.querySelector('#eventButton')
+let eventText = null;
+let countDownDate = new Date("Nov 11, 2022 24:00:00").getTime();
+
+let x = setInterval(function() {
+ 
+
+  // Get today's date and time
+  let now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  let distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  if(days < 10) {
+    days = "0" + days;
+  }
+  if(hours < 10) {
+    hours = "0" + hours;
+  }
+  if(minutes < 10) {
+    minutes = "0" + minutes;
+  }
+  if(seconds < 10) {
+    seconds = "0" + seconds;
+  }
+  // Display the result in the element with id="demo" 
+  
+  eventText = days + " : " + hours + " : "
+  + minutes + " : " + seconds;
+
+  eventButton.innerHTML = eventText;
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    eventButton.innerHTML = "EXPIRED";
+  }
+  
+}, 1000);
+
+let cntr = false;
+setInterval(() => {
+
+    cntr = !cntr
+
+    if(cntr) {
+      gsap.to("#eventButton", {  clipPath: "circle(100%)", duration: 2 })
+      gsap.to("#eventContainer", { clipPath: "circle(0%)", duration: 2 });
+    }
+
+    else {
+      gsap.to("#eventButton", { clipPath: "circle(0%)", duration: 2, });
+      gsap.to("#eventContainer", {  clipPath: "circle(100%)", duration: 2 })
+    }
+    
+
+
+}, 10000)
+
+
 let links = document.querySelectorAll('.li');
 
 for(let i = 0; i < links.length; i++) {
@@ -1454,3 +1191,169 @@ for(let i = 0; i < links.length; i++) {
       });
 }
 }
+
+document.querySelector('#videoButton').addEventListener('click', (event) => {
+    window.open('https://icelinked.ch', '_blank');
+})
+
+let slides = document.querySelectorAll(".products");
+let slider = document.querySelector(".productSlider");
+let inner = document.querySelector(".innerSlider");
+let clamp, dragRatio;
+let dots = document.querySelectorAll('.dot');
+
+let outer = slider.getBoundingClientRect();
+let innerBounding = inner.getBoundingClientRect();
+
+let pressed = false;
+let startX;
+let x;
+let ease = 0.05;
+
+if(window.innerWidth >= 1200) {
+
+  slider.addEventListener('mousedown', (event) => {
+    pressed = true;
+    startX = event.offsetX - inner.offsetLeft;
+    slider.style.cursor = "grabbing";
+    
+  })
+
+  slider.addEventListener('mousemove', (event) => {
+    if(!pressed) return;
+    event.preventDefault();
+
+    x = event.offsetX
+
+
+    inner.style.left = `${x - startX}px`;
+    
+    checkBoundary();
+})
+}
+
+// if mobile
+else {
+
+  slider.addEventListener('touchstart', (event) => {
+    pressed = true;
+    startX = event.targetTouches[0].clientX - inner.offsetLeft;
+    slider.style.cursor = "grabbing";
+    
+  }, {passive: true });
+
+  slider.addEventListener('touchmove', (event) => {
+    if(!pressed) return;
+
+    x = event.targetTouches[0].clientX;
+
+    inner.style.left = `${x - startX}px`;
+
+    checkBoundary();
+
+  }, {passive: true })
+}
+
+
+slider.addEventListener('mouseenter', (event) => {
+  slider.style.cursor = "grab"
+ 
+})
+
+slider.addEventListener('mouseleave', (event) => {
+  slider.style.cursor = "default"
+ 
+})
+
+slider.addEventListener('mouseup', (event) => {
+  slider.style.cursor = "grab"
+ 
+})
+
+window.addEventListener('mouseup', (event) => {
+  pressed = false;
+ 
+})
+
+
+let checkBoundary = () => {
+   outer = slider.getBoundingClientRect();
+   innerBounding = inner.getBoundingClientRect();
+
+      if(parseInt(inner.style.left) >= 0) {
+        inner.style.left = '0px';
+        gsap.to('#dot1', { opacity: '1', transform: "scale(1.1)", duration: 0.8, ease: 'power4.inOut' })
+        gsap.to('#dot2', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+        gsap.to('#dot3', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+      }
+      else if(innerBounding.right <= outer.right) {
+        inner.style.left = `-${innerBounding.width - outer.width}px`;
+        gsap.to('#dot1', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+        gsap.to('#dot2', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+        gsap.to('#dot3', { opacity: '1', transform: "scale(1.1)", duration: 0.8, ease: 'power4.inOut' })
+      }
+      else if(parseInt(inner.style.left, 0) + ((innerBounding.width - outer.width) / 2) < 25 &&
+              parseInt(inner.style.left, 0) + ((innerBounding.width - outer.width) / 2) > -25) {       
+        gsap.to('#dot1', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+        gsap.to('#dot2', { opacity: '1', transform: "scale(1.1)", duration: 0.8, ease: 'power4.inOut' })
+        gsap.to('#dot3', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+      }
+
+      // for(let i = 0; i < dots.length; i++) {
+
+      //   dots[i].addEventListener('click', (event) => {
+      //     event.preventDefault()
+      //         if(i === 0) {
+      //           gsap.to('.innerSlider', { left: '0px', duration: 0.8, ease: 'power4.inOut' })
+      //           gsap.to('#dot1', { opacity: '1', transform: "scale(1.1)", duration: 0.8, ease: 'power4.inOut' })
+      //           gsap.to('#dot2', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+      //           gsap.to('#dot3', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+      //         }
+               
+      //         if(i === 1) {
+      //           gsap.to('.innerSlider', { left: `-${(innerBounding.width - outer.width) / 2}px`, duration: 0.8, ease: 'power4.inOut' })
+      //           gsap.to('#dot1', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+      //           gsap.to('#dot2', { opacity: '1', transform: "scale(1.1)", duration: 0.8, ease: 'power4.inOut' })
+      //           gsap.to('#dot3', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+      //         } 
+      //         if(i === 2) {
+      //           gsap.to('.innerSlider', { left: `-${innerBounding.width - outer.width}px`, duration: 0.8, ease: 'power4.inOut' })
+      //           gsap.to('#dot1', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+      //           gsap.to('#dot2', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+      //           gsap.to('#dot3', { opacity: '1', transform: "scale(1.1)", duration: 0.8, ease: 'power4.inOut' })
+      //         } 
+      //   })
+      // }  
+}
+
+for(let i = 0; i < dots.length; i++) {
+  
+
+  dots[i].addEventListener('click', (event) => {
+    event.preventDefault()
+    if(i === 0) {
+      gsap.to('.innerSlider', { left: '0px', duration: 0.8, ease: 'power4.inOut' })
+      gsap.to('#dot1', { opacity: '1', transform: "scale(1.1)", duration: 0.8, ease: 'power4.inOut' })
+      gsap.to('#dot2', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+      gsap.to('#dot3', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+    }
+     
+    if(i === 1) {
+      gsap.to('.innerSlider', { left: `-${(innerBounding.width - outer.width) / 2}px`, duration: 0.8, ease: 'power4.inOut' })
+      gsap.to('#dot1', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+      gsap.to('#dot2', { opacity: '1', transform: "scale(1.1)", duration: 0.8, ease: 'power4.inOut' })
+      gsap.to('#dot3', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+    } 
+    if(i === 2) {
+      gsap.to('.innerSlider', { left: `-${innerBounding.width - outer.width}px`, duration: 0.8, ease: 'power4.inOut' })
+      gsap.to('#dot1', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+      gsap.to('#dot2', { opacity: '0.35', transform: "scale(1)", duration: 0.8, ease: 'power4.inOut' })
+      gsap.to('#dot3', { opacity: '1', transform: "scale(1.1)", duration: 0.8, ease: 'power4.inOut' })
+    }
+  })
+}  
+
+
+
+
+
