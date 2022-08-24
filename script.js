@@ -9,7 +9,6 @@ import { RenderPass } from './three.js-r134-min/examples/jsm/postprocessing/Rend
 import { GlitchPass } from './three.js-r134-min/examples/jsm/postprocessing/GlitchPass.js';
 import { UnrealBloomPass } from './three.js-r134-min/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
-import { Draggable } from "./gsap-public/esm/Draggable.js";
 import { CSSPlugin } from "./gsap-public/esm/CSSPlugin.js";
 import { CSSRulePlugin } from "./gsap-public/esm/CSSRulePlugin.js";
 import { CustomEase } from "./gsap-public/src/CustomEase.js";
@@ -76,6 +75,8 @@ function getDeviceHeight() {
   let bigDevice = getDeviceWidth() >= 1600;
   let mediumDevice = getDeviceWidth() <= 1600 && getDeviceWidth() >= 1200;
   let smallDevice = getDeviceWidth() < 1200;
+
+  var envTexture;
 
   gsap.registerPlugin(ScrollTrigger, CSSPlugin, CSSRulePlugin, CustomEase );
 
@@ -149,8 +150,10 @@ function getDeviceHeight() {
 
 		
 		// optional: remove loader from DOM via event listener
-		loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
 
+  
+      loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
+  
 		
 	} );
 
@@ -163,16 +166,7 @@ function getDeviceHeight() {
     
   };
 
-  const rgbeLoader = new RGBELoader(loadingManager);
   
-    rgbeLoader.load(hdrTextureURL, (texture) => {
-    texture.mapping = THREE.EquirectangularReflectionMapping
-    renderer.initTexture(texture)
-    scene.environment = texture;
-    
-})
-
-
 
   // Objects
   
@@ -233,6 +227,98 @@ function getDeviceHeight() {
 
   /* BLENDER IMPORTS */
   const loader = new GLTFLoader(loadingManager);
+
+  const draco = new DRACOLoader(loadingManager);
+
+  
+  draco.setDecoderPath( './three.js-r134-min/examples/js/libs/draco/');
+  
+  loader.setDRACOLoader(draco);
+
+  const rgbeLoader = new RGBELoader(loadingManager);
+  
+    rgbeLoader.load(hdrTextureURL, (texture) => {
+    texture.mapping = THREE.EquirectangularReflectionMapping
+    renderer.initTexture(texture)
+   // scene.environment = texture;
+
+   loader.load("./src/template.glb", (gltf) => {
+    const txt = new THREE.TextureLoader(loadingManager).load('./src/img/bg.jpg');
+    renderer.initTexture(txt)
+
+    template = gltf.scene
+    template.name = "template"
+
+      template.traverse((obj) => {
+        if(obj.isMesh && obj.name === "backPlain") {
+          obj.material.roughness = 0.25
+          obj.material.metalness = 0.25
+          obj.material.map = txt
+        }
+        if(obj.isMesh && obj.name != "backPlain" && obj.name != "Sphere003" && obj.material.name != "textMaterial") {
+          obj.material.roughness = 0.25
+          obj.material.metalness = 0.25
+        }
+
+        if(obj.isMesh && obj.name === "icLogo") {
+          obj.material.roughness = 0.25
+          obj.material.metalness = 1
+          icLogo = obj;
+        }
+
+        if(obj.isMesh && obj.material.name === "textMaterial") {
+            obj.material.metalness = 0.5
+            obj.material.roughness = 0.2
+        }
+
+        if(obj.isMesh && obj.name === "frontPlain") {
+          obj.position.y -= 0.075
+        }
+
+        if(obj.isMesh && obj.name === "Sphere003") {
+          obj.material.roughness = 0
+          obj.material.metalness = 0.5
+        }
+
+        if(obj.isMesh && (obj.name === "WatchCubeOne" || obj.name === "WatchCubeSecond")) {
+          pointers.push(obj)
+        }
+        if(obj.isMesh) {
+      
+          obj.material.envMap = texture
+        }
+
+        
+    })
+
+
+    if(!smallDevice) {
+      template.rotateY(-Math.PI / 1.55)
+      template.position.set(0.5, -0.05, 2.5)
+ 
+    } 
+    else {
+      template.rotateY(-Math.PI / 2)
+      template.position.set(0, 0.15, 2)
+    } 
+    template.scale.set(1.25, 1.25, 1.25)
+
+   // camera.lookAt(template.position)
+    scene.add(template)
+
+    gsap.to(template.rotation, {y: "+=" + Math.PI * 2, duration: 7.5, repeat: -1, repeatDelay: 12.5 ,ease: CustomEase.create("custom", "M0,0,C0,0,0.108,0.255,0.17,0.34,0.242,0.44,0.363,0.474,0.448,0.53,0.636,0.654,0.617,0.731,0.708,0.84,0.816,0.97,1,1,1,1")})
+
+
+  }, undefined, function ( error ) {
+
+    console.error( error );
+
+    });
+    
+})
+
+
+  
 
   var tokenModel;
   
@@ -552,11 +638,6 @@ function getDeviceHeight() {
 
   var modelCurve;
   
-  const draco = new DRACOLoader();
-
-  draco.setDecoderPath( './three.js-r134-min/examples/js/libs/draco/');
-  
-  loader.setDRACOLoader(draco);
 
   loader.load("./src/roadMapModel.glb", (gltf) => {
 
@@ -649,111 +730,26 @@ console.error( error );
 });
 
 
-  loader.load("./src/template.glb", (gltf) => {
-    const txt = new THREE.TextureLoader(loadingManager).load('./src/img/bg.jpg');
-    renderer.initTexture(txt)
-
-    template = gltf.scene
-
-    template.traverse((obj) => {
-        if(obj.isMesh && obj.name === "backPlain") {
-          obj.material.roughness = 0.25
-          obj.material.metalness = 0.25
-          obj.material.map = txt
-        }
-        if(obj.isMesh && obj.name != "backPlain" && obj.name != "Sphere003" && obj.material.name != "textMaterial") {
-          obj.material.roughness = 0.25
-          obj.material.metalness = 0.25
-        }
-
-        if(obj.isMesh && obj.name === "icLogo") {
-          obj.material.roughness = 0.25
-          obj.material.metalness = 1
-          icLogo = obj;
-        }
-
-        if(obj.isMesh && obj.material.name === "textMaterial") {
-            obj.material.metalness = 0.5
-            obj.material.roughness = 0.2
-        }
-
-        if(obj.isMesh && obj.name === "frontPlain") {
-          obj.position.y -= 0.075
-        }
-
-        if(obj.isMesh && obj.name === "Sphere003") {
-          obj.material.roughness = 0
-          obj.material.metalness = 0.5
-        }
-
-        if(obj.isMesh && (obj.name === "WatchCubeOne" || obj.name === "WatchCubeSecond")) {
-          pointers.push(obj)
-        }
-    })
-        
-    console.log(template)
-
-    
-
-    if(!smallDevice) {
-      template.rotateY(-Math.PI / 1.55)
-      template.position.set(0.5, -0.05, 2.5)
- 
-    } 
-    else {
-      template.rotateY(-Math.PI / 2)
-      template.position.set(0, 0.15, 2)
-    } 
-    template.scale.set(1.25, 1.25, 1.25)
-
-   // camera.lookAt(template.position)
-    scene.add(template)
-
-    gsap.to(template.rotation, {y: "+=" + Math.PI * 2, duration: 7.5, repeat: -1, repeatDelay: 12.5 ,ease: CustomEase.create("custom", "M0,0,C0,0,0.108,0.255,0.17,0.34,0.242,0.44,0.363,0.474,0.448,0.53,0.636,0.654,0.617,0.731,0.708,0.84,0.816,0.97,1,1,1,1")})
-
-   
-
-  }, undefined, function ( error ) {
-
-    console.error( error );
-
-    });
-
-    renderer.compile(scene, camera)
+  renderer.compile(scene, camera)
 
   // LIGHTS
     
     ambientLight = new THREE.AmbientLight(0xFFFFFF, 1);
-    
-   // gsap.to(ambientLight , { intensity: 2.25, duration: 2, ease: "none" });
 
       scene.add( ambientLight );
 
   // scene.add
 
   if(!smallDevice) {
+
      scene.add( particlesMesh );
      scene.add( particlesMeshLower );
      scene.add( particlesMeshLowerLower );
      scene.add( particlesMeshLowerLowerRight );
+
+     gsap.to([particlesMesh.material, particlesMeshLower.material,particlesMeshLowerLower.material,], {size: 0.015, duration: 5, ease: Sine});
   }
   
-   
-  if(!smallDevice) {
-
-  particleRotation.to([
-              
-    particlesMesh.rotation,
-    particlesMeshLower.rotation,
-    particlesMeshLowerLower.rotation,
-    particlesMeshLowerLowerRight.rotation,
-  ],
-  { duration: 75, y: Math.PI * 2, repeat: -1, ease: "none" });
-
-  }
-
-
-  gsap.to([particlesMesh.material, particlesMeshLower.material,particlesMeshLowerLower.material,], {size: 0.015, duration: 5, ease: Sine});
   // EFFECT COMPOSER + BLOOM EFFECT
   composer = new EffectComposer( renderer );
   const renderPass = new RenderPass( scene, camera );
@@ -761,7 +757,6 @@ console.error( error );
 
   var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.35, 0, 0.1);
 
-  var glitchPass = new GlitchPass();
     composer.addPass( renderPass );
     composer.addPass( unRealBloomPass );
 
@@ -770,7 +765,6 @@ console.error( error );
     effectFXAA.uniforms[ 'resolution' ].value.y = 1 / ( window.innerHeight * window.devicePixelRatio );
     composer.addPass( effectFXAA ); 
     
-    // composer.addPass( glitchPass );
     if(getDeviceWidth() >= 1200 ) {
       document.addEventListener('pointermove', onDocumentMouseMove, false);
       document.addEventListener('click', onLinkClick, false);
@@ -876,12 +870,13 @@ function handleWindowResize(e) {
 
       for ( let i = 0; i < intersects.length; i ++ ) {
 
-          if(intersects[ i ].object.name === "Névtelen_terv" && intersects.length >= 50) {
+
+          if(intersects[ 0 ].object.name === "Névtelen_terv") {
             container.style.cursor = 'pointer'
             currentIntersect = intersects[ i ].object;
             
           }
-          else if(intersects.length < 2 || (intersects[ 0 ].object.name != "Névtelen_terv" && intersects.length < 50)) {
+          else if(intersects[ 0 ].object.name != "Névtelen_terv") {
             container.style.cursor = 'default'
             currentIntersect = null
           }
@@ -902,16 +897,16 @@ function handleWindowResize(e) {
 
 scene_anim.to([camera.position, cameraCenter ], { y: "-=10.15", scrollTrigger: {
 
-trigger: ".about",
-start: 0,
-end: maxScrollTop * 3,
-scrub: 1,
+      trigger: ".about",
+      start: 0,
+      end: maxScrollTop * 3,
+      scrub: 1,
 }});
 
 
 
 
-    scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
+scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
 
       trigger: ".node",
       start: maxScrollTop * 4,
@@ -1049,26 +1044,8 @@ stickys[8].addEventListener('click', (e)=> {
 
 // 5.25 -> 8.25
 function onTransitionEnd( event ) {
-
-	event.target.remove();
-
-	if(getDeviceWidth() >= 1200) {
-    setTimeout(() => {
-
-      scene.traverse((obj) => {
-        if(obj.isMesh && obj.name === "Curve") {
-          targetIntersect = obj.children[9].children;
-
-          obj.traverse((obj) => {
-            if(obj.isMesh && obj.material.map != null) {
-              renderer.initTexture(obj.material.map)
-            }
-          })
-        } 
-      })
-
-    }, 3000)
-  }
+      
+        event.target.remove();
 }
 
 
@@ -1112,7 +1089,9 @@ function hamburgerAnim(e) {
 
 let eventButton = document.querySelector('#eventButton')
 let eventText = null;
-let countDownDate = new Date("Nov 11, 2022 24:00:00").getTime();
+// let countDownDate = new Date("Nov 11, 2022 24:00:00").getTime();
+let approvedCountDownDate = new Date("2022-11-11T24:00:00").getTime();
+
 
 let x = setInterval(function() {
  
@@ -1121,7 +1100,7 @@ let x = setInterval(function() {
   let now = new Date().getTime();
 
   // Find the distance between now and the count down date
-  let distance = countDownDate - now;
+  let distance = approvedCountDownDate - now;
 
   // Time calculations for days, hours, minutes and seconds
   let days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -1233,26 +1212,26 @@ if(window.innerWidth >= 1200) {
 }
 
 // if mobile
-else {
+// else {
 
-  slider.addEventListener('touchstart', (event) => {
-    pressed = true;
-    startX = event.targetTouches[0].clientX - inner.offsetLeft;
-    slider.style.cursor = "grabbing";
+//   slider.addEventListener('touchstart', (event) => {
+//     pressed = true;
+//     startX = event.targetTouches[0].clientX - inner.offsetLeft;
+//     slider.style.cursor = "grabbing";
     
-  }, {passive: true });
+//   }, {passive: true });
 
-  slider.addEventListener('touchmove', (event) => {
-    if(!pressed) return;
+//   slider.addEventListener('touchmove', (event) => {
+//     if(!pressed) return;
 
-    x = event.targetTouches[0].clientX;
+//     x = event.targetTouches[0].clientX;
 
-    inner.style.left = `${x - startX}px`;
+//     inner.style.left = `${x - startX}px`;
 
-    checkBoundary();
+//     checkBoundary();
 
-  }, {passive: true })
-}
+//   }, {passive: true })
+// }
 
 
 slider.addEventListener('mouseenter', (event) => {
