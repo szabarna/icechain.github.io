@@ -212,6 +212,7 @@ html, body {
     background-color: rgba(0, 162, 255, 0.75);
     cursor: pointer;
     opacity: 0.35;
+    bottom: 2rem;
 }
 
 #dot1 {
@@ -221,7 +222,7 @@ html, body {
 
 .products img {
     transform: scale(0.5);
-    top: calc(-12.75em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
+    top: calc(-14em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
     position: relative;
     width: fit-content;
     height: fit-content;
@@ -247,7 +248,7 @@ html, body {
     justify-self: center;
     font-family: 'Orbitron', sans-serif;
     font-size: 0.9rem;
-    bottom: calc(27.5em + (100vh - 600px) * (15 + 225 ) / (600 -  1080));
+    bottom: calc(30em + (100vh - 600px) * (15 + 225 ) / (600 -  1080));
     right: calc(1em + (100vw - 300px) * (15 + 5 ) / (300 -  767));
 }
 
@@ -627,13 +628,13 @@ h2 {
            font-size: calc(1.4em + (100vh - 600px) * (15 - 20 ) / (600 -  1080));
            top: calc(12.5em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
            left: auto;
-           width: 12.5em;
+           width: fit-content;
+           height: fit-content;
            white-space: normal;
            text-align: center;
            display: flex;
            position: absolute;
            font-family: 'Teko', sans-serif;
-           height: 3em;
            opacity: 0.8;
            user-select: none;
        }
@@ -1762,15 +1763,15 @@ h2 {
     display: grid;
     grid-template-rows: 5em 5em 5em;
     justify-items: center;
-    align-content: center;
-
+    align-content: end;
 }
+
 
 
 #footerIce {
     display: flex;
     position: relative;
-    top: 0em;
+    top: -1em;
     width: 64px;
     height: 64px;
 }
@@ -1787,7 +1788,7 @@ h2 {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-column-gap: 2em;
-    top: 0em;
+    top: -1em;
     transform: scale(0.75);
 
 }
@@ -1837,7 +1838,7 @@ h2 {
             display: grid;
             grid-template-columns: auto auto;
             justify-content: space-between;
-            top: 0em;
+            top: -1.25rem;
             justify-self: center;
             transform: scale(0.7);
             text-align: center;
@@ -2799,6 +2800,7 @@ and (min-width: 1200px)
         background-color: rgba(0, 162, 255, 0.75);
         cursor: pointer;
         opacity: 0.35;
+        bottom: -1.5rem;
     }
     
     #dot1 {
@@ -3094,150 +3096,6 @@ li {
 }
 
 
-
-.smallEco {
-    display: none !important;
- }
- 
- #rightEco {
-     position: absolute;
-     display: flex !important;
-     width: 15vw;
-     margin-top: calc(2.25em + (100vh - 600px) * (15 + 30) / (600 - 1080)) !important;
-     height: 100vh;
-     right: calc(4em + (100vw - 1200px) * (15 + 5) / (1200 - 1600) );
-     background-color: transparent;
- 
- }
- 
- #leftEco {
-     position: absolute;
-     display: flex;
-     width: 15vw;
-     margin-top: calc(1.25em + (100vh - 600px) * (15 + 25) / (600 - 1080)) !important; 
-     height: 100vh;
-     left: calc(2.5em + (100vw - 1200px) * (15 - 10) / (1200 - 1600) );
-     background-color: transparent;
-     overflow: inherit;
- 
- }
- 
- .ecoContainers {
-     position: relative;
-     width: 100%;
-     height: fit-content;
-     align-self: center;
- }
- .ecoContainer {
-     position: relative;
-     width: calc(12.5em + (100vw - 1200px) * (15 - 30) / (1200 - 1600)) !important;
-     height: calc(4em + (100vh - 600px) * (15 - 80) / (600 - 1080)) !important;
-     background-color: rgb(0, 10, 49);
-     cursor: pointer;
-     transition: all 250ms;
-     align-items: center;
-     justify-content: center;
-     z-index: 2;
-     border-radius: 20px;
-    box-shadow: 0 0 30px 0 rgba(0,159,255,0.1);
- }
-
- .ecoContainer:hover {
-    box-shadow: 0 0 30px 0 rgba(0,159,255,0.35);
- }
-
-
- 
- 
- .aboutText {
-     font-family: 'Teko', sans-serif;
-     display: flex;
-     user-select: none;
-     font-size: 1.3em;
-     transition: all 0.4s;
- }
-
- .text {
-     font-size: 1.1em;
- }
-
- #littleText {
-     font-size: 1.1em;
- }
- 
- 
- /* LEFT */
- 
- #ecoContainer1 {
-     position: relative;
-     width: fit-content;
-     height: 25%;
-     padding: 1.5em 0;
-     display: flex;
-     left: 0%;
- }
- #ecoContainer2 {
- 
-     width: fit-content;
-     height: 25%;
-     padding: 10px;
-     display: flex;
-     margin: 4em 0px;
-     left: 0%;
- }
- #ecoContainer3 {
- 
-     width: fit-content;
-     height: 25%;
-     padding: 10px;
-     display: flex;
-     margin: 4em 0px;
-     left: 0%;
- }
- #ecoContainer4 {
- 
-     width: fit-content;
-     height: 25%;
-     padding: 1.5em;
-     display: flex;
-     margin: 4em 0px;
-     left: 0%;
- }
- 
- /* RIGHT */
- 
- #ecoContainer5 {
-     width: fit-content;
-     height: 25%;
-     padding: 1.5em 0;
-     display: flex;
-     right: 0%;
- }
- #ecoContainer6 {
-     padding: 5px;
-     width: fit-content;
-     height: 25%;
-     display: flex;
-     margin: 4em 0px;
-     right: 0%;
- }
- #ecoContainer7 {
-     padding: 5px;
-     width: fit-content;
-     height: 25%;
-     display: flex;
-     margin: 4em 0px;
-     right: 0%;
- }
- #ecoContainer8 {
-     padding: 5px;
-     width: fit-content;
-     height: 25%;
-     display: flex;
-     margin: 4em 0px;
-     right: 0%;
- }
-
  .tokenContainer {
      top: 0 !important;
      border-radius: 0.75em !important;
@@ -3358,9 +3216,10 @@ li {
 }
 
 
-    #icoButton {
+#icoButton {
         top: calc(33.5em + (100vh - 600px) * (15 - 400) / (600 -  1080));
         left: auto;
+        
     }
     
     
@@ -3742,24 +3601,6 @@ li {
         top: calc(1.35em + (100vh - 600px) * (10 + 5) / (600 -  1080)) !important;
     }
 
-    #portfolioH1 {
-        font-size: 1.75em;
-        top: calc(3.25em + (100vh - 600px) * (15 - 200) / (600 -  1080)) !important;
-    }
-
-    #portfolioH2 {
-        top: calc(5em + (100vh - 600px) * (15 - 175) / (600 -  1080)) !important;
-    }
-
-    #portfolioH1Sub {
-        font-size: 1.75em;
-        top: calc(4.5em + (100vh - 600px) * (15 - 200) / (600 -  1080)) !important;
-    }
-
-    #portfolioImg {
-        transform: scale(0.65) !important;
-        top: calc(-3.75em + (100vh - 600px) * (15 - 300) / (600 -  1080)) !important;
-    }
     .footer {
         overflow: hidden;
         scroll-snap-align: end;
@@ -3768,6 +3609,14 @@ li {
 
     #footerLinkContainer {
         top: 0.75em;
+    }
+    
+    #footerButtonContainer {
+        top: 0rem;
+    }
+
+    #footerIce {
+        top: 0;
     }
 
  
