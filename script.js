@@ -327,6 +327,9 @@ console.error( error );
     if(getDeviceWidth() <= 768) {
       template.position.set(0, 0.15, 0)
     }
+    else if(getDeviceWidth() >= 768 && getDeviceWidth() < 1200) {
+      template.position.set(0, 0.175, 0)
+    }
 
    // camera.lookAt(template.position)
     scene2.add(template)
@@ -340,9 +343,6 @@ console.error( error );
 
     });
 })
-
-
-  
 
   var tokenModel;
   
@@ -645,8 +645,6 @@ console.error( error );
 
   var modelCurve;
   
-
-
   renderer.compile(scene, camera)
 
   // LIGHTS
@@ -819,8 +817,6 @@ scene_anim.to([camera.position, cameraCenter ], { y: "-=10.15", scrollTrigger: {
 }});
 
 
-
-
 scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
 
       trigger: ".node",
@@ -830,13 +826,13 @@ scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
       }});
 
 
-// scene_anim.to([camera.position, cameraCenter ], { x: "+=7.5", scrollTrigger: {
+ scene_anim.to([camera.position, cameraCenter ], { x: "+=7.5", scrollTrigger: {
 
-//       trigger: ".projects",
-//       start: maxScrollTop * 8.15,
-//       end: maxScrollTop * 9,
-//       scrub: 1,
-//       }});
+      trigger: ".projects",
+       start: maxScrollTop * 9.15,
+       end: maxScrollTop * 10,
+       scrub: 1,
+       }});
 
 let roadLayer = document.querySelector("#roadLayer");
 let bigRoads = document.querySelectorAll(".bigRoad")
