@@ -12,7 +12,7 @@ import { ScrollTrigger } from "./gsap-public/esm/ScrollTrigger.js";
 import { CSSPlugin } from "./gsap-public/esm/CSSPlugin.js";
 import { CSSRulePlugin } from "./gsap-public/esm/CSSRulePlugin.js";
 import { CustomEase } from "./gsap-public/src/CustomEase.js";
-import  Stats  from './three.js-r134-min/examples/jsm/libs/stats.module.js';
+import { OrbitControls } from './three.js-r134-min/examples/jsm/controls/OrbitControls.js';
 
 
 var pointers = [];
@@ -51,24 +51,21 @@ function getDeviceHeight() {
   return 0;
 }
 
-    
 
   /*                       THREEJS                             */
 
-  var renderer,  camera, HEIGHT, WIDTH, aspectRatio, composer;
+  var renderer, renderer2, camera, camera2,HEIGHT, WIDTH, aspectRatio, composer, composer2, controls;
   var ambientLight;
   var scene = null;
+  var scene2 = null;
   var canvReference = null;
+  var canvReference2 = null;
   var cameraCenter = new THREE.Vector3();
   var cameraHorzLimit = 0.05;
   var cameraVertLimit = 0.05;
   var mouse = new THREE.Vector2();
   var scene_anim = gsap.timeline();
-  var subLine1, subLine2, subLine3, subLine4, subLine5, subLine6, subLine7, subLine8;
   var template;
-  var stats;
-  var cubeRotation = gsap.timeline();
-  var particleRotation = gsap.timeline();
   var container = document.querySelector('.container');
   var maxScrollTop = container.clientHeight;
   
@@ -76,53 +73,46 @@ function getDeviceHeight() {
   let mediumDevice = getDeviceWidth() <= 1600 && getDeviceWidth() >= 1200;
   let smallDevice = getDeviceWidth() < 1200;
 
-  var envTexture;
 
   gsap.registerPlugin(ScrollTrigger, CSSPlugin, CSSRulePlugin, CustomEase );
 
     const raycaster =  new THREE.Raycaster()
     let currentIntersect = null;
-    let targetIntersect = null;
 
-    
     init();
 
-    
     animate();
-  
-    
-
-  function addStatsObject() {
-    stats = new Stats();
-    stats.setMode(0);
-
-    stats.domElement.style.position = 'fixed';
-    stats.domElement.style.left = 0 + 'px';
-    stats.domElement.style.top = 0 + 'px';
-    stats.domElement.style.zIndex = 100;
-
-    document.body.appendChild( stats.domElement );
-}
-  
 
   function init() {
+
+    canvReference = document.getElementById("webgl");
+    canvReference2 = document.querySelector('.canvasContainer');
+    var box = canvReference2.getBoundingClientRect();
+
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x000524)
 
+    scene2 = new THREE.Scene();
+   // scene2.background = new THREE.Color(0x000020)
+
     const hdrTextureURL = new URL('./src/img/env.hdr', import.meta.url);
-
-   
-
 
     //00061f
     camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 20 );
     camera.position.z = 4;
     cameraCenter.x = camera.position.x;
     cameraCenter.y = camera.position.y;
+
+    camera2 = new THREE.PerspectiveCamera( 60, box.width / box.height, 0.1, 20 );
+    camera2.updateProjectionMatrix()
+    camera2.position.z = 1.5;
     
-    
+   if(getDeviceWidth() >= 1200) {
+    controls = new OrbitControls(camera2, canvReference2);
+    controls.update();
+   } 
     // Select the canvas from the document
-    canvReference = document.getElementById("webgl");
+    
   
     // Then pass it to the renderer constructor
       renderer = new THREE.WebGLRenderer({
@@ -131,6 +121,13 @@ function getDeviceHeight() {
       antialias: false
       
   });
+
+      renderer2 = new THREE.WebGLRenderer({
+        powerPreference: "high-performance",
+        canvas: canvReference2,
+        antialias: false
+        
+    });
  
   console.log(getDeviceWidth())
   console.log(getDeviceHeight())
@@ -140,6 +137,13 @@ function getDeviceHeight() {
   renderer.outputEncoding = THREE.sRGBEncoding
   renderer.toneMapping = THREE.ACESFilmicToneMapping
   renderer.toneMappingExposure = 1.5
+  
+  renderer2.setClearColor(0x0f549c, 0.21)
+  renderer2.setSize( box.width, box.height );
+  renderer2.setPixelRatio( 2 );
+ // renderer2.outputEncoding = THREE.sRGBEncoding
+  renderer2.toneMapping = THREE.ACESFilmicToneMapping
+  renderer2.toneMappingExposure = 1.5
 
  
   /* LOADING MANAGER */
@@ -162,68 +166,8 @@ function getDeviceHeight() {
     const loadingScreen = document.getElementById( 'loading-screen' );
 
     loadingScreen.innerText = (itemsLoaded / itemsTotal * 100).toFixed() + '%';
-    
-    
+     
   };
-
-  
-
-  // Objects
-  
-
-  const particlesGeometry = new THREE.BufferGeometry();
-  const particlesGeometryLower = new THREE.BufferGeometry();
-  const particlesGeometryLowerLower = new THREE.BufferGeometry();
-  const particlesGeometryLowerLowerRight = new THREE.BufferGeometry();
-  var particlesCnt;
-  if(getDeviceWidth() < 1200 ) particlesCnt = 100;
-  else particlesCnt = 100;
-  
-
-  const posArray = new Float32Array(particlesCnt * 3);
-  const posArrayLower = new Float32Array(particlesCnt * 3);
-  const posArrayLowerLower = new Float32Array(particlesCnt * 3);
-  const posArrayLowerLowerRight = new Float32Array(particlesCnt * 3);
-
-
-  for(let i = 0; i < particlesCnt * 3; i++){
-      posArray[i] = (Math.random() - 0.5) * 10
-  }
-
-  for(let i = 0; i < particlesCnt * 3; i+=3){
-    posArrayLower[i] = (Math.random() - 0.5) * 10;
-    posArrayLower[i+1] = ((Math.random() - 0.5) * 10) - 5;
-    posArrayLower[i+2] = (Math.random() - 0.5) * 10;
-    posArrayLowerLower[i] = posArrayLower[i];
-    posArrayLowerLower[i+1] = posArrayLower[i+1] - 5;
-    posArrayLowerLower[i+2] = posArrayLower[i+2];
-    posArrayLowerLowerRight[i] = posArrayLower[i] + 7.5;
-    posArrayLowerLowerRight[i+1] = posArrayLower[i+1] - 5;
-    posArrayLowerLowerRight[i+2] = posArrayLower[i+2];
-  }
-
-  particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-  particlesGeometryLower.setAttribute('position', new THREE.BufferAttribute(posArrayLower, 3));
-  particlesGeometryLowerLower.setAttribute('position', new THREE.BufferAttribute(posArrayLowerLower, 3));
-  particlesGeometryLowerLowerRight.setAttribute('position', new THREE.BufferAttribute(posArrayLowerLowerRight, 3));
-
-  // Materials
-  //const particlematerial = new THREE.MeshBasicMaterial( {  color:  0x00ecff00, wireframe: true } );
-  const texture = new THREE.TextureLoader(loadingManager).load('./src/iceTexture.png');
-  const textureAlpha = new THREE.TextureLoader(loadingManager).load('./src/alpha.png');
-  const particlesMaterial = new THREE.PointsMaterial({ color: 0x4f8fe5 ,size: 0.25, map: texture, alphaMap: textureAlpha, alphaTest: 0.25, transparent: false});
-  
-  renderer.initTexture(texture);
-  renderer.initTexture(textureAlpha);
-
-
-  const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-  const particlesMeshLower = new THREE.Points(particlesGeometryLower, particlesMaterial);
-  const particlesMeshLowerLower = new THREE.Points(particlesGeometryLowerLower, particlesMaterial);
-  const particlesMeshLowerLowerRight = new THREE.Points(particlesGeometryLowerLowerRight, particlesMaterial);
-
-    
-  
 
   /* BLENDER IMPORTS */
   const loader = new GLTFLoader(loadingManager);
@@ -240,7 +184,89 @@ function getDeviceHeight() {
     rgbeLoader.load(hdrTextureURL, (texture) => {
     texture.mapping = THREE.EquirectangularReflectionMapping
     renderer.initTexture(texture)
-   // scene.environment = texture;
+
+
+   loader.load("./src/roadMapModel.glb", (gltf) => {
+
+    modelCurve = gltf.scene.children[0].clone();
+    // modelCurve.frustumCulled = false;
+    
+    modelCurve.position.set(0, -11.5, -30);
+    modelCurve.scale.set(2, 2, 2);
+
+    // if(modelCurve.children[9].children[2] != null)
+    //  renderer.initTexture(modelCurve.children[9].children[2].material.map)
+
+    //scene.add( cubeModel );
+
+    scene.add( modelCurve );
+    
+    
+    scene_anim.to(modelCurve.rotation, { y: "+=" + Math.PI * 4, scrollTrigger: {
+      // , gltf.scene.children[1].position, gltf.scene.children[2].position
+    trigger: ".projects",
+    start: maxScrollTop * 6,
+    end: maxScrollTop * 9,
+    scrub: 1,
+    }});
+
+    if( getDeviceWidth() >= 768 && getDeviceWidth() < 1199 && getDeviceHeight() < 950) {
+
+        scene_anim.to(modelCurve.position, { z: -4.5, scrollTrigger: {
+          //, gltf.scene.children[1].position, gltf.scene.children[2].position
+        trigger: ".services",
+        start: maxScrollTop * 5,
+      end: maxScrollTop * 6,
+      scrub: 1,
+
+      }});
+    }
+
+    else if(getDeviceWidth() >= 768 && getDeviceWidth() < 1199 && getDeviceHeight() >= 950) {
+      scene_anim.to(modelCurve.position, { z: -5, scrollTrigger: {
+          //, gltf.scene.children[1].position, gltf.scene.children[2].position
+        trigger: ".services",
+        start: maxScrollTop * 5,
+      end: maxScrollTop * 6,
+      scrub: 1,
+      }});
+    }
+
+    else if(getDeviceWidth() < 767 && getDeviceHeight() < 1080) {
+      scene_anim.to(modelCurve.position, { z: -5.1, scrollTrigger: {
+          //, gltf.scene.children[1].position, gltf.scene.children[2].position
+        trigger: ".projects",
+        start: maxScrollTop * 5,
+        end: maxScrollTop * 6,
+        scrub: 1,
+      }});
+    }
+
+    else {
+        scene_anim.to(modelCurve.position, { z: -4.25, scrollTrigger: {
+          //, gltf.scene.children[1].position, gltf.scene.children[2].position
+        trigger: ".services",
+        start: maxScrollTop * 5,
+      end: maxScrollTop * 6,
+      scrub: 1,
+      }});
+    }
+      
+    
+    scene_anim.to(modelCurve.position, { y: "+=" + 3.5, scrollTrigger: {
+    trigger: ".projects",
+    start: maxScrollTop * 6,
+    end: maxScrollTop * 9,
+    scrub: 1,
+    }});
+    
+
+
+}, undefined, function ( error ) {
+
+console.error( error );
+
+});
 
    loader.load("./src/template.glb", (gltf) => {
     const txt = new THREE.TextureLoader(loadingManager).load('./src/img/bg.jpg');
@@ -292,19 +318,18 @@ function getDeviceHeight() {
     })
 
 
-    if(!smallDevice) {
-      template.rotateY(-Math.PI / 1.55)
-      template.position.set(0.5, -0.05, 2.5)
+  
+    template.rotateY(-Math.PI / 2)
+    template.position.set(0, -0.05, 0)
  
-    } 
-    else {
-      template.rotateY(-Math.PI / 2)
-      template.position.set(0, 0.15, 2)
-    } 
     template.scale.set(1.25, 1.25, 1.25)
 
+    if(getDeviceWidth() <= 768) {
+      template.position.set(0, 0.15, 0)
+    }
+
    // camera.lookAt(template.position)
-    scene.add(template)
+    scene2.add(template)
 
     gsap.to(template.rotation, {y: "+=" + Math.PI * 2, duration: 7.5, repeat: -1, repeatDelay: 12.5 ,ease: CustomEase.create("custom", "M0,0,C0,0,0.108,0.255,0.17,0.34,0.242,0.44,0.363,0.474,0.448,0.53,0.636,0.654,0.617,0.731,0.708,0.84,0.816,0.97,1,1,1,1")})
 
@@ -314,7 +339,6 @@ function getDeviceHeight() {
     console.error( error );
 
     });
-    
 })
 
 
@@ -328,15 +352,6 @@ function getDeviceHeight() {
     tokenModel = gltf.scene.clone();
     // tokenModel.frustumCulled = false;
 
-    tokenModel.traverse((obj) => {
-      if(obj.isMesh) {
-        obj.material.rougness = 1;
-        obj.material.metalness = 0.75;
-        if(obj.material.map != null) renderer.initTexture(obj.material.map)
-      }
-    })
-
-    
     if(getDeviceWidth() >= 1280 && getDeviceWidth() < 1440) {
       tokenModel.scale.set( 0.815, 0.815, 0.815 );
       tokenModel.position.set(0, -13, 0 );
@@ -346,8 +361,8 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -9.8, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: maxScrollTop * 2.5,
-      end: maxScrollTop * 3.25,
+      start: maxScrollTop * 3.5,
+      end: maxScrollTop * 4.25,
       scrub: 1,
       }});
     }
@@ -360,8 +375,8 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -10.2, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: maxScrollTop * 2.5,
-      end: maxScrollTop * 3.25,
+      start: maxScrollTop * 3.5,
+      end: maxScrollTop * 4.25,
       scrub: 1,
       }});
     }
@@ -424,8 +439,8 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -9.75, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: maxScrollTop * 2.5,
-      end: maxScrollTop * 3.25,
+      start: maxScrollTop * 3.5,
+      end: maxScrollTop * 4.25,
       scrub: 1,
       }});
 
@@ -488,8 +503,8 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -9.8, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: maxScrollTop * 2.5,
-      end: maxScrollTop * 3.25,
+      start: maxScrollTop * 3.5,
+      end: maxScrollTop * 4.25,
       scrub: 1,
       }});
     }
@@ -550,8 +565,8 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -9.5, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: maxScrollTop * 2.5,
-      end: maxScrollTop * 3.25,
+      start: maxScrollTop * 3.5,
+      end: maxScrollTop * 4.25,
       scrub: 1,
       }});
     }
@@ -562,8 +577,8 @@ function getDeviceHeight() {
       scene_anim.to(tokenModel.position, { y: -10.2, scrollTrigger: {
         // , gltf.scene.children[1].position, gltf.scene.children[2].position
       trigger: ".services",
-      start: maxScrollTop * 2.5,
-      end: maxScrollTop * 3.25,
+      start: maxScrollTop * 3.5,
+      end: maxScrollTop * 4.25,
       scrub: 1,
       }});
     }
@@ -576,8 +591,8 @@ function getDeviceHeight() {
     scene_anim.to(tokenModel.position , { x: -10, scrollTrigger: {
 
       trigger: ".node",
-      start: maxScrollTop * 3.15,
-      end: maxScrollTop * 4,
+      start: maxScrollTop * 4.15,
+      end: maxScrollTop * 5,
       scrub: 1,
       }});
 
@@ -598,14 +613,6 @@ function getDeviceHeight() {
 
       nodeModel = gltf.scene.clone();
 
-      nodeModel.traverse((obj) => {
-        if(obj.isMesh) {
-          obj.material.rougness = 0.75;
-          obj.material.metalness = 1;
-          if(obj.material.map != null) renderer.initTexture(obj.material.map)
-        }
-      })
-
       nodeModel.scale.set(.2, .2, .2)
       nodeModel.position.set(5, -11.3, 1.25);
 
@@ -620,8 +627,8 @@ function getDeviceHeight() {
       scene_anim.to(nodeModel.position , { x: 0, scrollTrigger: {
 
         trigger: ".node",
-        start: maxScrollTop * 3,
-        end: maxScrollTop * 4,
+        start: maxScrollTop * 4,
+        end: maxScrollTop * 5,
         scrub: 1,
         }});
 
@@ -639,96 +646,6 @@ function getDeviceHeight() {
   var modelCurve;
   
 
-  loader.load("./src/roadMapModel.glb", (gltf) => {
-
-      modelCurve = gltf.scene.children[0].clone();
-      // modelCurve.frustumCulled = false;
-
-      modelCurve.traverse((obj) => {
-        if(obj.isMesh) {
-          obj.material.rougness = 0.75;
-          obj.material.metalness = 1;
-          if(obj.material.map != null) renderer.initTexture(obj.material.map)
-        }
-      })
-      
-      modelCurve.position.set(0, -11.5, -30);
-      modelCurve.scale.set(2, 2, 2);
-
-      // if(modelCurve.children[9].children[2] != null)
-      //  renderer.initTexture(modelCurve.children[9].children[2].material.map)
-
-      //scene.add( cubeModel );
-
-      scene.add( modelCurve );
-      
-      
-      scene_anim.to(modelCurve.rotation, { y: "+=" + Math.PI * 4, scrollTrigger: {
-        // , gltf.scene.children[1].position, gltf.scene.children[2].position
-      trigger: ".projects",
-      start: maxScrollTop * 5,
-      end: maxScrollTop * 8,
-      scrub: 1,
-      }});
-
-      if( getDeviceWidth() >= 768 && getDeviceWidth() < 1199 && getDeviceHeight() < 950) {
-
-          scene_anim.to(modelCurve.position, { z: -4.5, scrollTrigger: {
-            //, gltf.scene.children[1].position, gltf.scene.children[2].position
-          trigger: ".services",
-          start: maxScrollTop * 4,
-        end: maxScrollTop * 5,
-        scrub: 1,
-
-        }});
-      }
-
-      else if(getDeviceWidth() >= 768 && getDeviceWidth() < 1199 && getDeviceHeight() >= 950) {
-        scene_anim.to(modelCurve.position, { z: -5, scrollTrigger: {
-            //, gltf.scene.children[1].position, gltf.scene.children[2].position
-          trigger: ".services",
-          start: maxScrollTop * 4,
-        end: maxScrollTop * 5,
-        scrub: 1,
-        }});
-      }
-
-      else if(getDeviceWidth() < 767 && getDeviceHeight() < 1080) {
-        scene_anim.to(modelCurve.position, { z: -5.1, scrollTrigger: {
-            //, gltf.scene.children[1].position, gltf.scene.children[2].position
-          trigger: ".projects",
-          start: maxScrollTop * 4,
-          end: maxScrollTop * 5,
-          scrub: 1,
-        }});
-      }
-
-      else {
-          scene_anim.to(modelCurve.position, { z: -4.25, scrollTrigger: {
-            //, gltf.scene.children[1].position, gltf.scene.children[2].position
-          trigger: ".services",
-          start: maxScrollTop * 4,
-        end: maxScrollTop * 5,
-        scrub: 1,
-        }});
-      }
-        
-      
-      scene_anim.to(modelCurve.position, { y: "+=" + 3.5, scrollTrigger: {
-      trigger: ".projects",
-      start: maxScrollTop * 5,
-      end: maxScrollTop * 8,
-      scrub: 1,
-      }});
-      
-
-
-}, undefined, function ( error ) {
-
-console.error( error );
-
-});
-
 
   renderer.compile(scene, camera)
 
@@ -738,32 +655,26 @@ console.error( error );
 
       scene.add( ambientLight );
 
-  // scene.add
-
-  if(!smallDevice) {
-
-     scene.add( particlesMesh );
-     scene.add( particlesMeshLower );
-     scene.add( particlesMeshLowerLower );
-     scene.add( particlesMeshLowerLowerRight );
-
-     gsap.to([particlesMesh.material, particlesMeshLower.material,particlesMeshLowerLower.material,], {size: 0.015, duration: 5, ease: Sine});
-  }
   
   // EFFECT COMPOSER + BLOOM EFFECT
   composer = new EffectComposer( renderer );
+  composer2 = new EffectComposer( renderer2 );
+
   const renderPass = new RenderPass( scene, camera );
   composer.addPass( renderPass );
 
-  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.35, 0, 0.1);
+  const renderPass2 = new RenderPass( scene2, camera2 );
+  composer2.addPass( renderPass2 );
 
-    composer.addPass( renderPass );
+  var unRealBloomPass = new UnrealBloomPass( window.devicePixelRatio , 0.25, 0.1, 0.1);
+
     composer.addPass( unRealBloomPass );
+    composer2.addPass( unRealBloomPass );
 
   var effectFXAA = new ShaderPass( FXAAShader );
     effectFXAA.uniforms[ 'resolution' ].value.x = 1 / ( window.innerWidth * window.devicePixelRatio );
     effectFXAA.uniforms[ 'resolution' ].value.y = 1 / ( window.innerHeight * window.devicePixelRatio );
-    composer.addPass( effectFXAA ); 
+    composer.addPass( effectFXAA );
     
     if(getDeviceWidth() >= 1200 ) {
       document.addEventListener('pointermove', onDocumentMouseMove, false);
@@ -844,11 +755,15 @@ function handleWindowResize(e) {
   
   
   function animate() {
-    if(getDeviceWidth() >= 1200 ) updateCamera();
-      
+    if(getDeviceWidth() >= 1200 ) {
+      updateCamera();
+      controls.update();
+    } 
       requestAnimationFrame( animate );
-      // controls.update();
+      
+      
       composer.render();
+      composer2.render();
      // stats.update()
     // render();
 
@@ -870,7 +785,7 @@ function handleWindowResize(e) {
 
       for ( let i = 0; i < intersects.length; i ++ ) {
 
-
+          //console.log(intersects[ 0 ].object.name)
           if(intersects[ 0 ].object.name === "Névtelen_terv") {
             container.style.cursor = 'pointer'
             currentIntersect = intersects[ i ].object;
@@ -899,7 +814,7 @@ scene_anim.to([camera.position, cameraCenter ], { y: "-=10.15", scrollTrigger: {
 
       trigger: ".about",
       start: 0,
-      end: maxScrollTop * 3,
+      end: maxScrollTop * 4,
       scrub: 1,
 }});
 
@@ -909,19 +824,19 @@ scene_anim.to([camera.position, cameraCenter ], { y: "-=10.15", scrollTrigger: {
 scene_anim.to([camera.position, cameraCenter ] , { z: "-=5", scrollTrigger: {
 
       trigger: ".node",
-      start: maxScrollTop * 4,
-      end: maxScrollTop * 5,
+      start: maxScrollTop * 5,
+      end: maxScrollTop * 6,
       scrub: 1,
       }});
 
 
-scene_anim.to([camera.position, cameraCenter ], { x: "+=7.5", scrollTrigger: {
+// scene_anim.to([camera.position, cameraCenter ], { x: "+=7.5", scrollTrigger: {
 
-      trigger: ".projects",
-      start: maxScrollTop * 8.15,
-      end: maxScrollTop * 9,
-      scrub: 1,
-      }});
+//       trigger: ".projects",
+//       start: maxScrollTop * 8.15,
+//       end: maxScrollTop * 9,
+//       scrub: 1,
+//       }});
 
 let roadLayer = document.querySelector("#roadLayer");
 let bigRoads = document.querySelectorAll(".bigRoad")
@@ -929,8 +844,8 @@ let bigRoads = document.querySelectorAll(".bigRoad")
 scene_anim.to([roadLayer, bigRoads], { yPercent: -1000, scrollTrigger: {
 
   trigger: ".projects",
-  start: maxScrollTop * 8.15,
-  end: maxScrollTop * 9,
+  start: maxScrollTop * 9.15,
+  end: maxScrollTop * 10,
   scrub: 0,
   }});
 
@@ -973,7 +888,7 @@ else  { stickys = document.querySelectorAll('div.bigRoad'); }
     stickys[0].addEventListener('click', (e)=> {
       e.preventDefault();
           document.querySelector('.container').scrollTo({
-           top: maxScrollTop * 5,
+           top: maxScrollTop * 6,
            behavior: 'smooth'
           });
     });
@@ -981,7 +896,7 @@ else  { stickys = document.querySelectorAll('div.bigRoad'); }
     stickys[1].addEventListener('click', (e)=> {
       e.preventDefault();
       document.querySelector('.container').scrollTo({
-       top: maxScrollTop * (5 + 0.1895),
+       top: maxScrollTop * (6 + 0.1895),
        behavior: 'smooth'
       });
 });
@@ -989,7 +904,7 @@ else  { stickys = document.querySelectorAll('div.bigRoad'); }
 stickys[2].addEventListener('click', (e)=> {
   e.preventDefault();
   document.querySelector('.container').scrollTo({
-   top: maxScrollTop * (5 + 0.4),
+   top: maxScrollTop * (6 + 0.4),
    behavior: 'smooth'
   });
 });
@@ -997,7 +912,7 @@ stickys[2].addEventListener('click', (e)=> {
 stickys[3].addEventListener('click', (e)=> {
   e.preventDefault();
   document.querySelector('.container').scrollTo({
-   top: maxScrollTop * (5 + 0.63),
+   top: maxScrollTop * (6 + 0.63),
    behavior: 'smooth'
   });
 });
@@ -1005,7 +920,7 @@ stickys[3].addEventListener('click', (e)=> {
 stickys[4].addEventListener('click', (e)=> {
   e.preventDefault();
   document.querySelector('.container').scrollTo({
-   top: maxScrollTop * (5 + 0.8775),
+   top: maxScrollTop * (6 + 0.8775),
    behavior: 'smooth'
   });
 });
@@ -1013,7 +928,7 @@ stickys[4].addEventListener('click', (e)=> {
 stickys[5].addEventListener('click', (e)=> {
   e.preventDefault();
   document.querySelector('.container').scrollTo({
-   top: maxScrollTop * (5 + 1.15),
+   top: maxScrollTop * (6 + 1.15),
    behavior: 'smooth'
   });
 });
@@ -1021,7 +936,7 @@ stickys[5].addEventListener('click', (e)=> {
 stickys[6].addEventListener('click', (e)=> {
   e.preventDefault();
   document.querySelector('.container').scrollTo({
-   top: maxScrollTop * (5 + 1.495),
+   top: maxScrollTop * (6 + 1.495),
    behavior: 'smooth'
   });
 });
@@ -1029,7 +944,7 @@ stickys[6].addEventListener('click', (e)=> {
 stickys[7].addEventListener('click', (e)=> {
   e.preventDefault();
   document.querySelector('.container').scrollTo({
-   top: maxScrollTop * (5 + 1.945),
+   top: maxScrollTop * (6 + 1.945),
    behavior: 'smooth'
   });
 });
@@ -1037,7 +952,7 @@ stickys[7].addEventListener('click', (e)=> {
 stickys[8].addEventListener('click', (e)=> {
   e.preventDefault();
   document.querySelector('.container').scrollTo({
-   top: maxScrollTop * (5 + 2.875),
+   top: maxScrollTop * (6 + 2.875),
    behavior: 'smooth'
   });
 });
@@ -1210,28 +1125,6 @@ if(window.innerWidth >= 1200) {
     checkBoundary();
 })
 }
-
-// if mobile
-// else {
-
-//   slider.addEventListener('touchstart', (event) => {
-//     pressed = true;
-//     startX = event.targetTouches[0].clientX - inner.offsetLeft;
-//     slider.style.cursor = "grabbing";
-    
-//   }, {passive: true });
-
-//   slider.addEventListener('touchmove', (event) => {
-//     if(!pressed) return;
-
-//     x = event.targetTouches[0].clientX;
-
-//     inner.style.left = `${x - startX}px`;
-
-//     checkBoundary();
-
-//   }, {passive: true })
-// }
 
 
 slider.addEventListener('mouseenter', (event) => {

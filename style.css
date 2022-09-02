@@ -58,7 +58,22 @@ html, body {
     overflow: hidden;
 }
 
+.canvasContainer {
+    position: absolute;
+    height: 80vh;
+    top: 5rem;
+    width: 90vw;
+    align-self: center;
+    border-radius: 0.75rem;
+}
 
+#connectImg {
+    display: none;
+}
+
+#mobileImg {
+    transform: scale(0.4);
+}
 
 /*  TEST */
 #loading-screen {
@@ -212,7 +227,7 @@ html, body {
     background-color: rgba(0, 162, 255, 0.75);
     cursor: pointer;
     opacity: 0.35;
-    bottom: 2rem;
+    bottom: calc(1.5em + (100vh - 600px) * (15 - 125 ) / (600 -  1080));
 }
 
 #dot1 {
@@ -222,22 +237,10 @@ html, body {
 
 .products img {
     transform: scale(0.5);
-    top: calc(-14em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
+    top: calc(-13.25em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
     position: relative;
     width: fit-content;
     height: fit-content;
-}
-
-#product1 img {
-    right: calc(1em + (100vw - 300px) * (15 + 5 ) / (300 -  767));
-}
-
-#product2 img {
-    right: calc(1em + (100vw - 300px) * (15 + 5 ) / (300 -  767));
-}
-
-#product3 img {
-    right: calc(1em + (100vw - 300px) * (15 + 5 ) / (300 -  767));
 }
 
 .products p {
@@ -248,7 +251,7 @@ html, body {
     justify-self: center;
     font-family: 'Orbitron', sans-serif;
     font-size: 0.9rem;
-    bottom: calc(30em + (100vh - 600px) * (15 + 225 ) / (600 -  1080));
+    bottom: calc(29.5em + (100vh - 600px) * (15 + 210 ) / (600 -  1080));
     right: calc(1em + (100vw - 300px) * (15 + 5 ) / (300 -  767));
 }
 
@@ -288,15 +291,49 @@ html, body {
     background: linear-gradient(-30deg, black 25%, rgba(0,146,255,0.05) 100%);
 }
 
+#product1 img {
+    left: calc(-1rem + (100vw - 300px) * (15 - 85 ) / (300 -  767));
+}
+
+#product1 p {
+    left: calc(-1.25rem + (100vw - 300px) * (15 - 85 ) / (300 -  767));
+}
+
+#product2 img {
+    left: calc(-2rem + (100vw - 300px) * (15 - 125 ) / (300 -  767));
+}
+
+#product2 p {
+    width: 15rem;
+    left: calc(-2rem + (100vw - 300px) * (15 - 150 ) / (300 -  767));
+}
+
+#product3 img {
+    left: calc(-10rem + (100vw - 300px) * (15 - 175 ) / (300 -  767));
+}
+
+#product3 p {
+    width: 20rem;
+    left: calc(-10rem + (100vw - 300px) * (15 - 175 ) / (300 -  767));
+}
+
 
 #ice {
     color: rgba(0,159,255,255);
     height: 1.35em;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    font-weight: 700;
 }
 
 #chain {
     color: #1b6d8d;
     height: 1.35em;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    font-weight: 700;
 }
 
 
@@ -1758,12 +1795,12 @@ h2 {
 
 .footer {
     width: 100vw;
-    height: 30em !important;
+    height: 100vh !important;
     background: linear-gradient(#000524, #000000);
     display: grid;
     grid-template-rows: 5em 5em 5em;
     justify-items: center;
-    align-content: end;
+    align-content: center;
 }
 
 
@@ -1771,7 +1808,7 @@ h2 {
 #footerIce {
     display: flex;
     position: relative;
-    top: -1em;
+    top: 1rem;
     width: 64px;
     height: 64px;
 }
@@ -1788,7 +1825,7 @@ h2 {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-column-gap: 2em;
-    top: -1em;
+    top: 1.75rem;
     transform: scale(0.75);
 
 }
@@ -1838,7 +1875,7 @@ h2 {
             display: grid;
             grid-template-columns: auto auto;
             justify-content: space-between;
-            top: -1.25rem;
+            top: 1rem;
             justify-self: center;
             transform: scale(0.7);
             text-align: center;
@@ -1871,7 +1908,7 @@ and (min-width: 768px)
                 height: 150%;
                 border-radius: 0.15rem;
                 overflow: hidden;
-                bottom: calc(7.25em + (100vh - 600px) * (15 - 45 ) / (600 -  1080));
+                bottom: calc(4em + (100vh - 600px) * (15 - 130 ) / (600 -  1080));
                
             }
             
@@ -1909,6 +1946,7 @@ and (min-width: 768px)
                 background-color: rgba(0, 162, 255, 0.75);
                 cursor: pointer;
                 opacity: 0.35;
+                bottom: 3rem;
             }
             
             #dot1 {
@@ -1925,15 +1963,29 @@ and (min-width: 768px)
             }
             
             #product1 img {
-                right: calc(1em + (100vw - 300px) * (15 + 5 ) / (300 -  767));
+                left: calc(1.75em + (100vw - 300px) * (15 + 5 ) / (300 -  767));
+            }
+
+            #product1 p {
+                left: calc(1.75em + (100vw - 300px) * (15 + 5 ) / (300 -  767));
+            }
+
+            #product2 img {
+                left: calc(1.25rem + (100vw - 300px) * (15 + 5 ) / (300 -  767));
             }
             
-            #product2 img {
-                right: calc(1em + (100vw - 300px) * (15 + 5 ) / (300 -  767));
+            #product2 p {
+                width: fit-content;
+                left: calc(1.25rem + (100vw - 300px) * (15 + 5 ) / (300 -  767));
             }
             
             #product3 img {
-                right: calc(1em + (100vw - 300px) * (15 + 5 ) / (300 -  767));
+                left: calc(-0.25rem + (100vw - 300px) * (15 + 5 ) / (300 -  767));
+            }
+            
+            #product3 p {
+                width: 30rem;
+                left: -0rem;
             }
             
             .products p {
@@ -1957,7 +2009,7 @@ and (min-width: 768px)
                 font-family: 'Orbitron', sans-serif;
                 text-transform: uppercase;
                 font-size: 2rem;
-                bottom: 2.5rem;
+                bottom: calc(1.85em + (100vh - 600px) * (15 - 22.5 ) / (600 -  1080));
             }
             
             .products {
@@ -2094,7 +2146,7 @@ and (min-width: 768px)
                #yoursText {
                    font-size: calc(1.4em + (100vh - 600px) * (15 - 25 ) / (600 - 1080));
                    width: fit-content;
-                   top: calc(5.5em + (100vh - 600px) * (15 - 175 ) / (600 - 1080));
+                   top: calc(4.5em + (100vh - 600px) * (15 - 175 ) / (600 - 1080));
                    left: auto;
                    position: relative;
                }
@@ -2123,7 +2175,7 @@ and (min-width: 768px)
                #otherButton {
                 font-size: calc(1.475em + (100vh - 600px) * (15 - 20 ) / (600 - 1080));
                 display: flex;
-                top:  calc(-0.4em + (100vh - 600px) * (15 - 71 ) / (600 - 1080));;
+                top:  calc(-0.9em + (100vh - 600px) * (15 - 71 ) / (600 - 1080));;
                 left: auto;
                 position: relative;
                 right: -5em;
@@ -2742,10 +2794,99 @@ and (min-width: 768px)
 and (min-width: 1200px)
 {
 
+
+    #mobileImg {
+        position: relative;
+        transform: scale(0.6);
+        left: calc(0em + (100vw - 1200px) * (15 - 200 ) / (1200 -  1599));
+        bottom: -0.7rem;
+    }
+
+    #bigImg {
+        position: relative;
+        align-self: center;
+        transform: scale(0.75);
+        right: calc(31em + (100vw - 1200px) * (15 + 160 ) / (1200 -  1599));
+        bottom: 1rem;
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 1));
+        
+    }
+
+    .registerT1 {
+        position: absolute;
+        align-self: center;
+        width: fit-content;
+        font-size: 5rem;
+        font-family: 'Orbitron', sans-serif;
+        z-index: 1;
+        left: calc(5.25em + (100vw - 1200px) * (15 - 200 ) / (1200 -  1599));
+        top: 1.75rem;
+    }
+
+    .registerT2 {
+        position: absolute;
+        align-self: center;
+        font-size: 2.5rem;
+        font-family: 'Orbitron', sans-serif;
+        z-index: 1;
+        left: calc(10.5em + (100vw - 1200px) * (15 - 225 ) / (1200 -  1599));
+        bottom: 4rem;
+    }
+
+    .registerButton {
+        position: absolute;
+        align-self: center;
+        font-size: 1.4rem;
+        font-family: 'Orbitron', sans-serif;
+        z-index: 1;
+        text-decoration: none;
+        color: white;
+        right: calc(7em + (100vw - 1200px) * (15 - 200 ) / (1200 -  1599));
+        bottom: 5.75rem;
+        background-color: rgba(54, 89, 156, 1);
+        padding: 1rem;
+        text-align: center;
+        border-radius: 0.75rem;
+    }
+
+    .registerButton:hover {
+        color: rgba(54, 89, 156, 1);
+        background-color: white;
+    }
+
+    .register {
+        display: grid;
+        align-items: center;
+    }
+
+    .registerContainer {
+        position: absolute;
+        width: 100vw;
+        height: 75vh;
+        justify-self: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background-color: rgb(0, 10, 49);
+        align-content: center;
+        border: 1px solid rgba(54, 89, 156, 0.15);
+        
+    }
+
+    .canvasContainer {
+        position: absolute;
+        width: 37.5vw;
+        height: 99.9vh;
+        justify-self: end;
+        right: calc(7.5em + (100vw - 1200px) * (15 - 135 ) / (1200 -  1599));
+        border-radius: 0.5rem;
+        top: 0;
+        z-index: 1;
+    }
+
     .productMain {
         position: relative;
         display: grid;
-        width: 66.25vw;
+        width: calc(100vw + (100vw - 1200px) * (15 - 135 ) / (1200 -  1599));
         height: 85vh;
         top: 3rem;
         grid-template-rows: auto auto;
@@ -2787,7 +2928,7 @@ and (min-width: 1200px)
         grid-template-columns: 1fr 1fr 1fr;
         align-self: flex-end;
         justify-self: center;
-        bottom: 1rem;
+        bottom: calc(2.5em + (100vh - 600px) * (15 - 30) / (600 - 1080));
         justify-items: center;
         align-items: center;
     }
@@ -2900,7 +3041,7 @@ and (min-width: 1200px)
     font-size: 1.95em;
     color: white;
     font-family: 'Teko', sans-serif;
-    margin-left: calc(5.55em + (100vw - 1200px) * (15 - 140 ) / (1200 -  1599));
+    margin-left: calc(3.25em + (100vw - 1200px) * (15 - 140 ) / (1200 -  1599));
     align-items: center;
     margin-top: 0;
     transform: scale(0.9);
@@ -2923,7 +3064,7 @@ and (min-width: 1200px)
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    margin-right: calc(-10.75em + (100vw - 1200px) * (15 + 15 ) / (1200 -  1599));
+    margin-right: calc(-15.25em + (100vw - 1200px) * (15 + 15 ) / (1200 -  1599));
     clip-path: none;
     top: 0;
     font-size: 1.35em;
@@ -2934,12 +3075,14 @@ and (min-width: 1200px)
 .whitePaperLi {
     top: -1.25em;
     height: 0.25em;
+    
 }   
 
 .whitepaper {
     font-size: 1.25em;
-    right: calc(-2.75em + (100vw - 1200px) * (15 - 30 ) / (1200 -  1599));
-
+    right: calc(-3.75em + (100vw - 1200px) * (15 - 75 ) / (1200 -  1599));
+    border: none;
+    background-color: rgb(7, 40, 88);
 }
 
 .whitepaper:hover {
@@ -3011,36 +3154,39 @@ li {
     overflow: hidden;
     left: 0;
 }
-
 .landingText {
-    width: 100%;
-    height: 100%;
+    width: inherit;
+    height: inherit;
     z-index: 3;
-    position: absolute;
-    display: flex;
+    position: relative;
+    display: grid;
     right: auto;
     top: auto;
     align-self: center;
+    justify-content: start;
+    grid-template-rows: repeat(5, 1fr);
 }
 
 
 .homeLayer {
-    width: 100vw;
-    height: 17.5em;
-    top: 31.5%;
-    left: 0;
-    background-color: rgba(15, 84, 156, 0.125);
-    opacity: 0.9;
-
+    position: relative;
+    display: grid;
+    width: calc(37.5vw + (100vw - 1200px) * (15 + 100 ) / (1200 -  1599));
+    height: 40vh;
+    top: 0;
+    left: calc(-17.5em + (100vw - 1200px) * (15 - 30 ) / (1200 -  1599));
+    opacity: 1;
+    justify-items: center;
+    background-color: #000a31;
 }
 
 #videoButton {
     display: grid;
     width: 2.5rem;
-    left: calc(-29.75em + (100vw - 1200px) * (15 + 60) / (1200 - 1600) );
+    left: calc(-4.25em + (100vw - 1200px) * (15 - 30) / (1200 - 1600) );
     top: auto;
     text-decoration: none;
-    bottom: -8em;
+    bottom: 4rem;
     -webkit-border-radius: 1.5em;
     border-radius: 1.5em;
     padding: 0em 2em !important;
@@ -3057,10 +3203,10 @@ li {
 }
    #otherButton {
     display: grid;
-    left: calc(-29em + (100vw - 1200px) * (15 + 60) / (1200 - 1600) );
+    left: calc(3em + (100vw - 1200px) * (15 - 30) / (1200 - 1600));
     right: auto;
     top: auto;
-    bottom: -8em;
+    bottom: 7.5rem;
     border-radius: 1.5em;
     border: 0px solid white;
     font-size: 1.4em;
@@ -3080,7 +3226,7 @@ li {
 #dataText {
   
     font-size: 4em;
-    left: calc(0.8em + (100vw - 1200px) * (15 + 60) / (1200 - 1600) ) !important;
+    left: calc(0em + (100vw - 1200px) * (15 - 30) / (1200 - 1600) ) !important;
     top: -0.5em;
     opacity: 1;
 
@@ -3089,8 +3235,8 @@ li {
 #yoursText {
  
     font-size: 2em;
-    top: 2.5em;
-    left: calc(-8.5em + (100vw - 1200px) * (15 + 60) / (1200 - 1600) );
+    top: -2.5em;
+    left: calc(1em + (100vw - 1200px) * (15 - 30) / (1200 - 1600) );
     opacity: 0.8;
     white-space: nowrap;
 }
@@ -3643,7 +3789,7 @@ and (max-height: 850px)
     }
 
     .controller {
-        bottom: 0rem;
+        bottom: calc(2.5em + (100vh - 600px) * (15 - 30) / (600 - 1080));
     }
 
    
@@ -3680,6 +3826,90 @@ and (max-width: 1263px) {
 @media screen
 and (min-width: 1600px) {
 
+    #mobileImg {
+        position: relative;
+        transform: scale(0.7);
+        left: 17.5rem;
+        bottom: -0.7rem;
+    }
+
+    #bigImg {
+        position: relative;
+        align-self: center;
+        right: 16rem;
+        bottom: 1rem;
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 1));
+        
+    }
+
+    .registerT1 {
+        position: absolute;
+        align-self: center;
+        font-size: 7rem;
+        font-family: 'Orbitron', sans-serif;
+        z-index: 1;
+        left: 47.5rem;
+        top: -2.5rem;
+    }
+
+    .registerT2 {
+        position: absolute;
+        align-self: center;
+        font-size: 3rem;
+        font-family: 'Orbitron', sans-serif;
+        z-index: 1;
+        left: 47.5rem;
+        bottom: 2rem;
+    }
+
+    .registerButton {
+        position: absolute;
+        align-self: center;
+        font-size: 1.4rem;
+        font-family: 'Orbitron', sans-serif;
+        z-index: 1;
+        text-decoration: none;
+        color: white;
+        right: 27.5rem;
+        bottom: 4.5rem;
+        background-color: rgba(54, 89, 156, 1);
+        padding: 1rem;
+        text-align: center;
+        border-radius: 0.75rem;
+    }
+
+    .registerButton:hover {
+        color: rgba(54, 89, 156, 1);
+        background-color: white;
+    }
+
+    .register {
+        display: grid;
+        align-items: center;
+    }
+
+    .registerContainer {
+        position: absolute;
+        width: 100vw;
+        height: 75vh;
+        justify-self: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background-color: rgb(0, 10, 49);
+        align-content: center;
+        border: 1px solid rgba(54, 89, 156, 0.15);
+        
+    }
+
+    .canvasContainer {
+        position: absolute;
+        width: 30vw;
+        height: 100vh;
+        justify-self: end;
+        right: 14rem;
+        border-radius: 0.5rem;
+        top: 0;
+    }
 
     .productMain {
         position: relative;
@@ -3764,6 +3994,35 @@ and (min-width: 1600px) {
         font-size: 1.5rem;
         bottom: 4.5rem;
         right: 1rem;
+       
+    }
+
+    .products p::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -1rem;
+        width: 100%;
+        height: 100%;
+        border-left: 2.5px solid rgba(0, 162, 255, 0.75);
+        border-radius: 0.07rem;
+    }
+
+    #product1 p {
+        left: -1.85rem;
+    }
+
+    #product2 p {
+        left: -1.1rem;
+    }
+
+    #product3 p {
+        width: 32.5rem;
+        left: -3rem;
+    }
+
+    #product3 img {
+        left: 1rem;
     }
     
     
@@ -3818,12 +4077,12 @@ and (min-width: 1600px) {
     font-family: 'Teko', sans-serif;
     margin-left: 0;
     align-items: center;
-    margin-top: 0;
+    margin-top: 0.05rem;
 
 }
 
 #logo {
-    margin-left: 10em;
+    margin-left: 9em;
 }
 
 #logo img {
@@ -3831,8 +4090,16 @@ and (min-width: 1600px) {
     display: flex;
     width: 64px;
     height: 64px;
-    top: 0;
+    top: -0.1rem;
   }
+
+#ice {
+    font-size: 1.35rem;
+}
+
+#chain {
+    font-size: 1.35rem;
+}
 
 
 .linkContainer {
@@ -3842,7 +4109,7 @@ and (min-width: 1600px) {
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    right: -4.35em;
+    right: -5em;
     clip-path: none;
     top: 0;
     
@@ -3864,7 +4131,7 @@ li {
 
 .whitepaper {
     font-size: 1.4em;
-    right: 0.7em;
+    right: -1em;
     box-shadow: 0 0 7.5px 0 rgba(20, 126, 197, 0.5);
 }
 
@@ -3910,36 +4177,49 @@ li {
     opacity: 1;
 }
 
-
-
-.landingText {
-    width: fit-content;
-    height: auto;
-    z-index: 3;
-    position: relative;
-    display: flex;
-    right: auto;
-    top: auto;
-    align-self: center;
+#connectImg {
+    position: absolute;
+    transform: scaleX(1) scale(0.5);
+    justify-self: center;
+    top: 13rem;
+    left: 48rem;
+    z-index: -1;
+    filter: drop-shadow(0 0 30px rgba(9, 101, 187, 0.7));
+    display: none;
 }
 
 
 
+.landingText {
+    width: inherit;
+    height: inherit;
+    z-index: 3;
+    position: relative;
+    display: grid;
+    right: auto;
+    top: auto;
+    align-self: center;
+    justify-content: start;
+    grid-template-rows: repeat(5, 1fr);
+}
+
 
 .homeLayer {
-    width: 100vw;
-    height: 40%;
-    top: 31.5%;
-    left: 0;
-    
-    opacity: 0.9;
-
+    position: relative;
+    display: grid;
+    width: 32.5vw;
+    height: 40vh;
+    top: 0;
+    left: -22.5rem;
+    opacity: 1;
+    justify-items: center;
+    background-color: #000a31;
 }
 
 #videoButton {
     padding:  0em 2em;
-    top: 7em; 
-    left: -38.5em;
+    top: -6.2rem; 
+    left: -5.25rem;
     border: 0px solid white;
     border-radius: 1.25em;
     text-decoration: none;
@@ -3970,9 +4250,9 @@ li {
 
 
 #otherButton {
-    padding:  0.6em 2.25em !important;
-    top: 7em; 
-    left: -37.5em;
+    padding:  0.625em 2.88175em !important;
+    top: -10rem; 
+    left: 7.5rem;
     border: 0px solid white;
     background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' id='svg' viewBox='0 0 1440 700' xmlns='http://www.w3.org/2000/svg' class='transition duration-300 ease-in-out delay-150'%3E%3Cdefs%3E%3ClinearGradient id='gradient' x1='0%25' y1='50%25' x2='100%25' y2='50%25'%3E%3Cstop offset='5%25' stop-color='%23002bdc44'%3E%3C/stop%3E%3Cstop offset='95%25' stop-color='%2332ded444'%3E%3C/stop%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M 0 700 C 0 700 0 140 0 140 C 38.541251420867596 119.53950672764282 77.08250284173519 99.07901345528565 129 109 C 180.9174971582648 118.92098654471435 246.21124005392687 159.22345290650028 290 178 C 333.7887599460731 196.77654709349972 356.0725369425573 194.02717491871317 407 168 C 457.9274630574427 141.97282508128683 537.498612175844 92.66784741864706 594 101 C 650.501387824156 109.33215258135294 683.9330143540669 175.30143540669857 729 187 C 774.0669856459331 198.69856459330143 830.7693304078882 156.12641095455865 873 142 C 915.2306695921118 127.87358904544134 942.9896640143807 142.19292077506674 994 132 C 1045.0103359856193 121.80707922493326 1119.2720135345899 87.10190594517434 1171 99 C 1222.7279864654101 110.89809405482566 1251.9222818472601 169.39945544423588 1293 184 C 1334.0777181527399 198.60054455576412 1387.03885907637 169.30027227788207 1440 140 C 1440 140 1440 700 1440 700 Z' stroke='none' stroke-width='0' fill='url(%23gradient)' class='transition-all duration-300 ease-in-out delay-150 path-0'%3E%3C/path%3E%3Cdefs%3E%3ClinearGradient id='gradient' x1='0%25' y1='50%25' x2='100%25' y2='50%25'%3E%3Cstop offset='5%25' stop-color='%23002bdc66'%3E%3C/stop%3E%3Cstop offset='95%25' stop-color='%2332ded466'%3E%3C/stop%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M 0 700 C 0 700 0 280 0 280 C 59.99759443812948 287.362764017024 119.99518887625896 294.72552803404795 160 301 C 200.00481112374104 307.27447196595205 220.01683893309365 312.46065188083213 266 303 C 311.98316106690635 293.53934811916787 383.9374553913664 269.4318644426234 438 268 C 492.0625446086336 266.5681355573766 528.2333395014407 287.81189034867435 573 286 C 617.7666604985593 284.18810965132565 671.1291866028708 259.32057416267946 727 255 C 782.8708133971292 250.67942583732057 841.2499140870761 266.90581300060796 884 264 C 926.7500859129239 261.09418699939204 953.8711570488249 239.05617383488863 996 247 C 1038.128842951175 254.94382616511137 1095.265457717624 292.8694916598377 1153 289 C 1210.734542282376 285.1305083401623 1269.067012080679 239.46585952576066 1317 231 C 1364.932987919321 222.53414047423934 1402.4664939596605 251.26707023711967 1440 280 C 1440 280 1440 700 1440 700 Z' stroke='none' stroke-width='0' fill='url(%23gradient)' class='transition-all duration-300 ease-in-out delay-150 path-1'%3E%3C/path%3E%3Cdefs%3E%3ClinearGradient id='gradient' x1='0%25' y1='50%25' x2='100%25' y2='50%25'%3E%3Cstop offset='5%25' stop-color='%23002bdc88'%3E%3C/stop%3E%3Cstop offset='95%25' stop-color='%2332ded488'%3E%3C/stop%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M 0 700 C 0 700 0 420 0 420 C 50.93343731000026 405.33135953897806 101.86687462000052 390.66271907795607 148 383 C 194.13312537999948 375.33728092204393 235.4659388299982 374.68048322715373 285 388 C 334.5340611700018 401.31951677284627 392.2693700600069 428.61534801342884 448 436 C 503.7306299399931 443.38465198657116 557.4565809299744 430.8581247191308 594 419 C 630.5434190700256 407.1418752808692 649.9043062200957 395.9521531100479 698 387 C 746.0956937799043 378.0478468899521 822.9261941896427 371.3332628406778 881 372 C 939.0738058103573 372.6667371593222 978.3909170213328 380.71479552724105 1014 400 C 1049.6090829786672 419.28520447275895 1081.5101377250257 449.80755505035813 1130 454 C 1178.4898622749743 458.19244494964187 1243.5685320785642 436.0549842713263 1298 426 C 1352.4314679214358 415.9450157286737 1396.215733960718 417.9725078643369 1440 420 C 1440 420 1440 700 1440 700 Z' stroke='none' stroke-width='0' fill='url(%23gradient)' class='transition-all duration-300 ease-in-out delay-150 path-2'%3E%3C/path%3E%3Cdefs%3E%3ClinearGradient id='gradient' x1='0%25' y1='50%25' x2='100%25' y2='50%25'%3E%3Cstop offset='5%25' stop-color='%23002bdcff'%3E%3C/stop%3E%3Cstop offset='95%25' stop-color='%2332ded4ff'%3E%3C/stop%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M 0 700 C 0 700 0 560 0 560 C 55.676940971212574 573.2924475931163 111.35388194242515 586.5848951862328 166 571 C 220.64611805757485 555.4151048137672 274.261413201512 510.9528668481853 308 513 C 341.738586798488 515.0471331518147 355.60046525152654 563.6036374210263 405 580 C 454.39953474847346 596.3963625789737 539.3367257923815 580.63258346771 602 579 C 664.6632742076185 577.36741653229 705.0526315789474 589.866028708134 739 584 C 772.9473684210526 578.133971291866 800.4527478918288 553.9033016997541 848 554 C 895.5472521081712 554.0966983002459 963.1363768537367 578.5207644928494 1019 568 C 1074.8636231462633 557.4792355071506 1119.0017446932247 512.0136403288483 1169 520 C 1218.9982553067753 527.9863596711517 1274.8566443733644 589.4246741917576 1321 605 C 1367.1433556266356 620.5753258082424 1403.5716778133178 590.2876629041211 1440 560 C 1440 560 1440 700 1440 700 Z' stroke='none' stroke-width='0' fill='url(%23gradient)' class='transition-all duration-300 ease-in-out delay-150 path-3'%3E%3C/path%3E%3C/svg%3E");
     background-size: cover;
@@ -3996,15 +4276,15 @@ li {
 #dataText {
   
     font-size: 5em;
-    left: -1.1em !important;
-    top: -1em;
+    left: 2.5rem !important;
+    top: -3rem;
 }
 
 #yoursText {
  
     font-size: 2.2em;
-    top: 1.5em;
-    left: -14em;
+    top: -3.5em;
+    left: 3.15rem;
     opacity: 0.9;
     white-space: nowrap;
 }
@@ -4926,7 +5206,9 @@ li {
 /* FOOTER SECTION */
 
 
-
+.footer {
+    height: 100vh !important;
+}
 
 #footerL1 {
     border: 2px solid rgba(15, 84, 156, 0.925);

@@ -23,8 +23,7 @@
                             <a href="#home" id="homeLink" class="li active">Home</a>
                             <a href="#about" id="aboutLink" class="li">Product</a>
                             <a href="#services" id="servicesLink" class="li">Token Details</a>
-                            <a href="#projects" id="projectLink" class="li">Roadmap</a>
-                            <a href="#contact" id="contactLink" class="li">Team</a>   
+                            <a href="#projects" id="projectLink" class="li">Roadmap</a>  
                         </li>
                         <li class="whitePaperLi">
                             <a href="./src/IceChainWhitepaper.pdf" class="whitepaper" id="footerL2" target="blank">Lightpaper
@@ -38,13 +37,12 @@
         </div> 
             <div id="loading-screen">
                 <!-- <div id="loader"></div> -->
-            
             </div>
         <section class="home" id="home">
             <div class="homeLayer">
                 <div class="landingText">
                     <h1 id="dataText"><span class="cyan">P</span>NFT Marketplace</h1>
-                    <h2 id="yoursText">Linking&nbsp;<span class="cyan">Physical</span> &nbsp;Products with Digital NFTs</h2>
+                    <h2 id="yoursText">Linking&nbsp;<span class="cyan">Physical</span> &nbsp;Fashion with Digital NFTs</h2>
                     <div id="videoButton">
                         <a href="https://icelinked.ch" target="blank" id="eventButton">Event</a>
                         <div id="eventContainer">
@@ -54,9 +52,21 @@
                         
                     </div>
                     <a href="https://icechain.com/login" target="blank" id="otherButton">ICO</a>
-                </div>  
+                </div>
             </div>
-            
+            <img src="./src/img/connect.png" alt="" width="500" height="500" id="connectImg">
+            <canvas class="canvasContainer"></canvas>
+        </section>
+        
+        <section class="register">
+           
+            <div class="registerContainer">
+                <h1 class="registerT1">Into Fashion?</h1>
+                <h1 class="registerT2">Monatize your Style</h1>
+                <a href="https://icechain.com/register" target="blank" class="registerButton">Register</a>
+            <img src="./src/img/registerSection/mobileImg.png" alt="mobile" id="mobileImg" width="502" height="973">
+            <img src="./src/img/registerSection/bigImg.png" alt="Fashion" id="bigImg" width="1250" height="340">
+            </div>
         </section>
             
         <section class="about" id="about"> 
@@ -70,11 +80,11 @@
                             <p>Purchaser of physical products receive a <br> digital copy of the product as an NFT</p>
                         </div>
                         <div class="products" id="product2">
-                            <img src="./src/img/productImg1.png" alt="product1" width="384" height="766">
+                            <img src="./src/img/productImg2.png" alt="product1" width="396" height="766">
                             <p>Users can display their NFT‘s in their profile</p>
                         </div>
                         <div class="products" id="product3">
-                            <img src="./src/img/productImg1.png" alt="product1" width="384" height="766">
+                            <img src="./src/img/productImg3.png" alt="product1" width="641" height="766">
                             <p>Share pictures with products Tag NFTs to earn affiliate commissions</p>
                         </div>
                     </div>
@@ -225,19 +235,8 @@
             <h2 class="sText bigRoad" id="s8t">2023</h2>
             <div class="sticky bigRoad" id="s9"></div>
             <h2 class="sText bigRoad" id="s9t">More</h2>
+           
         </section>
-
-        <section class="contact" id="contact">
-            <div id="teamSlider">
-                <img src="./src/img/teamSlide1.png"  id="teamSlide1" class="teamSlide" alt="teamSlide1" width="703" height="239" >
-                <img src="./src/img/teamSlide2.png"  id="teamSlide2" class="teamSlide" alt="teamSlide2" width="704" height="239">
-                <img src="./src/img/teamSlide3.png"  id="teamSlide3" class="teamSlide" alt="teamSlide3" width="706" height="239">
-                <img src="./src/img/teamSlide4.png"  id="teamSlide4" class="teamSlide" alt="teamSlide4" width="706" height="240">
-                <img src="./src/img/teamSlide5.png"  id="teamSlide5" class="teamSlide" alt="teamSlide5" width="706" height="242">
-            </div>
-            <h1 id="teamH1">Meet our <span id="teamH1Span">Team</span></h1>
-        </section>
-
         <section class="footer" id="footer">
             <a href="#home" id="footerIce"><img src="./src/newLogo.png"   alt="logo" width="64" height="64"/></a>
             <div id="footerButtonContainer">
@@ -249,10 +248,12 @@
                 <a href="https://t.me/+MwG8fmzoEbJjOTZk" target="blank"><img id="telegramIcon" src="./src/img/telegramIcon.png"  alt="logo" width="32" height="32"/></a>
             </div>
         </section>
+       
         </div>
         
         <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
         <script src="./gsap-public/minified/gsap.min.js"></script>
-        <script type="module" src="./script.js"></script>  
+        <script type="module" src="./script.js"></script>
+        
     </body>
 </html>
