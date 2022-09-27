@@ -361,9 +361,7 @@ html, body {
     border-radius: 0.25rem;
     display: grid;
     justify-items: center;
-    grid-template-rows: 1fr 1fr;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;  
+    grid-template-rows: 1fr 1fr; 
 }
 
 #product1 {
@@ -826,7 +824,7 @@ h2 {
         text-decoration: none;
         font-size: 1.1rem;
         width: fit-content;
-        height: fit-content;
+        height: 3rem;
         white-space: nowrap;
         color: white;
         display: grid;
@@ -854,7 +852,7 @@ h2 {
     #eventContainer {
         position: absolute;
         width: fit-content;
-        height: fit-content;
+        height: 3rem;
         display: grid;
         grid-template-columns: auto auto;
         justify-content: center;
