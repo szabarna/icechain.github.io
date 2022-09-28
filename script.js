@@ -152,7 +152,7 @@ window.onload = function () {
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.5;
 
-    renderer2.setClearColor(0x0f549c, 0.21);
+    renderer2.setClearColor(0x000a31, 0.6);
     renderer2.setSize(box.width, box.height);
     renderer2.setPixelRatio(2);
     //renderer2.outputEncoding = THREE.sRGBEncoding
@@ -1126,7 +1126,8 @@ window.onload = function () {
 const productScroll = document.querySelector('.productSlider');
 const dots = document.querySelectorAll('.dot');
 
-const maxScroll = productScroll.scrollLeftMax;
+// const maxScroll = productScroll.scrollLeftMax;
+const maxScroll = productScroll.getBoundingClientRect().width * 2.0;
 
 
 for(let i = 0; i < dots.length; i++) {
@@ -1136,7 +1137,12 @@ for(let i = 0; i < dots.length; i++) {
   if(i === 2)  offset = maxScroll
 
   dots[i].addEventListener('click', (e) => {
-    gsap.to(productScroll, { scrollLeft: offset, duration: 1, ease: 'power4.inOut' });
+    //  gsap.to(productScroll, { scrollLeft: offset, duration: 1, ease: 'power1.inOut' });
+    productScroll.scrollTo({
+      behavior: 'smooth',
+      left: offset
+    })
+
   })
 
 }
