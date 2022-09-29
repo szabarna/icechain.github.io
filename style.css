@@ -16,6 +16,8 @@
     --cool-blue-color: rgba(7, 77, 134, 1.0);
     
     --coolest-blue-color: rgba(0,159,255,0.35);
+
+    --nicelightblue-color: rgba(0,159,255,255);
   }
 
   ::-webkit-scrollbar {
@@ -54,12 +56,11 @@ body {
     margin: 0;
 }
 
-html {
+html, body {
     position: relative;
     height: 100%;
     overflow: hidden;
 }
-
 
 
 .canvasContainer {
@@ -308,10 +309,10 @@ html {
     width: 0.9rem;
     height: 0.9rem;
     border-radius: 50%;
-    background-color: rgba(0, 162, 255, 0.75);
+    background-color: var(--nicelightblue-color);
     cursor: pointer;
     opacity: 0.35;
-    bottom: calc(-0.75em + (100vh - 600px) * (15 - 125 ) / (600 -  1080));
+    bottom: calc(-0.25rem + (100vh - 600px) * (15 - 125 ) / (600 -  1080));
 }
 
 .activeSlide {
@@ -320,8 +321,8 @@ html {
 }
 
 .products img {
-    transform: scale(0.5);
-    top: calc(-13.25em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
+    transform: scale(0.45);
+    top: calc(-12.5em + (100vh - 600px) * (15 - 150 ) / (600 -  1080));
     position: relative;
     width: fit-content;
     height: fit-content;
@@ -347,7 +348,7 @@ html {
     justify-self: center;
     font-family: 'Orbitron', sans-serif;
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     bottom: 1rem;
 }
 
@@ -376,31 +377,35 @@ html {
 }
 
 #product1 img {
-    left: calc(-2.85rem + (100vw - 300px) * (15 - 85 ) / (300 -  767));
+    left: calc(-4.35rem + (100vw - 300px) * (15 - 235   ) / (300 -  767));
 }
 
 #product1 p {
-    left: calc(-2.75rem + (100vw - 300px) * (15 - 85 ) / (300 -  767));
-    font-size: 0.85rem;
-    bottom: calc(31em + (100vh - 600px) * (15 + 210 ) / (600 - 1080));
+    left: calc(-4rem + (100vw - 300px) * (15 - 235 ) / (300 -  767));
+    font-size: 0.7rem;
+    bottom: calc(25.5rem + (100vh - 600px) * (15 + 210 ) / (600 - 1080));
 }
 
 #product2 img {
-    left: calc(-2rem + (100vw - 300px) * (15 - 125 ) / (300 -  767));
+    left: calc(-2.95rem + (100vw - 300px) * (15 - 125 ) / (300 -  767));
 }
 
 #product2 p {
     width: 15rem;
-    left: calc(-2.5rem + (100vw - 300px) * (15 - 150 ) / (300 -  767));
+    font-size: 0.75rem;
+    left: calc(-2.95rem + (100vw - 300px) * (15 - 150 ) / (300 -  767));
+    bottom: calc(25rem + (100vh - 600px) * (15 + 210 ) / (600 -  1080))
 }
 
 #product3 img {
-    left: calc(-10rem + (100vw - 300px) * (15 - 175 ) / (300 -  767));
+    left: calc(-10.75rem + (100vw - 300px) * (15 - 175 ) / (300 -  767));
 }
 
 #product3 p {
     width: 20rem;
-    left: calc(-10.5rem + (100vw - 300px) * (15 - 175 ) / (300 -  767));
+    left: calc(-11rem + (100vw - 300px) * (15 - 175 ) / (300 -  767));
+    bottom: calc(24.5rem + (100vh - 600px) * (15 + 210 ) / (600 -  1080));
+    font-size: 0.7rem;
 }
 
 
@@ -409,7 +414,7 @@ html {
     height: 1.35em;
     font-family: 'Orbitron', sans-serif;
     text-transform: uppercase;
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-weight: 700;
 }
 
@@ -418,7 +423,7 @@ html {
     height: 1.35em;
     font-family: 'Orbitron', sans-serif;
     text-transform: uppercase;
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-weight: 700;
 }
 
@@ -478,22 +483,6 @@ section {
         /*       HOME SECTION        */
 
 
-#video {
-    max-width: 100%;
-    min-height: 100%;
-    object-fit: contain;
-    cursor: default;
-}
-
-
-h1 {
-    color: white;
-}
-
-h2 {
-    font-size: 1.5em;
-    color: white;
-}
 
 /* ThreeJs */
 
@@ -587,7 +576,11 @@ h2 {
         font-family: sans-serif;
         cursor: pointer;
         position: relative;
-        margin-right: 0.5em;
+        margin-right: 0.25rem;
+       }
+
+       .logo span {
+        margin-top: 0.1rem;
        }
        
        #logo img {
@@ -596,7 +589,7 @@ h2 {
            width: 48px;
            height: 48px;
            top: 0;
-
+           transform: scale(0.75);
        }
 
        .list {
@@ -617,7 +610,7 @@ h2 {
            align-self: center;
            position: absolute;
            font-size: calc(1em + (100vh - 600px) * (5 - 12 ) / (600 -  1080));
-           top: calc(5.75em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
+           top: calc(5em + (100vh - 600px) * (15 - 30 ) / (600 -  1080));
            margin-right: 0;
            justify-content: center;
            width: 100%;
@@ -626,36 +619,28 @@ h2 {
            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
            -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
            display: none;
+           border-top: 1px solid white;
        }
-
+       
        .li {
            display: grid;
-           width: 100vw;
-           height: 3em;
+           width: 70vw;
+           height: 3rem;
            text-align: center;
-           background-color: rgba(36, 94, 180, 0.5);
-           
            justify-content: center;
            align-content: center;
-
-           font-family: 'Teko', sans-serif;
+           font-family: 'Orbitron', sans-serif;
             position: relative;
             text-decoration: none;
             color: white;
             font-size: 1.45em;
-            transition: all 100ms ease-in;   
+            transition: all 100ms ease-in;
+            border-bottom: 1px solid white;   
        }
 
-        
-        .li:after {
-            content: '';
-            position: absolute;
-            top: 160%;
-            left: 0;
-            width: 100%;
-            transition: 0.5s;
-            opacity: 0;
-        }
+       .li:first-child {
+            margin-top: 2rem;
+       }
 
        .header-container {
            height: 6.5em;
@@ -678,32 +663,59 @@ h2 {
             right: -0.75em;
             margin-top: 0.5em;
             cursor: pointer;
-
+            transform: scale(0.9);
        }
 
-       #hamburgerMenu {
-           display: flex;
-           width: 1.25em;
-           height: 1em;
-           position: relative;
-           border-bottom: 3px solid rgb(34, 96, 177);
-           border-top: 3px solid rgb(34, 96, 177);
-           border-bottom-left-radius: 1px;
-           border-bottom-right-radius: 1px;
-           border-top-left-radius: 1px;
-           border-top-right-radius: 1px;
+       .hamburgerMenu-container {
+        display: flex;
+        height: 100%;
+        width: 40px;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      #menu-toggle {
+        display: none;
+      }
+
+       #hamburgerMenu,
+       #hamburgerMenu::before,
+       #hamburgerMenu::after {
+         display: block;
+         background-color: var(--nicelightblue-color);
+         position: absolute;
+         height: 4px;
+         width: 30px;
+         transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+         border-radius: 2px;
+       }
+       
+       #hamburgerMenu::before {
+         content: '';
+         margin-top: -8px;
+       }
+       
+       #hamburgerMenu::after {
+         content: '';
+         margin-top: 8px;
        }
 
-       #hamburgerMenu:after {
-           position: relative;
-           content: '';
-           width: 2em;
-           border-bottom: 3px solid rgb(34, 96, 177);
-           border-radius: 1.5em;
-           display: flex;
-           align-self: center;
-           transform: rotate(0);
-       }
+       #menu-toggle:checked + .hamburgerMenu-container #hamburgerMenu::before {
+        margin-top: 0px;
+        transform: rotate(405deg);
+      }
+      
+      #menu-toggle:checked + .hamburgerMenu-container #hamburgerMenu {
+        background: rgba(255, 255, 255, 0);
+      }
+      
+      #menu-toggle:checked + .hamburgerMenu-container #hamburgerMenu::after {
+        margin-top: 0px;
+        transform: rotate(-405deg);
+      }
 
 
        .homeLayer {
@@ -794,7 +806,8 @@ h2 {
         color: white;
         position: relative;
         clip-path: circle(100%);
-        padding: 1.2rem 1.5rem;
+        padding: 0.5rem 1.5rem;
+        position: relative;
     }
     
     
@@ -854,15 +867,15 @@ h2 {
         height: 3rem;
         display: grid;
         grid-template-columns: auto auto;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         cursor: pointer;
-        bottom: -0.9rem;
+        bottom: -1rem;
         right: 1rem;
         justify-self: center;
         border-radius: 0.35rem;
         background-color: var(--coolest-blue-color);
-        padding: 0.45rem 0.65rem;
+        padding: 0rem 0rem;
     }
     
     #mainEventButton {
@@ -870,6 +883,7 @@ h2 {
         font-size: 1rem;
         font-family: 'Orbitron', sans-serif;
         color: white;
+        margin-right: 0.35rem;
     }
     
     #eventContainer2 {
@@ -2761,9 +2775,19 @@ and (min-width: 1200px)
         top: -8rem;
     }
 
+    #product2 p {
+        top: -8rem;
+        font-size: 1.25rem;
+    }
+
     #product3 img {
         top: -8rem;
         left: calc(3rem + (100vw - 1200px) * (15 - 30 ) / (1200 - 1600));
+    }
+
+    #product3 p {
+        top: -8rem;
+        font-size: 1.25rem;
     }
     
     .products p {
@@ -2887,7 +2911,7 @@ and (min-width: 1200px)
     clip-path: none;
     top: 0;
     font-size: 1.35em;
-    
+    border: none;
     
 }
 
@@ -2917,11 +2941,12 @@ li {
     user-select: none;
 }
 
-
+.li:first-child {
+    margin-top: 0;
+}
 .li {
 
     font-family: 'Teko', sans-serif;
-
     position: relative;
     text-decoration: none;
     color: white;
@@ -2931,6 +2956,7 @@ li {
     width: auto;
     white-space: nowrap;
     background-color: transparent;
+    border: none;
 
 }
 
@@ -3018,7 +3044,7 @@ li {
 }
 
 #timerContainer:hover {
-    background-color: var(--coolest-blue-color);
+    background-color: var(--nicelightblue-color);
 }
 
 #timerContainer2 {
@@ -3110,7 +3136,7 @@ li {
     color: white;
     position: absolute;
     clip-path: circle(0%);
-    font-size: 3.5rem;
+    font-size: 3rem;
     text-transform: uppercase;
     font-family: 'Orbitron', sans-serif;
 }
@@ -3120,7 +3146,7 @@ li {
     color: white;
     position: relative;
     clip-path: circle(100%);
-    font-size: 3.5rem;
+    font-size: 3rem;
     text-transform: uppercase;
     font-family: 'Orbitron', sans-serif;
 }
@@ -3238,11 +3264,13 @@ li {
         background-image: none;
         transition: all 0.25s ease-in-out;
         font-family: 'Orbitron', sans-serif;
-        
+        border: 1px solid white;
+        background-color: transparent;
     }
 
 #icoButton:hover {
-    
+    border: 1px solid rgba(0,159,255,255);
+    background-color: rgba(0,159,255,255);
 }
     
     

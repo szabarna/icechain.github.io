@@ -795,7 +795,7 @@ window.onload = function () {
 
     
 
-     $(".container").css("max-height", `${window.innerHeight}px`);
+     $(".container").css("max-height", `${window.innerHeight + 100}px`);
      maxScrollTop = container.clientHeight;
     // ScrollTrigger.refresh();
   }
@@ -1003,7 +1003,8 @@ window.onload = function () {
 
   /* HAMBURGER MENU FOR PHONE AND TABLETS */
 
-  let hamburger = document.querySelector("#hamburgerMenu");
+  let hamburger = document.querySelector(".hamburgerLi");
+  let checkBox = document.querySelector('#menu-toggle')
 
   const tlHamburger = gsap.timeline({
     defaults: { ease: "power4.inOut", duration: 0.6, delay: 0.2 },
@@ -1022,11 +1023,6 @@ window.onload = function () {
   });
   tl2Hamburger.reversed(true);
 
-  const tl3Hamburger = gsap.timeline({
-    defaults: { ease: "power4.inOut", duration: 0.2, delay: 0.1 },
-  });
-  tl3Hamburger.to("#hamburgerMenu", { transform: "rotate(45deg)" });
-  tl3Hamburger.reversed(true);
 
   hamburger.addEventListener("click", hamburgerAnim);
   const linkContainer = document.querySelector(".linkContainer");
@@ -1039,7 +1035,7 @@ window.onload = function () {
     else linkContainer.style.display = "none";
     tlHamburger.reversed(!tlHamburger.reversed());
     tl2Hamburger.reversed(!tl2Hamburger.reversed());
-    tl3Hamburger.reversed(!tl3Hamburger.reversed());
+    checkBox.checked = !checkBox.checked;
   }
 
   let eventButton3 = document.querySelector("#eventButton3");
@@ -1106,7 +1102,7 @@ window.onload = function () {
       gsap.to("#eventButton", { clipPath: "circle(0%)", duration: 1.5 });
       gsap.to("#timerContainerSmall", { clipPath: "circle(100%)", duration: 1.5 });
     }
-  }, 7500);
+  }, 5000);
 
   let links = document.querySelectorAll(".li");
 
@@ -1116,7 +1112,7 @@ window.onload = function () {
 
       tlHamburger.reverse();
       tl2Hamburger.reverse();
-      tl3Hamburger.reverse();
+      checkBox.checked = !checkBox.checked;
     });
   }
 };
