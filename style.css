@@ -251,7 +251,7 @@ html, body {
     display: grid;
     width: 95vw;
     height: 85vh;
-    top: 2rem;
+    top: 1.25rem;
     grid-template-rows: auto auto;
     justify-content: center;
     align-content: space-around;
@@ -1659,7 +1659,7 @@ section {
 #footerIce {
     display: flex;
     position: relative;
-    top: -2rem;
+    top: -3rem;
     width: 64px;
     height: 64px;
 }
@@ -1676,7 +1676,7 @@ section {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-column-gap: 2em;
-    top: -2.75rem;
+    top: -3.75rem;
     transform: scale(0.75);
 
 }
@@ -1726,7 +1726,7 @@ section {
             display: grid;
             grid-template-columns: auto auto;
             justify-content: space-between;
-            top: -2.75rem;
+            top: -3.75rem;
             justify-self: center;
             transform: scale(0.7);
             text-align: center;
