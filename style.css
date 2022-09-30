@@ -57,9 +57,7 @@ body {
 }
 
 html, body {
-    position: relative;
     height: 100%;
-    overflow: hidden;
 }
 
 
@@ -472,11 +470,8 @@ section {
 .container {
     position: relative;
     overflow-x: hidden;
-    height: 100%;
-    width: 100%;
-    overflow-y: scroll;
+    height: 100vh;
     scroll-behavior: smooth;
-
 }
 
 

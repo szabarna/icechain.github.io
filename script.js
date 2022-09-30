@@ -19,10 +19,6 @@ var icLogo;
 
 window.onload = function () {
   window.location.href = "./#home";
-  setTimeout(function () {
-    // Hide the address bar!
-    window.scrollTo(0, 1);
-    }, 500);
 
 
   function getDeviceWidth() {
