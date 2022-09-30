@@ -19,6 +19,11 @@ var icLogo;
 
 window.onload = function () {
   window.location.href = "./#home";
+  setTimeout(function () {
+    // Hide the address bar!
+    window.scrollTo(0, 1);
+    }, 500);
+
 
   function getDeviceWidth() {
     if (typeof window.innerWidth == "number") {
@@ -795,7 +800,7 @@ window.onload = function () {
 
     
 
-     $(".container").css("max-height", `${window.innerHeight + 100}px`);
+     $(".container").css("max-height", `${window.innerHeight}px`);
      maxScrollTop = container.clientHeight;
     // ScrollTrigger.refresh();
   }
