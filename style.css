@@ -385,23 +385,23 @@ html, body {
 }
 
 #product2 img {
-    left: calc(-2.95rem + (100vw - 300px) * (15 - 125 ) / (300 -  767));
+    left: calc(-3.25rem + (100vw - 300px) * (15 - 235 ) / (300 -  767));
 }
 
 #product2 p {
     width: 15rem;
     font-size: 0.75rem;
-    left: calc(-2.95rem + (100vw - 300px) * (15 - 150 ) / (300 -  767));
+    left: calc(-3.25rem + (100vw - 300px) * (15 - 235 ) / (300 -  767));
     bottom: calc(25rem + (100vh - 600px) * (15 + 210 ) / (600 -  1080))
 }
 
 #product3 img {
-    left: calc(-10.75rem + (100vw - 300px) * (15 - 175 ) / (300 -  767));
+    left: calc(-10.75rem + (100vw - 300px) * (15 - 230 ) / (300 -  767));
 }
 
 #product3 p {
     width: 20rem;
-    left: calc(-11rem + (100vw - 300px) * (15 - 175 ) / (300 -  767));
+    left: calc(-11rem + (100vw - 300px) * (15 - 230 ) / (300 -  767));
     bottom: calc(24.5rem + (100vh - 600px) * (15 + 210 ) / (600 -  1080));
     font-size: 0.7rem;
 }
@@ -1097,86 +1097,6 @@ section {
 
         }
 
-        #utility {
-            height: 1.25em;
-            padding: 0.0em 2em;
-            border: 2px solid rgba(0, 29, 59, 0.225);;
-            border-radius: 1em;
-            left: auto;
-            color: white;
-            font-family: 'Teko', sans-serif;
-            font-size: calc(2em + (100vh - 600px) * (15 - 25) / (600 -  1080));
-            top: calc(10.95em + (100vh - 600px) * (30 - 10) / (600 -  1080));
-            border-bottom: none;
-            position: relative;
-            user-select: none;
-            white-space: nowrap;
-            background-color: rgba(0, 29, 59, 0.225);
-        }
-
-        #utilityContainer {
-            display: grid;
-            left: auto;
-            height: 5em;
-            width: 99.25%;
-            top: auto !important;
-            bottom: 1.35em;
-            align-items: center;
-            border-radius: 0;
-            grid-template-columns: auto auto auto auto;
-            grid-template-rows: none ;
-            justify-content: space-between;
-            align-content: center;
-            
-            position: absolute;
-            scroll-behavior: smooth;
-            background-color: rgba(0, 29, 59, 0.225);
-
-            overflow-x: scroll;
-            overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
-            white-space: nowrap;
-
-        }
-
-        .utilityContent {
-            position: relative;
-            align-items: center;
-            grid-template-columns: auto auto;
-            display: grid;
-            width: 12.5em;
-            left: auto;
-            right: calc(0.5em + (100vw - 300px) * (15 - 27.5) / (360 -  767));
-            height: 100%;
-            transform: scale(0.85);
-  
-        }
-
-        .img {
-            top: 0;
-            position: relative;
-            left: 2.25em;
-        }
-
-        .uT {
-            font-family: 'Teko', sans-serif;
-            font-size: 1.25em;
-            top: 0;
-            left: auto;
-            margin-left: 0;
-
-            position: relative;
-            user-select: none;
-        }
-
-
-        #img4 {
-            left: auto;
-        }
-
-        #uT1 {
-            left: auto;
-        }
 
         #icoButton {
             position: absolute;
@@ -1235,7 +1155,7 @@ section {
             height: calc(15em + (100vh - 600px) * (15 - 100) / (600 -  1080));
             width: calc(45em + (100vw - 360px) * (15 - 425) / (360 -  767));
             top: calc(0em + (100vh - 600px) * (15 + 75) / (600 -  1080));
-            background-color: rgb(19, 55, 95);
+            background-color: var(--cool-blue-color);
             border-radius: 0;
             display: grid;
             grid-template-columns: auto auto auto auto auto auto;
@@ -1252,10 +1172,10 @@ section {
         }
     
        #tokenT1 {
-           top: calc(5.5em + (100vh - 600px) * (15 - 75) / (600 -  1080));
-           width: calc(21em + (100vw - 300px) * (15 - 115) / (300 -  767));
+           top: calc(7em + (100vh - 600px) * (15 - 75) / (600 -  1080));
+           width: calc(17rem + (100vw - 300px) * (15 - 115) / (300 -  767));
            height: 2.25em;
-           font-size: 1em;
+           font-size: 0.75rem;
            background-color: rgba(0,159,255,0.25);
            padding: 0.5rem;
             position: absolute;
@@ -1267,10 +1187,9 @@ section {
        }
     
        #tokenT2 {
-           top: calc(21.3em + (100vh - 600px) * (15 - 250 ) / (600 -  1080));
-           font-size: 1.3em;
+           top: calc(27.5rem + (100vh - 600px) * (15 - 250 ) / (600 -  1080));
+           font-size: 1rem;
            background-color: rgba(0,159,255,0.25);
-
            position: absolute;
            width: fit-content;
            padding: 0.5rem;
@@ -1290,7 +1209,7 @@ section {
             margin-left: 1em;
             position: relative;
             height: 12.5em;
-            background-color: rgba(0,159,255,0.1);
+            background-color: var(--coolest-blue-color);
             border: 0px dotted rgba(253, 253, 253, 0.75);
        }
 
@@ -1734,15 +1653,13 @@ section {
     display: grid;
     grid-template-rows: 5em 5em 5em;
     justify-items: center;
-    align-content: center;
+    align-content: end;
 }
-
-
 
 #footerIce {
     display: flex;
     position: relative;
-    top: 1rem;
+    top: -2rem;
     width: 64px;
     height: 64px;
 }
@@ -1759,7 +1676,7 @@ section {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-column-gap: 2em;
-    top: 1.75rem;
+    top: -2.75rem;
     transform: scale(0.75);
 
 }
@@ -1809,7 +1726,7 @@ section {
             display: grid;
             grid-template-columns: auto auto;
             justify-content: space-between;
-            top: 1rem;
+            top: -2.75rem;
             justify-self: center;
             transform: scale(0.7);
             text-align: center;
