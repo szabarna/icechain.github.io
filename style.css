@@ -474,7 +474,6 @@ section {
     overflow-x: hidden;
     height: 100%;
     width: 100%;
-    overflow-y: scroll;
     scroll-behavior: smooth;
 
 }
@@ -813,7 +812,7 @@ section {
     
     #timerContainer {
         position: relative;
-        top: 6rem;
+        top: 5rem;
         border-radius: 0.35rem;
         text-decoration: none;
         width: fit-content;
@@ -893,7 +892,7 @@ section {
         width: fit-content;
         position: relative;
         align-content: center;
-        padding: 1rem 1.5rem;
+        padding: 1rem 2rem;
     }
     
     #eventButton3 {
@@ -901,7 +900,7 @@ section {
         color: white;
         position: absolute;
         clip-path: circle(0%);
-        font-size: 2.25rem;
+        font-size: 1.35rem;
         text-transform: uppercase;
         font-family: 'Orbitron', sans-serif;
     }
@@ -911,7 +910,7 @@ section {
         color: white;
         position: relative;
         clip-path: circle(100%);
-        font-size: 2.25rem;
+        font-size: 1.35rem;
         text-transform: uppercase;
         font-family: 'Orbitron', sans-serif;
     }
@@ -943,8 +942,8 @@ section {
             display: flex;
             text-align: center;
             left: auto;
-            font-size: 1.8em;
-            top: calc(1.75em + (100vh - 600px) * (30 - 135) / (600 -  1080));
+            font-size: 1.5rem;
+            top: calc(3.5rem + (100vh - 600px) * (30 - 135) / (600 -  1080));
             white-space: nowrap;
             position: absolute;
             user-select: none;
@@ -1075,7 +1074,6 @@ section {
             top: 0;
             display: inline-block;
             border-radius: 1.5em !important;
-
             width: 15em;
             height: 12.5em;
             text-align: center;
@@ -1089,7 +1087,7 @@ section {
             height: fit-content;
             position: absolute;
             left: auto;
-            top: 15em;
+            top: 12.5rem;
             justify-content: space-between;
             align-items: center;
             background-color: rgba(0, 29, 59, 0.225);
