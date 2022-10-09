@@ -364,7 +364,7 @@ window.onload = function () {
           if (getDeviceWidth() <= 768) {
             template.position.set(0, 0.15, 0);
           } else if (getDeviceWidth() >= 768 && getDeviceWidth() < 1200) {
-            template.position.set(0, 0.175, 0);
+            template.position.set(0, 0.1, 0);
           }
 
           // camera.lookAt(template.position)
