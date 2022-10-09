@@ -1665,6 +1665,7 @@ section {
     grid-template-rows: 5em 5em 5em;
     justify-items: center;
     align-content: end;
+    scroll-snap-align: none;
 }
 
 #footerIce {
@@ -1742,6 +1743,55 @@ section {
     transform: scale(0.7);
     text-align: center;
 }
+
+.giveAwayContainer {
+    position: absolute;
+    display: grid;
+    background-color: var(--coolest-blue-color);
+    align-self: center;
+    width: 100vw;
+    height: 40vh;
+    justify-items: center;
+    align-content: space-between;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 0.2rem;
+    top: 5rem;
+   
+}
+
+#giveAwayH1 {
+    position: relative;
+    font-size: 1.25rem;
+    justify-self: center;
+    margin: 1rem;
+   
+}
+
+#giveAwayP {
+    position: relative;
+    font-size: 0.85rem;
+    text-align: center;
+    border-bottom: 1px solid white;
+    padding: 1rem;
+    background-color: var(--cool-blue-color);
+    border-radius: 0.1rem;
+}
+
+.giveAwayLink {
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    align-self: center;
+    width: fit-content;
+    border-radius: 0.25rem;
+    background-color: var(--cool-blue-color);
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    border: 1px solid white;
+}
+
 
 
 @media screen and (min-width: 768px) {
@@ -1907,7 +1957,7 @@ section {
     }
 
     .whitePaperLi {
-        top: 2.7em;
+        top: 1.75rem;
         right: 2em;
     }
 
@@ -2538,6 +2588,55 @@ section {
     #footerImg {
         bottom: 1.5em;
     }
+
+    .giveAwayContainer {
+        position: absolute;
+        display: grid;
+        background-color: var(--coolest-blue-color);
+        align-self: center;
+        width: 100vw;
+        height: 40vh;
+        justify-items: center;
+        align-content: space-between;
+        font-family: 'Orbitron', sans-serif;
+        border-radius: 0.2rem;
+        top: 12.5rem;
+       
+    }
+
+    #giveAwayH1 {
+        position: relative;
+        font-size: 2rem;
+        justify-self: start;
+        margin: 1rem;
+       
+    }
+
+    #giveAwayP {
+        position: relative;
+        font-size: 1.25rem;
+        text-align: center;
+        border-bottom: 1px solid white;
+        padding: 1rem;
+        background-color: var(--cool-blue-color);
+        border-radius: 0.1rem;
+    }
+
+    .giveAwayLink {
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        align-self: center;
+        width: fit-content;
+        border-radius: 0.25rem;
+        background-color: var(--cool-blue-color);
+        color: white;
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        margin: 1rem;
+        border: 1px solid white;
+    }
+
 
 }
 
@@ -3560,6 +3659,59 @@ section {
         top: 0;
     }
 
+    .giveAwayContainer {
+        position: absolute;
+        display: grid;
+        background-color: var(--coolest-blue-color);
+        align-self: center;
+        width: 50vw;
+        height: 40vh;
+        justify-items: center;
+        align-content: space-between;
+        font-family: 'Orbitron', sans-serif;
+        border-radius: 0.2rem;
+        top: 12.5rem;
+       
+    }
+
+    #giveAwayH1 {
+        position: relative;
+        font-size: 1.5rem;
+        justify-self: start;
+        margin: 1rem;
+       
+    }
+
+    #giveAwayP {
+        position: relative;
+        font-size: 1rem;
+        text-align: center;
+        border-bottom: 1px solid white;
+        padding: 1rem;
+        background-color: var(--cool-blue-color);
+        border-radius: 0.1rem;
+    }
+
+    .giveAwayLink {
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        align-self: center;
+        width: fit-content;
+        border-radius: 0.25rem;
+        background-color: var(--cool-blue-color);
+        color: white;
+        font-size: 1.25rem;
+        padding: 0.5rem 1rem;
+        margin: 1rem;
+        border: 1px solid white;
+    }
+
+    .giveAwayLink:hover {
+        background-color: white;
+        color: var(--cool-blue-color);
+    }
+
 
 
 }
@@ -3739,33 +3891,33 @@ section {
 
     #product1 p {
         left: -1.85rem;
-        bottom: 0rem;
+        bottom: 4rem;
     }
 
     #product1 img {
-        top: 0rem;
+        top: -4rem;
         left: 2rem;
     }
 
     #product2 p {
         left: -1.1rem;
-        top: 0;
+        top: -4rem;
     }
 
     #product2 img {
-        top: 0rem;
+        top: -4rem;
         left: 2rem;
     }
 
     #product3 p {
         width: 32.5rem;
         left: -3rem;
-        top: 0;
+        top: -4rem;
     }
 
     #product3 img {
         left: 1rem;
-        top: 0;
+        top: -4rem;
     }
 
 
@@ -4024,7 +4176,7 @@ section {
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        bottom: 7.425rem;
+        bottom: 3.625rem;
         left: 17rem;
         border-radius: 0.35rem;
         background-color: transparent;
@@ -4076,7 +4228,7 @@ section {
     #dataText {
 
         font-size: 5em;
-        left: 1.95rem !important;
+        left: 2.5rem !important;
         top: -3rem;
     }
 
@@ -4112,7 +4264,7 @@ section {
         align-items: flex-start;
         background-color: rgba(0, 10, 49, 0.3);
         border-radius: 1.25em;
-        top: 12em;
+        top: 7.5em;
 
     }
 
@@ -4124,7 +4276,7 @@ section {
 
     #overview {
         position: absolute;
-        top: 6rem;
+        top: 1.75rem;
         left: auto;
         font-size: 4em;
         user-select: none;
@@ -4277,7 +4429,7 @@ section {
         position: relative;
         width: 8em;
         height: 3.5em;
-        top: 35em;
+        top: 32em;
         border-radius: 2.5rem;
         border-width: 2px;
         cursor: pointer;
@@ -4348,7 +4500,7 @@ section {
 
     #tokenT1 {
         position: absolute;
-        top: 10em;
+        top: 8.5em;
         background-color: rgba(0, 159, 255, 0.15);
         width: 47.5em;
         height: 1.25em;
@@ -4362,7 +4514,7 @@ section {
     #tokenT2 {
         position: absolute;
         background-color: rgba(0, 159, 255, 0.25);
-        top: 31rem;
+        top: 27rem;
         padding: 0.5rem;
         width: fit-content;
         height: 1.25em;
@@ -4747,7 +4899,58 @@ section {
 
     }
 
+    .giveAwayContainer {
+        position: absolute;
+        display: grid;
+        background-color: var(--coolest-blue-color);
+        align-self: center;
+        width: 50vw;
+        height: 40vh;
+        justify-items: center;
+        align-content: space-between;
+        font-family: 'Orbitron', sans-serif;
+        border-radius: 0.2rem;
+        top: 12.5rem;
+       
+    }
 
+    #giveAwayH1 {
+        position: relative;
+        font-size: 2rem;
+        justify-self: start;
+        margin: 1rem;
+       
+    }
+
+    #giveAwayP {
+        position: relative;
+        font-size: 1.25rem;
+        text-align: center;
+        border-bottom: 1px solid white;
+        padding: 1rem;
+        background-color: var(--cool-blue-color);
+        border-radius: 0.1rem;
+    }
+
+    .giveAwayLink {
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        align-self: center;
+        width: fit-content;
+        border-radius: 0.25rem;
+        background-color: var(--cool-blue-color);
+        color: white;
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        margin: 1rem;
+        border: 1px solid white;
+    }
+
+    .giveAwayLink:hover {
+        background-color: white;
+        color: var(--cool-blue-color);
+    }
 
 
     #nodeH2T1 {
