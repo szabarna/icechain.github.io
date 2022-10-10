@@ -3662,7 +3662,7 @@ section {
     .giveAwayContainer {
         position: absolute;
         display: grid;
-        background-color: var(--coolest-blue-color);
+        background-color: rgb(22, 64, 156);
         align-self: center;
         width: 50vw;
         height: 40vh;
@@ -3670,7 +3670,7 @@ section {
         align-content: space-between;
         font-family: 'Orbitron', sans-serif;
         border-radius: 0.2rem;
-        top: 12.5rem;
+        top: 10rem;
        
     }
 
@@ -3686,10 +3686,10 @@ section {
         position: relative;
         font-size: 1rem;
         text-align: center;
-        border-bottom: 1px solid white;
         padding: 1rem;
-        background-color: var(--cool-blue-color);
-        border-radius: 0.1rem;
+        background-color: rgb(0, 102, 255);
+        border-radius: 0.35rem;
+        border: none;
     }
 
     .giveAwayLink {
@@ -3699,7 +3699,7 @@ section {
         align-self: center;
         width: fit-content;
         border-radius: 0.25rem;
-        background-color: var(--cool-blue-color);
+        background-color: rgb(0, 102, 255);
         color: white;
         font-size: 1.25rem;
         padding: 0.5rem 1rem;
@@ -3709,7 +3709,7 @@ section {
 
     .giveAwayLink:hover {
         background-color: white;
-        color: var(--cool-blue-color);
+        color: rgb(0, 102, 255);
     }
 
 
