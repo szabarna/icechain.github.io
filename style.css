@@ -7,7 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;669&display=swap');
 
-* {
+body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -59,8 +59,9 @@ img {
 
 html,
 body {
-    height: 500%;
-    overflow-y: scroll;
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 

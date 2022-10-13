@@ -86,7 +86,8 @@ window.onload = function () {
   var mouse = new THREE.Vector2();
   var scene_anim = gsap.timeline();
   var template;
-  var container = document.querySelector(".container");
+  // var container = document.querySelector("body");
+  var container = document.body;
   var maxScrollTop = container.clientHeight;
 
   gsap.registerPlugin(ScrollTrigger, CSSPlugin, CSSRulePlugin, CustomEase);
@@ -796,7 +797,7 @@ window.onload = function () {
 
     
 
-    // $(".container").css("max-height", `${window.innerHeight}px`);
+     $("body").css("max-height", `${window.innerHeight}px`);
      maxScrollTop = container.clientHeight;
     // ScrollTrigger.refresh();
   }
@@ -842,7 +843,7 @@ window.onload = function () {
 
   ScrollTrigger.defaults({
     ease: "power1.inOut",
-    scroller: ".container",
+    scroller: "body",
     immediateRender: false,
     invalidateOnRefresh: true,
   });
@@ -927,7 +928,7 @@ window.onload = function () {
 
   stickys[0].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector(".container").scrollTo({
+    document.querySelector("body").scrollTo({
       top: maxScrollTop * 5,
       behavior: "smooth",
     });
@@ -935,7 +936,7 @@ window.onload = function () {
 
   stickys[1].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector(".container").scrollTo({
+    document.querySelector("body").scrollTo({
       top: maxScrollTop * (5 + 0.1895),
       behavior: "smooth",
     });
@@ -943,7 +944,7 @@ window.onload = function () {
 
   stickys[2].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector(".container").scrollTo({
+    document.querySelector("body").scrollTo({
       top: maxScrollTop * (5 + 0.4),
       behavior: "smooth",
     });
@@ -951,7 +952,7 @@ window.onload = function () {
 
   stickys[3].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector(".container").scrollTo({
+    document.querySelector("body").scrollTo({
       top: maxScrollTop * (5 + 0.63),
       behavior: "smooth",
     });
@@ -959,7 +960,7 @@ window.onload = function () {
 
   stickys[4].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector(".container").scrollTo({
+    document.querySelector("body").scrollTo({
       top: maxScrollTop * (5 + 0.8775),
       behavior: "smooth",
     });
@@ -967,7 +968,7 @@ window.onload = function () {
 
   stickys[5].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector(".container").scrollTo({
+    document.querySelector("body").scrollTo({
       top: maxScrollTop * (5 + 1.15),
       behavior: "smooth",
     });
@@ -975,7 +976,7 @@ window.onload = function () {
 
   stickys[6].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector(".container").scrollTo({
+    document.querySelector("body").scrollTo({
       top: maxScrollTop * (5 + 1.495),
       behavior: "smooth",
     });
@@ -983,7 +984,7 @@ window.onload = function () {
 
   stickys[7].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector(".container").scrollTo({
+    document.querySelector("body").scrollTo({
       top: maxScrollTop * (5 + 1.945),
       behavior: "smooth",
     });
@@ -991,7 +992,7 @@ window.onload = function () {
 
   stickys[8].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector(".container").scrollTo({
+    document.querySelector("body").scrollTo({
       top: maxScrollTop * (5 + 2.875),
       behavior: "smooth",
     });
