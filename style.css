@@ -60,7 +60,7 @@ img {
 
 html,
 body {
-    height: 105%;
+    height: 500%;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
