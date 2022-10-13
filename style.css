@@ -57,14 +57,18 @@ img {
 }
 html {
     scroll-behavior: smooth;
-    background-color: transparent;
+    margin-top: 0 !important;
 }
 
 body {
+    position: relative;
     height: 100vh;
     overflow-x: hidden;
-    background-color: transparent;
     overscroll-behavior: none;
+    margin-top: 0;
+    border-top: 0;
+    margin: 0;
+    padding: 0;
 }
 
 
