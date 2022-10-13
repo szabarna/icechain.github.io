@@ -57,8 +57,6 @@ img {
     user-select: none;
 }
 
-
-html,
 body {
     height: 500%;
     overflow-x: hidden;
