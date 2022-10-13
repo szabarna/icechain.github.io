@@ -57,7 +57,7 @@ img {
 }
 html {
     scroll-behavior: smooth;
-    background-color: var(--nicelightblue-color);
+    background-color: transparent;
 }
 
 body {
