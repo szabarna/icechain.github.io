@@ -70,6 +70,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #030a26;
+    background-image: linear-gradient(90deg, #030a26, var(--nicelightblue-color));
 }
 
 
@@ -104,10 +105,10 @@ section {
 
 .canvasContainer {
     position: absolute;
-    height: 80vh;
-    top: 5rem;
-    width: 90vw;
-    align-self: center;
+    height: calc(85.75vh + (100vh - 600px) * (15 - 85) / (600 - 1080));
+    top: auto;
+    width: 100vw;
+    align-self: flex-end;
     border-radius: 0.5rem;
 }
 
@@ -612,7 +613,7 @@ li {
     align-self: center;
     position: absolute;
     font-size: calc(1em + (100vh - 600px) * (5 - 12) / (600 - 1080));
-    top: calc(6em + (100vh - 600px) * (15 - 30) / (600 - 1080));
+    top: auto;
     margin-right: 0;
     justify-content: center;
     width: 100%;
@@ -621,12 +622,13 @@ li {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     display: none;
-}
+    gap: 2rem;
+}   
 
 .li {
     display: grid;
-    width: 70vw;
-    height: 4rem;
+    width: 110vw;
+    height: 5rem;
     text-align: center;
     justify-content: center;
     align-content: center;
@@ -640,12 +642,30 @@ li {
     background-color: var(--hamburger-color);
 }
 
+.li::after {
+    position: absolute;
+    top: -4px; bottom: -4px;
+    left: -4px; right: -4px;
+    background: linear-gradient(
+        to right,
+        var(--nicelightblue-color),
+        var(--nicelightblue-color),
+        var(--nicelightblue-color),
+        var(--coolest-blue-color),
+        var(--coolest-blue-color),
+        var(--coolest-blue-color)
+              );
+    content: '';
+    z-index: -1;
+    border-radius: 0.35rem;
+}
+
 .li:first-child {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .header-container {
-    height: 6.5em;
+    height: 5rem;
     background-color: rgba(20, 18, 117, 0);
     right: 0;
     position: fixed;
@@ -653,6 +673,10 @@ li {
     align-items: center;
     display: flex;
     z-index: 5;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image: linear-gradient(90deg, var(--nicelightblue-color), var(--hamburger-color)) 1;
+
 }
 
 .hamburgerLi {
@@ -721,17 +745,15 @@ li {
 
 
 .homeLayer {
-    background-color: rgba(1, 1, 73, 0.15);
+    background-color: transparent;
     opacity: 1;
     width: calc(19em + (100vw - 300px) * (15 - 250) / (300 - 767));
     height: calc(31em + (100vh - 600px) * (15 - 250) / (600 - 1080));
     display: flex;
     left: auto;
-    align-self: center;
+    align-self: flex-end;
     justify-content: center;
-    top: calc(4em + (100vh - 600px) * (15 - 150) / (600 - 1080));
     border-radius: 0.75em;
-
     position: absolute;
 }
 
@@ -765,7 +787,7 @@ li {
 }
 
 #yoursText {
-    font-size: calc(1.4em + (100vh - 600px) * (15 - 20) / (600 - 1080));
+    font-size: calc(1.4rem + (100vh - 600px) * (15 - 20) / (600 - 1080));
     top: calc(12.5em + (100vh - 600px) * (15 - 150) / (600 - 1080));
     left: auto;
     width: fit-content;

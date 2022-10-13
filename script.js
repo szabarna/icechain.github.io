@@ -369,7 +369,7 @@ window.onload = function () {
           template.scale.set(1.25, 1.25, 1.25);
 
           if (getDeviceWidth() <= 768) {
-            template.position.set(0, 0.15, 0);
+            template.position.set(0, 0.1, 0);
           } else if (getDeviceWidth() >= 768 && getDeviceWidth() < 1200) {
             template.position.set(0, 0.1, 0);
           }
@@ -1030,7 +1030,7 @@ window.onload = function () {
   let checkBox = document.querySelector('#menu-toggle')
 
   const tlHamburger = gsap.timeline({
-    defaults: { ease: "power4.inOut", duration: 0.6, delay: 0.2 },
+    defaults: { ease: "elastic", duration: 0.5, delay: 0 },
   });
   tlHamburger.to(".linkContainer", {
     clipPath: "polygon(0 0, 100% 0, 100% 120%, 0 120%)",
@@ -1038,11 +1038,11 @@ window.onload = function () {
   tlHamburger.reversed(true);
 
   const tl2Hamburger = gsap.timeline({
-    defaults: { ease: "power4.inOut", duration: 0.6, delay: 0.3 },
+    defaults: { ease: "back", duration: 0.5, delay: 0 },
   });
   tl2Hamburger.to(".header-container", {
-    height: "100vh",
-    backgroundColor: "rgba(20, 18, 117, 0.95)",
+    height: window.innerHeight,
+    backgroundColor: "rgba(20, 18, 117, 1)",
   });
   tl2Hamburger.reversed(true);
 
