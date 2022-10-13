@@ -69,6 +69,7 @@ body {
     border-top: 0;
     margin: 0;
     padding: 0;
+    background-color: var(--cool-blue-color);
 }
 
 
@@ -98,7 +99,7 @@ section {
     left: 0;
     z-index: -1;
     height: 100vh;
-    background-color: blue;
+    transition: height 0.01s;
 
 }
 
