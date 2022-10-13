@@ -792,12 +792,6 @@ window.onload = function () {
     }
   }
 
-  var valuesStyles = jQuery('#values-styles');
-
-  // since window resize is called when the address bar is shown or hidden
-  jQuery(window).resize(function() {
-  valuesStyles.html("#values:before { height:" + jQuery(window).height() + "px;}");
-  });
 
   function handleWindowResize(e) {
     // Az ablak átméretezése esetén a kamera vetítési paraméterek újraszámolása
@@ -806,15 +800,15 @@ window.onload = function () {
     var box = canvReference2.getBoundingClientRect();
 
     console.log("WIDTH=" + WIDTH + "; HEIGHT=" + HEIGHT);
-    renderer2.setSize(box.width, box.height);
-    camera2.aspect = box.width / box.height;
-    camera2.updateProjectionMatrix();
+    // renderer2.setSize(box.width, box.height);
+    // camera2.aspect = box.width / box.height;
+    // camera2.updateProjectionMatrix();
 
-    renderer.setSize(WIDTH, HEIGHT);
-    composer.setSize(WIDTH, HEIGHT);
-    aspectRatio = WIDTH / HEIGHT;
-    camera.aspect = aspectRatio;
-    camera.updateProjectionMatrix();
+    // renderer.setSize(WIDTH, HEIGHT);
+    // composer.setSize(WIDTH, HEIGHT);
+    // aspectRatio = WIDTH / HEIGHT;
+    // camera.aspect = aspectRatio;
+    // camera.updateProjectionMatrix();
 
     
      maxScrollTop = container.clientHeight;
