@@ -203,6 +203,11 @@ window.onload = function () {
               if(obj.isMesh && obj.material.name === "Névtelen terv") {
                 gsap.to(obj.scale, { x: 0.5, y: 0.5,  duration: 2, ease: 'elastic', repeat: -1, yoyo: true });
               }
+              if(obj.isMesh && obj.material.name != "Névtelen terv") {
+                let temporaryMaterial = obj.material;
+                obj.material = new THREE.MeshBasicMaterial();
+                obj.material.copy(temporaryMaterial);
+              }
           })
 
           modelCurve.position.set(0, -11.5, -30);
@@ -396,6 +401,15 @@ window.onload = function () {
       (gltf) => {
         tokenModel = gltf.scene.clone();
         // tokenModel.frustumCulled = false;
+
+        tokenModel.traverse((obj) => {
+
+          if(obj.isMesh) {
+            let temporaryMaterial = obj.material;
+            obj.material = new THREE.MeshBasicMaterial();
+            obj.material.copy(temporaryMaterial);
+          }
+      })
 
         if (getDeviceWidth() >= 1280 && getDeviceWidth() < 1440) {
           tokenModel.scale.set(0.815, 0.815, 0.815);
@@ -713,9 +727,9 @@ window.onload = function () {
 
     var unRealBloomPass = new UnrealBloomPass(
       window.devicePixelRatio,
-      0.375,
-      0.325,
-      0.1
+      0.3,
+      0,
+      0.125
     );
 
     composer.addPass(unRealBloomPass);
@@ -778,6 +792,13 @@ window.onload = function () {
     }
   }
 
+  var valuesStyles = jQuery('#values-styles');
+
+  // since window resize is called when the address bar is shown or hidden
+  jQuery(window).resize(function() {
+  valuesStyles.html("#values:before { height:" + jQuery(window).height() + "px;}");
+  });
+
   function handleWindowResize(e) {
     // Az ablak átméretezése esetén a kamera vetítési paraméterek újraszámolása
     HEIGHT = window.innerHeight;
@@ -796,8 +817,6 @@ window.onload = function () {
     camera.updateProjectionMatrix();
 
     
-
-     $("#webgl").css("max-height", `${window.innerHeight + 60}px`);
      maxScrollTop = container.clientHeight;
     // ScrollTrigger.refresh();
   }
@@ -826,6 +845,10 @@ window.onload = function () {
     raycaster.setFromCamera(mouse, camera);
 
     const intersects = raycaster.intersectObjects(scene.children);
+    if(intersects.length === 0) {
+      currentIntersect = null;
+      container.style.cursor = "default";
+    }
 
     for (let i = 0; i < intersects.length; i++) {
       //console.log(intersects[ 0 ].object.name)
@@ -836,6 +859,7 @@ window.onload = function () {
         container.style.cursor = "default";
         currentIntersect = null;
       }
+        
     }
   }
 
@@ -928,15 +952,17 @@ window.onload = function () {
 
   stickys[0].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector("body").scrollTo({
+    window.scrollTo({
       top: maxScrollTop * 5,
       behavior: "smooth",
     });
+ 
+    
   });
 
   stickys[1].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector("body").scrollTo({
+    window.scrollTo({
       top: maxScrollTop * (5 + 0.1895),
       behavior: "smooth",
     });
@@ -944,7 +970,7 @@ window.onload = function () {
 
   stickys[2].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector("body").scrollTo({
+    window.scrollTo({
       top: maxScrollTop * (5 + 0.4),
       behavior: "smooth",
     });
@@ -952,7 +978,7 @@ window.onload = function () {
 
   stickys[3].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector("body").scrollTo({
+    window.scrollTo({
       top: maxScrollTop * (5 + 0.63),
       behavior: "smooth",
     });
@@ -960,7 +986,7 @@ window.onload = function () {
 
   stickys[4].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector("body").scrollTo({
+    window.scrollTo({
       top: maxScrollTop * (5 + 0.8775),
       behavior: "smooth",
     });
@@ -968,7 +994,7 @@ window.onload = function () {
 
   stickys[5].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector("body").scrollTo({
+    window.scrollTo({
       top: maxScrollTop * (5 + 1.15),
       behavior: "smooth",
     });
@@ -976,7 +1002,7 @@ window.onload = function () {
 
   stickys[6].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector("body").scrollTo({
+    window.scrollTo({
       top: maxScrollTop * (5 + 1.495),
       behavior: "smooth",
     });
@@ -984,7 +1010,7 @@ window.onload = function () {
 
   stickys[7].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector("body").scrollTo({
+    window.scrollTo({
       top: maxScrollTop * (5 + 1.945),
       behavior: "smooth",
     });
@@ -992,7 +1018,7 @@ window.onload = function () {
 
   stickys[8].addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector("body").scrollTo({
+    window.scrollTo({
       top: maxScrollTop * (5 + 2.875),
       behavior: "smooth",
     });
