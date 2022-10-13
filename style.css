@@ -98,8 +98,6 @@ section {
     top: 0;
     left: 0;
     z-index: -1;
-    height: 100vh;
-    transition: height 0.01s;
 
 }
 
