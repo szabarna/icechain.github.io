@@ -58,11 +58,13 @@ img {
 }
 html {
     scroll-behavior: smooth;
+    
 }
 
 body {
     height: 100%;
     overflow-x: hidden;
+    background-color: red;
 }
 
 
