@@ -21,7 +21,6 @@ body {
     --header-color: rgb(0, 10, 49, 1);
     --hamburger-color: rgb(20, 18, 137);
     --cool-blue-color: rgba(7, 77, 134, 1.0);
-
     --coolest-blue-color: rgba(0, 159, 255, 0.35);
 
     --nicelightblue-color: rgba(0, 159, 255, 255);
@@ -58,7 +57,7 @@ img {
 }
 html {
     scroll-behavior: smooth;
-    
+    background-color: var(--nicelightblue-color);
 }
 
 body {
