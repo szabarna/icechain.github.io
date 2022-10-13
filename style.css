@@ -56,11 +56,13 @@ img {
     pointer-events: none;
     user-select: none;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    height: 500%;
+    height: 100%;
     overflow-x: hidden;
-    scroll-behavior: smooth;
 }
 
 
