@@ -797,7 +797,7 @@ window.onload = function () {
 
     
 
-    // $("body").css("max-height", `${window.innerHeight}px`);
+     $("body").css("max-height", `${window.innerHeight + 60}px`);
      maxScrollTop = container.clientHeight;
     // ScrollTrigger.refresh();
   }
