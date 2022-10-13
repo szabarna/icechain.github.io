@@ -148,7 +148,7 @@ window.onload = function () {
     console.log(getDeviceWidth());
     console.log(getDeviceHeight());
 
-    renderer.setSize(window.innerWidth, window.innerHeight + 80);
+    renderer.setSize(window.innerWidth, window.innerHeight + 82);
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
