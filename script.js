@@ -770,7 +770,9 @@ window.onload = function () {
     } else if (getDeviceWidth() >= 1200 && event.clientX === undefined) {
       mouse.x = (event.touches[0].pageX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.touches[0].pageY / window.innerHeight) * 2 + 1;
-    } else if (
+    } 
+    
+    else if (
       getDeviceWidth() < 1200 &&
       event.clientX === undefined &&
       event.touches[0] != undefined
