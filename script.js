@@ -840,7 +840,7 @@ window.onload = function () {
     raycaster.setFromCamera(mouse, camera);
 
     const intersects = raycaster.intersectObjects(scene.children);
-    if(intersects.length === 0) {
+    if(intersects.length === 0 && window.innerWidth >= 1200) {
       currentIntersect = null;
       container.style.cursor = "default";
     }

@@ -23,7 +23,8 @@ body {
     --cool-blue-color: rgba(7, 77, 134, 1.0);
     --coolest-blue-color: rgba(0, 159, 255, 0.35);
 
-    --nicelightblue-color: rgba(0, 159, 255, 255);
+    --nicelightblue-color: rgb(0, 159, 255);
+    --othernicelightblue-color: rgb(0, 110, 255);
 }
 
 ::-webkit-scrollbar {
@@ -70,7 +71,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #030a26;
-    background-image: linear-gradient(90deg, #030a26, var(--nicelightblue-color));
+    background-image: linear-gradient(90deg,  var(--othernicelightblue-color), var(--nicelightblue-color));
 }
 
 
@@ -102,7 +103,6 @@ section {
 
 }
 
-
 .canvasContainer {
     position: absolute;
     height: calc(85.75vh + (100vh - 600px) * (15 - 85) / (600 - 1080));
@@ -111,91 +111,6 @@ section {
     align-self: flex-end;
     border-radius: 0.5rem;
 }
-
-
-.registerContainer {
-    position: absolute;
-    width: 100vw;
-    height: 75vh;
-    top: 2.5rem;
-    justify-self: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: rgb(0, 10, 49);
-    align-content: center;
-    border: 1px solid rgba(54, 89, 156, 0.15);
-}
-
-.registerT1 {
-    position: absolute;
-    align-self: center;
-    width: fit-content;
-    font-size: 2rem;
-    font-family: 'Orbitron', sans-serif;
-    z-index: 1;
-    left: calc(2em + (100vw - 300px) * (15 - 30) / (300 - 767));
-    top: calc(-2.25rem + (100vh - 600px) * (15 - 135) / (600 - 1080));
-    white-space: nowrap;
-}
-
-.registerT2 {
-    position: absolute;
-    align-self: center;
-    font-size: 1.35rem;
-    font-family: 'Orbitron', sans-serif;
-    z-index: 1;
-    left: calc(0.25em + (100vw - 300px) * (15 - 30) / (300 - 767));
-    bottom: calc(-0.15rem + (100vh - 600px) * (15 - 130) / (600 - 1080));
-    white-space: nowrap;
-}
-
-.registerButton {
-    position: absolute;
-    align-self: center;
-    font-size: 0.75rem;
-    font-family: 'Orbitron', sans-serif;
-    z-index: 1;
-    text-decoration: none;
-    color: white;
-    right: calc(1.25em + (100vw - 300px) * (15 - 30) / (300 - 767));
-    bottom: calc(0.25rem + (100vh - 600px) * (15 - 130) / (600 - 1080));
-    background-color: rgba(54, 89, 156, 1);
-    padding: 1rem;
-    text-align: center;
-    border-radius: 0.75rem;
-}
-
-.registerButton:hover {
-    color: rgba(54, 89, 156, 1);
-    background-color: white;
-}
-
-.register {
-    display: grid;
-    align-items: center;
-}
-
-#bigImg {
-    position: relative;
-    align-self: center;
-    right: calc(41.25em + (100vw - 300px) * (15 - 30) / (300 - 767));
-    bottom: 1rem;
-    transform: scale(0.55);
-
-}
-
-#mobileImg {
-    transform: scale(0.4);
-    position: relative;
-    left: calc(-4.35em + (100vw - 300px) * (15 - 30) / (300 - 767));
-    bottom: 0.25rem;
-}
-
-#connectImg {
-    display: none;
-}
-
-
 
 /*  TEST */
 #loading-screen {
@@ -639,26 +554,9 @@ li {
     color: white;
     font-size: 1.25em;
     transition: all 100ms ease-in;
-    background-color: var(--hamburger-color);
+    background: linear-gradient(30deg, #000524 , rgb(0, 33, 118) );
 }
 
-.li::after {
-    position: absolute;
-    top: -4px; bottom: -4px;
-    left: -4px; right: -4px;
-    background: linear-gradient(
-        to right,
-        var(--nicelightblue-color),
-        var(--nicelightblue-color),
-        var(--nicelightblue-color),
-        var(--coolest-blue-color),
-        var(--coolest-blue-color),
-        var(--coolest-blue-color)
-              );
-    content: '';
-    z-index: -1;
-    border-radius: 0.35rem;
-}
 
 .li:first-child {
     margin-top: 1rem;
@@ -666,7 +564,7 @@ li {
 
 .header-container {
     height: 5rem;
-    background-color: rgba(20, 18, 117, 0);
+    background: linear-gradient(90deg, #000524 , rgb(0, 33, 118) );
     right: 0;
     position: fixed;
     width: 100vw;
@@ -803,6 +701,20 @@ li {
     justify-self: center;
 }
 
+.homeLinkContainer {
+    position: relative;
+    width: 95vw;
+    height: 4rem;
+    align-self: flex-end;
+    background-color: #00083d;
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-bottom: -1rem;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 0.5rem;
+}
+
 
 #eventButton2 {
     text-decoration: none;
@@ -822,7 +734,8 @@ li {
     color: white;
     position: absolute;
     clip-path: circle(0%);
-    padding: 1.2rem 1.5rem;
+    padding: 0.5rem 2.25vw;
+    font-size: 0.95rem;
 }
 
 #eventButton1 {
@@ -830,7 +743,7 @@ li {
     color: white;
     position: relative;
     clip-path: circle(100%);
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 2.25vw;
     position: relative;
 }
 
@@ -855,7 +768,7 @@ li {
 
 
 #timerContainer2 {
-    position: absolute;
+    position: relative;
     border-radius: 0.35rem;
     text-decoration: none;
     font-size: 1.1rem;
@@ -866,11 +779,11 @@ li {
     display: grid;
     justify-items: center;
     align-items: center;
-    background-color: var(--coolest-blue-color);
+    background: linear-gradient(30deg, rgb(2, 73, 139) , rgb(2, 41, 139) );
     cursor: pointer;
     transition: all 0.15s ease-in-out;
-    bottom: -1rem;
-    left: 1rem;
+    bottom: auto;
+    left: auto;
     font-family: 'Orbitron', sans-serif;
     justify-self: center;
 
@@ -886,28 +799,36 @@ li {
 }
 
 #eventContainer {
-    position: absolute;
+    position: relative;
     width: fit-content;
     height: 3rem;
     display: grid;
     grid-template-columns: auto auto;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     cursor: pointer;
-    bottom: -1rem;
-    right: 1rem;
+    bottom: auto;
+    right: auto;
     justify-self: center;
     border-radius: 0.35rem;
-    background-color: var(--coolest-blue-color);
-    padding: 0rem 0rem;
+    background: linear-gradient(-30deg, rgb(2, 73, 139) , rgb(2, 41, 139) );
+    
 }
 
 #mainEventButton {
+    position: relative;
     text-decoration: none;
     font-size: 1rem;
     font-family: 'Orbitron', sans-serif;
     color: white;
-    margin-right: 0.35rem;
+    margin-right: 0rem;
+    padding: 0 5.5vw;
+}
+
+#dateIconFirst {
+    position: relative;
+    left: 0.75rem;
+    transform: scale(1.075);
 }
 
 #eventContainer2 {
