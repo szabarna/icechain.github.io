@@ -719,9 +719,8 @@ li {
 #timerContainer {
     position: relative;
     top: 5rem;
-    border-radius: 0.35rem;
     text-decoration: none;
-    width: fit-content;
+    width: 100vw;
     height: fit-content;
     white-space: nowrap;
     color: white;
@@ -731,7 +730,7 @@ li {
     background-color: transparent;
     cursor: pointer;
     transition: all 0.15s ease-in-out;
-    background-color: var(--coolest-blue-color);
+    background-image: linear-gradient(30deg, var(--darkBlue), var(--othernicelightblue-color), var(--darkBlue));
 }
 
 
@@ -824,9 +823,11 @@ li {
     color: white;
     position: relative;
     clip-path: circle(100%);
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     text-transform: uppercase;
     font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    width: fit-content;
 }
 
 .services {
@@ -839,29 +840,33 @@ li {
 }
 
 .tokenSectionContainer {
-    width: 97.5vw;
-    height: calc(32.5em + (100vh - 600px) * (15 - 125) / (600 - 1080));
+    width: 100vw;
+    height: calc(86.5vh + (100vh - 600px) * (15 - 75) / (600 - 1080));
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background-color: rgba(1, 1, 73, 0.15);
-    border-radius: 0.75em;
-    top: calc(5.5em + (100vh - 600px) * (15 - 125) / (600 - 1080));
-
+    background-color: rgba(1, 1, 73, 0.25);
+    top: auto;
+    align-self: flex-end;
 }
 
+
 #overview {
-    height: 1em;
+    height: 1rem;
     display: flex;
     text-align: center;
     left: auto;
     font-size: 1.5rem;
-    top: calc(3.5rem + (100vh - 600px) * (30 - 135) / (600 - 1080));
+    top: auto;
     white-space: nowrap;
     position: absolute;
     user-select: none;
     font-family: 'Orbitron', sans-serif;
+    align-self: flex-start;
+    margin-top: 6.5rem;
+    z-index: 1;
+    
 }
 
 .utilityText {
@@ -997,24 +1002,27 @@ li {
 }
 
 #tokenMainContainer {
-    width: 100%;
+    width: 100vw;
     height: fit-content;
     position: absolute;
     left: auto;
-    top: 12.5rem;
+    top: auto;
     justify-content: space-between;
     align-items: center;
     background-color: rgba(0, 29, 59, 0.225);
-
     scroll-behavior: smooth;
-
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     overflow-y: hidden;
     white-space: nowrap;
+    align-self: flex-end;
+    margin-bottom: calc(5rem + (100vh - 600px) * (15 - 30) / (600 - 1080));
 
 }
 
+#tokenMainContainer::-webkit-scrollbar {
+    display: none;
+}
 
 #icoButton {
     position: absolute;
@@ -1024,7 +1032,7 @@ li {
     top: calc(32.5em + (100vh - 600px) * (15 - 350) / (600 - 1080));
     left: calc(0em + (100vw - 300px) * (15 - 200) / (300 - 767));
 
-    background: linear-gradient(#3772FF, var(--hamburger-color));
+    background: linear-gradient(30deg, #3772FF, var(--hamburger-color));
     border-radius: 4.5em;
     cursor: pointer;
     border: none;
@@ -1038,8 +1046,7 @@ li {
 
 
 #tokenContent {
-    height: 100vh;
-
+    height: calc(87vh + (100vh - 600px) * (15 - 85) / (600 - 1080));
     position: absolute;
     width: 100vw;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
@@ -1047,7 +1054,8 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(23, 63, 122, 0.75);
+    background-color: rgb(0, 17, 60);
+    align-self: flex-end;
 }
 
 #graphButton {
@@ -1058,7 +1066,7 @@ li {
     height: 3.5em;
     top: calc(32.5em + (100vh - 600px) * (15 - 350) / (600 - 1080));
     right: calc(0em + (100vw - 300px) * (15 - 200) / (300 - 767));
-    border: 2px solid white;
+    border: 2px solid var(--othernicelightblue-color);
     border-radius: 4.5em;
     cursor: pointer;
     color: white;
@@ -1072,29 +1080,34 @@ li {
 #tokenHolder {
     height: calc(15em + (100vh - 600px) * (15 - 100) / (600 - 1080));
     width: calc(45em + (100vw - 360px) * (15 - 425) / (360 - 767));
-    top: calc(0em + (100vh - 600px) * (15 + 75) / (600 - 1080));
-    background-color: var(--cool-blue-color);
+    /* top: calc(0em + (100vh - 600px) * (15 + 75) / (600 - 1080)); */
+    top: auto;
+    background-color: var(--dark-blue-color);
     border-radius: 0;
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
     grid-template-rows: none;
     justify-content: space-between;
     align-content: center;
-
     scroll-behavior: smooth;
     position: relative;
-
     overflow-x: scroll;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
+    align-self: center;
+    margin-bottom: calc(4rem + (100vh - 600px) * (15 - 30) / (600 - 1080));
+}
+
+#tokenHolder::-webkit-scrollbar {
+    display: none;
 }
 
 #tokenT1 {
-    top: calc(7em + (100vh - 600px) * (15 - 75) / (600 - 1080));
-    width: calc(17rem + (100vw - 300px) * (15 - 115) / (300 - 767));
+    top: auto;
+    /* width: calc(17rem + (100vw - 300px) * (15 - 115) / (300 - 767)); */
     height: 2.25em;
-    font-size: 0.75rem;
-    background-color: rgba(0, 159, 255, 0.25);
+    font-size: calc(0.85rem + (100vh - 600px) * (15 - 25) / (600 - 1080));
+    background-color: transparent;
     padding: 0.5rem;
     position: absolute;
     z-index: 2;
@@ -1102,12 +1115,15 @@ li {
     border-radius: 1.25em;
     font-family: 'Orbitron', sans-serif;
     user-select: none;
+    position: absolute;
+    align-self: flex-start;
+    margin-top: calc(1.75rem + (100vh - 600px) * (15 - 100) / (600 - 1080));
 }
 
 #tokenT2 {
-    top: calc(27.5rem + (100vh - 600px) * (15 - 250) / (600 - 1080));
-    font-size: 1rem;
-    background-color: rgba(0, 159, 255, 0.25);
+    top: auto;
+    font-size: calc(1rem + (100vh - 600px) * (15 - 25) / (600 - 1080));
+    background-color: transparent;
     position: absolute;
     width: fit-content;
     padding: 0.5rem;
@@ -1117,6 +1133,9 @@ li {
     border-radius: 1.25em;
     font-family: 'Orbitron', sans-serif;
     user-select: none;
+    align-self: flex-end;
+    margin-bottom: calc(6.75rem + (100vh - 600px) * (15 - 200) / (600 - 1080));
+    
 }
 
 .tokens {
@@ -1127,8 +1146,8 @@ li {
     margin-left: 1em;
     position: relative;
     height: 12.5em;
-    background-color: var(--coolest-blue-color);
-    border: 0px dotted rgba(253, 253, 253, 0.75);
+    /* background-color: rgb(0, 33, 118); */
+    background: linear-gradient(360deg, #3772FF, var(--hamburger-color));
 }
 
 .whiteToken {

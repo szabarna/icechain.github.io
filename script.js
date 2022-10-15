@@ -114,7 +114,7 @@ window.onload = function () {
     //00061f
     camera = new THREE.PerspectiveCamera(
       60,
-      window.innerWidth / window.innerHeight,
+     window.innerWidth >= 1200 ? (window.innerWidth / window.innerHeight) : (window.innerWidth / (window.innerHeight + 80)),
       1,
       20
     );
@@ -917,25 +917,25 @@ window.onload = function () {
   let icoButton = document.querySelector("#icoButton");
 
   const tl = gsap.timeline({
-    defaults: { ease: "power4.inOut", duration: 0.75 },
+    defaults: { ease: "power1.Out", duration: 0.35 },
   });
   tl.to("#tokenContent", {
     clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
   });
   tl.reversed(true);
 
-  const tl2 = gsap.timeline({
-    defaults: { ease: "power4.inOut", duration: 0.75 },
-  });
-  tl2.to(".tokens", { top: 0 });
-  tl2.reversed(true);
+  // const tl2 = gsap.timeline({
+  //   defaults: { ease: "power4.inOut", duration: 0.75 },
+  // });
+  // tl2.to(".tokens", { top: 0 });
+  // tl2.reversed(true);
 
   icoButton.addEventListener("click", icoAnim);
 
   function icoAnim(e) {
     e.preventDefault();
     tl.reversed(!tl.reversed());
-    tl2.reversed(!tl2.reversed());
+    // tl2.reversed(!tl2.reversed());
   }
 
   /* MARKETPLACE SECTION */
