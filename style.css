@@ -389,11 +389,24 @@ section {
 
 #chain {
     color: var(--coolest-blue-color);
-    height: 1.35em;
     font-family: 'Orbitron', sans-serif;
     text-transform: uppercase;
     font-size: 1rem;
     font-weight: 700;
+}
+
+.logo span {
+    position: relative;
+    background: linear-gradient(270deg, #0040ff 25%, #00a9ff 85%);
+    color: transparent !important;
+    text-align: center;
+    margin: auto;
+    align-self: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: 700;
+    white-space: nowrap;
+    margin-top: auto !important;
 }
 
 
@@ -718,7 +731,7 @@ li {
 
 #timerContainer {
     position: relative;
-    top: 5rem;
+    top: calc(6rem + (100vh - 600px) * (15 - 100) / (600 - 1080));
     text-decoration: none;
     width: 100vw;
     height: fit-content;
@@ -864,7 +877,7 @@ li {
     user-select: none;
     font-family: 'Orbitron', sans-serif;
     align-self: flex-start;
-    margin-top: 6.5rem;
+    margin-top: calc(6.75rem + (100vh - 600px) * (15 - 85) / (600 - 1080));
     z-index: 1;
     
 }
@@ -1016,7 +1029,7 @@ li {
     overflow-y: hidden;
     white-space: nowrap;
     align-self: flex-end;
-    margin-bottom: calc(5rem + (100vh - 600px) * (15 - 30) / (600 - 1080));
+    margin-bottom: calc(5rem + (100vh - 600px) * (15 - 300) / (600 - 1080));
 
 }
 
@@ -2429,7 +2442,6 @@ li {
         -ms-overflow-style: auto;
     }
 
-
     .container {
         scroll-snap-type: y proximity;
     }
@@ -2443,13 +2455,13 @@ li {
     .header-container {
         position: fixed;
         width: 100vw;
-        height: 7.5rem;
+        height: 4rem;
         background-color: transparent;
         align-items: center;
         display: flex;
         z-index: 5;
-        right: 15px;
-
+        right: 0px;
+        border: none;
     }
 
     .list {
@@ -2465,15 +2477,28 @@ li {
     }
 
     .logo {
-        display: flex;
+        display: grid;
+        grid-template-columns: auto auto auto;
         font-size: 1.95em;
         color: white;
         font-family: 'Teko', sans-serif;
         margin-left: calc(5.5em + (100vw - 1200px) * (15 - 140) / (1200 - 1599));
         align-items: center;
         margin-top: 0;
-        transform: scale(0.9);
+        transform: scale(0.95);
+    }
 
+    .logo span {
+        position: relative;
+        background: linear-gradient(270deg, #0040ff 25%, #00a9ff 85%);
+        color: transparent !important;
+        text-align: center;
+        transform: scale(1.1);
+        margin: auto;
+        align-self: center;
+        background-clip: text;
+        -webkit-background-clip: text;
+        font-weight: 700;
     }
 
     #logo img {
@@ -2482,6 +2507,7 @@ li {
         width: 64px;
         height: 64px;
         top: 0;
+        transform: scale(0.675);
     }
 
 
@@ -2510,11 +2536,11 @@ li {
         font-size: 1.25em;
         right: calc(-3.75em + (100vw - 1200px) * (15 - 75) / (1200 - 1599));
         border: none;
-        background-color: rgb(7, 40, 88);
+        border: 2px solid #0040ff;
     }
 
     .whitepaper:hover {
-        background-color: rgba(20, 126, 197, 1);
+        background: linear-gradient(30deg, #0040ff , #00a9ff );
     }
 
     .hamburgerLi {
@@ -2527,7 +2553,7 @@ li {
     }
 
     .li:first-child {
-        margin-top: 0;
+        margin-top: auto;
     }
 
     .li {
@@ -2537,17 +2563,24 @@ li {
         text-decoration: none;
         color: white;
         font-size: 1.1em;
-        padding: 5px 15px;
+        padding: 1rem 15px;
         transition: all 100ms ease-in;
         width: auto;
         white-space: nowrap;
         background-color: transparent;
         border: none;
-
+        height: 2rem;
+        align-self: center;
+        margin: auto;
+        background-color: transparent;
+        background-image: none;
+        border-radius: 0rem;
     }
 
     .li:hover {
         color: rgb(49, 145, 255);
+        color: white;
+        background: linear-gradient(30deg, #0040ff , #00a9ff );
     }
 
     .li:after {

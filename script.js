@@ -744,11 +744,11 @@ window.onload = function () {
     composer.addPass(effectFXAA);
 
     if (getDeviceWidth() >= 1200) {
-      document.addEventListener("pointermove", onDocumentMouseMove, false);
-      document.addEventListener("click", onLinkClick, false);
+      window.addEventListener("pointermove", onDocumentMouseMove, false);
+      window.addEventListener("click", onLinkClick, false);
     } else {
-      document.addEventListener("touchstart", onDocumentMouseMove, false);
-      document.addEventListener("click", onLinkClick, false);
+      window.addEventListener("touchstart", onDocumentMouseMove, false);
+      window.addEventListener("click", onLinkClick, false);
     }
 
     window.addEventListener("resize", handleWindowResize, false);
@@ -763,13 +763,17 @@ window.onload = function () {
   let checker = false;
 
   function onDocumentMouseMove(event) {
+
     event.preventDefault();
+    
     if (getDeviceWidth() >= 1200 && event.clientX != undefined) {
+      
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
     } else if (getDeviceWidth() >= 1200 && event.clientX === undefined) {
       mouse.x = (event.touches[0].pageX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.touches[0].pageY / window.innerHeight) * 2 + 1;
+      
     } 
     
     else if (
@@ -777,9 +781,12 @@ window.onload = function () {
       event.clientX === undefined &&
       event.touches[0] != undefined
     ) {
+      
       mouse.x = (event.touches[0].pageX / window.innerWidth) * 2 - 1;
-      mouse.y = -(event.touches[0].pageY / window.innerHeight) * 2 + 1;
+      mouse.y = -(event.touches[0].clientY / (window.innerHeight + 80)) * 2 + 1;
+      // console.log(mouse)
     }
+    
 
     if (checker) {
       container.style.cursor = "default";
@@ -839,6 +846,7 @@ window.onload = function () {
       icLogo.rotation.y += 0.005;
     }
 
+    
     raycaster.setFromCamera(mouse, camera);
 
     const intersects = raycaster.intersectObjects(scene.children);
@@ -848,7 +856,7 @@ window.onload = function () {
     // }
 
     for (let i = 0; i < intersects.length; i++) {
-      //console.log(intersects[ 0 ].object.name)
+      console.log(intersects[ 0 ].object.name)
       if (intersects[0].object.name === "Névtelen_terv") {
         container.style.cursor = "pointer";
         currentIntersect = intersects[i].object;
