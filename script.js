@@ -1071,11 +1071,11 @@ window.onload = function () {
     checkBox.checked = !checkBox.checked;
   }
 
-  let eventButton3 = document.querySelector("#eventButton3");
+  // let eventButton3 = document.querySelector("#eventButton3");
   let eventButton = document.querySelector("#eventButton");
   let eventText = null;
   // let countDownDate = new Date("Nov 11, 2022 24:00:00").getTime();
-  let approvedCountDownDate = new Date("2022-10-16T24:00:00").getTime();
+  let approvedCountDownDate = new Date("2023-02-18T24:00:00").getTime();
 
   let x = setInterval(function () {
     // Get today's date and time
@@ -1109,12 +1109,13 @@ window.onload = function () {
     eventText = days + " : " + hours + " : " + minutes + " : " + seconds;
 
     eventButton.innerHTML = eventText;
-    eventButton3.innerHTML = eventText;
+    // eventButton3.innerHTML = eventText;
 
     // If the count down is finished, write some text
     if (distance < 0) {
       clearInterval(x);
       eventButton.innerHTML = "EXPIRED";
+      // eventButton3.innerHTML = "EXPIRED"
     }
   }, 1000);
 

@@ -26,6 +26,9 @@ body {
     --nicelightblue-color: rgb(0, 159, 255);
     --othernicelightblue-color: rgb(0, 110, 255);
     --darkBlue: #000524;
+
+    --logoDarkColor: #0040ff;
+    --logoLightColor: #00a9ff;
 }
 
 ::-webkit-scrollbar {
@@ -73,7 +76,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #030a26;
-    background-image: linear-gradient(90deg,  var(--othernicelightblue-color), var(--nicelightblue-color));
+    background-image: linear-gradient(90deg,  var(--logoDarkColor), var(--logoLightColor));
 }
 
 
@@ -2288,12 +2291,13 @@ li {
         display: grid;
         width: calc(100vw + (100vw - 1200px) * (15 - 135) / (1200 - 1599));
         height: 85vh;
-        top: 3rem;
+        top: auto;
         grid-template-rows: auto auto;
         justify-content: center;
         align-content: space-around;
         background: linear-gradient(360deg, black 0%, rgba(0, 146, 255, 0.05) 100%);
         border-radius: 0.25rem;
+        margin-bottom: 1.35rem;
     }
 
 
@@ -2339,7 +2343,7 @@ li {
         width: 0.9rem;
         height: 0.9rem;
         border-radius: 50%;
-        background-color: rgba(0, 162, 255, 0.75);
+        background-color: var(--logoDarkColor);
         cursor: pointer;
         opacity: 0.35;
         bottom: -1.5rem;
@@ -2514,7 +2518,7 @@ li {
     .linkContainer {
         position: relative;
         width: fit-content;
-        height: 3.8em;
+        height: 100%;
         display: flex;
         justify-content: flex-end;
         padding: 10px;
@@ -2563,18 +2567,18 @@ li {
         text-decoration: none;
         color: white;
         font-size: 1.1em;
-        padding: 1rem 15px;
+        padding: 0 15px;
         transition: all 100ms ease-in;
         width: auto;
         white-space: nowrap;
         background-color: transparent;
         border: none;
-        height: 2rem;
+        height: 100%;
         align-self: center;
         margin: auto;
         background-color: transparent;
         background-image: none;
-        border-radius: 0rem;
+        border-radius: 0.15rem;
     }
 
     .li:hover {
@@ -2583,37 +2587,19 @@ li {
         background: linear-gradient(30deg, #0040ff , #00a9ff );
     }
 
-    .li:after {
-        content: '';
-        position: absolute;
-        top: 160%;
-        left: 0;
-        width: 100%;
-        transition: 0.5s;
-        opacity: 0;
-    }
-
-    .li:hover:after {
-        content: '';
-        position: absolute;
-        top: 160%;
-        left: 0;
-        width: 100%;
-        opacity: 1;
-    }
 
 
     .landingText {
-        width: inherit;
-        height: inherit;
+        width: 120%;
         z-index: 3;
+        left: 0;
         position: relative;
         display: grid;
         right: auto;
         top: auto;
         align-self: center;
-        justify-content: start;
-        grid-template-rows: repeat(5, 1fr);
+        justify-content: center;
+        grid-template-rows: repeat(3, auto);
     }
 
 
@@ -2622,11 +2608,24 @@ li {
         display: grid;
         width: calc(37.5vw + (100vw - 1200px) * (15 + 100) / (1200 - 1599));
         height: 40vh;
-        top: 0;
+        top: auto;
         left: calc(-15.3em + (100vw - 1200px) * (15 - 30) / (1200 - 1599));
         opacity: 1;
         justify-items: center;
         background-color: #000a31;
+        align-self: center;
+    }
+
+    .homeLinkContainer {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        align-self: flex-end;
+        justify-self: center;
+        top: -3rem;
+        justify-content: space-between;
+        background-color: transparent;
+        
     }
 
     #eventButton {
@@ -2634,7 +2633,7 @@ li {
         color: white;
         position: absolute;
         clip-path: circle(0%);
-        padding: 1rem 1.5rem;
+        padding: 0.975rem 1rem;
     }
 
     #eventButton1 {
@@ -2642,16 +2641,16 @@ li {
         color: white;
         position: relative;
         clip-path: circle(100%);
-        padding: 1rem 1.5rem;
+        padding: 0.975rem 1rem;
     }
 
 
     #timerContainer {
         position: relative;
-        top: 3.5rem;
-        border-radius: 0.35rem;
+        top: 5.5rem;
+        border-radius: 0.15rem;
         text-decoration: none;
-        width: fit-content;
+        width: 100%;
         height: fit-content;
         white-space: nowrap;
         color: white;
@@ -2661,11 +2660,10 @@ li {
         background-color: transparent;
         cursor: pointer;
         transition: all 0.15s ease-in-out;
+        background-image: none;
+        background: linear-gradient(180deg, var(--logoDarkColor), var(--logoLightColor));
     }
 
-    #timerContainer:hover {
-        background-color: var(--nicelightblue-color);
-    }
 
     #timerContainer2 {
         position: relative;
@@ -2679,27 +2677,19 @@ li {
         display: grid;
         justify-items: center;
         align-items: center;
-        background-color: rgba(0, 159, 255, 255);
+        background-image: none;
         cursor: pointer;
         transition: all 0.15s ease-in-out;
-        bottom: 6.5rem;
+        bottom: auto;
         left: auto;
-        right: 3.5rem;
+        right: auto;
         font-family: 'Orbitron', sans-serif;
+        border: 2px solid var(--logoDarkColor);
     }
 
     #timerContainer2:hover {
-        background-color: white;
+        background: linear-gradient(30deg, var(--logoDarkColor), var(--logoLightColor));
     }
-
-    #timerContainer2:hover #eventButton {
-        color: rgba(0, 159, 255, 255);
-    }
-
-    #timerContainer2:hover #eventButton1 {
-        color: rgba(0, 159, 255, 255);
-    }
-
 
     #timerContainerSmall {
         display: grid;
@@ -2711,26 +2701,26 @@ li {
     }
 
     #eventContainer {
-        position: absolute;
+        position: relative;
         width: fit-content;
         height: 2.75rem;
         display: grid;
         grid-template-columns: auto auto;
         justify-content: center;
-        align-items: center;
+        align-content: center;
         cursor: pointer;
-        bottom: 3.45rem;
-        left: 17rem;
+        bottom: auto;
+        left: auto;
         border-radius: 0.35rem;
         background-color: transparent;
-        border: 2px solid white;
-        padding: 0.325rem 0.65rem;
+        background-image: none;
+        padding: 0.425rem 0.65rem;
+        border: 2px solid var(--logoLightColor);
 
     }
 
     #eventContainer:hover {
-        border: 2px solid transparent;
-        background-color: rgba(0, 159, 255, 255)
+        background: linear-gradient(-30deg, var(--logoDarkColor), var(--logoLightColor));
     }
 
     #mainEventButton {
@@ -2738,6 +2728,7 @@ li {
         font-size: 1.15rem;
         font-family: 'Orbitron', sans-serif;
         color: white;
+        padding: 1rem;
     }
 
 
@@ -2774,20 +2765,26 @@ li {
 
     #dataText {
 
-        font-size: 4em;
-        left: calc(-0.11em + (100vw - 1200px) * (15 - 30) / (1200 - 1600)) !important;
-        top: -0.5em;
+        font-size: 4rem;
+        left: auto;
+        top: auto;
         opacity: 1;
+        justify-self: flex-start;
+        top: 0;
+        padding: 0;
+        line-height: 0;
 
     }
 
     #yoursText {
 
-        font-size: 2em;
-        top: -3em;
-        left: calc(1em + (100vw - 1200px) * (15 - 30) / (1200 - 1600));
+        font-size: 2rem;
+        top: -5rem;
+        left: auto;
         opacity: 0.8;
         white-space: nowrap;
+        line-height: 0;
+        padding: 0;
     }
 
 
@@ -2818,6 +2815,9 @@ li {
         background-color: rgba(1, 1, 73, 0.15);
         border-radius: 0.75em;
         top: calc(8.25em + (100vh - 600px) * (15 - 30) / (600 - 1080));
+        top: auto;
+        align-self: flex-end;
+        margin-bottom: 2.5rem;
 
     }
 
@@ -2842,8 +2842,10 @@ li {
     }
 
     #overview {
-        top: 4.25rem;
-
+        top: auto;
+        bottom: auto;
+        align-self: flex-start;
+        margin-top: calc(6rem + (100vh - 600px) * (15 - 85) / (600 - 1080));
     }
 
     #icetoken {
@@ -2879,17 +2881,17 @@ li {
 
 
     #icoButton {
-        top: calc(33.5em + (100vh - 600px) * (15 - 400) / (600 - 1080));
+        top: calc(32.5rem + (100vh - 600px) * (15 - 400) / (600 - 1080));
         left: auto;
         background-image: none;
         transition: all 0.25s ease-in-out;
         font-family: 'Orbitron', sans-serif;
-        border: 1px solid white;
+        border: 1px solid var(--logoDarkColor);
         background-color: transparent;
     }
 
     #icoButton:hover {
-        border: 1px solid rgba(0, 159, 255, 255);
+        
         background-color: rgba(0, 159, 255, 255);
     }
 
@@ -2917,7 +2919,7 @@ li {
         position: relative;
         /* background: linear-gradient(30deg, rgba(1, 1, 73, 0.15), var(--coolest-blue-color) 100%); */
         background: rgba(1, 1, 73, 1);
-        top: 3em;
+        top: 4rem;
         border-radius: 0.5rem;
         display: grid;
         grid-template-columns: auto auto auto;
@@ -2934,7 +2936,7 @@ li {
         background-color: transparent;
         border: 2px solid white;
         border-radius: 0.75rem;
-        top: 20em;
+        top: 0.75rem;
     }
 
     .whiteToken {
@@ -2948,7 +2950,7 @@ li {
 
     #tokenT1 {
         position: absolute;
-        top: calc(4.75rem + (100vh - 600px) * (15 - 100) / (600 - 1080));
+        top: calc(1.5rem + (100vh - 600px) * (15 - 100) / (600 - 1080));
         background-color: rgba(255, 255, 255, 0.1);
         color: rgb(0, 174, 255);
         width: fit-content;
@@ -2968,7 +2970,7 @@ li {
     #tokenT2 {
         position: absolute;
         padding: 0.5rem;
-        top: calc(18.8rem + (100vh - 600px) * (15 - 200) / (600 - 1080));
+        top: calc(18.5rem + (100vh - 600px) * (15 - 200) / (600 - 1080));
         font-size: 1rem;
         width: fit-content;
         height: 1.25em;
@@ -3001,21 +3003,19 @@ li {
         width: 1.25em;
         height: 1.25em;
         border-radius: 50%;
-        background-color: rgba(0, 159, 255, 0.35);
-        border: 0px solid rgba(0, 159, 255, 255);
-
-        /* rgba(49, 131, 255, 1) */
+        background-color: var(--logoDarkColor);
+        border: none;
         position: sticky;
         right: calc(68.25em + (100vw - 1200px) * (15 - 415) / (1200 - 1600));
         cursor: pointer;
         z-index: 3;
-        transition: all 0.2s;
+        transition: all 0.2s ease-in-out;
         top: 7em !important;
+        opacity: 0.5;
     }
 
     .sticky:hover {
-        background-color: rgba(49, 131, 255, 1);
-
+        opacity: 1;
     }
 
     #s1 {
@@ -3318,7 +3318,7 @@ li {
         align-content: space-between;
         font-family: 'Orbitron', sans-serif;
         border-radius: 0.2rem;
-        top: 10rem;
+        top: 0;
        
     }
 
@@ -3347,17 +3347,18 @@ li {
         align-self: center;
         width: fit-content;
         border-radius: 0.25rem;
-        background-color: rgb(0, 102, 255);
+        background-color: transparent;
+        background-image: none;
         color: white;
         font-size: 1.25rem;
         padding: 0.5rem 1rem;
         margin: 1rem;
-        border: 1px solid white;
+        border: 1px solid var(--logoDarkColor);
     }
 
     .giveAwayLink:hover {
-        background-color: white;
-        color: rgb(0, 102, 255);
+        background: linear-gradient(30deg, var(--logoDarkColor), var(--logoLightColor));
+        
     }
 
 
