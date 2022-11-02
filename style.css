@@ -769,6 +769,7 @@ li {
     left: auto;
     font-family: 'Orbitron', sans-serif;
     justify-self: center;
+    grid-template-columns: auto auto;
 
 }
 
@@ -2600,8 +2601,23 @@ li {
         align-self: center;
         justify-content: center;
         grid-template-rows: repeat(3, auto);
+        background: radial-gradient(var(--logoDarkColor) 1%,var(--darkBlue) 135%);
+        border-radius: 0.25rem;
     }
 
+    .home::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(3deg, var(--darkBlue) 15%, var(--logoDarkColor) 100%);
+        
+        opacity: 1;
+    }
+
+    
 
     .homeLayer {
         position: relative;
@@ -2612,7 +2628,9 @@ li {
         left: calc(-15.3em + (100vw - 1200px) * (15 - 30) / (1200 - 1599));
         opacity: 1;
         justify-items: center;
-        background-color: #000a31;
+        /* background-color: #000a31; */
+
+        
         align-self: center;
     }
 
@@ -2781,7 +2799,7 @@ li {
         font-size: 2rem;
         top: -5rem;
         left: auto;
-        opacity: 0.8;
+        opacity: 1;
         white-space: nowrap;
         line-height: 0;
         padding: 0;

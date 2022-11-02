@@ -1129,12 +1129,14 @@ window.onload = function () {
       gsap.to("#eventContainer2", { clipPath: "circle(0%)", duration: 1.5 });
       gsap.to("#eventButton", { clipPath: "circle(100%)", duration: 1.5 });
       gsap.to("#timerContainerSmall", { clipPath: "circle(0%)", duration: 1.5 });
+      gsap.to("#dateIconFirst", { clipPath: "circle(0%)", duration: 1.5 });
     } else {
 
       gsap.to("#eventButton3", { clipPath: "circle(0%)", duration: 1.5 });
       gsap.to("#eventContainer2", { clipPath: "circle(100%)", duration: 1.5 });
       gsap.to("#eventButton", { clipPath: "circle(0%)", duration: 1.5 });
       gsap.to("#timerContainerSmall", { clipPath: "circle(100%)", duration: 1.5 });
+      gsap.to("#dateIconFirst", { clipPath: "circle(100%)", duration: 1.5 });
     }
   }, 5000);
 
@@ -1199,7 +1201,7 @@ productScroll.addEventListener('scroll', (e) => {
 })
 
 document.querySelector('#eventContainer').addEventListener('click', (e) => {
-    window.open("https://icelinked.ch", '_blank');
+    window.open("https://icechain.com/login", '_blank');
 })
 
 
